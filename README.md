@@ -12,10 +12,6 @@ The following **required** functionality is completed:
 
 - [ ] Splash screen
 
-- [ ] Select location view: Ask the user for the location to focus the search
-  - [ ] Map view asking for the user location
-  - [ ] Navigate to category selection view on location tap
-
 - [ ] Category selection view: What type of route does the user wants to do (dance, dinner, drinks, etc)
   - [ ] Navigation bar:
     - [ ] Back button to select location view
@@ -74,6 +70,10 @@ The following **required** functionality is completed:
   - [ ] Split bottom bar with two buttons: Cancel and Submit
 
 The following **optional** features are implemented:
+
+- [ ] Select location view after splash screen: Ask the user for the location to focus the search
+  - [ ] Map view asking for the user location
+  - [ ] Navigate to category selection view on location tap
 
 - [ ] Category view:
   - [ ] Content view:
