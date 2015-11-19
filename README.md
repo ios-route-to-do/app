@@ -10,7 +10,7 @@ Check Route to Do. Someone already shared that route.
 
 The following **required** functionality is completed:
 
-[Interactive wireframes](wireframes/interactive/index.html)
+[Interactive wireframes](http://ios-route-to-do.github.io/app/wireframes/index.html)
 
 - [ ] Splash screen
 
