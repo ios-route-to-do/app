@@ -10,6 +10,8 @@ Check Route to Do. Someone already shared that route.
 
 The following **required** functionality is completed:
 
+[Interactive wireframes](wireframes/interactive/index.html)
+
 - [ ] Splash screen
 
 - [ ] Category selection view: What type of route does the user wants to do (dance, dinner, drinks, etc) [wireframe](wireframes/static/2-0-CategoryPick.png)
