@@ -12,14 +12,14 @@ The following **required** functionality is completed:
 
 - [ ] Splash screen
 
-- [ ] Category selection view: What type of route does the user wants to do (dance, dinner, drinks, etc) ![wireframe](wireframes/static/2-0-CategoryPick.png)
+- [ ] Category selection view: What type of route does the user wants to do (dance, dinner, drinks, etc) [wireframe](wireframes/static/2-0-CategoryPick.png)
   - [ ] Navigation bar:
     - [ ] Back button to select location view
   - [ ] Content view:
     - [ ] Collection view with all the categories: background picture and name
     - [ ] Navigate to selected category on tap
 
-- [ ] Category view ![wireframe](wireframes/static/3-0-CategoryHome.png)
+- [ ] Category view [wireframe](wireframes/static/3-0-CategoryHome.png)
   - [ ] Navigation bar:
     - [ ] Search button for specific route/place search
     - [ ] Reset location button
@@ -34,7 +34,7 @@ The following **required** functionality is completed:
       - [ ] Label with "What's new" text
       - [ ] Route detail: background image, name and location
 
-- [ ] Route Cover View: presentation of the route and starting point check the route ![wireframe](wireframes/static/4-0-RouteCoverView.png)
+- [ ] Route Cover View: presentation of the route and starting point check the route [wireframe](wireframes/static/4-0-RouteCoverView.png)
   - [ ] Top bar with:
     - [ ] Back button: goes back in navigation flow
     - [ ] Favorite button: Marks/Unmarks route as favorite for the current user
@@ -46,7 +46,7 @@ The following **required** functionality is completed:
     - [ ] List of three locations to visit
     - [ ] Start route button
 
-- [ ] Route Progress View: presentation of the route on a map and current place ![wireframe step 1](wireframes/static/5-0-RouteStepView1.png) ![wireframe step 2](wireframes/static/6-0-RouteStepView2.png) ![wireframe step 3](wireframes/static/7-0-RouteStepView3.png)
+- [ ] Route Progress View: presentation of the route on a map and current place [wireframe step 1](wireframes/static/5-0-RouteStepView1.png) [wireframe step 2](wireframes/static/6-0-RouteStepView2.png) [wireframe step 3](wireframes/static/7-0-RouteStepView3.png)
   - [ ] Top bar with:
     - [ ] Back button: goes back in navigation flow
     - [ ] Favorite button: Marks/Unmarks route as favorite for the current user
@@ -64,14 +64,14 @@ The following **required** functionality is completed:
     - [ ] Go Next button (if on steps 1 or 2)
     - [ ] Rate this route (if on steps 3)
 
-- [ ] Rate Route View: Modal presentation with a rating widget ![wireframe](wireframes/static/8-0-RouteRate.png)
+- [ ] Rate Route View: Modal presentation with a rating widget [wireframe](wireframes/static/8-0-RouteRate.png)
   - [ ] When user clicks on rate this route, he's presented with the home screen and
   a modal widget to rate the route. This widget contains:
   - [ ] Route Title, Route location and Author
   - [ ] Five star rating widget
   - [ ] Split bottom bar with two buttons: Cancel and Submit
 
-- [ ] Profile View: details of the user ![wireframe tab 1](wireframes/static/9-0-Profile-Favorites.png) ![wireframe tab 2](10-0-Profile-NightsOut.png) ![wireframe tab 3](11-0-Profile-MyRoutes.png)
+- [ ] Profile View: details of the user [wireframe tab 1](wireframes/static/9-0-Profile-Favorites.png) [wireframe tab 2](wireframes/static/10-0-Profile-NightsOut.png) [wireframe tab 3](wireframes/static/11-0-Profile-MyRoutes.png)
   - [ ] Show avatar, username
   - [ ] Show location, count of owned routes and count of nights out
   - [ ] Tab selector for:
