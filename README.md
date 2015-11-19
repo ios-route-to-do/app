@@ -1,13 +1,55 @@
 # Route To Do
 
+Visiting a new city? Want to know a new neighbourhood on yours? Want to do something
+different this weekend? Route to Do is here to help you. It's a mobile app that allows
+you to discover, share and rate sets of three places to visit. Have a favourite bar
+hopping route? You can share it with your friends. Want to check some landscapes?
+Check Route to Do. Someone already shared that route.
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [ ] User story
+- [ ] Route Cover View: presentation of the route and starting point check the route
+  - [ ] Top bar with:
+    - [ ] Back button: goes back in navigation flow
+    - [ ] Favorite button: Marks/Unmarks route as favorite for the current user
+    - [ ] Share button: Implementation of this is optional
+  - [ ] Route image on the background
+  - [ ] Bottom panel with:
+    - [ ] Route title, general location, author, amount of users that visited, rating score
+    - [ ] Scrolling description of the route
+    - [ ] List of three locations to visit
+    - [ ] Start route button
+- [ ] Route Progress View: presentation of the route on a map and current place
+  - [ ] Top bar with:
+    - [ ] Back button: goes back in navigation flow
+    - [ ] Favorite button: Marks/Unmarks route as favorite for the current user
+    - [ ] Share button: Implementation of this is optional
+  - [ ] Map with:
+    - [ ] Current location of user visible if user is not on the route location
+    - [ ] Current route location with a special marker
+    - [ ] Previous route location (if on step 2 or 3)
+    - [ ] Next route location (if on steps 1 or 2)
+    - [ ] Curved line connecting all previous dots in correct order. This line is not
+    meant to be a direction trajectory but a simplification to express route's progress
+  - [ ] Bottom panel with:
+    - [ ] Place title, place location
+    - [ ] Scrolling description of the place
+    - [ ] Go Next button (if on steps 1 or 2)
+    - [ ] Rate this route (if on steps 3)
+- [ ] Rate Route View: Modal presentation with a rating widget
+  - [ ] When user clicks on rate this route, he's presented with the home screen and
+  a modal wigdet to rate the route. This widget contains:
+  - [ ] Route Title, Route location and Author
+  - [ ] Five star rating widget
+  - [ ] Split bottom bar with two buttons: Cancel and Submit
 
 The following **optional** features are implemented:
+
+- [ ] Route Cover View:
+  - [ ] Top bar with:
+    - [ ] Share button: Share with friends on twitter or facebook
 
 - [ ] User story
 
