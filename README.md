@@ -68,6 +68,13 @@ The following **required** functionality is completed:
   - [ ] Route Title, Route location and Author
   - [ ] Five star rating widget
   - [ ] Split bottom bar with two buttons: Cancel and Submit
+- [ ] Profile View: details of the user
+  - [ ] Show avatar, username
+  - [ ] Show location, count of owned routes and count of nights out
+  - [ ] Tab selector for:
+    - [ ] Favorites
+    - [ ] Nights out
+    - [ ] My Routes
 
 The following **optional** features are implemented:
 
@@ -82,6 +89,28 @@ The following **optional** features are implemented:
 - [ ] Route Cover View:
   - [ ] Top bar with:
     - [ ] Share button: Share with friends on Twitter or Facebook
+
+- [ ] Add Route Views
+  - Add route action in main view
+  - [ ] Screen 1 - route picture
+    - Pick one or multiple pictures (from library / new picture)
+  - [ ] Screen 2 - route description
+    - Set Title
+    - Set City
+    - Set Description
+  - [ ] Screen 3 - add locations
+    - Search bar
+    - search results in map
+    - search results in list
+    - pick / add up to 3 locations
+  - [ ] Screen 4 - review route
+    - Review route
+    - Publish route action
+
+- [ ] Edit profile View
+  - Set profile name and last name
+  - Set profile picture
+  - Set profile location
 
 The following **additional** features are implemented:
 
