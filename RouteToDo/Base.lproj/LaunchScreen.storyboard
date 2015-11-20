@@ -17,21 +17,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Route to Do" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rS1-Ip-oRK">
-                                <rect key="frame" x="115" y="188" width="91" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_screen" translatesAutoresizingMaskIntoConstraints="NO" id="vgu-Ze-Dql">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.31764705882352939" green="0.1764705882352941" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vgu-Ze-Dql" secondAttribute="trailing" id="1G9-uc-K2L"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="vgu-Ze-Dql" secondAttribute="bottom" id="Ie6-d4-Nxe"/>
+                            <constraint firstItem="vgu-Ze-Dql" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Qbw-n0-IN7"/>
+                            <constraint firstItem="vgu-Ze-Dql" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Z2Y-7E-ZOe"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="28.266666666666666" y="355"/>
+            <point key="canvasLocation" x="28" y="355"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splash_screen" width="960" height="1704"/>
+    </resources>
 </document>
