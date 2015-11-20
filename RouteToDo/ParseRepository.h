@@ -21,8 +21,8 @@
 
 #pragma mark - Home routes
 
-- (void)trendingRoutesWithPlace:(Place *)place completion:(void (^)(NSArray *routes, NSError *error))completion;
-- (void)newRoutesWithPlace:(Place *)place completion:(void (^)(NSArray *routes, NSError *error))completion;
+- (void)trendingRoutesWithPlace:(Location *)location completion:(void (^)(NSArray *routes, NSError *error))completion;
+- (void)newRoutesWithLocation:(Location *)location completion:(void (^)(NSArray *routes, NSError *error))completion;
 
 #pragma mark - User routes
 
