@@ -1,19 +1,18 @@
 //
-//  LoginViewController.m
+//  RouteCoverViewController.m
 //  RouteToDo
 //
 //  Created by Juan Pablo Marzetti on 11/19/15.
 //  Copyright © 2015 RouteToDo. All rights reserved.
 //
 
-#import "LoginViewController.h"
 #import "RouteCoverViewController.h"
 
-@interface LoginViewController ()
+@interface RouteCoverViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation RouteCoverViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,14 +22,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-- (IBAction)onRouteDetailsClick:(id)sender {
-    RouteCoverViewController *vc = [[RouteCoverViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    
-    [self presentViewController:nav animated:YES completion:nil];
 }
 
 /*

@@ -13,6 +13,8 @@
 		1849A3A11BFECCAC002B9355 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1849A39F1BFECCAC002B9355 /* LaunchScreen.storyboard */; };
 		18A4A8951BFED1AA0028C691 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4A8931BFED1AA0028C691 /* LoginViewController.m */; };
 		18A4A8961BFED1AA0028C691 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A4A8941BFED1AA0028C691 /* LoginViewController.xib */; };
+		18A4A89A1BFED3340028C691 /* RouteCoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4A8981BFED3340028C691 /* RouteCoverViewController.m */; };
+		18A4A89B1BFED3340028C691 /* RouteCoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A4A8991BFED3340028C691 /* RouteCoverViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		18A4A8921BFED1AA0028C691 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		18A4A8931BFED1AA0028C691 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		18A4A8941BFED1AA0028C691 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		18A4A8971BFED3340028C691 /* RouteCoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteCoverViewController.h; sourceTree = "<group>"; };
+		18A4A8981BFED3340028C691 /* RouteCoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteCoverViewController.m; sourceTree = "<group>"; };
+		18A4A8991BFED3340028C691 /* RouteCoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteCoverViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +89,9 @@
 				18A4A8921BFED1AA0028C691 /* LoginViewController.h */,
 				18A4A8931BFED1AA0028C691 /* LoginViewController.m */,
 				18A4A8941BFED1AA0028C691 /* LoginViewController.xib */,
+				18A4A8971BFED3340028C691 /* RouteCoverViewController.h */,
+				18A4A8981BFED3340028C691 /* RouteCoverViewController.m */,
+				18A4A8991BFED3340028C691 /* RouteCoverViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -170,6 +178,7 @@
 			files = (
 				1849A3A11BFECCAC002B9355 /* LaunchScreen.storyboard in Resources */,
 				1849A39E1BFECCAC002B9355 /* Assets.xcassets in Resources */,
+				18A4A89B1BFED3340028C691 /* RouteCoverViewController.xib in Resources */,
 				18A4A8961BFED1AA0028C691 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,6 +192,7 @@
 			files = (
 				1849A3961BFECCAC002B9355 /* AppDelegate.m in Sources */,
 				1849A3931BFECCAC002B9355 /* main.m in Sources */,
+				18A4A89A1BFED3340028C691 /* RouteCoverViewController.m in Sources */,
 				18A4A8951BFED1AA0028C691 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

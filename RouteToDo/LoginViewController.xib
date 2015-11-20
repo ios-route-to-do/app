@@ -30,10 +30,14 @@
                     <rect key="frame" x="156" y="126" width="91" height="30"/>
                     <animations/>
                     <state key="normal" title="Route Details"/>
+                    <connections>
+                        <action selector="onRouteDetailsClick:" destination="-1" eventType="touchUpInside" id="V2g-ev-XcY"/>
+                    </connections>
                 </button>
             </subviews>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <point key="canvasLocation" x="280" y="366"/>
         </view>
     </objects>
