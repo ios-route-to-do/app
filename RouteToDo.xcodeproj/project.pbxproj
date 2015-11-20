@@ -22,6 +22,7 @@
 		248B137E1BFEE5E900184AD5 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B137D1BFEE5E900184AD5 /* Location.m */; };
 		248B13811BFEEAD100184AD5 /* ParseRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B13801BFEEAD100184AD5 /* ParseRepository.m */; };
 		6D485742D6EEDCB3FF9882F5 /* libPods-RouteToDo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB67DD9DDB26E0A0FECEA1B /* libPods-RouteToDo.a */; };
+		18A4A89D1BFEDA0A0028C691 /* ExampleImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18A4A89C1BFEDA0A0028C691 /* ExampleImages.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		369A98033966F5F9EA3998BB /* Pods-RouteToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteToDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RouteToDo/Pods-RouteToDo.release.xcconfig"; sourceTree = "<group>"; };
 		62275081C6139B331089E823 /* Pods-RouteToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteToDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RouteToDo/Pods-RouteToDo.debug.xcconfig"; sourceTree = "<group>"; };
 		7BB67DD9DDB26E0A0FECEA1B /* libPods-RouteToDo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RouteToDo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		18A4A89C1BFEDA0A0028C691 /* ExampleImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ExampleImages.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				1849A3911BFECCAC002B9355 /* Supporting Files */,
 				248B137F1BFEEAD100184AD5 /* ParseRepository.h */,
 				248B13801BFEEAD100184AD5 /* ParseRepository.m */,
+				18A4A89C1BFEDA0A0028C691 /* ExampleImages.xcassets */,
 			);
 			path = RouteToDo;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				1849A39E1BFECCAC002B9355 /* Assets.xcassets in Resources */,
 				18A4A89B1BFED3340028C691 /* RouteCoverViewController.xib in Resources */,
 				18A4A8961BFED1AA0028C691 /* LoginViewController.xib in Resources */,
+				18A4A89D1BFEDA0A0028C691 /* ExampleImages.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
