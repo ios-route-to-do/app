@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -22,7 +23,8 @@
     self.window.rootViewController = [[LoginViewController alloc] init];
     [self.window makeKeyAndVisible];
 
-    
+    [Parse setApplicationId:@"W8GRsfacMN0U80jWxpIUHDknD1X2NJXsRFlTNd9K"
+                  clientKey:@"mFDpy3xYt1P8ogJ81k4s5BZtO10P76EQyTDhDmUc"];
     return YES;
 }
 

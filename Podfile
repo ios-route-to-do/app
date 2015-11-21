@@ -4,6 +4,5 @@
 # use_frameworks!
 
 target 'RouteToDo' do
-
+  pod 'Parse'
 end
-
