@@ -15,6 +15,16 @@
 		18A4A8961BFED1AA0028C691 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A4A8941BFED1AA0028C691 /* LoginViewController.xib */; };
 		18A4A89A1BFED3340028C691 /* RouteCoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4A8981BFED3340028C691 /* RouteCoverViewController.m */; };
 		18A4A89B1BFED3340028C691 /* RouteCoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A4A8991BFED3340028C691 /* RouteCoverViewController.xib */; };
+		603E92621BFEE152003BE497 /* RouteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 603E92601BFEE152003BE497 /* RouteListViewController.m */; };
+		603E92631BFEE152003BE497 /* RouteListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603E92611BFEE152003BE497 /* RouteListViewController.xib */; };
+		603E92671BFEE549003BE497 /* HomeProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 603E92651BFEE549003BE497 /* HomeProfileViewController.m */; };
+		603E92681BFEE549003BE497 /* HomeProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603E92661BFEE549003BE497 /* HomeProfileViewController.xib */; };
+		603E926C1BFEEB80003BE497 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 603E926A1BFEEB80003BE497 /* ProfileViewController.m */; };
+		603E926D1BFEEB80003BE497 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603E926B1BFEEB80003BE497 /* ProfileViewController.xib */; };
+		603E92711BFF09CD003BE497 /* LargeRouteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 603E926F1BFF09CD003BE497 /* LargeRouteCollectionViewCell.m */; };
+		603E92721BFF09CD003BE497 /* LargeRouteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603E92701BFF09CD003BE497 /* LargeRouteCollectionViewCell.xib */; };
+		603E92761BFFC52C003BE497 /* SmallRouteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 603E92741BFFC52C003BE497 /* SmallRouteCollectionViewCell.m */; };
+		603E92771BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603E92751BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +41,21 @@
 		18A4A8971BFED3340028C691 /* RouteCoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteCoverViewController.h; sourceTree = "<group>"; };
 		18A4A8981BFED3340028C691 /* RouteCoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteCoverViewController.m; sourceTree = "<group>"; };
 		18A4A8991BFED3340028C691 /* RouteCoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteCoverViewController.xib; sourceTree = "<group>"; };
+		603E925F1BFEE152003BE497 /* RouteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteListViewController.h; sourceTree = "<group>"; };
+		603E92601BFEE152003BE497 /* RouteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteListViewController.m; sourceTree = "<group>"; };
+		603E92611BFEE152003BE497 /* RouteListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteListViewController.xib; sourceTree = "<group>"; };
+		603E92641BFEE549003BE497 /* HomeProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeProfileViewController.h; sourceTree = "<group>"; };
+		603E92651BFEE549003BE497 /* HomeProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeProfileViewController.m; sourceTree = "<group>"; };
+		603E92661BFEE549003BE497 /* HomeProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeProfileViewController.xib; sourceTree = "<group>"; };
+		603E92691BFEEB80003BE497 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		603E926A1BFEEB80003BE497 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		603E926B1BFEEB80003BE497 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		603E926E1BFF09CD003BE497 /* LargeRouteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LargeRouteCollectionViewCell.h; sourceTree = "<group>"; };
+		603E926F1BFF09CD003BE497 /* LargeRouteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LargeRouteCollectionViewCell.m; sourceTree = "<group>"; };
+		603E92701BFF09CD003BE497 /* LargeRouteCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LargeRouteCollectionViewCell.xib; sourceTree = "<group>"; };
+		603E92731BFFC52C003BE497 /* SmallRouteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallRouteCollectionViewCell.h; sourceTree = "<group>"; };
+		603E92741BFFC52C003BE497 /* SmallRouteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallRouteCollectionViewCell.m; sourceTree = "<group>"; };
+		603E92751BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallRouteCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +117,15 @@
 				18A4A8971BFED3340028C691 /* RouteCoverViewController.h */,
 				18A4A8981BFED3340028C691 /* RouteCoverViewController.m */,
 				18A4A8991BFED3340028C691 /* RouteCoverViewController.xib */,
+				603E925F1BFEE152003BE497 /* RouteListViewController.h */,
+				603E92601BFEE152003BE497 /* RouteListViewController.m */,
+				603E92611BFEE152003BE497 /* RouteListViewController.xib */,
+				603E92641BFEE549003BE497 /* HomeProfileViewController.h */,
+				603E92651BFEE549003BE497 /* HomeProfileViewController.m */,
+				603E92661BFEE549003BE497 /* HomeProfileViewController.xib */,
+				603E92691BFEEB80003BE497 /* ProfileViewController.h */,
+				603E926A1BFEEB80003BE497 /* ProfileViewController.m */,
+				603E926B1BFEEB80003BE497 /* ProfileViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -99,6 +133,12 @@
 		18A4A88E1BFECE600028C691 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				603E926E1BFF09CD003BE497 /* LargeRouteCollectionViewCell.h */,
+				603E926F1BFF09CD003BE497 /* LargeRouteCollectionViewCell.m */,
+				603E92701BFF09CD003BE497 /* LargeRouteCollectionViewCell.xib */,
+				603E92731BFFC52C003BE497 /* SmallRouteCollectionViewCell.h */,
+				603E92741BFFC52C003BE497 /* SmallRouteCollectionViewCell.m */,
+				603E92751BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -176,10 +216,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				603E926D1BFEEB80003BE497 /* ProfileViewController.xib in Resources */,
 				1849A3A11BFECCAC002B9355 /* LaunchScreen.storyboard in Resources */,
+				603E92631BFEE152003BE497 /* RouteListViewController.xib in Resources */,
 				1849A39E1BFECCAC002B9355 /* Assets.xcassets in Resources */,
+				603E92721BFF09CD003BE497 /* LargeRouteCollectionViewCell.xib in Resources */,
 				18A4A89B1BFED3340028C691 /* RouteCoverViewController.xib in Resources */,
 				18A4A8961BFED1AA0028C691 /* LoginViewController.xib in Resources */,
+				603E92681BFEE549003BE497 /* HomeProfileViewController.xib in Resources */,
+				603E92771BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,10 +235,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				603E92621BFEE152003BE497 /* RouteListViewController.m in Sources */,
 				1849A3961BFECCAC002B9355 /* AppDelegate.m in Sources */,
+				603E92711BFF09CD003BE497 /* LargeRouteCollectionViewCell.m in Sources */,
 				1849A3931BFECCAC002B9355 /* main.m in Sources */,
 				18A4A89A1BFED3340028C691 /* RouteCoverViewController.m in Sources */,
+				603E926C1BFEEB80003BE497 /* ProfileViewController.m in Sources */,
 				18A4A8951BFED1AA0028C691 /* LoginViewController.m in Sources */,
+				603E92761BFFC52C003BE497 /* SmallRouteCollectionViewCell.m in Sources */,
+				603E92671BFEE549003BE497 /* HomeProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
