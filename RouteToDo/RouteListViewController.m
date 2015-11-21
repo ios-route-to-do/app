@@ -52,10 +52,11 @@
     self.topCollectionView.dataSource = self;
     self.bottomCollectionView.dataSource = self;
     
-    self.trendingRoutesViewArray = [NSArray arrayWithObjects:@"String1",@"String2",@"String3",@"String4",@"String5",@"String6",@"String7",nil];
-    self.recentRoutesViewArray = [NSArray arrayWithObjects:@"recent 1",@"recent 2",@"recent 3",@"recent 4",@"recent 5",@"recent 6",@"recent 7",@"recent 8",nil];
-
     // Do any additional setup after loading the view from its nib.
+    //get data
+    [self loadRoutesWithCompletionHandler:^{
+        NSLog(@"loaded initial tweets");
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,12 +65,6 @@
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-//    if(collectionView == self.topCollectionView){
-//        return self.trendingRoutesViewArray.count;
-//    } else if (collectionView == self.bottomCollectionView){
-//        return self.recentRoutesViewArray.count;
-//    }
-    
     return 1;
 }
 
@@ -104,6 +99,19 @@
     
     return cell;
 
+}
+
+- (void)loadRoutesWithCompletionHandler:(void (^)(void))completionHandler {
+
+    self.trendingRoutesViewArray = [NSArray arrayWithObjects:@"String1",@"String2",@"String3",@"String4",@"String5",@"String6",@"String7",nil];
+    self.recentRoutesViewArray = [NSArray arrayWithObjects:@"recent 1",@"recent 2",@"recent 3",@"recent 4",@"recent 5",@"recent 6",@"recent 7",@"recent 8",nil];
+
+    
+//    [[TwitterClient sharedInstance] homeTimelineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
+//            self.tweets = tweets;
+//            [self.tableView reloadData];
+//            completionHandler();
+//        }];
 }
 
 /*

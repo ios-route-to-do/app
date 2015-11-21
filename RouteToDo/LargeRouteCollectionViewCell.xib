@@ -8,47 +8,96 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="largeRouteCollectionViewCell" id="gTV-IL-0wX" customClass="LargeRouteCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+            <rect key="frame" x="0.0" y="0.0" width="241" height="190"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                <rect key="frame" x="0.0" y="0.0" width="241" height="190"/>
                 <subviews>
-                    <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K0n-GD-GOi">
-                        <rect key="frame" x="0.0" y="115" width="300" height="85"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PW3-pF-HUI">
+                        <rect key="frame" x="0.0" y="0.0" width="241" height="190"/>
+                    </imageView>
+                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0n-GD-GOi">
+                        <rect key="frame" x="0.0" y="114" width="241" height="76"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ApP-5Q-gOf">
-                                <rect key="frame" x="8" y="23" width="97" height="30"/>
-                                <state key="normal" title="San Francisco"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzo-KZ-rIe">
-                                <rect key="frame" x="118" y="23" width="147" height="30"/>
-                                <state key="normal" title="* By @RandyWilliams"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQs-kd-176">
-                                <rect key="frame" x="8" y="47" width="79" height="30"/>
-                                <state key="normal" title="+300 users"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uy8-ZV-WqN">
-                                <rect key="frame" x="96" y="47" width="77" height="30"/>
-                                <state key="normal" title="* 5.0 rating"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLj-e6-Ooq">
-                                <rect key="frame" x="8" y="0.0" width="106" height="30"/>
-                                <state key="normal" title="The Beer Route"/>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+300 users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZk-Y6-Z6m">
+                                <rect key="frame" x="8" y="52" width="65" height="15.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 5.0 rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrJ-H3-ERf">
+                                <rect key="frame" x="81" y="52" width="63" height="15.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* By @RandyWilliams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWR-a3-BGJ">
+                                <rect key="frame" x="99" y="28" width="123.5" height="15.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFn-Hc-8XH">
+                                <rect key="frame" x="8" y="28" width="83.5" height="15.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Beer Route" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upf-qT-hEw">
+                                <rect key="frame" x="8" y="3" width="105" height="17.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.24313725489999999" green="0.82745098039999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="SZk-Y6-Z6m" firstAttribute="leading" secondItem="K0n-GD-GOi" secondAttribute="leading" constant="8" id="8w9-gy-boI"/>
+                            <constraint firstItem="BWR-a3-BGJ" firstAttribute="centerY" secondItem="AFn-Hc-8XH" secondAttribute="centerY" id="DJz-eR-gay"/>
+                            <constraint firstItem="AFn-Hc-8XH" firstAttribute="leading" secondItem="upf-qT-hEw" secondAttribute="leading" id="G17-wn-c4N"/>
+                            <constraint firstItem="MrJ-H3-ERf" firstAttribute="centerY" secondItem="SZk-Y6-Z6m" secondAttribute="centerY" id="PVB-CG-o4K"/>
+                            <constraint firstItem="SZk-Y6-Z6m" firstAttribute="top" secondItem="AFn-Hc-8XH" secondAttribute="bottom" constant="8" id="X1l-6G-ukA"/>
+                            <constraint firstItem="BWR-a3-BGJ" firstAttribute="leading" secondItem="AFn-Hc-8XH" secondAttribute="trailing" constant="8" id="as2-Z8-5kw"/>
+                            <constraint firstAttribute="bottom" secondItem="SZk-Y6-Z6m" secondAttribute="bottom" constant="8" id="bQr-Gw-qmH"/>
+                            <constraint firstItem="upf-qT-hEw" firstAttribute="top" secondItem="K0n-GD-GOi" secondAttribute="top" constant="3" id="e2o-p8-qxc"/>
+                            <constraint firstItem="SZk-Y6-Z6m" firstAttribute="leading" secondItem="upf-qT-hEw" secondAttribute="leading" id="enz-a5-n8a"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="upf-qT-hEw" secondAttribute="trailing" constant="8" id="iCX-JX-2y0"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MrJ-H3-ERf" secondAttribute="trailing" constant="8" id="iPh-f5-Av1"/>
+                            <constraint firstItem="AFn-Hc-8XH" firstAttribute="top" secondItem="upf-qT-hEw" secondAttribute="bottom" constant="8" id="iV6-rz-fhw"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BWR-a3-BGJ" secondAttribute="trailing" constant="8" id="lyk-eN-0jP"/>
+                            <constraint firstItem="MrJ-H3-ERf" firstAttribute="leading" secondItem="SZk-Y6-Z6m" secondAttribute="trailing" constant="8" id="o4C-3v-f5O"/>
+                        </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEC-NZ-3lD">
-                        <rect key="frame" x="253" y="8" width="39" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEC-NZ-3lD">
+                        <rect key="frame" x="203" y="8" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="2zF-97-PIF"/>
+                            <constraint firstAttribute="width" constant="30" id="DdZ-Ka-oMh"/>
+                        </constraints>
                         <state key="normal" title="Like"/>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <color key="backgroundColor" red="0.5776671337" green="0.91258285979999998" blue="0.56112325709999999" alpha="1" colorSpace="calibratedRGB"/>
-            <size key="customSize" width="300" height="200"/>
-            <point key="canvasLocation" x="430" y="278"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="gEC-NZ-3lD" secondAttribute="trailing" constant="8" id="09n-tj-V1j"/>
+                <constraint firstItem="gEC-NZ-3lD" firstAttribute="leading" secondItem="PW3-pF-HUI" secondAttribute="trailing" id="3Gh-5b-ftj"/>
+                <constraint firstAttribute="trailing" secondItem="PW3-pF-HUI" secondAttribute="trailing" id="5jT-GD-Nu2"/>
+                <constraint firstItem="K0n-GD-GOi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7Nx-Fy-gGw"/>
+                <constraint firstItem="PW3-pF-HUI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="87A-Co-0M9"/>
+                <constraint firstItem="gEC-NZ-3lD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="GRO-Ia-YPM"/>
+                <constraint firstAttribute="bottom" secondItem="K0n-GD-GOi" secondAttribute="bottom" id="J6M-hS-ml0"/>
+                <constraint firstItem="PW3-pF-HUI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Qzm-rX-zVG"/>
+                <constraint firstAttribute="trailing" secondItem="K0n-GD-GOi" secondAttribute="trailing" id="n89-1j-ufe"/>
+                <constraint firstAttribute="bottom" secondItem="PW3-pF-HUI" secondAttribute="bottom" id="p0J-Nw-okV"/>
+            </constraints>
+            <size key="customSize" width="301" height="200"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="3Gh-5b-ftj"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="430.5" y="278"/>
         </collectionViewCell>
     </objects>
 </document>
