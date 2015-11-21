@@ -9,6 +9,8 @@
 #import "RouteListViewController.h"
 #import "HomeProfileViewController.h"
 #import "LargeRouteCollectionViewCell.h"
+#import "SmallRouteCollectionViewCell.h"
+#import "Route.h"
 
 @interface RouteListViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *topCollectionView;
@@ -23,9 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-//    self.topCollectionView = [[UICollectionView alloc] init];
-//    self.bottomCollectionView = [[UICollectionView alloc] init];
     
     UINib *largeCellNib = [UINib nibWithNibName:@"LargeRouteCollectionViewCell" bundle:nil];
     [self.topCollectionView registerNib:largeCellNib forCellWithReuseIdentifier:@"largeRouteCollectionViewCell"];
@@ -79,26 +78,34 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-//    NSMutableArray *data = [self.dataArray objectAtIndex:indexPath.section];
-    
-//    NSString *cellData = [data objectAtIndex:indexPath.row];
-    
-//    static NSString *cellIdentifier = @"largeRouteCollectionViewCell";
-    
-//    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    
-//    UILabel *titleLabel = (UILabel *)[cell viewWithTag:100];
-    
-//    [titleLabel setText:cellData];
-    UICollectionViewCell *cell = [[UICollectionViewCell alloc] init];
     if(collectionView == self.topCollectionView){
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"largeRouteCollectionViewCell" forIndexPath:indexPath];
+        LargeRouteCollectionViewCell *largeCell = [[LargeRouteCollectionViewCell alloc] init];
+        largeCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"largeRouteCollectionViewCell" forIndexPath:indexPath];
+        largeCell.route = (Route *)self.trendingRoutesViewArray[indexPath.row];
+        return largeCell;
     } else if (collectionView == self.bottomCollectionView){
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"smallRouteCollectionViewCell" forIndexPath:indexPath];
+         SmallRouteCollectionViewCell *smallCell = [[SmallRouteCollectionViewCell alloc] init];
+        smallCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"smallRouteCollectionViewCell" forIndexPath:indexPath];
+//        cell.route = (Route *)self.recentRoutesViewArray[indexPath.row];
+        return smallCell;
     }
-    
+    UICollectionViewCell *cell = [[UICollectionViewCell alloc] init];
     return cell;
 
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if(collectionView == self.topCollectionView){
+        [self.topCollectionView deselectItemAtIndexPath:indexPath animated:YES];
+        //    TweetDetailViewController *vc = [[TweetDetailViewController alloc] init];
+        //    vc.tweet = self.tweets[indexPath.row];
+        //    [self.navigationController pushViewController:vc animated:YES];
+    } else if (collectionView == self.bottomCollectionView){
+        [self.bottomCollectionView deselectItemAtIndexPath:indexPath animated:YES];
+        //    TweetDetailViewController *vc = [[TweetDetailViewController alloc] init];
+        //    vc.tweet = self.tweets[indexPath.row];
+        //    [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (void)loadRoutesWithCompletionHandler:(void (^)(void))completionHandler {
