@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Route.h"
 
 @interface RouteStepViewController : UIViewController
+
+@property (nonatomic) Route *route;
+@property (nonatomic) NSNumber *step;
 
 @end

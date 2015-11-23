@@ -10,10 +10,11 @@
 
 @implementation PlaceAnnotation
 
-- (instancetype)initWithTitle:(NSString *)title andLocation:(CLLocationCoordinate2D)location {
+- (instancetype)initWithPlace:(Place *)place {
     if (self = [super init]) {
-        _title = title;
-        _coordinate = location;
+        _place = place;
+        _title = place.name;
+        _coordinate = place.coordinates;
     }
     
     return self;
@@ -24,7 +25,7 @@
     
     annotationView.enabled = YES;
     annotationView.canShowCallout = YES;
-    annotationView.image = [UIImage imageNamed:@"location"];
+    annotationView.image = [UIImage imageNamed:@"mappin"];
     annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     
     return annotationView;

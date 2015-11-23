@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import "Place.h"
 
 @interface PlaceAnnotation : NSObject <MKAnnotation>
 
+@property (nonatomic, readonly) Place *place;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, copy) NSString *title;
 
-- (instancetype) initWithTitle:(NSString *)title andLocation:(CLLocationCoordinate2D)location;
+- (instancetype) initWithPlace:(Place *)place;
 - (MKAnnotationView *)annotationView;
 
 @end

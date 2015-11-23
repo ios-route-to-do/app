@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Route.h"
 
 @interface RouteCoverViewController : UIViewController
+
+@property (nonatomic) Route *route;
 
 @end

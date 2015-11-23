@@ -10,6 +10,8 @@
 #import "RouteCoverViewController.h"
 #import "RouteCoverViewController.h"
 
+#import "mocks.h"
+
 @interface LoginViewController ()
 
 @end
@@ -29,6 +31,7 @@
 
 - (IBAction)onRouteDetailsClick:(id)sender {
     RouteCoverViewController *vc = [[RouteCoverViewController alloc] init];
+    vc.route = mockRoute1();
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     
     [self presentViewController:nav animated:YES completion:nil];

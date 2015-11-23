@@ -7,7 +7,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RouteCoverViewController">
             <connections>
+                <outlet property="descriptionLabel" destination="agj-Er-RlF" id="8PL-tY-Yxr"/>
+                <outlet property="imageImageView" destination="isw-YO-Jbg" id="0E0-CF-KUm"/>
+                <outlet property="informationLabel" destination="PRm-ir-D82" id="uQ6-JN-Dfo"/>
+                <outlet property="locationAuthorLabel" destination="2IL-pS-rcY" id="0n0-WW-y0y"/>
+                <outlet property="placesListLabel" destination="6y4-nI-T8f" id="F72-1H-VFq"/>
                 <outlet property="startRouteButton" destination="yUb-lt-YwS" id="PYQ-30-IUf"/>
+                <outlet property="titleLabel" destination="DHR-HI-C2a" id="6hJ-69-kfc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
