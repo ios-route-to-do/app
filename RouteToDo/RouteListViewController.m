@@ -16,8 +16,8 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *topCollectionView;
 @property (strong, nonatomic) IBOutlet UICollectionView *bottomCollectionView;
 
-@property (nonatomic, strong) NSArray *trendingRoutesViewArray;
-@property (nonatomic, strong) NSArray *recentRoutesViewArray;
+@property (nonatomic, strong) NSMutableArray *trendingRoutesViewArray;
+@property (nonatomic, strong) NSMutableArray *recentRoutesViewArray;
 
 @end
 
@@ -97,11 +97,13 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if(collectionView == self.topCollectionView){
         [self.topCollectionView deselectItemAtIndexPath:indexPath animated:YES];
+        NSLog(@"did select top collection");
         //    TweetDetailViewController *vc = [[TweetDetailViewController alloc] init];
         //    vc.tweet = self.tweets[indexPath.row];
         //    [self.navigationController pushViewController:vc animated:YES];
     } else if (collectionView == self.bottomCollectionView){
         [self.bottomCollectionView deselectItemAtIndexPath:indexPath animated:YES];
+        NSLog(@"did select bottom collection");
         //    TweetDetailViewController *vc = [[TweetDetailViewController alloc] init];
         //    vc.tweet = self.tweets[indexPath.row];
         //    [self.navigationController pushViewController:vc animated:YES];
@@ -109,16 +111,40 @@
 }
 
 - (void)loadRoutesWithCompletionHandler:(void (^)(void))completionHandler {
-
-    self.trendingRoutesViewArray = [NSArray arrayWithObjects:@"String1",@"String2",@"String3",@"String4",@"String5",@"String6",@"String7",nil];
-    self.recentRoutesViewArray = [NSArray arrayWithObjects:@"recent 1",@"recent 2",@"recent 3",@"recent 4",@"recent 5",@"recent 6",@"recent 7",@"recent 8",nil];
-
+    
+    self.trendingRoutesViewArray = [NSMutableArray array];
+    self.recentRoutesViewArray = [NSMutableArray array];
+    Route *templateRoute = [[Route alloc] init];
+    templateRoute.title = @"The beer Route !";
+    templateRoute.location = @"San Francisco";
+    templateRoute.author = @"Matigol";
+    templateRoute.usersCount = [NSNumber numberWithInt:300];
+//    templateRoute.imageUrl = [NSURL URLWithString:@"https://test.com"];
+  
+    for(int i = 0; i < 10; i++)
+    {
+        [self.trendingRoutesViewArray addObject:templateRoute];
+    }
+    
+    Route *templateSmallRoute = [[Route alloc] init];
+    templateSmallRoute.title = @"All night long !";
+    templateSmallRoute.location = @"Oakland";
+    templateSmallRoute.author = @"party_boy";
+    templateSmallRoute.usersCount = [NSNumber numberWithInt:450];
+//    templateSmallRoute.imageUrl = [NSURL URLWithString:@"https://test.com"];
+    
+    for(int i = 0; i < 12; i++)
+    {
+        [self.recentRoutesViewArray addObject:templateSmallRoute];
+    }
     
 //    [[TwitterClient sharedInstance] homeTimelineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
 //            self.tweets = tweets;
 //            [self.tableView reloadData];
 //            completionHandler();
 //        }];
+    [self.topCollectionView reloadData];
+    [self.bottomCollectionView reloadData];
 }
 
 /*

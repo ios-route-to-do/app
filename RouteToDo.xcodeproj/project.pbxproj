@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		1849A3931BFECCAC002B9355 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849A3921BFECCAC002B9355 /* main.m */; };
-		1849A3961BFECCAC002B9355 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849A3951BFECCAC002B9355 /* AppDelegate.m */; };
 		1849A39E1BFECCAC002B9355 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1849A39D1BFECCAC002B9355 /* Assets.xcassets */; };
 		1849A3A11BFECCAC002B9355 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1849A39F1BFECCAC002B9355 /* LaunchScreen.storyboard */; };
 		18A4A8951BFED1AA0028C691 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4A8931BFED1AA0028C691 /* LoginViewController.m */; };
 		18A4A8961BFED1AA0028C691 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A4A8941BFED1AA0028C691 /* LoginViewController.xib */; };
 		18A4A89A1BFED3340028C691 /* RouteCoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4A8981BFED3340028C691 /* RouteCoverViewController.m */; };
 		18A4A89B1BFED3340028C691 /* RouteCoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A4A8991BFED3340028C691 /* RouteCoverViewController.xib */; };
+		248B13721BFEE31000184AD5 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B13711BFEE31000184AD5 /* Route.m */; };
+		248B13751BFEE3ED00184AD5 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B13741BFEE3ED00184AD5 /* Place.m */; };
+		248B13781BFEE46000184AD5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B13771BFEE46000184AD5 /* User.m */; };
+		248B137B1BFEE4FD00184AD5 /* RouteCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B137A1BFEE4FD00184AD5 /* RouteCategory.m */; };
+		248B137E1BFEE5E900184AD5 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B137D1BFEE5E900184AD5 /* Location.m */; };
+		248B13811BFEEAD100184AD5 /* ParseRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B13801BFEEAD100184AD5 /* ParseRepository.m */; };
 		603E92621BFEE152003BE497 /* RouteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 603E92601BFEE152003BE497 /* RouteListViewController.m */; };
 		603E92631BFEE152003BE497 /* RouteListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603E92611BFEE152003BE497 /* RouteListViewController.xib */; };
 		603E92671BFEE549003BE497 /* HomeProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 603E92651BFEE549003BE497 /* HomeProfileViewController.m */; };
@@ -25,12 +30,7 @@
 		603E92721BFF09CD003BE497 /* LargeRouteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603E92701BFF09CD003BE497 /* LargeRouteCollectionViewCell.xib */; };
 		603E92761BFFC52C003BE497 /* SmallRouteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 603E92741BFFC52C003BE497 /* SmallRouteCollectionViewCell.m */; };
 		603E92771BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603E92751BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib */; };
-		248B13721BFEE31000184AD5 /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B13711BFEE31000184AD5 /* Route.m */; };
-		248B13751BFEE3ED00184AD5 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B13741BFEE3ED00184AD5 /* Place.m */; };
-		248B13781BFEE46000184AD5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B13771BFEE46000184AD5 /* User.m */; };
-		248B137B1BFEE4FD00184AD5 /* RouteCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B137A1BFEE4FD00184AD5 /* RouteCategory.m */; };
-		248B137E1BFEE5E900184AD5 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B137D1BFEE5E900184AD5 /* Location.m */; };
-		248B13811BFEEAD100184AD5 /* ParseRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B13801BFEEAD100184AD5 /* ParseRepository.m */; };
+		603E927C1C014100003BE497 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849A3951BFECCAC002B9355 /* AppDelegate.m */; };
 		6D485742D6EEDCB3FF9882F5 /* libPods-RouteToDo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB67DD9DDB26E0A0FECEA1B /* libPods-RouteToDo.a */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +48,19 @@
 		18A4A8971BFED3340028C691 /* RouteCoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteCoverViewController.h; sourceTree = "<group>"; };
 		18A4A8981BFED3340028C691 /* RouteCoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteCoverViewController.m; sourceTree = "<group>"; };
 		18A4A8991BFED3340028C691 /* RouteCoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteCoverViewController.xib; sourceTree = "<group>"; };
+		248B13701BFEE31000184AD5 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
+		248B13711BFEE31000184AD5 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
+		248B13731BFEE3ED00184AD5 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
+		248B13741BFEE3ED00184AD5 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		248B13761BFEE46000184AD5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		248B13771BFEE46000184AD5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		248B13791BFEE4FD00184AD5 /* RouteCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteCategory.h; sourceTree = "<group>"; };
+		248B137A1BFEE4FD00184AD5 /* RouteCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteCategory.m; sourceTree = "<group>"; };
+		248B137C1BFEE5E900184AD5 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		248B137D1BFEE5E900184AD5 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		248B137F1BFEEAD100184AD5 /* ParseRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseRepository.h; sourceTree = "<group>"; };
+		248B13801BFEEAD100184AD5 /* ParseRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseRepository.m; sourceTree = "<group>"; };
+		369A98033966F5F9EA3998BB /* Pods-RouteToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteToDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RouteToDo/Pods-RouteToDo.release.xcconfig"; sourceTree = "<group>"; };
 		603E925F1BFEE152003BE497 /* RouteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteListViewController.h; sourceTree = "<group>"; };
 		603E92601BFEE152003BE497 /* RouteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteListViewController.m; sourceTree = "<group>"; };
 		603E92611BFEE152003BE497 /* RouteListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteListViewController.xib; sourceTree = "<group>"; };
@@ -63,19 +76,6 @@
 		603E92731BFFC52C003BE497 /* SmallRouteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallRouteCollectionViewCell.h; sourceTree = "<group>"; };
 		603E92741BFFC52C003BE497 /* SmallRouteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallRouteCollectionViewCell.m; sourceTree = "<group>"; };
 		603E92751BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallRouteCollectionViewCell.xib; sourceTree = "<group>"; };
-		248B13701BFEE31000184AD5 /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
-		248B13711BFEE31000184AD5 /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
-		248B13731BFEE3ED00184AD5 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
-		248B13741BFEE3ED00184AD5 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
-		248B13761BFEE46000184AD5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		248B13771BFEE46000184AD5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		248B13791BFEE4FD00184AD5 /* RouteCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteCategory.h; sourceTree = "<group>"; };
-		248B137A1BFEE4FD00184AD5 /* RouteCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteCategory.m; sourceTree = "<group>"; };
-		248B137C1BFEE5E900184AD5 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
-		248B137D1BFEE5E900184AD5 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
-		248B137F1BFEEAD100184AD5 /* ParseRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseRepository.h; sourceTree = "<group>"; };
-		248B13801BFEEAD100184AD5 /* ParseRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseRepository.m; sourceTree = "<group>"; };
-		369A98033966F5F9EA3998BB /* Pods-RouteToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteToDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RouteToDo/Pods-RouteToDo.release.xcconfig"; sourceTree = "<group>"; };
 		62275081C6139B331089E823 /* Pods-RouteToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteToDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RouteToDo/Pods-RouteToDo.debug.xcconfig"; sourceTree = "<group>"; };
 		7BB67DD9DDB26E0A0FECEA1B /* libPods-RouteToDo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RouteToDo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -340,13 +340,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				603E927C1C014100003BE497 /* AppDelegate.m in Sources */,
 				603E92621BFEE152003BE497 /* RouteListViewController.m in Sources */,
-				1849A3961BFECCAC002B9355 /* AppDelegate.m in Sources */,
 				603E92711BFF09CD003BE497 /* LargeRouteCollectionViewCell.m in Sources */,
 				248B13721BFEE31000184AD5 /* Route.m in Sources */,
 				248B13811BFEEAD100184AD5 /* ParseRepository.m in Sources */,
 				248B13781BFEE46000184AD5 /* User.m in Sources */,
-				1849A3961BFECCAC002B9355 /* AppDelegate.m in Sources */,
 				248B137B1BFEE4FD00184AD5 /* RouteCategory.m in Sources */,
 				248B137E1BFEE5E900184AD5 /* Location.m in Sources */,
 				1849A3931BFECCAC002B9355 /* main.m in Sources */,

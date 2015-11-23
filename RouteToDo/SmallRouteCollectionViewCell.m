@@ -8,10 +8,27 @@
 
 #import "SmallRouteCollectionViewCell.h"
 
+@interface SmallRouteCollectionViewCell()
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UILabel *routeTitleLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *routeLocationLabel;
+@end
+
 @implementation SmallRouteCollectionViewCell
 
 - (void)awakeFromNib {
     // Initialization code
+}
+
+- (void)setRoute:(Route *)route {
+    _route = route;
+    [self reloadData];
+}
+
+- (void)reloadData {
+    self.routeTitleLabel.text = self.route.title;
+    self.routeLocationLabel.text = self.route.location;
 }
 
 @end

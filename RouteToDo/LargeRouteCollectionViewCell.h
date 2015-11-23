@@ -11,15 +11,8 @@
 
 @class LargeRouteCollectionViewCell;
 
-@protocol LargeRouteCollectionViewCellDelegate <NSObject>
-
-- (void)didTapRouteCell:(LargeRouteCollectionViewCell *)cell;
-
-@end
-
 @interface LargeRouteCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) Route *route;
-@property (nonatomic, weak) id <LargeRouteCollectionViewCellDelegate> delegate;
 
 @end

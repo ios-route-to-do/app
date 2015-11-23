@@ -13,23 +13,27 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="148" height="100"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQ8-26-DPP">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pH1-lm-keG">
+                        <rect key="frame" x="0.0" y="0.0" width="148" height="100"/>
+                        <color key="backgroundColor" red="0.5776671337" green="0.91258285979999998" blue="0.56112325709999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
+                    <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQ8-26-DPP">
                         <rect key="frame" x="0.0" y="43" width="148" height="57"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Night Long !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wti-kh-lwW">
                                 <rect key="frame" x="8" y="8" width="103" height="17.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcQ-90-6mS">
                                 <rect key="frame" x="8" y="33" width="83.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="EcQ-90-6mS" secondAttribute="bottom" constant="8" id="8MS-SP-Vyh"/>
                             <constraint firstItem="EcQ-90-6mS" firstAttribute="leading" secondItem="YQ8-26-DPP" secondAttribute="leading" constant="8" id="F3K-o5-0PW"/>
@@ -49,13 +53,22 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <color key="backgroundColor" red="0.33333333329999998" green="0.93725490199999995" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="pH1-lm-keG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="39Q-39-h8P"/>
+                <constraint firstItem="pH1-lm-keG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="5qv-fX-xMR"/>
                 <constraint firstItem="YQ8-26-DPP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="MMz-Et-CNg"/>
+                <constraint firstAttribute="bottom" secondItem="pH1-lm-keG" secondAttribute="bottom" id="bY5-Jf-PWC"/>
+                <constraint firstAttribute="trailing" secondItem="pH1-lm-keG" secondAttribute="trailing" id="kEh-bZ-lsj"/>
                 <constraint firstAttribute="trailing" secondItem="YQ8-26-DPP" secondAttribute="trailing" id="qYi-xO-DNE"/>
                 <constraint firstAttribute="bottom" secondItem="YQ8-26-DPP" secondAttribute="bottom" id="ubY-yI-OXm"/>
             </constraints>
             <size key="customSize" width="100" height="100"/>
+            <connections>
+                <outlet property="backgroundImageView" destination="pH1-lm-keG" id="Ofp-Hy-V79"/>
+                <outlet property="routeLocationLabel" destination="EcQ-90-6mS" id="FcA-F2-EWu"/>
+                <outlet property="routeTitleLabel" destination="wti-kh-lwW" id="bh8-Em-JpE"/>
+            </connections>
             <point key="canvasLocation" x="397" y="367"/>
         </collectionViewCell>
     </objects>

@@ -16,41 +16,41 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PW3-pF-HUI">
                         <rect key="frame" x="0.0" y="0.0" width="241" height="190"/>
                     </imageView>
-                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0n-GD-GOi">
+                    <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0n-GD-GOi">
                         <rect key="frame" x="0.0" y="114" width="241" height="76"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+300 users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZk-Y6-Z6m">
                                 <rect key="frame" x="8" y="52" width="65" height="15.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 5.0 rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrJ-H3-ERf">
                                 <rect key="frame" x="81" y="52" width="63" height="15.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* By @RandyWilliams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWR-a3-BGJ">
                                 <rect key="frame" x="99" y="28" width="123.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFn-Hc-8XH">
                                 <rect key="frame" x="8" y="28" width="83.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Beer Route" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upf-qT-hEw">
                                 <rect key="frame" x="8" y="3" width="105" height="17.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.24313725489999999" green="0.82745098039999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="SZk-Y6-Z6m" firstAttribute="leading" secondItem="K0n-GD-GOi" secondAttribute="leading" constant="8" id="8w9-gy-boI"/>
                             <constraint firstItem="BWR-a3-BGJ" firstAttribute="centerY" secondItem="AFn-Hc-8XH" secondAttribute="centerY" id="DJz-eR-gay"/>
@@ -75,6 +75,9 @@
                             <constraint firstAttribute="width" constant="30" id="DdZ-Ka-oMh"/>
                         </constraints>
                         <state key="normal" title="Like"/>
+                        <connections>
+                            <action selector="onLikeButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Zra-Rl-TcF"/>
+                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -97,6 +100,15 @@
                     <exclude reference="3Gh-5b-ftj"/>
                 </mask>
             </variation>
+            <connections>
+                <outlet property="backgroundImageView" destination="PW3-pF-HUI" id="0KR-U0-CF7"/>
+                <outlet property="routeAuthorLabel" destination="BWR-a3-BGJ" id="lRc-7t-SXB"/>
+                <outlet property="routeLikeButton" destination="gEC-NZ-3lD" id="Sta-ue-o6m"/>
+                <outlet property="routeLocationLabel" destination="AFn-Hc-8XH" id="LwO-Ao-vr8"/>
+                <outlet property="routeRatingLable" destination="MrJ-H3-ERf" id="HJi-MS-8Qp"/>
+                <outlet property="routeTitle" destination="upf-qT-hEw" id="KCF-ZI-own"/>
+                <outlet property="routeUsersLabel" destination="SZk-Y6-Z6m" id="ejO-TK-Z6n"/>
+            </connections>
             <point key="canvasLocation" x="430.5" y="278"/>
         </collectionViewCell>
     </objects>

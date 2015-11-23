@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Route.h"
 
 @interface SmallRouteCollectionViewCell : UICollectionViewCell
+
+@property (nonatomic, strong) Route *route;
 
 @end
