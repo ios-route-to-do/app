@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
-@interface Route : PFObject<PFSubclassing>
+@interface Route : NSObject // PFObject<PFSubclassing>
 
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *location;
@@ -19,5 +19,9 @@
 @property (nonatomic) NSArray *places;
 @property (nonatomic) NSNumber *usersCount;
 @property (nonatomic) NSArray *categories;
+@property (nonatomic, readonly) BOOL favorite;
+
+- (void) favoriteWithCompletion:(void (^)(NSError *error))completion;
+- (void) unfavoriteWithCompletion:(void (^)(NSError *error))completion;
 
 @end
