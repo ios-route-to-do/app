@@ -13,7 +13,10 @@
 #import "RouteCoverViewController.h"
 #import "Route.h"
 #import "UIImageView+AFNetworking.h"
-#import "mocks.h"
+
+#include "Utils.h"
+#include "mocks.h"
+
 
 @interface RouteListViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *topCollectionView;
@@ -55,17 +58,27 @@
     self.topCollectionView.dataSource = self;
     self.bottomCollectionView.dataSource = self;
     
-    // Do any additional setup after loading the view from its nib.
-    //get data
     [self loadRoutesWithCompletionHandler:^{
         NSLog(@"loaded initial tweets");
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    //Solid
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = UIColorFromRGB(kDarkPurpleColorHex);
+    
+    //Right Buttons
+    UIImage *searchImage = [[UIImage imageNamed:@"search"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:searchImage style:0 target:self action:@selector(onSearchButtonTap)];
+    UIImage *mapImage = [[UIImage imageNamed:@"location"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:mapImage style:0 target:self action:@selector(onMapButtonTap)];
+    UIImage *newRouteImage = [[UIImage imageNamed:@"location"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *newRouteButton = [[UIBarButtonItem alloc] initWithImage:newRouteImage style:0 target:self action:@selector(onNewRouteButtonTap)];
+    
+    [self.parentViewController.navigationItem setRightBarButtonItems:@[newRouteButton, mapButton, searchButton]];
 }
+
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -121,6 +134,20 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
+- (void) onSearchButtonTap {
+    NSLog(@"search button tapped");
+}
+
+- (void) onMapButtonTap {
+    NSLog(@"map button tapped");
+}
+
+- (void) onNewRouteButtonTap {
+    NSLog(@"new route button tapped");
+}
+
+
 
 - (void)loadRoutesWithCompletionHandler:(void (^)(void))completionHandler {
 

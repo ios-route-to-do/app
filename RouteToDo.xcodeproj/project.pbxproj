@@ -49,6 +49,7 @@
 		1849A39D1BFECCAC002B9355 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1849A3A01BFECCAC002B9355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1849A3A21BFECCAC002B9355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		188CA1091C0438D60088AFA6 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		18A4A8921BFED1AA0028C691 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		18A4A8931BFED1AA0028C691 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		18A4A8941BFED1AA0028C691 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -154,6 +155,7 @@
 				603E92851C02C530003BE497 /* mocks.h */,
 				603E92861C02C530003BE497 /* mocks.m */,
 				1849A3921BFECCAC002B9355 /* main.m */,
+				188CA1091C0438D60088AFA6 /* Utils.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

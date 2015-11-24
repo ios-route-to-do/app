@@ -31,7 +31,7 @@
     self.tabBar.selectedItem = self.tabBar.items[0];
     [self tabBar:self.tabBar didSelectItem:self.tabBar.items[0]];
 
-    self.navigationController.navigationBar.translucent = NO;
+    NSLog(@"%@", self.navigationItem);
 }
 
 - (void)didReceiveMemoryWarning {
