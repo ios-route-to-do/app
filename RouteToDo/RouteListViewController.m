@@ -57,7 +57,7 @@
     self.bottomCollectionView.delegate = self;
     self.topCollectionView.dataSource = self;
     self.bottomCollectionView.dataSource = self;
-    
+
     [self loadRoutesWithCompletionHandler:^{
         NSLog(@"loaded initial tweets");
     }];
@@ -77,6 +77,7 @@
     UIBarButtonItem *newRouteButton = [[UIBarButtonItem alloc] initWithImage:newRouteImage style:0 target:self action:@selector(onNewRouteButtonTap)];
     
     [self.parentViewController.navigationItem setRightBarButtonItems:@[newRouteButton, mapButton, searchButton]];
+    [self.topCollectionView reloadData];
 }
 
 
