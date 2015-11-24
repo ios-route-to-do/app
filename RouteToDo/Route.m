@@ -10,22 +10,29 @@
 
 @implementation Route
 
-@dynamic title;
-@dynamic location;
-@dynamic author;
-@dynamic fullDescription;
-@dynamic imageUrl;
-@dynamic places;
-@dynamic usersCount;
-@dynamic categories;
+//@dynamic title;
+//@dynamic location;
+//@dynamic author;
+//@dynamic fullDescription;
+//@dynamic imageUrl;
+//@dynamic places;
+//@dynamic usersCount;
+//@dynamic categories;
+//
+//+ (void)load {
+//    [self registerSubclass];
+//}
+//
+//+ (NSString *)parseClassName {
+//    return @"Route";
+//}
 
-+ (void)load {
-    [self registerSubclass];
+- (void) favoriteWithCompletion:(void (^)(NSError *error))completion {
+    _favorite = YES;
 }
 
-+ (NSString *)parseClassName {
-    return @"Route";
+- (void) unfavoriteWithCompletion:(void (^)(NSError *error))completion {
+    _favorite = NO;
 }
-
 
 @end

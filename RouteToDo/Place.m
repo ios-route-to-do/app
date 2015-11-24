@@ -10,20 +10,20 @@
 
 @implementation Place
 
-@dynamic name;
-@dynamic fullDescription;
-@dynamic geoLocation;
-@dynamic location;
-@dynamic address;
-@dynamic imageUrl;
-
-+ (void)load {
-    [self registerSubclass];
-}
-
-+ (NSString *)parseClassName {
-    return @"Place";
-}
-
+//@dynamic name;
+//@dynamic fullDescription;
+//@dynamic geoLocation;
+//@dynamic location;
+//@dynamic address;
+//@dynamic imageUrl;
+//@synthesize coordinates;
+//
+//+ (void)load {
+//    [self registerSubclass];
+//}
+//
+//+ (NSString *)parseClassName {
+//    return @"Place";
+//}
 
 @end

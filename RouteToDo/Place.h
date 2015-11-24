@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
 
-@interface Place : PFObject<PFSubclassing>
+@interface Place : NSObject // PFObject<PFSubclassing>
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *fullDescription;
@@ -17,5 +17,6 @@
 @property (nonatomic) NSString *location;
 @property (nonatomic) NSString *address;
 @property (nonatomic) NSURL *imageUrl;
+@property (nonatomic) CLLocationCoordinate2D coordinates;
 
 @end
