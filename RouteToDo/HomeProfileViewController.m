@@ -10,68 +10,101 @@
 #import "RouteListViewController.h"
 #import "ProfileViewController.h"
 
-@interface HomeProfileViewController ()
+@interface HomeProfileViewController () <UITabBarDelegate>
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UITabBar *tabBar;
-@property (weak, nonatomic) RouteListViewController *routeListViewController;
-@property (weak, nonatomic) ProfileViewController *profileViewController;
+@property (strong, nonatomic) RouteListViewController *routeListViewController;
+@property (strong, nonatomic) ProfileViewController *profileViewController;
+@property (strong, nonatomic) UIViewController *currentController;
 
 @end
 
 @implementation HomeProfileViewController
 
-- (id)init {
-    self = [super init];
-
-    if (self) {
-        NSLog(@"home profile init");
-        RouteListViewController *routeListVC = [[RouteListViewController alloc] init];
-        self.routeListViewController = routeListVC;
-        ProfileViewController *profileVC = [[ProfileViewController alloc] init];
-        self.profileViewController = profileVC;
-        
-//        UITabBar *tabBar = tabBarController.tabBar;
-//        UITabBar *myTabBar = [[UITabBar alloc] init];
-//        UITabBarItem *tabBarItem1 = [self.tabBar.items objectAtIndex:0];
-//        UITabBarItem *tabBarItem2 = [self.tabBar.items objectAtIndex:1];
-        
-//        tabBarItem1.title = @"Home";
-//        tabBarItem2.title = @"Profile";
- 
-//        self.tabBar = myTabBar;
-        
-//        [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"home_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home.png"]];
-//        [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"maps_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"maps.png"]];
-        
-        UITabBarController *tabBarController = [[UITabBarController alloc] init];
-        tabBarController.viewControllers = @[routeListVC, profileVC];
-        
-//        self.navigationController.  rootViewController = tabBarController;
-        
-        //        [self.window makeKeyAndVisible];
-        
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    self.tabBar.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.tabBar.selectedItem = self.tabBar.items[0];
+    [self tabBar:self.tabBar didSelectItem:self.tabBar.items[0]];
+
+    self.navigationController.navigationBar.translucent = NO;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+    if (self.routeListViewController != self.currentController) {
+        self.routeListViewController = nil;
+    }
+
+    if (self.profileViewController != self.currentController) {
+        self.profileViewController = nil;
+    }
 }
 
-/*
-#pragma mark - Navigation
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    switch ([tabBar.items indexOfObject:item]) {
+        case 0:
+            [self showRouteListViewController];
+            break;
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+        case 1:
+            [self showProfileViewController];
+            break;
+
+        default:
+            break;
+    }
 }
-*/
+
+/* called when user shows or dismisses customize sheet. you can use the 'willEnd' to set up what appears underneath.
+ changed is YES if there was some change to which items are visible or which order they appear. If selectedItem is no longer visible,
+ it will be set to nil.
+ */
+
+//- (void)tabBar:(UITabBar *)tabBar willBeginCustomizingItems:(NSArray<UITabBarItem *> *)items __TVOS_PROHIBITED;                     // called before customize sheet is shown. items is current item list
+//- (void)tabBar:(UITabBar *)tabBar didBeginCustomizingItems:(NSArray<UITabBarItem *> *)items __TVOS_PROHIBITED;                      // called after customize sheet is shown. items is current item list
+//- (void)tabBar:(UITabBar *)tabBar willEndCustomizingItems:(NSArray<UITabBarItem *> *)items changed:(BOOL)changed __TVOS_PROHIBITED; // called before customize sheet is hidden. items is new item list
+//- (void)tabBar:(UITabBar *)tabBar didEndCustomizingItems:(NSArray<UITabBarItem *> *)items changed:(BOOL)changed __TVOS_PROHIBITED;  // called after customize sheet is hidden. items is new item list
+
+
+- (void) showRouteListViewController {
+    if (self.routeListViewController == nil) {
+        self.routeListViewController = [[RouteListViewController alloc] init];
+    }
+
+    [self presentController:self.routeListViewController];
+}
+
+- (void) showProfileViewController {
+    if (self.profileViewController == nil) {
+        self.profileViewController = [[ProfileViewController alloc] init];
+    }
+
+    [self presentController:self.profileViewController];
+}
+
+- (void) presentController:(UIViewController *)controller {
+    if (self.currentController == controller) {
+        return;
+    }
+
+    if (self.currentController) {
+        [self.currentController willMoveToParentViewController:nil];
+        [self.currentController.view removeFromSuperview];
+        [self.currentController didMoveToParentViewController:nil];
+    }
+
+    self.currentController = controller;
+
+    [self addChildViewController:self.currentController];
+    self.currentController.view.frame = self.contentView.frame;
+    [self.contentView addSubview:self.currentController.view];
+    [self.currentController didMoveToParentViewController:self];
+}
 
 @end

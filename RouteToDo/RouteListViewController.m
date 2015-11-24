@@ -10,6 +10,7 @@
 #import "HomeProfileViewController.h"
 #import "LargeRouteCollectionViewCell.h"
 #import "SmallRouteCollectionViewCell.h"
+#import "RouteCoverViewController.h"
 #import "Route.h"
 #import "UIImageView+AFNetworking.h"
 #import "mocks.h"
@@ -104,20 +105,20 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if(collectionView == self.topCollectionView){
-        [self.topCollectionView deselectItemAtIndexPath:indexPath animated:YES];
-        NSLog(@"did select top collection");
-        //TODO: Load corresponding view controller
-        //    TweetDetailViewController *vc = [[TweetDetailViewController alloc] init];
-        //    vc.tweet = self.tweets[indexPath.row];
-        //    [self.navigationController pushViewController:vc animated:YES];
+    [collectionView deselectItemAtIndexPath:indexPath animated:NO];
+
+    if (collectionView == self.topCollectionView){
+        LargeRouteCollectionViewCell *largeCell = (LargeRouteCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        
+        RouteCoverViewController *vc = [[RouteCoverViewController alloc] init];
+        vc.route = largeCell.route;
+        [self.navigationController pushViewController:vc animated:YES];
     } else if (collectionView == self.bottomCollectionView){
-        [self.bottomCollectionView deselectItemAtIndexPath:indexPath animated:YES];
-        NSLog(@"did select bottom collection");
-        //TODO: Load corresponding view controller        
-        //    TweetDetailViewController *vc = [[TweetDetailViewController alloc] init];
-        //    vc.tweet = self.tweets[indexPath.row];
-        //    [self.navigationController pushViewController:vc animated:YES];
+        SmallRouteCollectionViewCell *smallCell = (SmallRouteCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        
+        RouteCoverViewController *vc = [[RouteCoverViewController alloc] init];
+        vc.route = smallCell.route;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
