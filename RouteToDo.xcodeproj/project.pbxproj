@@ -84,10 +84,10 @@
 		603E92731BFFC52C003BE497 /* SmallRouteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallRouteCollectionViewCell.h; sourceTree = "<group>"; };
 		603E92741BFFC52C003BE497 /* SmallRouteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallRouteCollectionViewCell.m; sourceTree = "<group>"; };
 		603E92751BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallRouteCollectionViewCell.xib; sourceTree = "<group>"; };
-		603E92831C02C530003BE497 /* ArcPathRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArcPathRenderer.h; path = RouteToDo/ArcPathRenderer.h; sourceTree = "<group>"; };
-		603E92841C02C530003BE497 /* ArcPathRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArcPathRenderer.m; path = RouteToDo/ArcPathRenderer.m; sourceTree = "<group>"; };
-		603E92851C02C530003BE497 /* mocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mocks.h; path = RouteToDo/mocks.h; sourceTree = "<group>"; };
-		603E92861C02C530003BE497 /* mocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = mocks.m; path = RouteToDo/mocks.m; sourceTree = "<group>"; };
+		603E92831C02C530003BE497 /* ArcPathRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArcPathRenderer.h; sourceTree = "<group>"; };
+		603E92841C02C530003BE497 /* ArcPathRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArcPathRenderer.m; sourceTree = "<group>"; };
+		603E92851C02C530003BE497 /* mocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mocks.h; sourceTree = "<group>"; };
+		603E92861C02C530003BE497 /* mocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mocks.m; sourceTree = "<group>"; };
 		62275081C6139B331089E823 /* Pods-RouteToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteToDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RouteToDo/Pods-RouteToDo.debug.xcconfig"; sourceTree = "<group>"; };
 		7BB67DD9DDB26E0A0FECEA1B /* libPods-RouteToDo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RouteToDo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3046CC1BFFD7EB006C74EA /* RouteStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteStepViewController.xib; sourceTree = "<group>"; };
@@ -114,10 +114,6 @@
 		1849A3851BFECCAC002B9355 = {
 			isa = PBXGroup;
 			children = (
-				603E92831C02C530003BE497 /* ArcPathRenderer.h */,
-				603E92841C02C530003BE497 /* ArcPathRenderer.m */,
-				603E92851C02C530003BE497 /* mocks.h */,
-				603E92861C02C530003BE497 /* mocks.m */,
 				1849A3901BFECCAC002B9355 /* RouteToDo */,
 				1849A38F1BFECCAC002B9355 /* Products */,
 				E17CD451A7DE82D2485D6C4C /* Pods */,
@@ -155,6 +151,8 @@
 		1849A3911BFECCAC002B9355 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				603E92851C02C530003BE497 /* mocks.h */,
+				603E92861C02C530003BE497 /* mocks.m */,
 				1849A3921BFECCAC002B9355 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -238,6 +236,8 @@
 			children = (
 				CD3046D41BFFE39B006C74EA /* PlaceAnnotation.h */,
 				CD3046D51BFFE39B006C74EA /* PlaceAnnotation.m */,
+				603E92831C02C530003BE497 /* ArcPathRenderer.h */,
+				603E92841C02C530003BE497 /* ArcPathRenderer.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
