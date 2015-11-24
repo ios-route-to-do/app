@@ -14,9 +14,7 @@
 #import "ArcPathRenderer.h"
 #import "Place.h"
 
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-#define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
-
+#include "Utils.h"
 
 @interface RouteStepViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -67,7 +65,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     //Solid
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barTintColor = UIColorFromRGB(0x673AB7);
+    self.navigationController.navigationBar.barTintColor = UIColorFromRGB(kDarkPurpleColorHex);
     
     //Right Buttons
     UIBarButtonItem *btnShare = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share"] style:0 target:self action:@selector(onShareButtonTap)];
@@ -122,7 +120,7 @@
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
     if (self.routeLineRenderer == nil) {
         self.routeLineRenderer = [[ArcPathRenderer alloc] initWithPolyline:overlay];
-        self.routeLineRenderer.strokeColor = UIColorFromRGB(0x03A9F4);
+        self.routeLineRenderer.strokeColor = UIColorFromRGB(kLightBlue);
         self.routeLineRenderer.lineWidth = 2;
         self.routeLineRenderer.lineDashPattern = [NSArray arrayWithObjects:[NSNumber numberWithInt:10],
                                                   [NSNumber numberWithInt:10],nil];

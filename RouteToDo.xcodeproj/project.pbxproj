@@ -39,6 +39,7 @@
 		CD3046CF1BFFD7F3006C74EA /* RouteStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3046CE1BFFD7F3006C74EA /* RouteStepViewController.m */; };
 		CD3046D21BFFDB90006C74EA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3046D11BFFDB90006C74EA /* MapKit.framework */; };
 		CD3046D61BFFE39B006C74EA /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3046D51BFFE39B006C74EA /* PlaceAnnotation.m */; };
+		CDF69F6C1C050E6800C427D8 /* CustomTabControllerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF69F6B1C050E6800C427D8 /* CustomTabControllerItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		1849A39D1BFECCAC002B9355 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1849A3A01BFECCAC002B9355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1849A3A21BFECCAC002B9355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		188CA1091C0438D60088AFA6 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		18A4A8921BFED1AA0028C691 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		18A4A8931BFED1AA0028C691 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		18A4A8941BFED1AA0028C691 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -84,10 +86,10 @@
 		603E92731BFFC52C003BE497 /* SmallRouteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallRouteCollectionViewCell.h; sourceTree = "<group>"; };
 		603E92741BFFC52C003BE497 /* SmallRouteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallRouteCollectionViewCell.m; sourceTree = "<group>"; };
 		603E92751BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallRouteCollectionViewCell.xib; sourceTree = "<group>"; };
-		603E92831C02C530003BE497 /* ArcPathRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArcPathRenderer.h; path = RouteToDo/ArcPathRenderer.h; sourceTree = "<group>"; };
-		603E92841C02C530003BE497 /* ArcPathRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArcPathRenderer.m; path = RouteToDo/ArcPathRenderer.m; sourceTree = "<group>"; };
-		603E92851C02C530003BE497 /* mocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mocks.h; path = RouteToDo/mocks.h; sourceTree = "<group>"; };
-		603E92861C02C530003BE497 /* mocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = mocks.m; path = RouteToDo/mocks.m; sourceTree = "<group>"; };
+		603E92831C02C530003BE497 /* ArcPathRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArcPathRenderer.h; sourceTree = "<group>"; };
+		603E92841C02C530003BE497 /* ArcPathRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArcPathRenderer.m; sourceTree = "<group>"; };
+		603E92851C02C530003BE497 /* mocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mocks.h; sourceTree = "<group>"; };
+		603E92861C02C530003BE497 /* mocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mocks.m; sourceTree = "<group>"; };
 		62275081C6139B331089E823 /* Pods-RouteToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteToDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RouteToDo/Pods-RouteToDo.debug.xcconfig"; sourceTree = "<group>"; };
 		7BB67DD9DDB26E0A0FECEA1B /* libPods-RouteToDo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RouteToDo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3046CC1BFFD7EB006C74EA /* RouteStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteStepViewController.xib; sourceTree = "<group>"; };
@@ -96,6 +98,8 @@
 		CD3046D11BFFDB90006C74EA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CD3046D41BFFE39B006C74EA /* PlaceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceAnnotation.h; sourceTree = "<group>"; };
 		CD3046D51BFFE39B006C74EA /* PlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceAnnotation.m; sourceTree = "<group>"; };
+		CDF69F6A1C050E6800C427D8 /* CustomTabControllerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabControllerItem.h; sourceTree = "<group>"; };
+		CDF69F6B1C050E6800C427D8 /* CustomTabControllerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabControllerItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +118,6 @@
 		1849A3851BFECCAC002B9355 = {
 			isa = PBXGroup;
 			children = (
-				603E92831C02C530003BE497 /* ArcPathRenderer.h */,
-				603E92841C02C530003BE497 /* ArcPathRenderer.m */,
-				603E92851C02C530003BE497 /* mocks.h */,
-				603E92861C02C530003BE497 /* mocks.m */,
 				1849A3901BFECCAC002B9355 /* RouteToDo */,
 				1849A38F1BFECCAC002B9355 /* Products */,
 				E17CD451A7DE82D2485D6C4C /* Pods */,
@@ -155,7 +155,10 @@
 		1849A3911BFECCAC002B9355 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				603E92851C02C530003BE497 /* mocks.h */,
+				603E92861C02C530003BE497 /* mocks.m */,
 				1849A3921BFECCAC002B9355 /* main.m */,
+				188CA1091C0438D60088AFA6 /* Utils.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 		18A4A88D1BFECE560028C691 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CDF69F691C050E4900C427D8 /* Support Files */,
 				18A4A8921BFED1AA0028C691 /* LoginViewController.h */,
 				18A4A8931BFED1AA0028C691 /* LoginViewController.m */,
 				18A4A8941BFED1AA0028C691 /* LoginViewController.xib */,
@@ -238,8 +242,19 @@
 			children = (
 				CD3046D41BFFE39B006C74EA /* PlaceAnnotation.h */,
 				CD3046D51BFFE39B006C74EA /* PlaceAnnotation.m */,
+				603E92831C02C530003BE497 /* ArcPathRenderer.h */,
+				603E92841C02C530003BE497 /* ArcPathRenderer.m */,
 			);
 			name = Map;
+			sourceTree = "<group>";
+		};
+		CDF69F691C050E4900C427D8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CDF69F6A1C050E6800C427D8 /* CustomTabControllerItem.h */,
+				CDF69F6B1C050E6800C427D8 /* CustomTabControllerItem.m */,
+			);
+			name = "Support Files";
 			sourceTree = "<group>";
 		};
 		E17CD451A7DE82D2485D6C4C /* Pods */ = {
@@ -394,6 +409,7 @@
 				1849A3931BFECCAC002B9355 /* main.m in Sources */,
 				CD3046CF1BFFD7F3006C74EA /* RouteStepViewController.m in Sources */,
 				CD3046D61BFFE39B006C74EA /* PlaceAnnotation.m in Sources */,
+				CDF69F6C1C050E6800C427D8 /* CustomTabControllerItem.m in Sources */,
 				248B13751BFEE3ED00184AD5 /* Place.m in Sources */,
 				18A4A89A1BFED3340028C691 /* RouteCoverViewController.m in Sources */,
 				603E926C1BFEEB80003BE497 /* ProfileViewController.m in Sources */,

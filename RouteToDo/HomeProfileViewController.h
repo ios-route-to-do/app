@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomTabControllerItem.h"
 
 @interface HomeProfileViewController : UIViewController
+
+- (instancetype) initWithItems:(NSArray<CustomTabControllerItem *> *)items;
 
 @end

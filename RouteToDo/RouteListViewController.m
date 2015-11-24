@@ -10,9 +10,13 @@
 #import "HomeProfileViewController.h"
 #import "LargeRouteCollectionViewCell.h"
 #import "SmallRouteCollectionViewCell.h"
+#import "RouteCoverViewController.h"
 #import "Route.h"
 #import "UIImageView+AFNetworking.h"
-#import "mocks.h"
+
+#include "Utils.h"
+#include "mocks.h"
+
 
 @interface RouteListViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *topCollectionView;
@@ -53,18 +57,29 @@
     self.bottomCollectionView.delegate = self;
     self.topCollectionView.dataSource = self;
     self.bottomCollectionView.dataSource = self;
-    
-    // Do any additional setup after loading the view from its nib.
-    //get data
+
     [self loadRoutesWithCompletionHandler:^{
         NSLog(@"loaded initial tweets");
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    //Solid
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = UIColorFromRGB(kDarkPurpleColorHex);
+    
+    //Right Buttons
+    UIImage *searchImage = [[UIImage imageNamed:@"search"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:searchImage style:0 target:self action:@selector(onSearchButtonTap)];
+    UIImage *mapImage = [[UIImage imageNamed:@"location"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:mapImage style:0 target:self action:@selector(onMapButtonTap)];
+    UIImage *newRouteImage = [[UIImage imageNamed:@"new"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIBarButtonItem *newRouteButton = [[UIBarButtonItem alloc] initWithImage:newRouteImage style:0 target:self action:@selector(onNewRouteButtonTap)];
+    
+    [self.parentViewController.navigationItem setRightBarButtonItems:@[newRouteButton, mapButton, searchButton]];
+    [self.topCollectionView reloadData];
 }
+
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -104,22 +119,36 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if(collectionView == self.topCollectionView){
-        [self.topCollectionView deselectItemAtIndexPath:indexPath animated:YES];
-        NSLog(@"did select top collection");
-        //TODO: Load corresponding view controller
-        //    TweetDetailViewController *vc = [[TweetDetailViewController alloc] init];
-        //    vc.tweet = self.tweets[indexPath.row];
-        //    [self.navigationController pushViewController:vc animated:YES];
+    [collectionView deselectItemAtIndexPath:indexPath animated:NO];
+
+    if (collectionView == self.topCollectionView){
+        LargeRouteCollectionViewCell *largeCell = (LargeRouteCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        
+        RouteCoverViewController *vc = [[RouteCoverViewController alloc] init];
+        vc.route = largeCell.route;
+        [self.navigationController pushViewController:vc animated:YES];
     } else if (collectionView == self.bottomCollectionView){
-        [self.bottomCollectionView deselectItemAtIndexPath:indexPath animated:YES];
-        NSLog(@"did select bottom collection");
-        //TODO: Load corresponding view controller        
-        //    TweetDetailViewController *vc = [[TweetDetailViewController alloc] init];
-        //    vc.tweet = self.tweets[indexPath.row];
-        //    [self.navigationController pushViewController:vc animated:YES];
+        SmallRouteCollectionViewCell *smallCell = (SmallRouteCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        
+        RouteCoverViewController *vc = [[RouteCoverViewController alloc] init];
+        vc.route = smallCell.route;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
+- (void) onSearchButtonTap {
+    NSLog(@"search button tapped");
+}
+
+- (void) onMapButtonTap {
+    NSLog(@"map button tapped");
+}
+
+- (void) onNewRouteButtonTap {
+    NSLog(@"new route button tapped");
+}
+
+
 
 - (void)loadRoutesWithCompletionHandler:(void (^)(void))completionHandler {
 
