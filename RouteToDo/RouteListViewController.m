@@ -11,13 +11,16 @@
 #import "LargeRouteCollectionViewCell.h"
 #import "SmallRouteCollectionViewCell.h"
 #import "Route.h"
+#import "UIImageView+AFNetworking.h"
+#import "mocks.h"
 
 @interface RouteListViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *topCollectionView;
 @property (strong, nonatomic) IBOutlet UICollectionView *bottomCollectionView;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
-@property (nonatomic, strong) NSMutableArray *trendingRoutesViewArray;
-@property (nonatomic, strong) NSMutableArray *recentRoutesViewArray;
+@property (nonatomic, strong) NSArray *trendingRoutesViewArray;
+@property (nonatomic, strong) NSArray *recentRoutesViewArray;
 
 @end
 
@@ -82,11 +85,17 @@
         LargeRouteCollectionViewCell *largeCell = [[LargeRouteCollectionViewCell alloc] init];
         largeCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"largeRouteCollectionViewCell" forIndexPath:indexPath];
         largeCell.route = (Route *)self.trendingRoutesViewArray[indexPath.row];
+        largeCell.layer.cornerRadius = 5;
+        largeCell.layer.borderWidth = 1;
+        largeCell.layer.borderColor = [[UIColor whiteColor] CGColor];
         return largeCell;
     } else if (collectionView == self.bottomCollectionView){
          SmallRouteCollectionViewCell *smallCell = [[SmallRouteCollectionViewCell alloc] init];
         smallCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"smallRouteCollectionViewCell" forIndexPath:indexPath];
-//        cell.route = (Route *)self.recentRoutesViewArray[indexPath.row];
+        smallCell.route = (Route *)self.recentRoutesViewArray[indexPath.row];
+        smallCell.layer.cornerRadius = 5;
+        smallCell.layer.borderWidth = 1;
+        smallCell.layer.borderColor = [[UIColor whiteColor] CGColor];
         return smallCell;
     }
     UICollectionViewCell *cell = [[UICollectionViewCell alloc] init];
@@ -98,12 +107,14 @@
     if(collectionView == self.topCollectionView){
         [self.topCollectionView deselectItemAtIndexPath:indexPath animated:YES];
         NSLog(@"did select top collection");
+        //TODO: Load corresponding view controller
         //    TweetDetailViewController *vc = [[TweetDetailViewController alloc] init];
         //    vc.tweet = self.tweets[indexPath.row];
         //    [self.navigationController pushViewController:vc animated:YES];
     } else if (collectionView == self.bottomCollectionView){
         [self.bottomCollectionView deselectItemAtIndexPath:indexPath animated:YES];
         NSLog(@"did select bottom collection");
+        //TODO: Load corresponding view controller        
         //    TweetDetailViewController *vc = [[TweetDetailViewController alloc] init];
         //    vc.tweet = self.tweets[indexPath.row];
         //    [self.navigationController pushViewController:vc animated:YES];
@@ -111,38 +122,31 @@
 }
 
 - (void)loadRoutesWithCompletionHandler:(void (^)(void))completionHandler {
+
+    //TODO: get routes from Parser Client
+    //    [[TwitterClient sharedInstance] homeTimelineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
+    //            self.tweets = tweets;
+    //            [self.tableView reloadData];
+    //            completionHandler();
+    //        }];
     
-    self.trendingRoutesViewArray = [NSMutableArray array];
-    self.recentRoutesViewArray = [NSMutableArray array];
-    Route *templateRoute = [[Route alloc] init];
-    templateRoute.title = @"The beer Route !";
-    templateRoute.location = @"San Francisco";
-    templateRoute.author = @"Matigol";
-    templateRoute.usersCount = [NSNumber numberWithInt:300];
-//    templateRoute.imageUrl = [NSURL URLWithString:@"https://test.com"];
-  
-    for(int i = 0; i < 10; i++)
-    {
-        [self.trendingRoutesViewArray addObject:templateRoute];
-    }
+    self.trendingRoutesViewArray = mockRouteWithouthPlaces1Array();
+    self.recentRoutesViewArray = mockRouteWithouthPlaces2Array();
     
-    Route *templateSmallRoute = [[Route alloc] init];
-    templateSmallRoute.title = @"All night long !";
-    templateSmallRoute.location = @"Oakland";
-    templateSmallRoute.author = @"party_boy";
-    templateSmallRoute.usersCount = [NSNumber numberWithInt:450];
-//    templateSmallRoute.imageUrl = [NSURL URLWithString:@"https://test.com"];
     
-    for(int i = 0; i < 12; i++)
-    {
-        [self.recentRoutesViewArray addObject:templateSmallRoute];
-    }
+    [self.backgroundImageView setImageWithURL:[NSURL URLWithString:@"http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg"]];
     
-//    [[TwitterClient sharedInstance] homeTimelineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
-//            self.tweets = tweets;
-//            [self.tableView reloadData];
-//            completionHandler();
-//        }];
+//    [self.backgroundImageView setImageWithURL:[NSURL URLWithString:@"https://backoftheferry.files.wordpress.com/2014/10/sf-pi-bar.jpg"]];
+    
+    self.backgroundImageView.backgroundColor = [UIColor clearColor];
+    
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    blurEffectView.frame = self.backgroundImageView.bounds;
+    blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    [self.backgroundImageView addSubview:blurEffectView];
+    
     [self.topCollectionView reloadData];
     [self.bottomCollectionView reloadData];
 }

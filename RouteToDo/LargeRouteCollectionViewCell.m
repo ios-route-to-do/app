@@ -7,7 +7,7 @@
 //
 
 #import "LargeRouteCollectionViewCell.h"
-//#import <UIImageView+AFNetworking.h>
+#import "UIImageView+AFNetworking.h"
 
 @interface LargeRouteCollectionViewCell()
 
@@ -38,6 +38,7 @@
     self.routeAuthorLabel.text = [NSString stringWithFormat:@"• By %@", self.route.author];
     self.routeUsersLabel.text = [NSString stringWithFormat:@"+%@", self.route.usersCount];
     self.routeRatingLable.text = @"• 5.0 rating";
+    [self.backgroundImageView setImageWithURL:self.route.imageUrl];
 }
 - (IBAction)onLikeButton:(id)sender {
     NSLog(@"like route");

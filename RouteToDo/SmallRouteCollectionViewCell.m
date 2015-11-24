@@ -7,6 +7,7 @@
 //
 
 #import "SmallRouteCollectionViewCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface SmallRouteCollectionViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
@@ -29,6 +30,7 @@
 - (void)reloadData {
     self.routeTitleLabel.text = self.route.title;
     self.routeLocationLabel.text = self.route.location;
+    [self.backgroundImageView setImageWithURL:self.route.imageUrl];
 }
 
 @end

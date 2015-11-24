@@ -32,6 +32,8 @@
 		603E92761BFFC52C003BE497 /* SmallRouteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 603E92741BFFC52C003BE497 /* SmallRouteCollectionViewCell.m */; };
 		603E92771BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603E92751BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib */; };
 		603E927C1C014100003BE497 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849A3951BFECCAC002B9355 /* AppDelegate.m */; };
+		603E92871C02C530003BE497 /* ArcPathRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 603E92841C02C530003BE497 /* ArcPathRenderer.m */; };
+		603E92881C02C530003BE497 /* mocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 603E92861C02C530003BE497 /* mocks.m */; };
 		6D485742D6EEDCB3FF9882F5 /* libPods-RouteToDo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB67DD9DDB26E0A0FECEA1B /* libPods-RouteToDo.a */; };
 		CD3046CD1BFFD7EB006C74EA /* RouteStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD3046CC1BFFD7EB006C74EA /* RouteStepViewController.xib */; };
 		CD3046CF1BFFD7F3006C74EA /* RouteStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3046CE1BFFD7F3006C74EA /* RouteStepViewController.m */; };
@@ -82,6 +84,10 @@
 		603E92731BFFC52C003BE497 /* SmallRouteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallRouteCollectionViewCell.h; sourceTree = "<group>"; };
 		603E92741BFFC52C003BE497 /* SmallRouteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallRouteCollectionViewCell.m; sourceTree = "<group>"; };
 		603E92751BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallRouteCollectionViewCell.xib; sourceTree = "<group>"; };
+		603E92831C02C530003BE497 /* ArcPathRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArcPathRenderer.h; path = RouteToDo/ArcPathRenderer.h; sourceTree = "<group>"; };
+		603E92841C02C530003BE497 /* ArcPathRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArcPathRenderer.m; path = RouteToDo/ArcPathRenderer.m; sourceTree = "<group>"; };
+		603E92851C02C530003BE497 /* mocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mocks.h; path = RouteToDo/mocks.h; sourceTree = "<group>"; };
+		603E92861C02C530003BE497 /* mocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = mocks.m; path = RouteToDo/mocks.m; sourceTree = "<group>"; };
 		62275081C6139B331089E823 /* Pods-RouteToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteToDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RouteToDo/Pods-RouteToDo.debug.xcconfig"; sourceTree = "<group>"; };
 		7BB67DD9DDB26E0A0FECEA1B /* libPods-RouteToDo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RouteToDo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3046CC1BFFD7EB006C74EA /* RouteStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteStepViewController.xib; sourceTree = "<group>"; };
@@ -108,6 +114,10 @@
 		1849A3851BFECCAC002B9355 = {
 			isa = PBXGroup;
 			children = (
+				603E92831C02C530003BE497 /* ArcPathRenderer.h */,
+				603E92841C02C530003BE497 /* ArcPathRenderer.m */,
+				603E92851C02C530003BE497 /* mocks.h */,
+				603E92861C02C530003BE497 /* mocks.m */,
 				1849A3901BFECCAC002B9355 /* RouteToDo */,
 				1849A38F1BFECCAC002B9355 /* Products */,
 				E17CD451A7DE82D2485D6C4C /* Pods */,
@@ -376,7 +386,9 @@
 				603E92711BFF09CD003BE497 /* LargeRouteCollectionViewCell.m in Sources */,
 				248B13721BFEE31000184AD5 /* Route.m in Sources */,
 				248B13811BFEEAD100184AD5 /* ParseRepository.m in Sources */,
+				603E92881C02C530003BE497 /* mocks.m in Sources */,
 				248B13781BFEE46000184AD5 /* User.m in Sources */,
+				603E92871C02C530003BE497 /* ArcPathRenderer.m in Sources */,
 				248B137B1BFEE4FD00184AD5 /* RouteCategory.m in Sources */,
 				248B137E1BFEE5E900184AD5 /* Location.m in Sources */,
 				1849A3931BFECCAC002B9355 /* main.m in Sources */,
