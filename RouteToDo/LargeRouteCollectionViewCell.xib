@@ -16,7 +16,7 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PW3-pF-HUI">
                         <rect key="frame" x="0.0" y="0.0" width="241" height="190"/>
                     </imageView>
-                    <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0n-GD-GOi">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0n-GD-GOi">
                         <rect key="frame" x="0.0" y="114" width="241" height="76"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+300 users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZk-Y6-Z6m">
@@ -50,7 +50,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="SZk-Y6-Z6m" firstAttribute="leading" secondItem="K0n-GD-GOi" secondAttribute="leading" constant="8" id="8w9-gy-boI"/>
                             <constraint firstItem="BWR-a3-BGJ" firstAttribute="centerY" secondItem="AFn-Hc-8XH" secondAttribute="centerY" id="DJz-eR-gay"/>
