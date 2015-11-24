@@ -14,4 +14,6 @@
 
 Route *mockRoute1();
 
+NSArray *mockRouteWithouthPlaces1Array();
+NSArray *mockRouteWithouthPlaces2Array();
 #endif /* mocks_h */

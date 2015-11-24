@@ -50,3 +50,47 @@ Route *mockRoute1() {
     
     return route;
 }
+
+NSArray *mockRouteWithouthPlaces1Array() {
+    static Route *templateRoute = nil;
+    
+    if (!templateRoute) {
+        templateRoute = [[Route alloc] init];
+        templateRoute.title = @"The beer Route !";
+        templateRoute.location = @"San Francisco";
+        templateRoute.author = @"Matigol";
+        templateRoute.usersCount = [NSNumber numberWithInt:300];
+        templateRoute.imageUrl = [NSURL URLWithString:@"http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg"];
+
+    }
+    
+    NSMutableArray *templateRoutesArray = [NSMutableArray array];
+    for(int i = 0; i < 12; i++)
+    {
+        [templateRoutesArray addObject:templateRoute];
+    }
+    
+    return templateRoutesArray;
+}
+
+NSArray *mockRouteWithouthPlaces2Array() {
+    static Route *templateRoute = nil;
+    
+    if (!templateRoute) {
+        templateRoute = [[Route alloc] init];        
+        templateRoute.title = @"All night long !";
+        templateRoute.location = @"Oakland";
+        templateRoute.author = @"party_boy";
+        templateRoute.usersCount = [NSNumber numberWithInt:450];
+        templateRoute.imageUrl = [NSURL URLWithString:@"https://backoftheferry.files.wordpress.com/2014/10/sf-pi-bar.jpg"];
+    }
+
+    NSMutableArray *templateRoutesArray = [NSMutableArray array];
+    for(int i = 0; i < 12; i++)
+    {
+        [templateRoutesArray addObject:templateRoute];
+    }
+    
+    return templateRoutesArray;
+
+}
