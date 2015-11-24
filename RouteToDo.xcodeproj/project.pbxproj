@@ -39,6 +39,7 @@
 		CD3046CF1BFFD7F3006C74EA /* RouteStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3046CE1BFFD7F3006C74EA /* RouteStepViewController.m */; };
 		CD3046D21BFFDB90006C74EA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3046D11BFFDB90006C74EA /* MapKit.framework */; };
 		CD3046D61BFFE39B006C74EA /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3046D51BFFE39B006C74EA /* PlaceAnnotation.m */; };
+		CDF69F6C1C050E6800C427D8 /* CustomTabControllerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF69F6B1C050E6800C427D8 /* CustomTabControllerItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,8 @@
 		CD3046D11BFFDB90006C74EA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CD3046D41BFFE39B006C74EA /* PlaceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceAnnotation.h; sourceTree = "<group>"; };
 		CD3046D51BFFE39B006C74EA /* PlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceAnnotation.m; sourceTree = "<group>"; };
+		CDF69F6A1C050E6800C427D8 /* CustomTabControllerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabControllerItem.h; sourceTree = "<group>"; };
+		CDF69F6B1C050E6800C427D8 /* CustomTabControllerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabControllerItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,7 @@
 		18A4A88D1BFECE560028C691 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CDF69F691C050E4900C427D8 /* Support Files */,
 				18A4A8921BFED1AA0028C691 /* LoginViewController.h */,
 				18A4A8931BFED1AA0028C691 /* LoginViewController.m */,
 				18A4A8941BFED1AA0028C691 /* LoginViewController.xib */,
@@ -242,6 +246,15 @@
 				603E92841C02C530003BE497 /* ArcPathRenderer.m */,
 			);
 			name = Map;
+			sourceTree = "<group>";
+		};
+		CDF69F691C050E4900C427D8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CDF69F6A1C050E6800C427D8 /* CustomTabControllerItem.h */,
+				CDF69F6B1C050E6800C427D8 /* CustomTabControllerItem.m */,
+			);
+			name = "Support Files";
 			sourceTree = "<group>";
 		};
 		E17CD451A7DE82D2485D6C4C /* Pods */ = {
@@ -396,6 +409,7 @@
 				1849A3931BFECCAC002B9355 /* main.m in Sources */,
 				CD3046CF1BFFD7F3006C74EA /* RouteStepViewController.m in Sources */,
 				CD3046D61BFFE39B006C74EA /* PlaceAnnotation.m in Sources */,
+				CDF69F6C1C050E6800C427D8 /* CustomTabControllerItem.m in Sources */,
 				248B13751BFEE3ED00184AD5 /* Place.m in Sources */,
 				18A4A89A1BFED3340028C691 /* RouteCoverViewController.m in Sources */,
 				603E926C1BFEEB80003BE497 /* ProfileViewController.m in Sources */,

@@ -22,14 +22,17 @@
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTK-yo-H2l">
+                <tabBar contentMode="scaleToFill" barStyle="black" translucent="NO" itemPositioning="centered" translatesAutoresizingMaskIntoConstraints="NO" id="gTK-yo-H2l">
                     <rect key="frame" x="0.0" y="519" width="320" height="49"/>
                     <animations/>
                     <color key="backgroundColor" red="0.4039215686" green="0.2274509804" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
-                        <tabBarItem title="Home" id="UBi-HO-VUD"/>
-                        <tabBarItem title="Profile" id="kai-HX-PSw"/>
+                        <tabBarItem title="Home" image="home" id="UBi-HO-VUD"/>
+                        <tabBarItem title="Profile" image="profile" id="kai-HX-PSw"/>
                     </items>
+                    <color key="tintColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="barTintColor" red="0.31764705879999999" green="0.1764705882" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tabBar>
             </subviews>
             <animations/>
@@ -46,4 +49,8 @@
             <point key="canvasLocation" x="413" y="386"/>
         </view>
     </objects>
+    <resources>
+        <image name="home" width="24" height="24"/>
+        <image name="profile" width="24" height="24"/>
+    </resources>
 </document>

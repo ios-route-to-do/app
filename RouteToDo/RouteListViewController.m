@@ -73,7 +73,7 @@
     UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:searchImage style:0 target:self action:@selector(onSearchButtonTap)];
     UIImage *mapImage = [[UIImage imageNamed:@"location"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:mapImage style:0 target:self action:@selector(onMapButtonTap)];
-    UIImage *newRouteImage = [[UIImage imageNamed:@"location"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *newRouteImage = [[UIImage imageNamed:@"new"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *newRouteButton = [[UIBarButtonItem alloc] initWithImage:newRouteImage style:0 target:self action:@selector(onNewRouteButtonTap)];
     
     [self.parentViewController.navigationItem setRightBarButtonItems:@[newRouteButton, mapButton, searchButton]];

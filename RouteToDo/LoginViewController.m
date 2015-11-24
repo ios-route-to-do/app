@@ -12,6 +12,7 @@
 #import "RouteListViewController.h"
 #import "ProfileViewController.h"
 #import "RouteCoverViewController.h"
+#import "CustomTabControllerItem.h"
 
 #import "mocks.h"
 
@@ -40,7 +41,15 @@
     [self presentViewController:nav animated:YES completion:nil];
 }
 - (IBAction)onRouteListClick:(id)sender {
-    HomeProfileViewController *vc = [[HomeProfileViewController alloc] init];
+    RouteListViewController *homeController = [[RouteListViewController alloc] init];
+    UIImage *homeImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    CustomTabControllerItem *homeItem = [CustomTabControllerItem itemWithTitle:@"Home" image:homeImage andController:homeController];
+
+    ProfileViewController *profileController = [[ProfileViewController alloc] init];
+    UIImage *profileImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Home" image:profileImage andController:profileController];
+    
+    HomeProfileViewController *vc = [[HomeProfileViewController alloc] initWithItems:@[homeItem, profileItem]];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
 
     [self presentViewController:nav animated:YES completion:nil];
