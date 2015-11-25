@@ -1,6 +1,0 @@
-framework module Pods_RouteToDo {
-  umbrella header "Pods-RouteToDo-umbrella.h"
-
-  export *
-  module * { export * }
-}
