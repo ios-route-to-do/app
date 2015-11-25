@@ -164,7 +164,9 @@
         
         [self.navigationController pushViewController:self.nextStepController animated:YES];
     } else {
-        UIView *ratingView = [[RouteRatingView alloc] initWithFrame:CGRectMake(0, 0, 300, 200)];
+        RouteRatingView *ratingView = [[RouteRatingView alloc] initWithFrame:CGRectMake(0, 0, 300, 200)];
+        ratingView.route = self.route;
+
         self.ratingPopupController = [[CNPPopupController alloc] initWithContents:@[ratingView]];
         self.ratingPopupController.theme = [CNPPopupTheme defaultTheme];
         self.ratingPopupController.theme.popupStyle = CNPPopupStyleCentered;

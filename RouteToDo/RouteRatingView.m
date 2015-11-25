@@ -7,11 +7,15 @@
 //
 
 #import "RouteRatingView.h"
-
+#import "HCSStarRatingView.h"
 
 @interface RouteRatingView()
 
 @property (nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
+@property (weak, nonatomic) IBOutlet HCSStarRatingView *ratingControl;
 
 @end
 
@@ -35,11 +39,27 @@
     return self;
 }
 
+- (void)setRoute:(Route *)route {
+    _route = route;
+
+    self.titleLabel.text = route.title;
+    self.locationLabel.text = route.location;
+    self.authorLabel.text = [NSString stringWithFormat:@"• By %@", route.author];
+}
+
 - (void) initSubviews {
     UINib *nib = [UINib nibWithNibName:@"RouteRatingView" bundle:nil];
     [nib instantiateWithOwner:self options:nil];
     self.contentView.frame = self.bounds;
     [self addSubview:self.contentView];
+}
+
+- (IBAction)onCancelTap:(id)sender {
+    [self.delegate didTapCancel];
+}
+
+- (IBAction)onSubmitTap:(id)sender {
+    [self.delegate didTapSubmitWithRating:@(self.ratingControl.value)];
 }
 
 @end

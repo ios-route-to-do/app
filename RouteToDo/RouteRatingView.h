@@ -7,13 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Route.h"
 
-IB_DESIGNABLE
+@class RouteRatingView;
+
+@protocol RouteRatingControlDelegate <NSObject>
+
+- (void)didTapCancel;
+- (void)didTapSubmitWithRating:(NSNumber *) rating;
+
+@end
+
 @interface RouteRatingView : UIView
 
-@property (weak, nonatomic) IBOutlet UILabel *routeTitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *routeLocationLabel;
-@property (weak, nonatomic) IBOutlet UILabel *routeAuthorLabel;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *actionsControl;
+@property (nonatomic) Route *route;
+@property (weak, nonatomic) id<RouteRatingControlDelegate> delegate;
 
 @end
