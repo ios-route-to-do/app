@@ -12,6 +12,7 @@
 #import "RouteListViewController.h"
 #import "ProfileViewController.h"
 #import "RouteCoverViewController.h"
+#import "CustomTabControllerItem.h"
 
 #import "mocks.h"
 
@@ -40,24 +41,32 @@
     [self presentViewController:nav animated:YES completion:nil];
 }
 - (IBAction)onRouteListClick:(id)sender {
-//    HomeProfileViewController *vc = [[HomeProfileViewController alloc] init];
-//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-//    
-//    [self presentViewController:nav animated:YES completion:nil];
+    RouteListViewController *homeController = [[RouteListViewController alloc] init];
+    UIImage *homeImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    CustomTabControllerItem *homeItem = [CustomTabControllerItem itemWithTitle:@"Home" image:homeImage andController:homeController];
 
-    NSLog(@"on Route List click");
-    RouteListViewController *routeListVC = [[RouteListViewController alloc] init];
-    UINavigationController* routeListNVC = [[UINavigationController alloc] initWithRootViewController:routeListVC];
-    routeListNVC.tabBarItem.title = @"Route List";
-
-    ProfileViewController *profileVC = [[ProfileViewController alloc] init];
-    UINavigationController *profileNVC = [[UINavigationController alloc] initWithRootViewController:profileVC];
-    profileNVC.tabBarItem.title = @"Profile View";
+    ProfileViewController *profileController = [[ProfileViewController alloc] init];
+    UIImage *profileImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Home" image:profileImage andController:profileController];
     
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[routeListNVC, profileNVC];
+    HomeProfileViewController *vc = [[HomeProfileViewController alloc] initWithItems:@[homeItem, profileItem]];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
 
-    [self presentViewController:tabBarController animated:YES completion:nil];
+    [self presentViewController:nav animated:YES completion:nil];
+//
+//    NSLog(@"on Route List click");
+//    RouteListViewController *routeListVC = [[RouteListViewController alloc] init];
+//    UINavigationController* routeListNVC = [[UINavigationController alloc] initWithRootViewController:routeListVC];
+//    routeListNVC.tabBarItem.title = @"Route List";
+//
+//    ProfileViewController *profileVC = [[ProfileViewController alloc] init];
+//    UINavigationController *profileNVC = [[UINavigationController alloc] initWithRootViewController:profileVC];
+//    profileNVC.tabBarItem.title = @"Profile View";
+//    
+//    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+//    tabBarController.viewControllers = @[routeListNVC, profileNVC];
+//
+//    [self presentViewController:tabBarController animated:YES completion:nil];
     
 }
 

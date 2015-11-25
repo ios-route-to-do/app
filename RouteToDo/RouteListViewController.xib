@@ -19,30 +19,25 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="baN-ED-SFO">
-                    <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <animations/>
                 </imageView>
-                <view alpha="0.29999999999999999" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MLO-Z8-Mzz">
-                    <rect key="frame" x="0.0" y="65" width="320" height="503"/>
-                    <animations/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's New" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1J-sd-ATb">
-                    <rect key="frame" x="8" y="312" width="81.5" height="17.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="What's New" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1J-sd-ATb">
+                    <rect key="frame" x="8" y="247" width="82" height="18"/>
                     <animations/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whV-6S-3Gx">
-                    <rect key="frame" x="8" y="73" width="58" height="17.5"/>
+                    <rect key="frame" x="8" y="8" width="58" height="18"/>
                     <animations/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ACz-IO-GX7">
-                    <rect key="frame" x="0.0" y="98" width="320" height="206"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ACz-IO-GX7">
+                    <rect key="frame" x="0.0" y="33" width="320" height="206"/>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -55,8 +50,8 @@
                         <inset key="sectionInset" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="PAA-ux-7Gb">
-                    <rect key="frame" x="8" y="338" width="304" height="230"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="PAA-ux-7Gb">
+                    <rect key="frame" x="8" y="273" width="304" height="295"/>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="czU-hA-FLk">
@@ -76,17 +71,16 @@
                 <constraint firstAttribute="trailing" secondItem="baN-ED-SFO" secondAttribute="trailing" id="EOw-1j-dkG"/>
                 <constraint firstAttribute="bottom" secondItem="baN-ED-SFO" secondAttribute="bottom" id="Oy5-tw-akv"/>
                 <constraint firstItem="PAA-ux-7Gb" firstAttribute="top" secondItem="C1J-sd-ATb" secondAttribute="bottom" constant="8" id="UCz-3h-HZ3"/>
-                <constraint firstItem="whV-6S-3Gx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="73" id="YAB-2H-F1g"/>
+                <constraint firstItem="whV-6S-3Gx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="YAB-2H-F1g"/>
                 <constraint firstItem="C1J-sd-ATb" firstAttribute="top" secondItem="ACz-IO-GX7" secondAttribute="bottom" constant="8" id="az2-Qc-8vw"/>
                 <constraint firstItem="C1J-sd-ATb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="bnO-xD-LUu"/>
                 <constraint firstItem="whV-6S-3Gx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="eHR-3T-nia"/>
                 <constraint firstItem="PAA-ux-7Gb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="eKX-cJ-7uC"/>
                 <constraint firstAttribute="bottom" secondItem="PAA-ux-7Gb" secondAttribute="bottom" id="ja4-yH-rXr"/>
                 <constraint firstItem="ACz-IO-GX7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tVn-5W-MR1"/>
-                <constraint firstItem="baN-ED-SFO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="wbT-oZ-mx6"/>
+                <constraint firstItem="baN-ED-SFO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wbT-oZ-mx6"/>
                 <constraint firstItem="ACz-IO-GX7" firstAttribute="top" secondItem="whV-6S-3Gx" secondAttribute="bottom" constant="8" id="yPt-Tn-Pqt"/>
             </constraints>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <point key="canvasLocation" x="305" y="386"/>
         </view>
     </objects>

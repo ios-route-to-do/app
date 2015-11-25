@@ -32,9 +32,15 @@
     CGFloat b = (point2.y - point1.y) / (point2.x - point1.x),
     i = (point1.x + point2.x) / 2,
     j = (point1.y + point2.y) / 2,
-    c = j + i/b,
-    l = MIN(point1.y, point2.y),
-    k = b*(c-l);
+    c = j + i/b, l, k;
+    
+    if (fabs(b) < 1) {
+        l = MIN(point1.y, point2.y);
+        k = b*(c-l);
+    } else {
+        k = MAX(point1.x, point2.x);
+        l = c - k/b;
+    }
     
     CGPathMoveToPoint(path, NULL, point1.x, point1.y);
     CGPathAddQuadCurveToPoint(path, NULL, k, l, point2.x, point2.y);

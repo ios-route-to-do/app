@@ -75,14 +75,13 @@
                             <constraint firstItem="MrJ-H3-ERf" firstAttribute="leading" secondItem="SZk-Y6-Z6m" secondAttribute="trailing" constant="8" id="o4C-3v-f5O"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEC-NZ-3lD">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEC-NZ-3lD">
                         <rect key="frame" x="203" y="8" width="30" height="30"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="2zF-97-PIF"/>
                             <constraint firstAttribute="width" constant="30" id="DdZ-Ka-oMh"/>
                         </constraints>
-                        <state key="normal" image="fav_inactive"/>
                         <connections>
                             <action selector="onLikeButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Zra-Rl-TcF"/>
                         </connections>
@@ -122,7 +121,4 @@
             <point key="canvasLocation" x="430.5" y="278"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="fav_inactive" width="30" height="30"/>
-    </resources>
 </document>

@@ -17,31 +17,40 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HomeProfile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipu-tR-Qpd">
-                    <rect key="frame" x="8" y="184" width="95" height="21"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KT8-kT-fCz">
-                    <rect key="frame" x="0.0" y="208" width="320" height="311"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KT8-kT-fCz">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gTK-yo-H2l">
+                <tabBar contentMode="scaleToFill" barStyle="black" translucent="NO" itemPositioning="centered" translatesAutoresizingMaskIntoConstraints="NO" id="gTK-yo-H2l">
                     <rect key="frame" x="0.0" y="519" width="320" height="49"/>
                     <animations/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.4039215686" green="0.2274509804" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
-                        <tabBarItem systemItem="favorites" id="UBi-HO-VUD"/>
-                        <tabBarItem systemItem="more" id="kai-HX-PSw"/>
+                        <tabBarItem title="Home" image="home" id="UBi-HO-VUD"/>
+                        <tabBarItem title="Profile" image="profile" id="kai-HX-PSw"/>
                     </items>
+                    <color key="tintColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="barTintColor" red="0.31764705879999999" green="0.1764705882" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tabBar>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="KT8-kT-fCz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4GN-aG-3PR"/>
+                <constraint firstAttribute="trailing" secondItem="gTK-yo-H2l" secondAttribute="trailing" id="8oK-dn-Ntu"/>
+                <constraint firstAttribute="trailing" secondItem="KT8-kT-fCz" secondAttribute="trailing" id="N2a-P0-0LK"/>
+                <constraint firstItem="KT8-kT-fCz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="V5X-dl-dGO"/>
+                <constraint firstAttribute="bottom" secondItem="gTK-yo-H2l" secondAttribute="bottom" id="aHA-Df-yu2"/>
+                <constraint firstItem="gTK-yo-H2l" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cKs-cL-Fg9"/>
+                <constraint firstItem="gTK-yo-H2l" firstAttribute="top" secondItem="KT8-kT-fCz" secondAttribute="bottom" id="tfo-Nx-iqu"/>
+            </constraints>
             <point key="canvasLocation" x="413" y="386"/>
         </view>
     </objects>
+    <resources>
+        <image name="home" width="24" height="24"/>
+        <image name="profile" width="24" height="24"/>
+    </resources>
 </document>
