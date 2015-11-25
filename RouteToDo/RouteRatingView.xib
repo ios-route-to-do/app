@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RouteRatingView">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="gU1-9U-K3M"/>
+                <outlet property="routeAuthorLabel" destination="9oK-tq-MDB" id="8n7-b6-lFe"/>
+                <outlet property="routeLocationLabel" destination="ojS-KQ-b7u" id="gT3-Rt-uaA"/>
+                <outlet property="routeTitleLabel" destination="np1-4x-u16" id="Yxj-jN-gkt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" placeholderIntrinsicWidth="300" placeholderIntrinsicHeight="200" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE BEER ROUTE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="np1-4x-u16">
+                    <rect key="frame" x="8" y="8" width="200.5" height="30"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojS-KQ-b7u">
+                    <rect key="frame" x="8" y="46" width="96.5" height="18"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="• By @RandyWilliams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oK-tq-MDB">
+                    <rect key="frame" x="112" y="46" width="146" height="18"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ey-JW-hbb">
+                    <rect key="frame" x="0.0" y="140" width="149.5" height="60"/>
+                    <animations/>
+                    <state key="normal" title="Cancel"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o35-jg-Bb3">
+                    <rect key="frame" x="0.0" y="139" width="300" height="1"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="5dz-wC-WF6"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gqh-ca-Pdy">
+                    <rect key="frame" x="149" y="140" width="1" height="60"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="gZ4-gO-I58"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9x-kn-5v2">
+                    <rect key="frame" x="150" y="140" width="150" height="60"/>
+                    <animations/>
+                    <state key="normal" title="Submit"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3hY-YW-DF3" customClass="HCSStarRatingView">
+                    <rect key="frame" x="46" y="84" width="208" height="35"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="208" id="2C3-Rl-EoB"/>
+                        <constraint firstAttribute="height" constant="35" id="bKV-ml-KiZ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="3hY-YW-DF3" firstAttribute="top" secondItem="9oK-tq-MDB" secondAttribute="bottom" constant="20" id="1m5-GC-yXR"/>
+                <constraint firstItem="Gqh-ca-Pdy" firstAttribute="leading" secondItem="4ey-JW-hbb" secondAttribute="trailing" id="1sI-g8-Le8"/>
+                <constraint firstItem="i9x-kn-5v2" firstAttribute="top" secondItem="o35-jg-Bb3" secondAttribute="bottom" id="3U6-wS-fQ6"/>
+                <constraint firstAttribute="trailing" secondItem="i9x-kn-5v2" secondAttribute="trailing" id="3hD-B1-gUv"/>
+                <constraint firstItem="ojS-KQ-b7u" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="6RI-Vg-MXm"/>
+                <constraint firstItem="3hY-YW-DF3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="BXe-kn-Dor"/>
+                <constraint firstItem="4ey-JW-hbb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CFz-Ah-Uw9"/>
+                <constraint firstAttribute="bottom" secondItem="i9x-kn-5v2" secondAttribute="bottom" id="EuJ-FW-5R9"/>
+                <constraint firstAttribute="trailing" secondItem="o35-jg-Bb3" secondAttribute="trailing" id="Fyt-WW-ilb"/>
+                <constraint firstItem="o35-jg-Bb3" firstAttribute="top" secondItem="3hY-YW-DF3" secondAttribute="bottom" constant="20" id="Gx6-LO-Jve"/>
+                <constraint firstItem="i9x-kn-5v2" firstAttribute="leading" secondItem="Gqh-ca-Pdy" secondAttribute="trailing" id="LOG-Bb-tU5"/>
+                <constraint firstItem="Gqh-ca-Pdy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="NEX-Zs-3Q7"/>
+                <constraint firstAttribute="bottom" secondItem="Gqh-ca-Pdy" secondAttribute="bottom" id="OrI-xA-IDj"/>
+                <constraint firstItem="9oK-tq-MDB" firstAttribute="leading" secondItem="ojS-KQ-b7u" secondAttribute="trailing" constant="8" id="Ryc-tG-Y6q"/>
+                <constraint firstItem="Gqh-ca-Pdy" firstAttribute="top" secondItem="o35-jg-Bb3" secondAttribute="bottom" id="X7O-7r-itS"/>
+                <constraint firstItem="o35-jg-Bb3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Xav-3D-AYu"/>
+                <constraint firstItem="9oK-tq-MDB" firstAttribute="top" secondItem="np1-4x-u16" secondAttribute="bottom" constant="8" id="mAm-hh-rer"/>
+                <constraint firstItem="np1-4x-u16" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ntU-Uj-c9H"/>
+                <constraint firstItem="4ey-JW-hbb" firstAttribute="top" secondItem="o35-jg-Bb3" secondAttribute="bottom" id="sQs-Sg-aFa"/>
+                <constraint firstAttribute="bottom" secondItem="4ey-JW-hbb" secondAttribute="bottom" id="udU-Yt-rO2"/>
+                <constraint firstItem="np1-4x-u16" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="utS-9e-DGm"/>
+                <constraint firstItem="ojS-KQ-b7u" firstAttribute="top" secondItem="np1-4x-u16" secondAttribute="bottom" constant="8" id="wgH-U6-ABo"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="257" y="60"/>
+        </view>
+    </objects>
+</document>

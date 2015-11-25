@@ -82,3 +82,18 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-RouteToDo/AFNetworking.framework"
+  install_framework "Pods-RouteToDo/Bolts.framework"
+  install_framework "Pods-RouteToDo/CNPPopupController.framework"
+  install_framework "Pods-RouteToDo/HCSStarRatingView.framework"
+  install_framework "Pods-RouteToDo/Parse.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-RouteToDo/AFNetworking.framework"
+  install_framework "Pods-RouteToDo/Bolts.framework"
+  install_framework "Pods-RouteToDo/CNPPopupController.framework"
+  install_framework "Pods-RouteToDo/HCSStarRatingView.framework"
+  install_framework "Pods-RouteToDo/Parse.framework"
+fi

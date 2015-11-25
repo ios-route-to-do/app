@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '8A0052F28AE76D4AADBC0FFE'
+               BlueprintIdentifier = '72C01488C58DDD60920C49A9'
                BlueprintName = 'Pods-RouteToDo'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-RouteToDo.a'>
+               BuildableName = 'Pods_RouteToDo.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

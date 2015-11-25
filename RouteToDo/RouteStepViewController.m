@@ -13,12 +13,14 @@
 #import "PlaceAnnotation.h"
 #import "ArcPathRenderer.h"
 #import "Place.h"
+#import "RouteRatingView.h"
+#import "CNPPopupController.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
 
-@interface RouteStepViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
+@interface RouteStepViewController () <MKMapViewDelegate, CLLocationManagerDelegate, CNPPopupControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *nextStepButton;
 @property (weak, nonatomic) IBOutlet MKMapView *routeMapView;
@@ -34,6 +36,7 @@
 @property (strong, nonatomic) ArcPathRenderer *routeLineRenderer;
 
 @property (nonatomic) RouteStepViewController *nextStepController;
+@property (nonatomic) CNPPopupController *ratingPopupController;
 @property (nonatomic) UIBarButtonItem *likeButton;
 
 @property (nonatomic) BOOL isFirstStep;
@@ -158,16 +161,25 @@
         if (!self.nextStepController) {
             self.nextStepController = [[RouteStepViewController alloc] init];
             self.nextStepController.route = self.route;
-            self.nextStepController.step = [NSNumber numberWithInt:[self.step integerValue] + 1];
+            self.nextStepController.step = @([self.step integerValue] + 1);
         }
         
         [self.navigationController pushViewController:self.nextStepController animated:YES];
     } else {
-        [NSException raise:@"Not implemented" format:@"TODO"];
+        UIView *ratingView = [[RouteRatingView alloc] initWithFrame:CGRectMake(0, 0, 300, 200)];
+        self.ratingPopupController = [[CNPPopupController alloc] initWithContents:@[ratingView]];
+        self.ratingPopupController.theme = [CNPPopupTheme defaultTheme];
+        self.ratingPopupController.theme.popupStyle = CNPPopupStyleCentered;
+        self.ratingPopupController.theme.presentationStyle = CNPPopupPresentationStyleSlideInFromBottom;
+        self.ratingPopupController.theme.cornerRadius = 20.0f;
+        self.ratingPopupController.theme.popupContentInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+        self.ratingPopupController.theme.contentVerticalPadding = 0.0f;
+        self.ratingPopupController.delegate = self;
+        [self.ratingPopupController presentPopupControllerAnimated:YES];
     }
 }
 
-- (void) loadDataFromRoute:(Route *)route andStep:(int)step {
+- (void) loadDataFromRoute:(Route *)route andStep:(long)step {
     self.isFirstStep = (step == 0);
     self.isLastStep = (step == (route.places.count - 1));
     Place *place = route.places[step];
