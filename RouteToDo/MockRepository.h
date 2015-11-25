@@ -11,6 +11,6 @@
 
 @interface MockRepository : NSObject <BackendRepository>
 
-+ (MockRepository *)sharedInstance;
++ (id<BackendRepository>)sharedInstance;
 
 @end

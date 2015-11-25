@@ -11,7 +11,7 @@
 
 @implementation MockRepository
 
-+ (MockRepository *)sharedInstance {
++ (id<BackendRepository>)sharedInstance {
     static MockRepository *instance = nil;
 
     static dispatch_once_t onceToken;

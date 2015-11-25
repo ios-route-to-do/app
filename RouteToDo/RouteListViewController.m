@@ -158,12 +158,14 @@
     //            [self.tableView reloadData];
     //            completionHandler();
     //        }];
+
+    id<BackendRepository> repository = [MockRepository sharedInstance];
     
-    [[MockRepository sharedInstance] trendingRoutesWithPlace:nil completion:^(NSArray *routes, NSError *error) {
+    [repository trendingRoutesWithPlace:nil completion:^(NSArray *routes, NSError *error) {
         self.trendingRoutesViewArray = routes;
     }];
 
-    [[MockRepository sharedInstance] newRoutesWithLocation:nil completion:^(NSArray *routes, NSError *error) {
+    [repository newRoutesWithLocation:nil completion:^(NSArray *routes, NSError *error) {
         self.recentRoutesViewArray = routes;
     }];
     
