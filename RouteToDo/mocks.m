@@ -52,22 +52,10 @@ Route *mockRoute1() {
 }
 
 NSArray *mockRouteWithouthPlaces1Array() {
-    static Route *templateRoute = nil;
-    
-    if (!templateRoute) {
-        templateRoute = [[Route alloc] init];
-        templateRoute.title = @"The beer Route !";
-        templateRoute.location = @"San Francisco";
-        templateRoute.author = @"Matigol";
-        templateRoute.usersCount = [NSNumber numberWithInt:300];
-        templateRoute.imageUrl = [NSURL URLWithString:@"http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg"];
-
-    }
-    
     NSMutableArray *templateRoutesArray = [NSMutableArray array];
     for(int i = 0; i < 12; i++)
     {
-        [templateRoutesArray addObject:templateRoute];
+        [templateRoutesArray addObject:mockRoute1()];
     }
     
     return templateRoutesArray;

@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
-#import "LoginViewController.h"
 #import <Parse/Parse.h>
+
+#import "HomeProfileViewController.h"
+#import "ProfileViewController.h"
+#import "RouteListViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,8 +22,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    RouteListViewController *homeController = [[RouteListViewController alloc] init];
+    UIImage *homeImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    CustomTabControllerItem *homeItem = [CustomTabControllerItem itemWithTitle:@"Home" image:homeImage andController:homeController];
+
+    ProfileViewController *profileController = [[ProfileViewController alloc] init];
+    UIImage *profileImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Home" image:profileImage andController:profileController];
+
+    HomeProfileViewController *vc = [[HomeProfileViewController alloc] initWithItems:@[homeItem, profileItem]];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = [[LoginViewController alloc] init];
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
 
     [Parse setApplicationId:@"W8GRsfacMN0U80jWxpIUHDknD1X2NJXsRFlTNd9K"
