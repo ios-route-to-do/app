@@ -1,8 +1,8 @@
 //
-//  ParseRepository.h
+//  BackendRepository.h
 //  RouteToDo
 //
-//  Created by Gabriel Gayan on 15/19/11.
+//  Created by Gabriel Gayan on 15/24/11.
 //  Copyright © 2015 RouteToDo. All rights reserved.
 //
 
@@ -13,11 +13,11 @@
 #import "RouteCategory.h"
 #import "Location.h"
 
-@interface ParseRepository : NSObject
+@protocol BackendRepository <NSObject>
 
 #pragma mark - Categories
 
-- (void)allCategoriesWithCompletion:(void (^)(NSArray *routes, NSError *error))completion;
+- (void)allCategoriesWithCompletion:(void (^)(NSArray *categories, NSError *error))completion;
 
 #pragma mark - Home routes
 
@@ -32,8 +32,8 @@
 
 #pragma mark - Actions
 
-- (void)markRouteAsFavoriteWithUser:(User *)user route:(Route *)route completion:(void (^)(NSArray *routes, NSError *error))completion;
-- (void)rateRouteWithUser:(User *)user route:(Route *)route rating:(NSNumber *)rating completion:(void (^)(NSArray *routes, NSError *error))completion;
-
+- (void)markRouteAsFavoriteWithUser:(User *)user route:(Route *)route completion:(void (^)(NSError *error))completion;
+- (void)finishRouteWithUser:(User *)user route:(Route *)route completion:(void (^)(NSError *error))completion;
+- (void)rateRouteWithUser:(User *)user route:(Route *)route rating:(NSNumber *)rating completion:(void (^)(NSError *error))completion;
 
 @end
