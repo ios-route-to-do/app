@@ -10,21 +10,15 @@
 
 @implementation User
 
-@dynamic username;
-@dynamic location;
-@dynamic firstName;
-@dynamic lastName;
-@dynamic profileImageUrl;
-@dynamic favoriteRoutes;
-@dynamic outings;
-@dynamic ownRoutes;
-
-+ (void)load {
-    [self registerSubclass];
-}
-
-+ (NSString *)parseClassName {
-    return @"User";
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.favoriteRoutes = [NSMutableArray array];
+        self.outings = [NSMutableArray array];
+        self.ownRoutes = [NSMutableArray array];
+    }
+    return self;
 }
 
 @end

@@ -7,17 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Parse/Parse.h>
+#import "Route.h"
 
-@interface User : PFObject<PFSubclassing>
+@interface User : NSObject
 
 @property (nonatomic) NSString *username;
 @property (nonatomic) NSString *location;
 @property (nonatomic) NSString *firstName;
 @property (nonatomic) NSString *lastName;
 @property (nonatomic) NSURL *profileImageUrl;
-@property (nonatomic) NSArray *favoriteRoutes;
-@property (nonatomic) NSArray *outings;
-@property (nonatomic) NSArray *ownRoutes;
+@property (nonatomic) NSMutableArray *favoriteRoutes;
+@property (nonatomic) NSMutableArray *outings;
+@property (nonatomic) NSMutableArray *ownRoutes;
 
 @end

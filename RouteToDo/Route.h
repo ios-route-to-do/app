@@ -17,6 +17,7 @@
 @property (nonatomic) NSString *fullDescription;
 @property (nonatomic) NSURL *imageUrl;
 @property (nonatomic) NSArray *places;
+@property (nonatomic) NSNumber *rating;
 @property (nonatomic) NSNumber *usersCount;
 @property (nonatomic) NSArray *categories;
 @property (nonatomic, readonly) BOOL favorite;

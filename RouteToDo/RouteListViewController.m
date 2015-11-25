@@ -14,8 +14,8 @@
 #import "Route.h"
 #import "UIImageView+AFNetworking.h"
 
-#include "Utils.h"
-#include "mocks.h"
+#import "Utils.h"
+#import "MockRepository.h"
 
 
 @interface RouteListViewController ()
@@ -159,9 +159,13 @@
     //            completionHandler();
     //        }];
     
-    self.trendingRoutesViewArray = mockRouteWithouthPlaces1Array();
-    self.recentRoutesViewArray = mockRouteWithouthPlaces2Array();
-    
+    [[MockRepository sharedInstance] trendingRoutesWithPlace:nil completion:^(NSArray *routes, NSError *error) {
+        self.trendingRoutesViewArray = routes;
+    }];
+
+    [[MockRepository sharedInstance] newRoutesWithLocation:nil completion:^(NSArray *routes, NSError *error) {
+        self.recentRoutesViewArray = routes;
+    }];
     
     [self.backgroundImageView setImageWithURL:[NSURL URLWithString:@"http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg"]];
     
