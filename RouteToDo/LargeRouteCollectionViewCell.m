@@ -8,6 +8,7 @@
 
 #import "LargeRouteCollectionViewCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "BackendRepository.h"
 
 @interface LargeRouteCollectionViewCell()
 
@@ -39,27 +40,20 @@
     self.routeLocationLabel.text = self.route.location;
     self.routeAuthorLabel.text = [NSString stringWithFormat:@"• By %@", self.route.author];
     self.routeUsersLabel.text = [NSString stringWithFormat:@"+%@", self.route.usersCount];
-    self.routeRatingLable.text = @"• 5.0 rating";
+    self.routeRatingLable.text = [NSString stringWithFormat:@"• %0.2f rating", [self.route.rating floatValue]];
     [self.backgroundImageView setImageWithURL:self.route.imageUrl];
     [self updateLikeButton:self.route.favorite animated:NO];
 }
 
 - (IBAction)onLikeButton:(id)sender {
-    bool originalValue = self.route.favorite;
-    
-    void (^completion)(NSError *error) = ^(NSError *error) {
+    id<BackendRepository> repository = [BackendRepository sharedInstance];
+    [repository toggleRouteFavoriteWithUser:nil route:self.route completion:^(NSError *error) {
         if (error) {
-            [self updateLikeButton:originalValue animated:NO];
+            return;
         }
-    };
-    
-    if (self.route.favorite) {
-        [self updateLikeButton:NO animated:YES];
-        [self.route unfavoriteWithCompletion:completion];
-    } else {
-        [self updateLikeButton:YES animated:YES];
-        [self.route favoriteWithCompletion:completion];
-    }
+        
+        [self updateLikeButton:self.route.favorite animated:YES];
+    }];
 }
 
 - (void) updateLikeButton:(BOOL)favorite animated:(BOOL)animated {
