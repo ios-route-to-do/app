@@ -159,7 +159,7 @@
     //            completionHandler();
     //        }];
 
-    id<BackendRepository> repository = [MockRepository sharedInstance];
+    id<BackendRepository> repository = [BackendRepository sharedInstance];
     
     [repository trendingRoutesWithPlace:nil completion:^(NSArray *routes, NSError *error) {
         self.trendingRoutesViewArray = routes;

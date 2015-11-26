@@ -15,8 +15,8 @@
 #import "Place.h"
 #import "RouteRatingView.h"
 #import "CNPPopupController.h"
-
-#include "Utils.h"
+#import "BackendRepository.h"
+#import "Utils.h"
 
 @interface RouteStepViewController () <MKMapViewDelegate, CLLocationManagerDelegate, CNPPopupControllerDelegate>
 
@@ -137,21 +137,14 @@
 }
 
 - (void) onLikeButtonTap {
-    bool originalValue = self.route.favorite;
-    
-    void (^completion)(NSError *error) = ^(NSError *error) {
+    id<BackendRepository> repository = [BackendRepository sharedInstance];
+    [repository toggleRouteFavoriteWithUser:nil route:self.route completion:^(NSError *error) {
         if (error) {
-            [self updateLikeButton:originalValue animated:NO];
+            return;
         }
-    };
-    
-    if (self.route.favorite) {
-        [self updateLikeButton:!originalValue animated:YES];
-        [self.route unfavoriteWithCompletion:completion];
-    } else {
-        [self updateLikeButton:!originalValue animated:YES];
-        [self.route favoriteWithCompletion:completion];
-    }
+
+        [self updateLikeButton:self.route.favorite animated:YES];
+    }];
 }
 
 - (IBAction)onNextStepButtonTap:(id)sender {

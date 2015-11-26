@@ -11,19 +11,6 @@
 
 @implementation MockRepository
 
-+ (id<BackendRepository>)sharedInstance {
-    static MockRepository *instance = nil;
-
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        if (instance == nil) {
-            instance = [[MockRepository alloc] init];
-        }
-    });
-
-    return instance;
-}
-
 #pragma mark - Categories
 
 - (void)allCategoriesWithCompletion:(void (^)(NSArray *categories, NSError *error))completion {
@@ -57,16 +44,25 @@
 #pragma mark - Actions
 
 - (void)toggleRouteFavoriteWithUser:(User *)user route:(Route *)route completion:(void (^)(NSError *error))completion {
-    if ([user.favoriteRoutes containsObject:route]) {
-        [user.favoriteRoutes removeObject:route];
+    if(route.favorite) {
+        route.favorite = false;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"routeUnfavorited" object:self
-                                                          userInfo:@{@"route": route, @"user": user}];
+                                                          userInfo:@{@"route": route}];
     } else {
-        [user.favoriteRoutes addObject:route];
+        route.favorite = true;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"routeFavorited" object:self
-                                                          userInfo:@{@"route": route, @"user": user}];
+                                                          userInfo:@{@"route": route}];
     }
-
+    //    if ([user.favoriteRoutes containsObject:route]) {
+    //        [user.favoriteRoutes removeObject:route];
+    //        [[NSNotificationCenter defaultCenter] postNotificationName:@"routeUnfavorited" object:self
+    //                                                          userInfo:@{@"route": route, @"user": user}];
+    //    } else {
+    //        [user.favoriteRoutes addObject:route];
+    //        route.favorite = true; // TODO: fix this
+    //        [[NSNotificationCenter defaultCenter] postNotificationName:@"routeFavorited" object:self
+    //                                                          userInfo:@{@"route": route, @"user": user}];
+    //    }
     completion(nil);
 }
 

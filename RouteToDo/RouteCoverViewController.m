@@ -10,6 +10,7 @@
 #import "RouteCoverViewController.h"
 #import "RouteStepViewController.h"
 #import "Place.h"
+#import "BackendRepository.h"
 
 @interface RouteCoverViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *startRouteButton;
@@ -67,21 +68,14 @@
 }
 
 - (void) onLikeButtonTap {
-    bool originalValue = self.route.favorite;
-    
-    void (^completion)(NSError *error) = ^(NSError *error) {
-        if (error) {
-            [self updateLikeButton:originalValue animated:NO];
+    id<BackendRepository> repository = [BackendRepository sharedInstance];
+    [repository toggleRouteFavoriteWithUser:nil route:self.route completion:^(NSError *error) {
+        if(error) {
+            return;
         }
-    };
-    
-    if (self.route.favorite) {
-        [self updateLikeButton:!originalValue animated:YES];
-        [self.route unfavoriteWithCompletion:completion];
-    } else {
-        [self updateLikeButton:!originalValue animated:YES];
-        [self.route favoriteWithCompletion:completion];
-    }
+
+        [self updateLikeButton:self.route.favorite animated:YES];
+    }];
 }
 
 - (IBAction)onStartRouteButtonTap:(UIButton *)sender {

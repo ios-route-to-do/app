@@ -37,3 +37,9 @@
 - (void)rateRouteWithUser:(User *)user route:(Route *)route rating:(NSNumber *)rating completion:(void (^)(NSError *error))completion;
 
 @end
+
+@interface BackendRepository : NSObject
+
++ (id<BackendRepository>)sharedInstance;
+
+@end
