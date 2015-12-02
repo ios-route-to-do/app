@@ -21,4 +21,15 @@
     return self;
 }
 
+- (id)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self) {
+        _username = dictionary[@"username"];
+        _location = dictionary[@"location"];
+        _firstName = dictionary[@"first_name"];
+        _lastName = dictionary[@"last_name"];
+    }
+    return self;
+}
+
 @end

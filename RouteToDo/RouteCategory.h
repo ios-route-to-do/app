@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Parse/Parse.h>
 
-@interface RouteCategory : PFObject<PFSubclassing>
+@interface RouteCategory : NSObject
 
-@property (nonatomic) NSString *name;
-@property (nonatomic) NSURL *imageUrl;
-@property (nonatomic) NSArray *routes;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSURL *imageUrl;
+@property (nonatomic, strong) NSArray *routes;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary;
++ (NSArray *)routeCategoryWithArray:(NSArray *) array;
 
 @end

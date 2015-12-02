@@ -21,7 +21,7 @@
 
 #pragma mark - Home routes
 
-- (void)trendingRoutesWithPlace:(Location *)location completion:(void (^)(NSArray *routes, NSError *error))completion;
+- (void)trendingRoutesWithLocation:(Location *)location completion:(void (^)(NSArray *routes, NSError *error))completion;
 - (void)newRoutesWithLocation:(Location *)location completion:(void (^)(NSArray *routes, NSError *error))completion;
 
 #pragma mark - User routes
@@ -33,6 +33,7 @@
 #pragma mark - Actions
 
 - (void)toggleRouteFavoriteWithUser:(User *)user route:(Route *)route completion:(void (^)(NSError *error))completion;
+- (void)untoggleRouteFavoriteWithUser:(User *)user route:(Route *)route completion:(void (^)(NSError *error))completion;
 - (void)finishRouteWithUser:(User *)user route:(Route *)route completion:(void (^)(NSError *error))completion;
 - (void)rateRouteWithUser:(User *)user route:(Route *)route rating:(NSNumber *)rating completion:(void (^)(NSError *error))completion;
 

@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Parse/Parse.h>
 
-@interface Route : NSObject // PFObject<PFSubclassing>
+@interface Route : NSObject
 
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *location;
@@ -21,5 +20,8 @@
 @property (nonatomic) NSNumber *usersCount;
 @property (nonatomic) NSArray *categories;
 @property (nonatomic) BOOL favorite;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary;
++ (NSArray *)routeWithArray:(NSArray *) array;
 
 @end
