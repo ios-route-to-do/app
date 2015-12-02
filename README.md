@@ -12,7 +12,7 @@ The following **required** functionality is completed:
 
 [Interactive wireframes](http://ios-route-to-do.github.io/app/wireframes/index.html)
 
-- [ ] Splash screen
+- [x] Splash screen
 
 - [ ] Category selection view: What type of route does the user wants to do (dance, dinner, drinks, etc) [wireframe](wireframes/static/2-0-CategoryPick.png)
   - [ ] Navigation bar:
@@ -22,56 +22,56 @@ The following **required** functionality is completed:
     - [ ] Navigate to selected category on tap
 
 - [ ] Category view [wireframe](wireframes/static/3-0-CategoryHome.png)
-  - [ ] Navigation bar:
+  - [-] Navigation bar:
     - [ ] Search button for specific route/place search
     - [ ] Reset location button
     - [ ] Navigation buttons with:
-      - [ ] Category Home section
-      - [ ] My profile view
-  - [ ] Content view:
-    - [ ] Carousel of trending routes with:
-      - [ ] Label with "Trending now in {location name}"
-      - [ ] Route detail: background image, name, location, creator name, favorites count and rating
-    - [ ] Collection view of new routes
-      - [ ] Label with "What's new" text
-      - [ ] Route detail: background image, name and location
+      - [x] Category Home section
+      - [x] My profile view
+  - [x] Content view:
+    - [x] Carousel of trending routes with:
+      - [-] Label with "Trending now in {location name}"
+      - [x] Route detail: background image, name, location, creator name, favorites count and rating
+    - [x] Collection view of new routes
+      - [x] Label with "What's new" text
+      - [x] Route detail: background image, name and location
 
-- [ ] Route Cover View: presentation of the route and starting point check the route [wireframe](wireframes/static/4-0-RouteCoverView.png)
-  - [ ] Top bar with:
-    - [ ] Back button: goes back in navigation flow
-    - [ ] Favorite button: Marks/Unmarks route as favorite for the current user
-    - [ ] Share button: Implementation of this is optional
-  - [ ] Route image on the background
-  - [ ] Bottom panel with:
-    - [ ] Route title, general location, author, amount of users that visited, rating score
-    - [ ] Scrolling description of the route
-    - [ ] List of three locations to visit
-    - [ ] Start route button
+- [x] Route Cover View: presentation of the route and starting point check the route [wireframe](wireframes/static/4-0-RouteCoverView.png)
+  - [x] Top bar with:
+    - [x] Back button: goes back in navigation flow
+    - [x] Favorite button: Marks/Unmarks route as favorite for the current user
+    - [x] Share button: Implementation of this is optional
+  - [x] Route image on the background
+  - [x] Bottom panel with:
+    - [x] Route title, general location, author, amount of users that visited, rating score
+    - [x] Description of the route
+    - [x] List of three locations to visit
+    - [x] Start route button
 
 - [ ] Route Progress View: presentation of the route on a map and current place [wireframe step 1](wireframes/static/5-0-RouteStepView1.png) [wireframe step 2](wireframes/static/6-0-RouteStepView2.png) [wireframe step 3](wireframes/static/7-0-RouteStepView3.png)
   - [ ] Top bar with:
-    - [ ] Back button: goes back in navigation flow
-    - [ ] Favorite button: Marks/Unmarks route as favorite for the current user
-    - [ ] Share button: Implementation of this is optional
+    - [x] Back button: goes back in navigation flow
+    - [x] Favorite button: Marks/Unmarks route as favorite for the current user
+    - [x] Share button: Implementation of this is optional
   - [ ] Map with:
     - [ ] Current location of user visible if user is not on the route location
-    - [ ] Current route location with a special marker
-    - [ ] Previous route location (if on step 2 or 3)
-    - [ ] Next route location (if on steps 1 or 2)
-    - [ ] Curved line connecting all previous dots in correct order. This line is not
+    - [x] Current route location with a special marker
+    - [x] Previous route location (if on step 2 or 3)
+    - [x] Next route location (if on steps 1 or 2)
+    - [x] Curved line connecting all previous dots in correct order. This line is not
     meant to be a direction trajectory but a simplification to express route's progress
-  - [ ] Bottom panel with:
-    - [ ] Place title, place location
-    - [ ] Scrolling description of the place
-    - [ ] Go Next button (if on steps 1 or 2)
-    - [ ] Rate this route (if on steps 3)
+  - [x] Bottom panel with:
+    - [x] Place title, place location
+    - [x] Description of the place
+    - [x] Go Next button (if on steps 1 or 2)
+    - [x] Rate this route (if on steps 3)
 
 - [ ] Rate Route View: Modal presentation with a rating widget [wireframe](wireframes/static/8-0-RouteRate.png)
   - [ ] When user clicks on rate this route, he's presented with the home screen and
   a modal widget to rate the route. This widget contains:
-  - [ ] Route Title, Route location and Author
-  - [ ] Five star rating widget
-  - [ ] Split bottom bar with two buttons: Cancel and Submit
+  - [x] Route Title, Route location and Author
+  - [x] Five star rating widget
+  - [x] Split bottom bar with two buttons: Cancel and Submit
 
 - [ ] Profile View: details of the user [wireframe tab 1](wireframes/static/9-0-Profile-Favorites.png) [wireframe tab 2](wireframes/static/10-0-Profile-NightsOut.png) [wireframe tab 3](wireframes/static/11-0-Profile-MyRoutes.png)
   - [ ] Show avatar, username

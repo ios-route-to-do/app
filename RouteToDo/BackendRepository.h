@@ -36,6 +36,19 @@
 - (void)finishRouteWithUser:(User *)user route:(Route *)route completion:(void (^)(NSError *error))completion;
 - (void)rateRouteWithUser:(User *)user route:(Route *)route rating:(NSNumber *)rating completion:(void (^)(NSError *error))completion;
 
+#pragma mark - User
+
+- (void)registerUserWithEmail:(NSString *)email password:(NSString *)password imageUrl:(NSString *)image completion:(void (^)(User *user, NSError *error))completion;
+- (void)loginUserWithEmail:(NSString *)email password:(NSString *)password completion:(void (^)(User *user, NSError *error))completion;
+
+#pragma mark - Routes
+
+- (void)createRouteWithObject:(Route *)route completion:(void (^)(Route *route, NSError *error))completion;
+
+#pragma mark - Upload Media
+
+- (void)storeImageWithData:(NSData *)data completion:(void (^)(NSString *imageUrl, NSError *error))completion;
+
 @end
 
 @interface BackendRepository : NSObject
