@@ -14,7 +14,7 @@
     self = [super init];
     if (self) {
         _name = dictionary[@"name"];
-        _imageUrl = dictionary[@"imageUrl"];
+        _imageUrl = dictionary[@"image_url"];
     }
     return self;
 }

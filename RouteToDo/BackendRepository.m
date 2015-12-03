@@ -8,16 +8,17 @@
 
 #import "BackendRepository.h"
 #import "MockRepository.h"
+#import "HttpRepository.h"
 
 @implementation BackendRepository
 
 + (id<BackendRepository>)sharedInstance {
-    static MockRepository *instance = nil;
+    static HttpRepository *instance = nil;
 
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (instance == nil) {
-            instance = [[MockRepository alloc] init];
+            instance = [[HttpRepository alloc] init];
         }
     });
 
