@@ -43,6 +43,10 @@
 		CD3046CF1BFFD7F3006C74EA /* RouteStepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3046CE1BFFD7F3006C74EA /* RouteStepViewController.m */; };
 		CD3046D21BFFDB90006C74EA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3046D11BFFDB90006C74EA /* MapKit.framework */; };
 		CD3046D61BFFE39B006C74EA /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3046D51BFFE39B006C74EA /* PlaceAnnotation.m */; };
+		CD7D954E1C0E896D007D778E /* RouteCoverEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7D954D1C0E896D007D778E /* RouteCoverEditViewController.xib */; };
+		CD7D95501C0E897E007D778E /* RouteCoverEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7D954F1C0E897E007D778E /* RouteCoverEditViewController.m */; };
+		CDA0102D1C0EA3F100BAE7A8 /* RouteCoverEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA0102C1C0EA3F100BAE7A8 /* RouteCoverEditView.xib */; };
+		CDA010301C0EA40C00BAE7A8 /* RouteCoverEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA0102F1C0EA40C00BAE7A8 /* RouteCoverEditView.m */; };
 		CDF69F6C1C050E6800C427D8 /* CustomTabControllerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF69F6B1C050E6800C427D8 /* CustomTabControllerItem.m */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +113,12 @@
 		CD3046D11BFFDB90006C74EA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CD3046D41BFFE39B006C74EA /* PlaceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceAnnotation.h; sourceTree = "<group>"; };
 		CD3046D51BFFE39B006C74EA /* PlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceAnnotation.m; sourceTree = "<group>"; };
+		CD7D954D1C0E896D007D778E /* RouteCoverEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteCoverEditViewController.xib; sourceTree = "<group>"; };
+		CD7D954F1C0E897E007D778E /* RouteCoverEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteCoverEditViewController.m; sourceTree = "<group>"; };
+		CD7D95511C0E898A007D778E /* RouteCoverEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteCoverEditViewController.h; sourceTree = "<group>"; };
+		CDA0102C1C0EA3F100BAE7A8 /* RouteCoverEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteCoverEditView.xib; sourceTree = "<group>"; };
+		CDA0102E1C0EA40C00BAE7A8 /* RouteCoverEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteCoverEditView.h; sourceTree = "<group>"; };
+		CDA0102F1C0EA40C00BAE7A8 /* RouteCoverEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteCoverEditView.m; sourceTree = "<group>"; };
 		CDF69F6A1C050E6800C427D8 /* CustomTabControllerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabControllerItem.h; sourceTree = "<group>"; };
 		CDF69F6B1C050E6800C427D8 /* CustomTabControllerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabControllerItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,25 +191,13 @@
 		18A4A88D1BFECE560028C691 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CD7D954C1C0E8929007D778E /* RouteEdit */,
+				CD7D954B1C0E8904007D778E /* Home */,
+				CD7D954A1C0E88EB007D778E /* RouteViews */,
 				CDF69F691C050E4900C427D8 /* Support Files */,
 				18A4A8921BFED1AA0028C691 /* LoginViewController.h */,
 				18A4A8931BFED1AA0028C691 /* LoginViewController.m */,
 				18A4A8941BFED1AA0028C691 /* LoginViewController.xib */,
-				18A4A8971BFED3340028C691 /* RouteCoverViewController.h */,
-				18A4A8981BFED3340028C691 /* RouteCoverViewController.m */,
-				18A4A8991BFED3340028C691 /* RouteCoverViewController.xib */,
-				603E925F1BFEE152003BE497 /* RouteListViewController.h */,
-				603E92601BFEE152003BE497 /* RouteListViewController.m */,
-				603E92611BFEE152003BE497 /* RouteListViewController.xib */,
-				603E92641BFEE549003BE497 /* HomeProfileViewController.h */,
-				603E92651BFEE549003BE497 /* HomeProfileViewController.m */,
-				603E92661BFEE549003BE497 /* HomeProfileViewController.xib */,
-				603E92691BFEEB80003BE497 /* ProfileViewController.h */,
-				603E926A1BFEEB80003BE497 /* ProfileViewController.m */,
-				603E926B1BFEEB80003BE497 /* ProfileViewController.xib */,
-				CD3046D01BFFD7FA006C74EA /* RouteStepViewController.h */,
-				CD3046CE1BFFD7F3006C74EA /* RouteStepViewController.m */,
-				CD3046CC1BFFD7EB006C74EA /* RouteStepViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -216,6 +214,9 @@
 				24FD6B5F1C04F92A0091E9DB /* RouteRatingView.xib */,
 				24FD6B611C04F9790091E9DB /* RouteRatingView.h */,
 				24FD6B621C04F9790091E9DB /* RouteRatingView.m */,
+				CDA0102C1C0EA3F100BAE7A8 /* RouteCoverEditView.xib */,
+				CDA0102E1C0EA40C00BAE7A8 /* RouteCoverEditView.h */,
+				CDA0102F1C0EA40C00BAE7A8 /* RouteCoverEditView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -264,6 +265,45 @@
 				603E92841C02C530003BE497 /* ArcPathRenderer.m */,
 			);
 			name = Map;
+			sourceTree = "<group>";
+		};
+		CD7D954A1C0E88EB007D778E /* RouteViews */ = {
+			isa = PBXGroup;
+			children = (
+				CD3046D01BFFD7FA006C74EA /* RouteStepViewController.h */,
+				CD3046CE1BFFD7F3006C74EA /* RouteStepViewController.m */,
+				CD3046CC1BFFD7EB006C74EA /* RouteStepViewController.xib */,
+				18A4A8971BFED3340028C691 /* RouteCoverViewController.h */,
+				18A4A8981BFED3340028C691 /* RouteCoverViewController.m */,
+				18A4A8991BFED3340028C691 /* RouteCoverViewController.xib */,
+			);
+			name = RouteViews;
+			sourceTree = "<group>";
+		};
+		CD7D954B1C0E8904007D778E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				603E92641BFEE549003BE497 /* HomeProfileViewController.h */,
+				603E92651BFEE549003BE497 /* HomeProfileViewController.m */,
+				603E92661BFEE549003BE497 /* HomeProfileViewController.xib */,
+				603E92691BFEEB80003BE497 /* ProfileViewController.h */,
+				603E926A1BFEEB80003BE497 /* ProfileViewController.m */,
+				603E926B1BFEEB80003BE497 /* ProfileViewController.xib */,
+				603E925F1BFEE152003BE497 /* RouteListViewController.h */,
+				603E92601BFEE152003BE497 /* RouteListViewController.m */,
+				603E92611BFEE152003BE497 /* RouteListViewController.xib */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		CD7D954C1C0E8929007D778E /* RouteEdit */ = {
+			isa = PBXGroup;
+			children = (
+				CD7D95511C0E898A007D778E /* RouteCoverEditViewController.h */,
+				CD7D954F1C0E897E007D778E /* RouteCoverEditViewController.m */,
+				CD7D954D1C0E896D007D778E /* RouteCoverEditViewController.xib */,
+			);
+			name = RouteEdit;
 			sourceTree = "<group>";
 		};
 		CDF69F691C050E4900C427D8 /* Support Files */ = {
@@ -346,6 +386,7 @@
 			files = (
 				603E926D1BFEEB80003BE497 /* ProfileViewController.xib in Resources */,
 				1849A3A11BFECCAC002B9355 /* LaunchScreen.storyboard in Resources */,
+				CDA0102D1C0EA3F100BAE7A8 /* RouteCoverEditView.xib in Resources */,
 				603E92631BFEE152003BE497 /* RouteListViewController.xib in Resources */,
 				24FD6B601C04F92A0091E9DB /* RouteRatingView.xib in Resources */,
 				1849A39E1BFECCAC002B9355 /* Assets.xcassets in Resources */,
@@ -354,6 +395,7 @@
 				603E92681BFEE549003BE497 /* HomeProfileViewController.xib in Resources */,
 				603E92771BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib in Resources */,
 				CD3046CD1BFFD7EB006C74EA /* RouteStepViewController.xib in Resources */,
+				CD7D954E1C0E896D007D778E /* RouteCoverEditViewController.xib in Resources */,
 				18A4A8961BFED1AA0028C691 /* LoginViewController.xib in Resources */,
 				18A4A89D1BFEDA0A0028C691 /* ExampleImages.xcassets in Resources */,
 			);
@@ -420,6 +462,7 @@
 				248B13721BFEE31000184AD5 /* Route.m in Sources */,
 				603E92881C02C530003BE497 /* mocks.m in Sources */,
 				248B13781BFEE46000184AD5 /* User.m in Sources */,
+				CDA010301C0EA40C00BAE7A8 /* RouteCoverEditView.m in Sources */,
 				24A79ED91C067E8800FB3D6B /* BackendRepository.m in Sources */,
 				24FD6B631C04F9790091E9DB /* RouteRatingView.m in Sources */,
 				603E92871C02C530003BE497 /* ArcPathRenderer.m in Sources */,
@@ -430,6 +473,7 @@
 				CD3046D61BFFE39B006C74EA /* PlaceAnnotation.m in Sources */,
 				CDF69F6C1C050E6800C427D8 /* CustomTabControllerItem.m in Sources */,
 				248B13751BFEE3ED00184AD5 /* Place.m in Sources */,
+				CD7D95501C0E897E007D778E /* RouteCoverEditViewController.m in Sources */,
 				18A4A89A1BFED3340028C691 /* RouteCoverViewController.m in Sources */,
 				24A79ED71C05415400FB3D6B /* MockRepository.m in Sources */,
 				603E926C1BFEEB80003BE497 /* ProfileViewController.m in Sources */,
