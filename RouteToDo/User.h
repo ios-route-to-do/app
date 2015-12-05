@@ -20,4 +20,5 @@
 @property (nonatomic) NSMutableArray *outings;
 @property (nonatomic) NSMutableArray *ownRoutes;
 
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 @end

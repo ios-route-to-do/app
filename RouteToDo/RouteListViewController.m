@@ -161,13 +161,20 @@
 
     id<BackendRepository> repository = [BackendRepository sharedInstance];
     
-    [repository trendingRoutesWithPlace:nil completion:^(NSArray *routes, NSError *error) {
+    [repository trendingRoutesWithLocation:nil completion:^(NSArray *routes, NSError *error) {
         self.trendingRoutesViewArray = routes;
     }];
 
     [repository newRoutesWithLocation:nil completion:^(NSArray *routes, NSError *error) {
         self.recentRoutesViewArray = routes;
     }];
+    
+    [repository allCategoriesWithCompletion:^(NSArray *categories, NSError *error) {
+        NSLog(@"all categories");
+        NSLog(@"category 1 : %@",categories[0]);
+    }];
+
+    
     
     [self.backgroundImageView setImageWithURL:[NSURL URLWithString:@"http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg"]];
     

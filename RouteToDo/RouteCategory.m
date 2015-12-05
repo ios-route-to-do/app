@@ -10,16 +10,22 @@
 
 @implementation RouteCategory
 
-@dynamic name;
-@dynamic imageUrl;
-@dynamic routes;
-
-+ (void)load {
-    [self registerSubclass];
+- (id)initWithDictionary:(NSDictionary *)dictionary {
+    self = [super init];
+    if (self) {
+        _name = dictionary[@"name"];
+        _imageUrl = dictionary[@"image_url"];
+    }
+    return self;
 }
 
-+ (NSString *)parseClassName {
-    return @"RouteCategory";
++ (NSArray *)routeCategoryWithArray:(NSArray *) array {
+    NSMutableArray *routeCategories = [NSMutableArray array];
+    
+    for (NSDictionary *dictionary in array) {
+        [routeCategories addObject:[[RouteCategory alloc] initWithDictionary:dictionary]];
+    }
+    return routeCategories;
 }
 
 @end

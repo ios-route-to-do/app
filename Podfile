@@ -4,7 +4,6 @@
 use_frameworks!
 
 target 'RouteToDo' do
-  pod 'Parse'
   pod 'AFNetworking'
   pod 'CNPPopupController'
   pod 'HCSStarRatingView'
