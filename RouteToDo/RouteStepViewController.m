@@ -188,13 +188,13 @@
 
     if (!self.isFirstStep) {
         Place *previousPlace = route.places[step - 1];
-        self.initialPoint = [[PlaceAnnotation alloc] initWithPlace:previousPlace];
+        self.initialPoint = [[PlaceAnnotation alloc] initWithPlace:previousPlace step:(step - 1)];
         [annotations addObject:self.initialPoint];
     }
 
     [annotations addObject:userLocation];
 
-    self.destinationPoint = [[PlaceAnnotation alloc] initWithPlace:place];
+    self.destinationPoint = [[PlaceAnnotation alloc] initWithPlace:place step:step];
     [annotations addObject:self.destinationPoint];
     
     [self.routeMapView addAnnotations:annotations];

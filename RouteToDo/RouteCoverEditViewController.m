@@ -6,17 +6,15 @@
 //  Copyright © 2015 RouteToDo. All rights reserved.
 //
 
-#import "UIImageView+AFNetworking.h"
 #import "RouteCoverEditViewController.h"
+#import "RouteCoverEditView.h"
+#import "UIImageView+AFNetworking.h"
 #import "RouteStepViewController.h"
 #import "Place.h"
 #import "CNPPopupController.h"
 #import "BackendRepository.h"
 
-@interface RouteCoverEditViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, CNPPopupControllerDelegate> {
-    UIImagePickerController *ipc;
-//    UIPopoverController *popover;
-}
+@interface RouteCoverEditViewController () <CNPPopupControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *startRouteButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imageImageView;
@@ -28,12 +26,6 @@
 
 @property (nonatomic) RouteStepViewController *nextStepController;
 @property (nonatomic) UIBarButtonItem *likeButton;
-
-@property (weak, nonatomic) IBOutlet UITextField *routeTitleTextField;
-@property (weak, nonatomic) IBOutlet UITextField *routeLocationTextField;
-@property (weak, nonatomic) IBOutlet UITextView *routeDescriptionTextView;
-@property (weak, nonatomic) IBOutlet UIView *routeEditionView;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionCharCountLabel;
 
 @end
 
@@ -65,8 +57,6 @@
     if (self.route != nil) {
         [self loadDataFromRoute:self.route];
     }
-
-    [self.routeEditionView removeFromSuperview];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -74,22 +64,35 @@
 }
 
 - (IBAction)onPickImageButtonTap:(id)sender {
-    ipc = [[UIImagePickerController alloc] init];
-    ipc.delegate = self;
-    ipc.sourceType =  UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    [self presentViewController:ipc animated:YES completion:nil];
+    UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
+    cameraUI.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    cameraUI.delegate = self;
+    
+    NSLog(@"here library");
+    [self presentViewController:cameraUI animated:YES completion:nil];
 }
+
 - (IBAction)onTakePicButtonTap:(id)sender {
-    ipc = [[UIImagePickerController alloc] init];
-    ipc.delegate = self;
-    ipc.sourceType =  UIImagePickerControllerSourceTypeCamera;
-    [self presentViewController:ipc animated:YES completion:nil];
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO) {
+        return;
+    }
+    
+    UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
+    cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
+    cameraUI.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+    cameraUI.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+    cameraUI.navigationBarHidden = NO;
+    cameraUI.toolbarHidden = YES;
+    cameraUI.allowsEditing = NO;
+    cameraUI.delegate = self;
+    
+    [self presentViewController:cameraUI animated:YES completion:nil];
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    [picker dismissViewControllerAnimated:YES completion:nil];
     self.imageImageView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -98,25 +101,19 @@
 }
 
 - (IBAction)onEditRouteButtonTap:(id)sender {
-    CNPPopupController *editPopupController = [[CNPPopupController alloc] initWithContents:@[self.routeEditionView]];
+    RouteCoverEditView *routeEditView = [[RouteCoverEditView alloc] initWithFrame:CGRectMake(0, 0, 300, 200)];
+    CNPPopupController *editPopupController = [[CNPPopupController alloc] initWithContents:@[routeEditView]];
 
     editPopupController.theme = [CNPPopupTheme defaultTheme];
-    editPopupController.theme.popupStyle = CNPPopupStyleCentered;
+    editPopupController.theme.popupStyle = CNPPopupStyleFullscreen;
     editPopupController.theme.presentationStyle = CNPPopupPresentationStyleSlideInFromBottom;
     editPopupController.theme.cornerRadius = 20.0f;
-    editPopupController.theme.popupContentInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+//    editPopupController.theme.popupContentInsets = UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
 
 
     editPopupController.theme.contentVerticalPadding = 0.0f;
     editPopupController.delegate = self;
     [editPopupController presentPopupControllerAnimated:YES];
-//    [self.routeTitleTextField becomeFirstResponder];
-//    [self.view layoutIfNeeded];
-//    [UIView animateWithDuration:0.3 animations:^{
-//        self.routeEditionView.alpha = 1;
-//        self.editViewConstraint.constant = 60;
-//        [self.view layoutIfNeeded];
-//    }];
 }
 
 - (IBAction)onStartRouteButtonTap:(UIButton *)sender {

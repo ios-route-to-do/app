@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Route.h"
 
 @interface RouteCoverEditView : UIView
+
+@property (nonatomic) Route *route;
+
+- (void) updateRouteWithValues;
 
 @end

@@ -7,16 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RouteCoverEditViewController">
             <connections>
-                <outlet property="descriptionCharCountLabel" destination="Q3n-Q2-VZZ" id="06g-UB-xfb"/>
                 <outlet property="descriptionLabel" destination="agj-Er-RlF" id="8PL-tY-Yxr"/>
                 <outlet property="imageImageView" destination="isw-YO-Jbg" id="0E0-CF-KUm"/>
                 <outlet property="informationLabel" destination="PRm-ir-D82" id="uQ6-JN-Dfo"/>
                 <outlet property="locationAuthorLabel" destination="2IL-pS-rcY" id="0n0-WW-y0y"/>
                 <outlet property="placesListLabel" destination="6y4-nI-T8f" id="F72-1H-VFq"/>
-                <outlet property="routeDescriptionTextView" destination="ZHd-XZ-GxI" id="Jof-tP-Y3L"/>
-                <outlet property="routeEditionView" destination="gEH-N9-c8q" id="VQi-QF-WkN"/>
-                <outlet property="routeLocationTextField" destination="X2t-Vx-zFs" id="F2l-aZ-r98"/>
-                <outlet property="routeTitleTextField" destination="vVF-ar-ecj" id="ZXm-xh-sQ2"/>
                 <outlet property="startRouteButton" destination="yUb-lt-YwS" id="PYQ-30-IUf"/>
                 <outlet property="titleLabel" destination="DHR-HI-C2a" id="6hJ-69-kfc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -36,7 +31,6 @@
                     <animations/>
                     <state key="normal" title="Take Pic"/>
                     <connections>
-                        <action selector="onPickImageButtonTap:" destination="-1" eventType="touchUpInside" id="BPI-Md-sf5"/>
                         <action selector="onTakePicButtonTap:" destination="-1" eventType="touchUpInside" id="YUv-v2-zjk"/>
                     </connections>
                 </button>
@@ -57,7 +51,7 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CCCF4D9C-37F1-4479-B5BF-A4299061B09A" translatesAutoresizingMaskIntoConstraints="NO" id="BrN-Li-eUU">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="97412420-B0F6-43D4-A9FF-CA418A5B1B75" translatesAutoresizingMaskIntoConstraints="NO" id="BrN-Li-eUU">
                             <rect key="frame" x="8" y="43" width="15" height="15"/>
                             <animations/>
                             <constraints>
@@ -137,66 +131,13 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxC-jm-51X">
-                    <rect key="frame" x="232" y="51" width="75" height="30"/>
+                    <rect key="frame" x="138" y="79" width="75" height="30"/>
                     <animations/>
                     <state key="normal" title="Pick Image"/>
                     <connections>
                         <action selector="onPickImageButtonTap:" destination="-1" eventType="touchUpInside" id="v2t-gC-shL"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gEH-N9-c8q">
-                    <rect key="frame" x="12" y="60" width="296" height="164"/>
-                    <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Route Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vVF-ar-ecj">
-                            <rect key="frame" x="16" y="16" width="264" height="17"/>
-                            <animations/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where is it?" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="X2t-Vx-zFs">
-                            <rect key="frame" x="16" y="41" width="216" height="14"/>
-                            <animations/>
-                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZHd-XZ-GxI">
-                            <rect key="frame" x="16" y="63" width="264" height="85"/>
-                            <animations/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="85" id="5mn-3c-fSN"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        </textView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="200 left" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3n-Q2-VZZ">
-                            <rect key="frame" x="240" y="43" width="40" height="12"/>
-                            <animations/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="AzM-LG-Yp3"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="X2t-Vx-zFs" firstAttribute="top" secondItem="vVF-ar-ecj" secondAttribute="bottom" constant="8" id="4r1-BI-qS1"/>
-                        <constraint firstAttribute="trailing" secondItem="ZHd-XZ-GxI" secondAttribute="trailing" constant="16" id="9x4-ex-Lnq"/>
-                        <constraint firstItem="ZHd-XZ-GxI" firstAttribute="top" secondItem="Q3n-Q2-VZZ" secondAttribute="bottom" constant="8" id="CLW-AU-qMy"/>
-                        <constraint firstAttribute="trailing" secondItem="vVF-ar-ecj" secondAttribute="trailing" constant="16" id="PKm-WR-e8F"/>
-                        <constraint firstItem="vVF-ar-ecj" firstAttribute="top" secondItem="gEH-N9-c8q" secondAttribute="top" constant="16" id="Qu1-su-TSh"/>
-                        <constraint firstItem="Q3n-Q2-VZZ" firstAttribute="leading" secondItem="X2t-Vx-zFs" secondAttribute="trailing" constant="8" id="TYi-XM-Qc3"/>
-                        <constraint firstItem="ZHd-XZ-GxI" firstAttribute="leading" secondItem="gEH-N9-c8q" secondAttribute="leading" constant="16" id="cJ1-T4-02q"/>
-                        <constraint firstItem="X2t-Vx-zFs" firstAttribute="leading" secondItem="gEH-N9-c8q" secondAttribute="leading" constant="16" id="dx7-gR-ZPG"/>
-                        <constraint firstAttribute="bottom" secondItem="ZHd-XZ-GxI" secondAttribute="bottom" constant="16" id="iWE-ya-lNu"/>
-                        <constraint firstItem="ZHd-XZ-GxI" firstAttribute="top" secondItem="X2t-Vx-zFs" secondAttribute="bottom" constant="8" id="jML-6J-GXM"/>
-                        <constraint firstItem="vVF-ar-ecj" firstAttribute="leading" secondItem="gEH-N9-c8q" secondAttribute="leading" constant="16" id="mtG-6a-Ycw"/>
-                        <constraint firstAttribute="trailing" secondItem="Q3n-Q2-VZZ" secondAttribute="trailing" constant="16" id="rq1-qc-97P"/>
-                    </constraints>
-                </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="0.31764705882352939" green="0.1764705882352941" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
@@ -214,7 +155,7 @@
         </view>
     </objects>
     <resources>
-        <image name="CCCF4D9C-37F1-4479-B5BF-A4299061B09A" width="15" height="15">
+        <image name="97412420-B0F6-43D4-A9FF-CA418A5B1B75" width="15" height="15">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -238,7 +179,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgEAAAMAAAABAA8AAAEBAAMAAAABAA8AAAEC
 AAMAAAAEAAAEOgEDAAMAAAABAAEAAAEGAAMAAAABAAIAAAERAAQAAAABAAAACAESAAMAAAABAAEAAAEV
 AAMAAAABAAQAAAEWAAMAAAABAA8AAAEXAAQAAAABAAADhAEcAAMAAAABAAEAAAFSAAMAAAABAAIAAAFT
 AAMAAAAEAAAEQodzAAcAAAxIAAAESgAAAAAACAAIAAgACAABAAEAAQABAAAMSExpbm8CEAAAbW50clJH
-QiBYWVogB84AAgAJAAYAMQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAAAAAAAAAAAAAAAPbWAAEAAAAA
+QiBYWVogB84AAgAJAAYAMQAAYWNzcE1TRlQAAAAASUVDIHNSR0IAAAAAAAAAAAAAAAEAAPbWAAEAAAAA
 0y1IUCAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARY3BydAAA
 AVAAAAAzZGVzYwAAAYQAAABsd3RwdAAAAfAAAAAUYmtwdAAAAgQAAAAUclhZWgAAAhgAAAAUZ1hZWgAA
 AiwAAAAUYlhZWgAAAkAAAAAUZG1uZAAAAlQAAABwZG1kZAAAAsQAAACIdnVlZAAAA0wAAACGdmlldwAA

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Route.h"
 
-@interface RouteCoverEditViewController : UIViewController
+@interface RouteCoverEditViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic) Route *route;
 

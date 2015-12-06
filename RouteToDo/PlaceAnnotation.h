@@ -13,10 +13,11 @@
 @interface PlaceAnnotation : NSObject <MKAnnotation>
 
 @property (nonatomic, readonly) Place *place;
+@property (nonatomic, readonly) long step;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, copy) NSString *title;
 
-- (instancetype) initWithPlace:(Place *)place;
+- (instancetype) initWithPlace:(Place *)place step:(long)step;
 - (MKAnnotationView *)annotationView;
 
 @end

@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Parse/Parse.h>
 
-@interface Location : PFObject<PFSubclassing>
+@interface Location : NSObject
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *coordinates;
