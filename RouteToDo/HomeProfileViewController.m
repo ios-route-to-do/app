@@ -50,6 +50,8 @@
         [tabBarItems addObject:tabBarItem];
     }
     self.tabBar.items = tabBarItems;
+    
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
