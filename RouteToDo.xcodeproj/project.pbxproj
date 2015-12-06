@@ -47,6 +47,7 @@
 		CD7D95501C0E897E007D778E /* RouteCoverEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7D954F1C0E897E007D778E /* RouteCoverEditViewController.m */; };
 		CDA0102D1C0EA3F100BAE7A8 /* RouteCoverEditView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA0102C1C0EA3F100BAE7A8 /* RouteCoverEditView.xib */; };
 		CDA010301C0EA40C00BAE7A8 /* RouteCoverEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA0102F1C0EA40C00BAE7A8 /* RouteCoverEditView.m */; };
+		CDA010331C13D3A300BAE7A8 /* CustomViewWithKeyboardAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA010321C13D3A300BAE7A8 /* CustomViewWithKeyboardAccessory.m */; };
 		CDF69F6C1C050E6800C427D8 /* CustomTabControllerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF69F6B1C050E6800C427D8 /* CustomTabControllerItem.m */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +120,8 @@
 		CDA0102C1C0EA3F100BAE7A8 /* RouteCoverEditView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteCoverEditView.xib; sourceTree = "<group>"; };
 		CDA0102E1C0EA40C00BAE7A8 /* RouteCoverEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteCoverEditView.h; sourceTree = "<group>"; };
 		CDA0102F1C0EA40C00BAE7A8 /* RouteCoverEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteCoverEditView.m; sourceTree = "<group>"; };
+		CDA010311C13D3A300BAE7A8 /* CustomViewWithKeyboardAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomViewWithKeyboardAccessory.h; sourceTree = "<group>"; };
+		CDA010321C13D3A300BAE7A8 /* CustomViewWithKeyboardAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewWithKeyboardAccessory.m; sourceTree = "<group>"; };
 		CDF69F6A1C050E6800C427D8 /* CustomTabControllerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabControllerItem.h; sourceTree = "<group>"; };
 		CDF69F6B1C050E6800C427D8 /* CustomTabControllerItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabControllerItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -217,6 +220,8 @@
 				CDA0102C1C0EA3F100BAE7A8 /* RouteCoverEditView.xib */,
 				CDA0102E1C0EA40C00BAE7A8 /* RouteCoverEditView.h */,
 				CDA0102F1C0EA40C00BAE7A8 /* RouteCoverEditView.m */,
+				CDA010311C13D3A300BAE7A8 /* CustomViewWithKeyboardAccessory.h */,
+				CDA010321C13D3A300BAE7A8 /* CustomViewWithKeyboardAccessory.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 				1849A3931BFECCAC002B9355 /* main.m in Sources */,
 				CD3046CF1BFFD7F3006C74EA /* RouteStepViewController.m in Sources */,
 				CD3046D61BFFE39B006C74EA /* PlaceAnnotation.m in Sources */,
+				CDA010331C13D3A300BAE7A8 /* CustomViewWithKeyboardAccessory.m in Sources */,
 				CDF69F6C1C050E6800C427D8 /* CustomTabControllerItem.m in Sources */,
 				248B13751BFEE3ED00184AD5 /* Place.m in Sources */,
 				CD7D95501C0E897E007D778E /* RouteCoverEditViewController.m in Sources */,

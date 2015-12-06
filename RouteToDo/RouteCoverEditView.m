@@ -8,12 +8,12 @@
 
 #import "RouteCoverEditView.h"
 
-@interface RouteCoverEditView()
+const long RouteDescriptionMaxLength = 200;
+
+@interface RouteCoverEditView() <UITextViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *contentView;
-@property (weak, nonatomic) IBOutlet UITextField *routeTitleTextField;
-@property (weak, nonatomic) IBOutlet UITextField *routeLocationTextField;
-@property (weak, nonatomic) IBOutlet UITextView *routeDescriptionTextView;
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
 
 @end
 
@@ -48,13 +48,42 @@
     _route = route;
     self.routeTitleTextField.text = route.title;
     self.routeLocationTextField.text = route.location;
-    self.routeTitleTextField.text = route.fullDescription;
+    self.routeDescriptionTextView.text = route.fullDescription;
+
+    long length = route.fullDescription.length;
+    if (length > RouteDescriptionMaxLength) {
+        length = RouteDescriptionMaxLength;
+    }
+
+    self.routeDescriptionTextView.delegate = self;
+    self.countLabel.text = [NSString stringWithFormat:@"%ld / %ld", length, RouteDescriptionMaxLength];
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    self.countLabel.text = [NSString stringWithFormat:@"%ld / %ld", textView.text.length, RouteDescriptionMaxLength];
+}
+
+- (BOOL) textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    NSInteger insertDelta = text.length - range.length;
+    return (!(textView.text.length + insertDelta > RouteDescriptionMaxLength));
+}
+- (IBAction)onSaveButtonTap:(UIButton *)sender {
+    if (self.delegate) {
+        [self updateRouteWithValues];
+        [self.delegate routeCoverEditView:self didSaveRoute:self.route];
+    }
+}
+
+- (IBAction)onCancelButtonTap:(UIButton *)sender {
+    if (self.delegate) {
+        [self.delegate routeCoverEditView:self didCancelEditingRoute:self.route];
+    }
 }
 
 - (void) updateRouteWithValues {
     self.route.title = self.routeTitleTextField.text;
     self.route.location = self.routeLocationTextField.text;
-    self.route.fullDescription = self.routeTitleTextField.text;
+    self.route.fullDescription = self.routeDescriptionTextView.text;
 }
 
 @end
