@@ -15,7 +15,8 @@
 #import "UIImageView+AFNetworking.h"
 
 #import "Utils.h"
-#import "MockRepository.h"
+//#import "MockRepository.h"
+#import "BackendRepository.h"
 
 
 @interface RouteListViewController ()
@@ -59,7 +60,7 @@
     self.bottomCollectionView.dataSource = self;
 
     [self loadRoutesWithCompletionHandler:^{
-        NSLog(@"loaded initial tweets");
+        NSLog(@"loaded initial routes");
     }];
 }
 
@@ -174,6 +175,9 @@
         NSLog(@"category 1 : %@",categories[0]);
     }];
 
+    [repository loginUserWithEmail:@"matiasarenas@gmail.com" completion:^(User *user, NSError *error) {
+        [User setCurrentUser:user];
+    }];
     
     
     [self.backgroundImageView setImageWithURL:[NSURL URLWithString:@"http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg"]];

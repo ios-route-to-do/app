@@ -38,8 +38,8 @@
 
 #pragma mark - User
 
-- (void)registerUserWithEmail:(NSString *)email password:(NSString *)password imageUrl:(NSString *)image completion:(void (^)(User *user, NSError *error))completion;
-- (void)loginUserWithEmail:(NSString *)email password:(NSString *)password completion:(void (^)(User *user, NSError *error))completion;
+- (void)registerUserWithEmail:(NSString *)email imageUrl:(NSString *)image completion:(void (^)(User *user, NSError *error))completion;
+- (void)loginUserWithEmail:(NSString *)email completion:(void (^)(User *user, NSError *error))completion;
 
 #pragma mark - Routes
 

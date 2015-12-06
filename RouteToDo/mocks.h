@@ -11,9 +11,12 @@
 
 #import "Route.h"
 #import "Place.h"
+#import "User.h"
 
 Route *mockRoute1();
 
 NSArray *mockRouteWithouthPlaces1Array();
 NSArray *mockRouteWithouthPlaces2Array();
+
+User *mockUser1();
 #endif /* mocks_h */

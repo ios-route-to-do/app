@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomTabControllerItem.h"
+#import "User.h"
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (nonatomic, strong) User *user;
+
+- (instancetype) initWithItems:(NSArray<CustomTabControllerItem *> *)items;
 
 @end

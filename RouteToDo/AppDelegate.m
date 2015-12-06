@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <Parse/Parse.h>
 
 #import "HomeProfileViewController.h"
 #import "ProfileViewController.h"
@@ -28,7 +27,7 @@
 
     ProfileViewController *profileController = [[ProfileViewController alloc] init];
     UIImage *profileImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Home" image:profileImage andController:profileController];
+    CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Profile" image:profileImage andController:profileController];
 
     HomeProfileViewController *vc = [[HomeProfileViewController alloc] initWithItems:@[homeItem, profileItem]];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
@@ -37,8 +36,6 @@
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
 
-    [Parse setApplicationId:@"W8GRsfacMN0U80jWxpIUHDknD1X2NJXsRFlTNd9K"
-                  clientKey:@"mFDpy3xYt1P8ogJ81k4s5BZtO10P76EQyTDhDmUc"];
     return YES;
 }
 

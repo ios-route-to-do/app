@@ -83,7 +83,9 @@ NSString * const kBaseUrl = @"http://localhost:3000";
 #pragma mark - User routes
 
 - (void)favoriteRoutesWithUser:(User *)user completion:(void (^)(NSArray *routes, NSError *error))completion {
-    completion(user.favoriteRoutes, nil);
+    completion(mockRouteWithouthPlaces1Array(), nil);
+//    completion(user.favoriteRoutes, nil);
+    
 //    NSString *url = [kBaseUrl stringByAppendingString:@"/v1/user/favorite_routes"];
 //    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
 //    
@@ -103,7 +105,8 @@ NSString * const kBaseUrl = @"http://localhost:3000";
 }
 
 - (void)userOutingsWithUser:(User *)user completion:(void (^)(NSArray *routes, NSError *error))completion {
-    completion(user.outings, nil);
+//    completion(user.outings, nil);
+    completion(mockRouteWithouthPlaces2Array(), nil);
 //    NSString *url = [kBaseUrl stringByAppendingString:@"/v1/user/outing_routes"];
 //    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
 //    
@@ -210,12 +213,11 @@ NSString * const kBaseUrl = @"http://localhost:3000";
 
 #pragma mark - User
 
-- (void)registerUserWithEmail:(NSString *)email password:(NSString *)password imageUrl:(NSString *)image completion:(void (^)(User *user, NSError *error))completion {
-    NSString *url = [kBaseUrl stringByAppendingString:@"/v1/user/register"];
+- (void)registerUserWithEmail:(NSString *)email imageUrl:(NSString *)image completion:(void (^)(User *user, NSError *error))completion {
+    NSString *url = [kBaseUrl stringByAppendingString:@"/users/register"];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *params = @{@"user[password]": password,
-                             @"user[email]": email};
+    NSDictionary *params = @{@"email": email};
     [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         User *user = [[User alloc] initWithDictionary:responseObject];
@@ -226,24 +228,19 @@ NSString * const kBaseUrl = @"http://localhost:3000";
     }];
 }
 
-- (void)loginUserWithEmail:(NSString *)email password:(NSString *)password completion:(void (^)(User *user, NSError *error))completion {
-    NSString *url = [kBaseUrl stringByAppendingString:@"/v1/user/login"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+- (void)loginUserWithEmail:(NSString *)email completion:(void (^)(User *user, NSError *error))completion {
+    NSString *url = [kBaseUrl stringByAppendingString:@"/users/login"];
     
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Sucessful request");
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *params = @{@"email": email};
+    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
         User *user = [[User alloc] initWithDictionary:responseObject];
-        completion(user, nil);
+        completion(user,nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"FAILED request");
+        NSLog(@"Error: %@", error);
         completion(nil, error);
     }];
-    
-    [operation start];
-
 }
 
 #pragma mark - Routes

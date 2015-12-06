@@ -47,7 +47,7 @@
 
     ProfileViewController *profileController = [[ProfileViewController alloc] init];
     UIImage *profileImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Home" image:profileImage andController:profileController];
+    CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Profile" image:profileImage andController:profileController];
     
     HomeProfileViewController *vc = [[HomeProfileViewController alloc] initWithItems:@[homeItem, profileItem]];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];

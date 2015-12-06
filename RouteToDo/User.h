@@ -21,4 +21,6 @@
 @property (nonatomic) NSMutableArray *ownRoutes;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
++ (User *)currentUser;
++ (void)setCurrentUser:(User *)currentUser;
 @end

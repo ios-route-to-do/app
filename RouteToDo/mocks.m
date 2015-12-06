@@ -82,3 +82,18 @@ NSArray *mockRouteWithouthPlaces2Array() {
     return templateRoutesArray;
 
 }
+
+User *mockUser1() {
+    static User *defaultUser = nil;
+    if (!defaultUser) {
+        defaultUser = [[User alloc] init];
+        defaultUser.username = @"Matias Goleador";
+        [defaultUser.ownRoutes addObjectsFromArray:mockRouteWithouthPlaces1Array()];
+        defaultUser.profileImageUrl = [NSURL URLWithString:@"https://backoftheferry.files.wordpress.com/2014/10/sf-pi-bar.jpg"];
+        [defaultUser.outings addObjectsFromArray:mockRouteWithouthPlaces2Array()];
+        defaultUser.location = @"Mountain View";
+        
+    }
+    
+    return defaultUser;
+}
