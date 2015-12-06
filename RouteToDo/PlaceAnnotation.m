@@ -8,7 +8,7 @@
 
 #import "PlaceAnnotation.h"
 
-@implementation PlaceAnnotation
+@implementation PlaceAnnotation 
 
 - (instancetype)initWithPlace:(Place *)place step:(long)step {
     if (self = [super init]) {
@@ -21,17 +21,42 @@
     return self;
 }
 
-- (MKAnnotationView *)annotationView {
-    MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:self reuseIdentifier:@"PlaceAnnotation"];
-    
-    annotationView.enabled = YES;
-    annotationView.canShowCallout = YES;
-    NSString *image = [NSString stringWithFormat:@"pin_%ld", (_step + 1)];
-    NSLog(@"%@ %ld %@", _place, _step, image);
-    annotationView.image = [UIImage imageNamed:image];
-    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    
-    return annotationView;
+
+- (UIImage *)pinImage {
+    return [self pinWithStep:_step pressed:_selected];
 }
+
+- (UIImage *)pinWithStep:(long)step pressed:(BOOL)pressed {
+    UIImage *image = [UIImage imageNamed:(pressed ? @"pin_0_pressed" : @"pin_0")];
+    UIFont *font = [UIFont boldSystemFontOfSize:9];
+    NSString *text = [NSString stringWithFormat:@"%ld", step];
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowOffset = CGSizeMake(1.5, 1.5);
+    shadow.shadowColor = [UIColor darkGrayColor];
+    shadow.shadowBlurRadius = 2;
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:font,
+                                 NSForegroundColorAttributeName: [UIColor whiteColor],
+                                 NSKernAttributeName: @(1.0),
+                                 NSShadowAttributeName: shadow,
+                                 };
+
+    UIGraphicsBeginImageContextWithOptions(image.size, NO, 0.0f);
+    [image drawInRect:CGRectMake(0,0,image.size.width,image.size.height)];
+
+    CGSize expectedLabelSize = [text sizeWithAttributes:attributes];
+    CGRect rect = CGRectMake((image.size.width / 2) - (expectedLabelSize.width / 2) + 1,
+                             6,
+                             image.size.width,
+                             image.size.height);
+
+    [text drawInRect:rect withAttributes:attributes];
+
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return newImage;
+}
+
 
 @end

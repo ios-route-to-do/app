@@ -16,8 +16,9 @@
 @property (nonatomic, readonly) long step;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, copy) NSString *title;
+@property (nonatomic) BOOL selected;
 
 - (instancetype) initWithPlace:(Place *)place step:(long)step;
-- (MKAnnotationView *)annotationView;
+- (UIImage *)pinImage;
 
 @end

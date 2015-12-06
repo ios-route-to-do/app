@@ -145,7 +145,7 @@
 
     if (!UIAccessibilityIsReduceTransparencyEnabled()) {
         if (!self.blurEffectView) {
-            UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+            UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
             self.blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
         }
         self.blurEffectView.frame = self.view.bounds;

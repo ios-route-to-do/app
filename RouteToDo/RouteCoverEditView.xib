@@ -61,7 +61,7 @@
                     </connections>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UZV-vn-Mhk">
-                    <rect key="frame" x="8" y="55" width="264" height="47"/>
+                    <rect key="frame" x="3" y="50" width="269" height="52"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -74,18 +74,17 @@
                 <constraint firstItem="O9R-KS-bBb" firstAttribute="top" secondItem="UZV-vn-Mhk" secondAttribute="bottom" constant="8" id="4Oh-9Z-MDi"/>
                 <constraint firstItem="88o-bS-qwL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="78x-cC-xD3"/>
                 <constraint firstAttribute="trailing" secondItem="ka3-q0-sxO" secondAttribute="trailing" constant="8" id="79H-Cj-7sO"/>
-                <constraint firstItem="UZV-vn-Mhk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="802-ez-ygc"/>
-                <constraint firstItem="UZV-vn-Mhk" firstAttribute="top" secondItem="ka3-q0-sxO" secondAttribute="bottom" constant="8" id="9ON-dY-nfh"/>
+                <constraint firstItem="UZV-vn-Mhk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="3" id="802-ez-ygc"/>
                 <constraint firstItem="88o-bS-qwL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Arm-Dg-1L9"/>
                 <constraint firstAttribute="bottom" secondItem="okN-oj-UZW" secondAttribute="bottom" constant="8" id="CQk-KB-r5M"/>
                 <constraint firstAttribute="trailing" secondItem="UZV-vn-Mhk" secondAttribute="trailing" constant="8" id="HPK-Kb-W6e"/>
                 <constraint firstItem="nnf-Tv-o8q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Jzh-qT-p7f"/>
                 <constraint firstAttribute="trailing" secondItem="O9R-KS-bBb" secondAttribute="trailing" constant="8" id="PV4-bz-bDd"/>
-                <constraint firstItem="UZV-vn-Mhk" firstAttribute="top" secondItem="ka3-q0-sxO" secondAttribute="bottom" constant="8" id="aAd-Cf-uxT"/>
+                <constraint firstItem="UZV-vn-Mhk" firstAttribute="top" secondItem="ka3-q0-sxO" secondAttribute="bottom" constant="3" id="aAd-Cf-uxT"/>
                 <constraint firstAttribute="bottom" secondItem="O9R-KS-bBb" secondAttribute="bottom" constant="8" id="f2s-WP-2ma"/>
                 <constraint firstItem="O9R-KS-bBb" firstAttribute="width" secondItem="okN-oj-UZW" secondAttribute="width" id="lrh-DH-IRo"/>
                 <constraint firstItem="okN-oj-UZW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="lxc-nh-y4s"/>
-                <constraint firstItem="UZV-vn-Mhk" firstAttribute="top" secondItem="nnf-Tv-o8q" secondAttribute="bottom" constant="8" id="pHC-cN-t7I"/>
+                <constraint firstItem="UZV-vn-Mhk" firstAttribute="top" secondItem="nnf-Tv-o8q" secondAttribute="bottom" constant="3" id="pHC-cN-t7I"/>
                 <constraint firstAttribute="trailing" secondItem="88o-bS-qwL" secondAttribute="trailing" constant="8" id="qTl-GQ-dgp"/>
                 <constraint firstItem="nnf-Tv-o8q" firstAttribute="top" secondItem="88o-bS-qwL" secondAttribute="bottom" constant="8" id="yi8-Uh-Jkh"/>
                 <constraint firstItem="nnf-Tv-o8q" firstAttribute="top" secondItem="88o-bS-qwL" secondAttribute="bottom" constant="8" id="zMO-pD-06S"/>

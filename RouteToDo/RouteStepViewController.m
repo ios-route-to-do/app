@@ -105,15 +105,18 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     if ([annotation isKindOfClass:[PlaceAnnotation class]]) {
-        PlaceAnnotation *myPlace = (PlaceAnnotation *)annotation;
+        PlaceAnnotation *placeAnnotation = (PlaceAnnotation *)annotation;
         MKAnnotationView *view = [mapView dequeueReusableAnnotationViewWithIdentifier:@"PlaceAnnotation"];
         
         if (view == nil) {
-            view = myPlace.annotationView;
+            view = [[MKAnnotationView alloc] initWithAnnotation:placeAnnotation reuseIdentifier:@"PlaceAnnotation"];
+            view.enabled = YES;
+            view.canShowCallout = YES;
         } else {
             view.annotation = annotation;
         }
-        
+
+        view.image = [placeAnnotation pinImage];
         return view;
     } else {
         return nil;
