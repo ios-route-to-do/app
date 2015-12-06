@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 #import "Route.h"
 #import "Place.h"
 #import "User.h"
@@ -48,6 +49,12 @@
 #pragma mark - Upload Media
 
 - (void)storeImageWithData:(NSData *)data completion:(void (^)(NSString *imageUrl, NSError *error))completion;
+
+#pragma mark - Search Places
+
+- (void)searchPlacesWithLocation:(NSString *)location searchQuery:(NSString *)query completion:(void (^)(MKCoordinateRegion region, NSArray<Place *> *places, NSError *error))completion;
+
+- (void)searchPlacesWithCoordinates:(CLLocationCoordinate2D)coordinates searchQuery:(NSString *)query completion:(void (^)(MKCoordinateRegion region, NSArray<Place *> *places, NSError *error))completion;
 
 @end
 

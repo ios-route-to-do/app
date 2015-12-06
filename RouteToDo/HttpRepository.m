@@ -258,4 +258,59 @@ NSString * const kBaseUrl = @"http://localhost:3000";
     
 }
 
+#pragma mark - Search Places
+
+- (void)searchPlacesWithLocation:(NSString *)location searchQuery:(NSString *)query completion:(void (^)(MKCoordinateRegion region, NSArray<Place *> *places, NSError *error))completion {
+
+    NSDictionary *params = @{@"location": location,
+                             @"query": query,
+                             @"language": [[NSLocale preferredLanguages] objectAtIndex:0]
+                             };
+
+    [self searchPlacesWithParameters:params completion:completion];
+}
+
+- (void)searchPlacesWithCoordinates:(CLLocationCoordinate2D)coordinates searchQuery:(NSString *)query completion:(void (^)(MKCoordinateRegion region, NSArray<Place *> *places, NSError *error))completion {
+
+    NSDictionary *params = @{@"latitude": @(coordinates.latitude),
+                             @"longitude": @(coordinates.longitude),
+                             @"query": query,
+                             @"language": [[NSLocale preferredLanguages] objectAtIndex:0]
+                             };
+
+    [self searchPlacesWithParameters:params completion:completion];
+}
+
+- (void)searchPlacesWithParameters:(NSDictionary *)parameters completion:(void (^)(MKCoordinateRegion region, NSArray<Place *> *places, NSError *error))completion {
+    NSString *url = [kBaseUrl stringByAppendingString:@"/places/search"];
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *response = responseObject;
+
+        CLLocationCoordinate2D regionCenter = CLLocationCoordinate2DMake([response[@"region"][@"center"][@"latitude"] doubleValue], [response[@"region"][@"center"][@"longitude"] doubleValue]);
+        MKCoordinateSpan regionDelta = MKCoordinateSpanMake([response[@"region"][@"span"][@"latitude_delta"] doubleValue], [response[@"region"][@"span"][@"longitude_delta"] doubleValue]);
+        MKCoordinateRegion region = MKCoordinateRegionMake(regionCenter, regionDelta);
+
+        NSMutableArray<Place *> *places = [[NSMutableArray alloc] init];
+        for (NSDictionary *placeData in response[@"places"]) {
+            Place *place = [[Place alloc] init];
+            place.name = placeData[@"name"];
+            place.fullDescription = placeData[@"full_description"];
+            place.coordinates = CLLocationCoordinate2DMake([placeData[@"coordinates"][@"latitude"] doubleValue], [placeData[@"coordinates"][@"longitude"] doubleValue]);
+            place.location = placeData[@"location"];
+            place.address = placeData[@"address"];
+            place.imageUrl = [NSURL URLWithString:placeData[@"image_url"]];
+
+            [places addObject:place];
+        }
+
+        completion(region, places, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        MKCoordinateRegion region;
+        completion(region, nil, error);
+    }];
+}
+
 @end
