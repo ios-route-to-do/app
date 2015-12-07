@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Place.h"
+#import "User.h"
 
 @interface Route : NSObject
 
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *location;
-@property (nonatomic) NSString *author;
+@property (nonatomic) User *author;
 @property (nonatomic) NSString *fullDescription;
 @property (nonatomic) NSURL *imageUrl;
 @property (nonatomic) NSArray<Place *> *places;

@@ -148,6 +148,7 @@
 
 - (void) onNewRouteButtonTap {
     Route *newRoute = [Route emptyRoute];
+    newRoute.author = [User currentUser];
     RouteCoverEditViewController *vc = [[RouteCoverEditViewController alloc] init];
     vc.route = newRoute;
     [self.navigationController pushViewController:vc animated:YES];
@@ -175,7 +176,6 @@
     
     [repository allCategoriesWithCompletion:^(NSArray *categories, NSError *error) {
         NSLog(@"all categories");
-        NSLog(@"category 1 : %@",categories[0]);
     }];
 
     [repository loginUserWithEmail:@"matiasarenas@gmail.com" completion:^(User *user, NSError *error) {

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Route.h"
 
 @interface User : NSObject
 

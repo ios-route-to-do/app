@@ -13,6 +13,7 @@
 #import "Place.h"
 #import "BackendRepository.h"
 #import "CustomViewWithKeyboardAccessory.h"
+#import "SVProgressHUD/SVProgressHUD.h"
 
 @interface RouteCoverEditViewController () <RouteCoverEditViewDelegate>
 
@@ -82,11 +83,23 @@
         self.editStepController.step = 0;
     }
 
-    if (self.routeHasChanged) {
-        [self uploadRouteChanges];
-    }
+    if (self.imageToBeUploaded) {
+        id<BackendRepository> repo = [BackendRepository sharedInstance];
 
-    [self.navigationController pushViewController:self.editStepController animated:YES];
+        [SVProgressHUD showWithStatus:@"Uploading image"];
+        [repo storeImage:self.imageToBeUploaded completion:^(NSString *imageUrl, NSError *error) {
+            if (imageUrl && !error) {
+                self.route.imageUrl = [NSURL URLWithString:imageUrl];
+                self.imageToBeUploaded = nil;
+                [SVProgressHUD showSuccessWithStatus:nil];
+                [self.navigationController pushViewController:self.editStepController animated:YES];
+            } else {
+                [SVProgressHUD showErrorWithStatus:@"Can not upload image"];
+            }
+        }];
+    } else {
+        [self.navigationController pushViewController:self.editStepController animated:YES];
+    }
 }
 
 #pragma mark delegates: UIImagePickerControllerDelegate
@@ -187,7 +200,7 @@
 
     self.titleLabel.text = [self checkValueFor:route.title missing:@"(New Ruote Title)"];
     NSString *location = [self checkValueFor:route.location missing:@"(Location)"];
-    self.locationAuthorLabel.text = [NSString stringWithFormat:@"%@ \u2022 By @%@", location, route.author];
+    self.locationAuthorLabel.text = [NSString stringWithFormat:@"%@ \u2022 By @%@", location, route.author.username];
     self.descriptionLabel.text = [self checkValueFor:route.fullDescription missing:@"(New Route Description)"];
 
     if (route.places.count > 0) {
@@ -201,21 +214,6 @@
         self.placesListLabel.text = [placesNames componentsJoinedByString:@" \u2022 "];
     } else {
         self.placesListLabel.text = @"";
-    }
-}
-
-- (void) uploadRouteChanges {
-    id<BackendRepository> repo = [BackendRepository sharedInstance];
-
-    if (self.imageToBeUploaded) {
-        [repo storeImage:self.imageToBeUploaded completion:^(NSString *imageUrl, NSError *error) {
-            if (imageUrl && !error) {
-                self.route.imageUrl = [NSURL URLWithString:imageUrl];
-                self.imageToBeUploaded = nil;
-            } else {
-                NSLog(@"error uploading image");
-            }
-        }];
     }
 }
 
