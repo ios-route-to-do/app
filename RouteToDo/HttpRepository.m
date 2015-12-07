@@ -246,7 +246,8 @@ NSString * const kBaseUrl = @"http://localhost:3000";
 #pragma mark - Routes
 
 - (void)createRouteWithObject:(Route *)route completion:(void (^)(Route *route, NSError *error))completion {
-    
+    sleep(3);
+    completion(route, nil);
 }
 
 #pragma mark - Upload Media

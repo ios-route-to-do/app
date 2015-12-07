@@ -10,6 +10,8 @@
 #import "Place.h"
 #import "User.h"
 
+@class RouteCategory;
+
 @interface Route : NSObject
 
 @property (nonatomic) NSString *title;
@@ -20,7 +22,7 @@
 @property (nonatomic) NSArray<Place *> *places;
 @property (nonatomic) double rating;
 @property (nonatomic) long usersCount;
-@property (nonatomic) NSArray *categories;
+@property (nonatomic) NSArray<RouteCategory *> *categories;
 @property (nonatomic) BOOL favorite;
 
 + (NSArray *)routeWithArray:(NSArray *) array;

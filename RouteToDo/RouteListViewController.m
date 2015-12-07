@@ -16,7 +16,7 @@
 #import "RouteCoverEditViewController.h"
 
 #import "Utils.h"
-//#import "MockRepository.h"
+#import "mocks.h"
 #import "BackendRepository.h"
 
 
@@ -178,10 +178,11 @@
         NSLog(@"all categories");
     }];
 
-    [repository loginUserWithEmail:@"matiasarenas@gmail.com" completion:^(User *user, NSError *error) {
-        [User setCurrentUser:user];
-    }];
-    
+//    [repository loginUserWithEmail:@"yonpols@gmail.com" completion:^(User *user, NSError *error) {
+//        [User setCurrentUser:user];
+//    }];
+
+    [User setCurrentUser:mockUser1()];
     
     [self.backgroundImageView setImageWithURL:[NSURL URLWithString:@"http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg"]];
     

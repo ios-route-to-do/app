@@ -12,6 +12,6 @@
 @interface RouteStepEditViewController : UIViewController
 
 @property (nonatomic) Route *route;
-@property (nonatomic) NSNumber *step;
+@property (nonatomic) long step;
 
 @end

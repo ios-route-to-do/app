@@ -19,7 +19,6 @@
 		248B13781BFEE46000184AD5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B13771BFEE46000184AD5 /* User.m */; };
 		248B137B1BFEE4FD00184AD5 /* RouteCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B137A1BFEE4FD00184AD5 /* RouteCategory.m */; };
 		248B137E1BFEE5E900184AD5 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B137D1BFEE5E900184AD5 /* Location.m */; };
-		24A79ED71C05415400FB3D6B /* MockRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A79ED61C05415400FB3D6B /* MockRepository.m */; };
 		24A79ED91C067E8800FB3D6B /* BackendRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A79ED81C067E8800FB3D6B /* BackendRepository.m */; };
 		24FD6B601C04F92A0091E9DB /* RouteRatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24FD6B5F1C04F92A0091E9DB /* RouteRatingView.xib */; };
 		24FD6B631C04F9790091E9DB /* RouteRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FD6B621C04F9790091E9DB /* RouteRatingView.m */; };
@@ -82,8 +81,6 @@
 		248B137C1BFEE5E900184AD5 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		248B137D1BFEE5E900184AD5 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		24A79ED41C0540F600FB3D6B /* BackendRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendRepository.h; sourceTree = "<group>"; };
-		24A79ED51C05415400FB3D6B /* MockRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockRepository.h; sourceTree = "<group>"; };
-		24A79ED61C05415400FB3D6B /* MockRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockRepository.m; sourceTree = "<group>"; };
 		24A79ED81C067E8800FB3D6B /* BackendRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackendRepository.m; sourceTree = "<group>"; };
 		24FD6B5F1C04F92A0091E9DB /* RouteRatingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteRatingView.xib; sourceTree = "<group>"; };
 		24FD6B611C04F9790091E9DB /* RouteRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteRatingView.h; sourceTree = "<group>"; };
@@ -181,8 +178,6 @@
 				1849A3911BFECCAC002B9355 /* Supporting Files */,
 				18A4A89C1BFEDA0A0028C691 /* ExampleImages.xcassets */,
 				24A79ED41C0540F600FB3D6B /* BackendRepository.h */,
-				24A79ED51C05415400FB3D6B /* MockRepository.h */,
-				24A79ED61C05415400FB3D6B /* MockRepository.m */,
 				24A79ED81C067E8800FB3D6B /* BackendRepository.m */,
 				60ADA9131C0E8C10003DAC6E /* HttpRepository.h */,
 				60ADA9141C0E8C10003DAC6E /* HttpRepository.m */,
@@ -501,7 +496,6 @@
 				248B13751BFEE3ED00184AD5 /* Place.m in Sources */,
 				CD7D95501C0E897E007D778E /* RouteCoverEditViewController.m in Sources */,
 				18A4A89A1BFED3340028C691 /* RouteCoverViewController.m in Sources */,
-				24A79ED71C05415400FB3D6B /* MockRepository.m in Sources */,
 				603E926C1BFEEB80003BE497 /* ProfileViewController.m in Sources */,
 				18A4A8951BFED1AA0028C691 /* LoginViewController.m in Sources */,
 				603E92761BFFC52C003BE497 /* SmallRouteCollectionViewCell.m in Sources */,
@@ -610,6 +604,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RouteToDo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.RouteToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -622,6 +617,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RouteToDo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.RouteToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

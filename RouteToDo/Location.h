@@ -14,6 +14,4 @@
 @property (nonatomic) NSString *coordinates;
 @property (nonatomic) NSString *radius;
 
-+ (NSString *)parseClassName;
-
 @end

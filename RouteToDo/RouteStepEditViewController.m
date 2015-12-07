@@ -19,8 +19,9 @@
 #import "Utils.h"
 #import "CustomViewWithKeyboardAccessory.h"
 #import "PlaceEditView.h"
+#import "SVProgressHUD/SVProgressHUD.h"
 
-@interface RouteStepEditViewController () <MKMapViewDelegate, UISearchBarDelegate, PlaceEditViewDelegate>
+@interface RouteStepEditViewController () <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, PlaceEditViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *nextStepButton;
 @property (weak, nonatomic) IBOutlet MKMapView *routeMapView;
@@ -32,13 +33,19 @@
 @property (nonatomic) NSArray *annotations;
 @property (nonatomic) Place *place;
 
+@property (nonatomic) CLLocationManager *locationManager;
+@property (nonatomic) CLLocation *currentLocation;
+
 @property (nonatomic) RouteStepEditViewController *nextStepController;
 
+@property (nonatomic) BOOL emptyLocation;
 @property (nonatomic) BOOL inSearchMode;
 @property (nonatomic) UISearchBar *searchBar;
 @property (nonatomic) UIBarButtonItem *searchButton;
 
 @property (nonatomic) UIVisualEffectView *blurEffectView;
+
+@property (nonatomic) BOOL canProceed;
 
 @end
 
@@ -47,10 +54,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-
     UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hidePlaceEditView)];
     [self.view addGestureRecognizer:recognizer];
     
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    [self.locationManager requestWhenInUseAuthorization];
+
     self.routeMapView.delegate = self;
 }
 
@@ -71,20 +81,36 @@
     self.nextStepButton.layer.cornerRadius = self.nextStepButton.frame.size.height / 2;
     self.nextStepButton.layer.masksToBounds = YES;
     
-    if (self.route != nil) {
-        Place *place = self.route.places[[self.step longValue]];
-        [self resetViewToPlace:place];
-    }
+    Place *place = self.route.places[self.step];
+    [self resetViewToPlace:place];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-//    self.locationManager.distanceFilter = kCLDistanceFilterNone;
-//    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-//    [self.locationManager startUpdatingLocation];
+    if (self.emptyLocation) {
+        if (self.step == 0) {
+            self.routeMapView.showsUserLocation = YES;
+            self.locationManager.distanceFilter = kCLDistanceFilterNone;
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+            [self.locationManager startUpdatingLocation];
+        } else {
+            CLLocationCoordinate2D coord = self.route.places[self.step - 1].coordinates;
+            self.currentLocation = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
+            [self.routeMapView setRegion:MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, 3000, 3000) animated:NO];
+        }
+    }
 }
 
 - (IBAction)onEditPlaceButtonTap:(id)sender {
     [self showPlaceEdit];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    if (locations.count == 0)
+        return;
+
+    self.currentLocation = [locations lastObject];
+    [self.routeMapView setRegion:MKCoordinateRegionMakeWithDistance(self.currentLocation.coordinate, 3000, 3000) animated:YES];
+    [self.locationManager stopUpdatingLocation];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
@@ -149,14 +175,24 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     id<BackendRepository> repo = [BackendRepository sharedInstance];
 
-    [repo searchPlacesWithLocation:self.route.location searchQuery:searchBar.text completion:^(MKCoordinateRegion region, NSArray<Place *> *places, NSError *error) {
-        if (error) {
+    if (self.currentLocation) {
+        [repo searchPlacesWithCoordinates:self.currentLocation.coordinate searchQuery:searchBar.text completion:^(MKCoordinateRegion region, NSArray<Place *> *places, NSError *error) {
+            if (error) {
 
-        } else {
-            [self loadMapDataWithRegion:region places:places autoSelected:NO];
-        }
-    }];
-    
+            } else {
+                [self loadMapDataWithRegion:region places:places autoSelected:NO];
+            }
+        }];
+    } else {
+        [repo searchPlacesWithLocation:self.route.location searchQuery:searchBar.text completion:^(MKCoordinateRegion region, NSArray<Place *> *places, NSError *error) {
+            if (error) {
+
+            } else {
+                [self loadMapDataWithRegion:region places:places autoSelected:NO];
+            }
+        }];
+    }
+
     [self onSearchButtonTap];
 }
 
@@ -171,28 +207,34 @@
 }
 
 - (IBAction)onNextStepButtonTap:(id)sender {
-//    if (!self.isLastStep) {
-//        if (!self.nextStepController) {
-//            self.nextStepController = [[RouteStepEditViewController alloc] init];
-//            self.nextStepController.route = self.route;
-//            self.nextStepController.step = @([self.step integerValue] + 1);
-//        }
-//        
-//        [self.navigationController pushViewController:self.nextStepController animated:YES];
-//    } else {
-//        RouteRatingView *ratingView = [[RouteRatingView alloc] initWithFrame:CGRectMake(0, 0, 300, 200)];
-//        ratingView.route = self.route;
-//
-//        self.ratingPopupController = [[CNPPopupController alloc] initWithContents:@[ratingView]];
-//        self.ratingPopupController.theme = [CNPPopupTheme defaultTheme];
-//        self.ratingPopupController.theme.popupStyle = CNPPopupStyleCentered;
-//        self.ratingPopupController.theme.presentationStyle = CNPPopupPresentationStyleSlideInFromBottom;
-//        self.ratingPopupController.theme.cornerRadius = 20.0f;
-//        self.ratingPopupController.theme.popupContentInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
-//        self.ratingPopupController.theme.contentVerticalPadding = 0.0f;
-//        self.ratingPopupController.delegate = self;
-//        [self.ratingPopupController presentPopupControllerAnimated:YES];
-//    }
+    if (self.step < (self.route.places.count - 1)) {
+        if (!self.nextStepController) {
+            self.nextStepController = [[RouteStepEditViewController alloc] init];
+            self.nextStepController.route = self.route;
+            self.nextStepController.step = self.step + 1;
+        }
+
+        if (self.route.places[self.step] != self.place) {
+            NSMutableArray *places = [[NSMutableArray alloc] initWithArray:self.route.places];
+            places[self.step] = self.place;
+            self.route.places = places;
+        }
+        [self.navigationController pushViewController:self.nextStepController animated:YES];
+    } else {
+        id<BackendRepository> repo = [BackendRepository sharedInstance];
+
+        [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+        [SVProgressHUD showWithStatus:@"Creating Route"];
+        [repo createRouteWithObject:self.route completion:^(Route *route, NSError *error) {
+            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+            if (route && !error) {
+                [SVProgressHUD showSuccessWithStatus:nil];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            } else {
+                [SVProgressHUD showErrorWithStatus:@"Can not create your route"];
+            }
+        }];
+    }
 }
 
 - (void) loadDataFromPlace:(Place *)place {
@@ -201,6 +243,12 @@
     self.addressLabel.text = place.address;
     self.descriptionLabel.text = place.fullDescription;
     self.place = place;
+    self.canProceed = (place.imageUrl) &&
+                      (place.name && place.name.length > 0) &&
+                      (place.address && place.address.length > 0) &&
+                      (place.fullDescription && place.fullDescription.length > 0) &&
+                      (place.coordinates.latitude != 0 && place.coordinates.longitude != 0);
+    self.nextStepButton.hidden = !self.canProceed;
 }
 
 - (void) loadMapDataWithRegion:(MKCoordinateRegion)region places:(NSArray *)places autoSelected:(BOOL)autoSelected {
@@ -223,8 +271,13 @@
 - (void)resetViewToPlace:(Place *)place {
     [self loadDataFromPlace:place];
 
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(place.coordinates, 1000, 1000);
-    [self loadMapDataWithRegion:region places:@[place] autoSelected:YES];
+    if (place.coordinates.latitude == 0 && place.coordinates.longitude == 0) {
+        self.emptyLocation = YES;
+    } else {
+        self.emptyLocation = NO;
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(place.coordinates, 1000, 1000);
+        [self loadMapDataWithRegion:region places:@[place] autoSelected:YES];
+    }
 }
 
 - (void) showPlaceEdit {

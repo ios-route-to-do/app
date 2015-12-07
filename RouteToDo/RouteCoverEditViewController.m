@@ -28,6 +28,7 @@
 @property (nonatomic) RouteStepEditViewController *editStepController;
 @property (nonatomic) UIImage *imageToBeUploaded;
 @property (nonatomic) BOOL routeHasChanged;
+@property (nonatomic) BOOL canProceedToPlaces;
 
 @end
 
@@ -215,6 +216,11 @@
     } else {
         self.placesListLabel.text = @"";
     }
+
+    self.canProceedToPlaces = (route.title && route.title.length > 0) &&
+                              (route.location && route.location.length > 0) &&
+                              (route.fullDescription && route.fullDescription.length > 0);
+    self.editPlacesButton.hidden = !self.canProceedToPlaces;
 }
 
 - (NSString *)checkValueFor:(NSString *)value missing:(NSString *)missing {
