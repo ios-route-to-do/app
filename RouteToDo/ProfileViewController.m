@@ -19,9 +19,7 @@
 @interface ProfileViewController () <UITabBarDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *userProfileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *userLocationLabel;
-@property (weak, nonatomic) IBOutlet UILabel *userOwnedCountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *userNightsOutCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userInfoLabel;
 @property (weak, nonatomic) IBOutlet UITabBar *userProfileTabBar;
 @property (weak, nonatomic) IBOutlet UIImageView *userProfileBackgroundRouteImageView;
 @property (weak, nonatomic) IBOutlet UICollectionView *userProfileRoutesCollectionView;
@@ -60,9 +58,12 @@
     
     [self.userProfileImageView setImageWithURL:self.user.profileImageUrl];
     self.usernameLabel.text = self.user.username;
-    self.userLocationLabel.text = self.user.location;
-    self.userOwnedCountLabel.text = [@(self.user.ownRoutes.count) stringValue];
-    self.userNightsOutCountLabel.text = [@(self.user.outings.count) stringValue];
+    NSString *userInfoString = [self.user.location stringByAppendingString:@" • Owns "];
+    userInfoString = [userInfoString stringByAppendingString:[@(self.user.ownRoutes.count) stringValue]];
+    userInfoString = [userInfoString stringByAppendingString:@" Routes • "];
+    userInfoString = [userInfoString stringByAppendingString:[@(self.user.outings.count) stringValue]];
+    userInfoString = [userInfoString stringByAppendingString:@" Nights Out"];
+    self.userInfoLabel.text = userInfoString;
     
     NSMutableArray *tabBarItems = [[NSMutableArray alloc] init];
     
@@ -95,7 +96,6 @@
     [self loadRoutesWithCompletionHandler:^{
         NSLog(@"loaded initial tweets");
     }];
-    
     
 }
 
@@ -190,7 +190,7 @@
     [self.userProfileBackgroundRouteImageView addSubview:blurEffectView];
     
     [self.userProfileRoutesCollectionView reloadData];
-    NSLog(@"going to load routes 2");
+    completionHandler();
 }
 
 
