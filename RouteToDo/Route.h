@@ -17,12 +17,15 @@
 @property (nonatomic) NSString *fullDescription;
 @property (nonatomic) NSURL *imageUrl;
 @property (nonatomic) NSArray<Place *> *places;
-@property (nonatomic) NSNumber *rating;
-@property (nonatomic) NSNumber *usersCount;
+@property (nonatomic) double rating;
+@property (nonatomic) long usersCount;
 @property (nonatomic) NSArray *categories;
 @property (nonatomic) BOOL favorite;
 
-- (id)initWithDictionary:(NSDictionary *)dictionary;
 + (NSArray *)routeWithArray:(NSArray *) array;
++ (Route *)emptyRoute;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary;
+
 
 @end

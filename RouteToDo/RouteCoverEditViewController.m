@@ -16,17 +16,17 @@
 
 @interface RouteCoverEditViewController () <RouteCoverEditViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *startRouteButton;
+@property (weak, nonatomic) IBOutlet UIButton *editPlacesButton;
 @property (weak, nonatomic) IBOutlet UIImageView *imageImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationAuthorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *informationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *placesListLabel;
 
 @property (nonatomic) UIVisualEffectView *blurEffectView;
-@property (nonatomic) RouteStepEditViewController *nextStepController;
-@property (nonatomic) UIBarButtonItem *likeButton;
+@property (nonatomic) RouteStepEditViewController *editStepController;
+@property (nonatomic) UIImage *imageToBeUploaded;
+@property (nonatomic) BOOL routeHasChanged;
 
 @end
 
@@ -41,6 +41,8 @@
 
     if (self.route != nil) {
         [self loadDataFromRoute:self.route];
+        self.imageToBeUploaded = nil;
+        self.routeHasChanged = NO;
     }
 }
 
@@ -59,8 +61,8 @@
 
     [self.navigationItem setRightBarButtonItems:@[btnTakePic, btnChoosePic]];
 
-    self.startRouteButton.layer.cornerRadius = self.startRouteButton.frame.size.height / 2;
-    self.startRouteButton.layer.masksToBounds = YES;
+    self.editPlacesButton.layer.cornerRadius = self.editPlacesButton.frame.size.height / 2;
+    self.editPlacesButton.layer.masksToBounds = YES;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -73,21 +75,27 @@
     [self showRouteCoverEdit];
 }
 
-- (IBAction)onStartRouteButtonTap:(UIButton *)sender {
-    if (self.nextStepController == nil) {
-        self.nextStepController = [[RouteStepEditViewController alloc] init];
-        self.nextStepController.route = self.route;
-        self.nextStepController.step = 0;
+- (IBAction)onEditPlacesButtonTap:(UIButton *)sender {
+    if (self.editStepController == nil) {
+        self.editStepController = [[RouteStepEditViewController alloc] init];
+        self.editStepController.route = self.route;
+        self.editStepController.step = 0;
     }
 
-    [self.navigationController pushViewController:self.nextStepController animated:YES];
+    if (self.routeHasChanged) {
+        [self uploadRouteChanges];
+    }
+
+    [self.navigationController pushViewController:self.editStepController animated:YES];
 }
 
 #pragma mark delegates: UIImagePickerControllerDelegate
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    self.imageImageView.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    self.imageToBeUploaded = [info objectForKey:UIImagePickerControllerOriginalImage];
+    self.imageImageView.image = self.imageToBeUploaded;
+    self.routeHasChanged = YES;
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -104,10 +112,11 @@
 
 - (void)routeCoverEditView:(RouteCoverEditView *)view didSaveRoute:(Route *)route {
     [self loadDataFromRoute:route];
+    self.routeHasChanged = YES;
     [self hideRouteCoverEdit];
 }
 
-#pragma mark private methods 
+#pragma mark private methods
 
 - (void)onPickImageButtonTap {
     UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
@@ -175,16 +184,47 @@
 
 - (void)loadDataFromRoute:(Route *)route {
     [self.imageImageView setImageWithURL:route.imageUrl];
-    self.titleLabel.text = route.title;
-    self.locationAuthorLabel.text = [NSString stringWithFormat:@"%@ \u2022 By @%@", route.location, route.author];
-    self.informationLabel.text = [NSString stringWithFormat:@"%@ users \u2022 %.1f rating", route.usersCount, 4.0];
-    self.descriptionLabel.text = route.fullDescription;
-    
-    NSMutableArray *placesNames = [[NSMutableArray alloc] init];
-    for (Place *place in route.places) {
-        [placesNames addObject:place.name];
+
+    self.titleLabel.text = [self checkValueFor:route.title missing:@"(New Ruote Title)"];
+    NSString *location = [self checkValueFor:route.location missing:@"(Location)"];
+    self.locationAuthorLabel.text = [NSString stringWithFormat:@"%@ \u2022 By @%@", location, route.author];
+    self.descriptionLabel.text = [self checkValueFor:route.fullDescription missing:@"(New Route Description)"];
+
+    if (route.places.count > 0) {
+        NSMutableArray *placesNames = [[NSMutableArray alloc] init];
+        for (Place *place in route.places) {
+            if (place.name) {
+                [placesNames addObject:place.name];
+            }
+        }
+
+        self.placesListLabel.text = [placesNames componentsJoinedByString:@" \u2022 "];
+    } else {
+        self.placesListLabel.text = @"";
     }
-    self.placesListLabel.text = [placesNames componentsJoinedByString:@" \u2022 "];
+}
+
+- (void) uploadRouteChanges {
+    id<BackendRepository> repo = [BackendRepository sharedInstance];
+
+    if (self.imageToBeUploaded) {
+        [repo storeImage:self.imageToBeUploaded completion:^(NSString *imageUrl, NSError *error) {
+            if (imageUrl && !error) {
+                self.route.imageUrl = [NSURL URLWithString:imageUrl];
+                self.imageToBeUploaded = nil;
+            } else {
+                NSLog(@"error uploading image");
+            }
+        }];
+    }
+}
+
+- (NSString *)checkValueFor:(NSString *)value missing:(NSString *)missing {
+    if (!value || value.length == 0) {
+        return missing;
+    } else {
+        return value;
+    }
 }
 
 @end

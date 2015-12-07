@@ -73,7 +73,7 @@
     completion(nil);
 }
 
-- (void)rateRouteWithUser:(User *)user route:(Route *)route rating:(NSNumber *)rating completion:(void (^)(NSError *error))completion {
+- (void)rateRouteWithUser:(User *)user route:(Route *)route rating:(double)rating completion:(void (^)(NSError *error))completion {
     route.rating = rating; // naive implementation for now
     [[NSNotificationCenter defaultCenter] postNotificationName:@"routeRated" object:self
                                                       userInfo:@{@"route": route, @"user": user}];

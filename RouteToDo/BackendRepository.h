@@ -35,7 +35,7 @@
 
 - (void)toggleRouteFavoriteWithUser:(User *)user route:(Route *)route completion:(void (^)(NSError *error))completion;
 - (void)finishRouteWithUser:(User *)user route:(Route *)route completion:(void (^)(NSError *error))completion;
-- (void)rateRouteWithUser:(User *)user route:(Route *)route rating:(NSNumber *)rating completion:(void (^)(NSError *error))completion;
+- (void)rateRouteWithUser:(User *)user route:(Route *)route rating:(double)rating completion:(void (^)(NSError *error))completion;
 
 #pragma mark - User
 
@@ -48,7 +48,7 @@
 
 #pragma mark - Upload Media
 
-- (void)storeImageWithData:(NSData *)data completion:(void (^)(NSString *imageUrl, NSError *error))completion;
+- (void)storeImage:(UIImage *)image completion:(void (^)(NSString *imageUrl, NSError *error))completion;
 
 #pragma mark - Search Places
 

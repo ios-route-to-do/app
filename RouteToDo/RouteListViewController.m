@@ -13,6 +13,7 @@
 #import "RouteCoverViewController.h"
 #import "Route.h"
 #import "UIImageView+AFNetworking.h"
+#import "RouteCoverEditViewController.h"
 
 #import "Utils.h"
 //#import "MockRepository.h"
@@ -146,9 +147,11 @@
 }
 
 - (void) onNewRouteButtonTap {
-    NSLog(@"new route button tapped");
+    Route *newRoute = [Route emptyRoute];
+    RouteCoverEditViewController *vc = [[RouteCoverEditViewController alloc] init];
+    vc.route = newRoute;
+    [self.navigationController pushViewController:vc animated:YES];
 }
-
 
 
 - (void)loadRoutesWithCompletionHandler:(void (^)(void))completionHandler {

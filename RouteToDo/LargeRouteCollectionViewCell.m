@@ -40,7 +40,7 @@
     self.routeLocationLabel.text = self.route.location;
     self.routeAuthorLabel.text = [NSString stringWithFormat:@"• By %@", self.route.author];
     self.routeUsersLabel.text = [NSString stringWithFormat:@"+%@", self.route.usersCount];
-    self.routeRatingLable.text = [NSString stringWithFormat:@"• %0.2f rating", [self.route.rating floatValue]];
+    self.routeRatingLable.text = [NSString stringWithFormat:@"• %0.2f rating", self.route.rating];
     [self.backgroundImageView setImageWithURL:self.route.imageUrl];
     [self updateLikeButton:self.route.favorite animated:NO];
 }

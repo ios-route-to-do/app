@@ -193,7 +193,7 @@ NSString * const kBaseUrl = @"http://localhost:3000";
 //    }];
 }
 
-- (void)rateRouteWithUser:(User *)user route:(Route *)route rating:(NSNumber *)rating completion:(void (^)(NSError *error))completion {
+- (void)rateRouteWithUser:(User *)user route:(Route *)route rating:(double)rating completion:(void (^)(NSError *error))completion {
     route.rating = rating; // naive implementation for now
     [[NSNotificationCenter defaultCenter] postNotificationName:@"routeRated" object:self
                                                       userInfo:@{@"route": route, @"user": user}];
@@ -251,7 +251,22 @@ NSString * const kBaseUrl = @"http://localhost:3000";
 
 #pragma mark - Upload Media
 
-- (void)storeImageWithData:(NSData *)data completion:(void (^)(NSString *imageUrl, NSError *error))completion {
+- (void)storeImage:(UIImage *)image completion:(void (^)(NSString *imageUrl, NSError *error))completion {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
+    NSData *imageData = [NSData dataWithData:UIImageJPEGRepresentation(image, 0.80)];
+    NSString *url = [kBaseUrl stringByAppendingString:@"/images"];
+
+    [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:imageData
+                                    name:@"attachment"
+                                fileName:@"RouteImage" mimeType:@"image/jpeg"];
+
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completion(responseObject[@"image_url"], nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        completion(nil, error);
+    }];
     
 }
 
