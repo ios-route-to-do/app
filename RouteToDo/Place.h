@@ -19,4 +19,7 @@
 @property (nonatomic) NSURL *imageUrl;
 @property (nonatomic) CLLocationCoordinate2D coordinates;
 
++ (NSArray<Place *> *) placesWithArray:(NSArray *)array;
+- (instancetype) initWithDictionary:(NSDictionary *)dictionary;
+
 @end

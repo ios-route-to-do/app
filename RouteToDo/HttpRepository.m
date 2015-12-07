@@ -292,19 +292,7 @@ NSString * const kBaseUrl = @"http://localhost:3000";
         MKCoordinateSpan regionDelta = MKCoordinateSpanMake([response[@"region"][@"span"][@"latitude_delta"] doubleValue], [response[@"region"][@"span"][@"longitude_delta"] doubleValue]);
         MKCoordinateRegion region = MKCoordinateRegionMake(regionCenter, regionDelta);
 
-        NSMutableArray<Place *> *places = [[NSMutableArray alloc] init];
-        for (NSDictionary *placeData in response[@"places"]) {
-            Place *place = [[Place alloc] init];
-            place.name = placeData[@"name"];
-            place.fullDescription = placeData[@"full_description"];
-            place.coordinates = CLLocationCoordinate2DMake([placeData[@"coordinates"][@"latitude"] doubleValue], [placeData[@"coordinates"][@"longitude"] doubleValue]);
-            place.location = placeData[@"location"];
-            place.address = placeData[@"address"];
-            place.imageUrl = [NSURL URLWithString:placeData[@"image_url"]];
-
-            [places addObject:place];
-        }
-
+        NSArray<Place *> *places = [Place placesWithArray:response[@"places"]];
         completion(region, places, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
