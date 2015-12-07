@@ -195,6 +195,7 @@
     
     [self.topCollectionView reloadData];
     [self.bottomCollectionView reloadData];
+    completionHandler();
 }
 
 /*
