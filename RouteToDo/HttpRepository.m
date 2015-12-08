@@ -13,7 +13,7 @@
 #import "User.h"
 #import "mocks.h"
 
-NSString * const kBaseUrl = @"http://localhost:3000";
+NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
 
 @implementation HttpRepository
 

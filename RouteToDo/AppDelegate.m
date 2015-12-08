@@ -14,6 +14,7 @@
 #import "RouteListViewController.h"
 #import "RouteCoverEditViewController.h"
 #import "LoginViewController.h"
+#import "BackendRepository.h"
 
 @interface AppDelegate ()
 
@@ -24,28 +25,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    User *user = [User currentUser];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    if (user != nil) {
-        
-        RouteListViewController *homeController = [[RouteListViewController alloc] init];
-        UIImage *homeImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        CustomTabControllerItem *homeItem = [CustomTabControllerItem itemWithTitle:@"Home" image:homeImage andController:homeController];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserMissingNotification:) name:UserMissingNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserPresentNotification:) name:UserPresentNotification object:nil];
 
-        ProfileViewController *profileController = [[ProfileViewController alloc] init];
-        UIImage *profileImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Profile" image:profileImage andController:profileController];
-
-        HomeProfileViewController *vc = [[HomeProfileViewController alloc] initWithItems:@[homeItem, profileItem]];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-        self.window.rootViewController = nav;
-
-    } else {
-        self.window.rootViewController = [[LoginViewController alloc] init];
-    }
-    
-    [self.window makeKeyAndVisible];
+    //Check for current user
+    [User currentUser];
 
     return YES;
 }
@@ -70,6 +54,30 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)onUserMissingNotification:(NSNotification *)notification {
+    LoginViewController *vc = [[LoginViewController alloc] init];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
+}
+
+- (void)onUserPresentNotification:(NSNotification *)notification {
+    RouteListViewController *homeController = [[RouteListViewController alloc] init];
+    UIImage *homeImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    CustomTabControllerItem *homeItem = [CustomTabControllerItem itemWithTitle:@"Home" image:homeImage andController:homeController];
+
+    ProfileViewController *profileController = [[ProfileViewController alloc] init];
+    UIImage *profileImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Profile" image:profileImage andController:profileController];
+
+    HomeProfileViewController *vc = [[HomeProfileViewController alloc] initWithItems:@[homeItem, profileItem]];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = nav;
+    [self.window makeKeyAndVisible];
 }
 
 @end

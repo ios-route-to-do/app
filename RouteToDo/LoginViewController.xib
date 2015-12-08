@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+<<<<<<< 71ad925beaeeff9fe959ba53ac20da34a195dcfc
                 <outlet property="loginEmailTextField" destination="qb9-Jp-hRb" id="Ywz-pf-pHs"/>
+=======
+                <outlet property="emailTextField" destination="qb9-Jp-hRb" id="gDN-IL-xJN"/>
+                <outlet property="loginButton" destination="hRK-Mp-9V3" id="97l-uU-5jW"/>
+>>>>>>> Implement login
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,6 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+<<<<<<< 71ad925beaeeff9fe959ba53ac20da34a195dcfc
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qb9-Jp-hRb">
                     <rect key="frame" x="80.5" y="64" width="160" height="30"/>
                     <animations/>
@@ -23,33 +29,60 @@
                         <constraint firstAttribute="width" constant="160" id="Lpa-0L-QKz"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
+=======
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_screen" translatesAutoresizingMaskIntoConstraints="NO" id="8iE-qa-Q4e">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <animations/>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter you email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qb9-Jp-hRb">
+                    <rect key="frame" x="70" y="304" width="180" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="180" id="yEn-hU-MLm"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+>>>>>>> Implement login
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zot-JT-h6l">
-                    <rect key="frame" x="28" y="126" width="89" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRK-Mp-9V3">
+                    <rect key="frame" x="70" y="342" width="180" height="30"/>
                     <animations/>
-                    <state key="normal" title="Home Profile"/>
+                    <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="8Ju-Jd-e34"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <state key="normal" title="Login"/>
                     <connections>
-                        <action selector="onRouteListClick:" destination="-1" eventType="touchUpInside" id="CPc-md-wp7"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaT-Vi-9XE">
-                    <rect key="frame" x="156" y="126" width="91" height="30"/>
-                    <animations/>
-                    <state key="normal" title="Route Details"/>
-                    <connections>
-                        <action selector="onRouteDetailsClick:" destination="-1" eventType="touchUpInside" id="V2g-ev-XcY"/>
+                        <action selector="onLoginButtonTap:" destination="-1" eventType="touchUpInside" id="Y6p-u3-lPv"/>
                     </connections>
                 </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="0.31764705882352939" green="0.1764705882352941" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+<<<<<<< 71ad925beaeeff9fe959ba53ac20da34a195dcfc
                 <constraint firstItem="qb9-Jp-hRb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="D6D-vI-IiV"/>
                 <constraint firstItem="qb9-Jp-hRb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="ncO-pa-XOr"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+=======
+                <constraint firstItem="8iE-qa-Q4e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="69L-kH-TTs"/>
+                <constraint firstItem="8iE-qa-Q4e" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9Pd-uW-hxb"/>
+                <constraint firstItem="hRK-Mp-9V3" firstAttribute="top" secondItem="qb9-Jp-hRb" secondAttribute="bottom" constant="8" id="FCS-fg-BzV"/>
+                <constraint firstAttribute="bottom" secondItem="8iE-qa-Q4e" secondAttribute="bottom" id="G2s-xS-g4e"/>
+                <constraint firstAttribute="trailing" secondItem="8iE-qa-Q4e" secondAttribute="trailing" id="NXq-Yx-qyq"/>
+                <constraint firstItem="hRK-Mp-9V3" firstAttribute="width" secondItem="qb9-Jp-hRb" secondAttribute="width" id="b06-2q-o4V"/>
+                <constraint firstItem="qb9-Jp-hRb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="304" id="ki0-wI-kuP"/>
+                <constraint firstItem="qb9-Jp-hRb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="lSp-Xj-WhW"/>
+                <constraint firstItem="hRK-Mp-9V3" firstAttribute="centerX" secondItem="qb9-Jp-hRb" secondAttribute="centerX" id="x0c-D9-jXD"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+>>>>>>> Implement login
             <point key="canvasLocation" x="280" y="366"/>
         </view>
     </objects>
+    <resources>
+        <image name="splash_screen" width="960" height="1704"/>
+    </resources>
 </document>
