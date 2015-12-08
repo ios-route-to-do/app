@@ -38,7 +38,7 @@
 - (void)reloadData {
     self.routeTitle.text = self.route.title;
     self.routeLocationLabel.text = self.route.location;
-    self.routeAuthorLabel.text = [NSString stringWithFormat:@"• By %@", self.route.author];
+    self.routeAuthorLabel.text = [NSString stringWithFormat:@"• By %@", self.route.author.username];
     self.routeUsersLabel.text = [NSString stringWithFormat:@"+%ld", self.route.usersCount];
     self.routeRatingLable.text = [NSString stringWithFormat:@"• %0.2f rating", self.route.rating];
     [self.backgroundImageView setImageWithURL:self.route.imageUrl];

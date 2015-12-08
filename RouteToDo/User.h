@@ -10,6 +10,7 @@
 
 @interface User : NSObject
 
+@property (nonatomic) NSInteger *userId;
 @property (nonatomic) NSString *username;
 @property (nonatomic) NSString *location;
 @property (nonatomic) NSString *firstName;

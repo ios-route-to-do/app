@@ -14,9 +14,14 @@
     self = [super init];
     if (self) {
         _title = dictionary[@"title"];
-        _imageUrl = dictionary[@"imageUrl"];
-        _author = dictionary[@"author"];
-        _fullDescription = dictionary[@"fullDescription"];
+        _location = dictionary[@"location"];
+        _imageUrl = [NSURL URLWithString:dictionary[@"image_url"]];
+        _author = [[User alloc] initWithDictionary:dictionary[@"user"]];
+        _fullDescription = dictionary[@"full_description"];
+        if (!(dictionary[@"rating"] == (id)[NSNull null])) {
+            _rating = [dictionary[@"rating"] doubleValue];
+        }
+        _places = [Place placesWithArray:dictionary[@"places"]];
     }
     return self;
 }

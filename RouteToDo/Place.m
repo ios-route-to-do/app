@@ -26,7 +26,11 @@
 
     place.name = dictionary[@"name"];
     place.fullDescription = dictionary[@"full_description"];
-    place.coordinates = CLLocationCoordinate2DMake([dictionary[@"coordinates"][@"latitude"] doubleValue], [dictionary[@"coordinates"][@"longitude"] doubleValue]);
+    if (dictionary[@"coordinates"] != nil) {
+        place.coordinates = CLLocationCoordinate2DMake([dictionary[@"coordinates"][@"latitude"] doubleValue], [dictionary[@"coordinates"][@"longitude"] doubleValue]);
+    } else {
+        place.coordinates = CLLocationCoordinate2DMake([dictionary[@"lat"] doubleValue], [dictionary[@"lng"] doubleValue]);
+    }
     place.location = dictionary[@"location"];
     place.address = dictionary[@"address"];
     place.imageUrl = [NSURL URLWithString:dictionary[@"image_url"]];

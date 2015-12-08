@@ -31,6 +31,7 @@
     self = [super init];
     if (self) {
         self.dictionary = dictionary;
+        _userId = [dictionary[@"id"] integerValue];
         _username = dictionary[@"username"];
         _location = dictionary[@"location"];
         _firstName = dictionary[@"first_name"];
@@ -61,12 +62,12 @@ NSString * const kCurrentUserKey = @"kCurrentUserKey";
 + (void)setCurrentUser:(User *)currentUser {
     _currentUser = currentUser;
     
-//    if(_currentUser != nil) {
-//        NSData *data = [NSJSONSerialization dataWithJSONObject:currentUser.dictionary options:0 error:NULL];
-//        [[NSUserDefaults standardUserDefaults] setObject:data forKey:kCurrentUserKey];
-//    } else {
-//        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kCurrentUserKey];
-//    }
+    if(_currentUser != nil) {
+        NSData *data = [NSJSONSerialization dataWithJSONObject:currentUser.dictionary options:0 error:NULL];
+        [[NSUserDefaults standardUserDefaults] setObject:data forKey:kCurrentUserKey];
+    } else {
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kCurrentUserKey];
+    }
 
     [[NSUserDefaults standardUserDefaults] synchronize];
 }

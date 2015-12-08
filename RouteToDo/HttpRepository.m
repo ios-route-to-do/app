@@ -83,66 +83,65 @@ NSString * const kBaseUrl = @"http://localhost:3000";
 #pragma mark - User routes
 
 - (void)favoriteRoutesWithUser:(User *)user completion:(void (^)(NSArray *routes, NSError *error))completion {
-    completion(mockRouteWithouthPlaces1Array(), nil);
-//    completion(user.favoriteRoutes, nil);
+//    completion(mockRouteWithouthPlaces1Array(), nil);
     
-//    NSString *url = [kBaseUrl stringByAppendingString:@"/v1/user/favorite_routes"];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-//    
-//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-//    
-//    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-//    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"Sucessful request");
-//        NSArray *routes = [Route routeWithArray:responseObject];
-//        completion(routes, nil);
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"FAILED request");
-//        completion(nil, error);
-//    }];
-//    
-//    [operation start];
+    NSString *url = [kBaseUrl stringByAppendingString:[NSString stringWithFormat:@"/users/%i/favorites",(int)user.userId]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Sucessful request");
+        NSArray *routes = [Route routeWithArray:responseObject];
+        completion(routes, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"FAILED request");
+        completion(nil, error);
+    }];
+    
+    [operation start];
 }
 
 - (void)userOutingsWithUser:(User *)user completion:(void (^)(NSArray *routes, NSError *error))completion {
-//    completion(user.outings, nil);
-    completion(mockRouteWithouthPlaces2Array(), nil);
-//    NSString *url = [kBaseUrl stringByAppendingString:@"/v1/user/outing_routes"];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-//    
-//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-//    
-//    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-//    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"Sucessful request");
-//        NSArray *routes = [Route routeWithArray:responseObject];
-//        completion(routes, nil);
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"FAILED request");
-//        completion(nil, error);
-//    }];
-//    
-//    [operation start];
+//    completion(mockRouteWithouthPlaces2Array(), nil);
+    NSString *url = [kBaseUrl stringByAppendingString:[NSString stringWithFormat:@"/users/%i/outings",(int)user.userId]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Sucessful request");
+        NSArray *routes = [Route routeWithArray:responseObject];
+        completion(routes, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"FAILED request");
+        completion(nil, error);
+    }];
+    
+    [operation start];
 }
 
 - (void)userRoutesWithUser:(User *)user completion:(void (^)(NSArray *routes, NSError *error))completion {
-    completion(user.ownRoutes, nil);
-//    NSString *url = [kBaseUrl stringByAppendingString:@"/v1/user/routes"];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-//    
-//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-//    
-//    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-//    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"Sucessful request");
-//        NSArray *routes = [Route routeWithArray:responseObject];
-//        completion(routes, nil);
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"FAILED request");
-//        completion(nil, error);
-//    }];
-//    
-//    [operation start];
+//    completion(user.ownRoutes, nil);
+    
+    NSString *url = [kBaseUrl stringByAppendingString:[NSString stringWithFormat:@"/users/%i/routes",(int)user.userId]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Sucessful request");
+        NSArray *routes = [Route routeWithArray:responseObject];
+        completion(routes, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"FAILED request");
+        completion(nil, error);
+    }];
+    
+    [operation start];
 }
 
 #pragma mark - Actions
@@ -232,6 +231,8 @@ NSString * const kBaseUrl = @"http://localhost:3000";
     NSString *url = [kBaseUrl stringByAppendingString:@"/users/login"];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    
     NSDictionary *params = @{@"email": email};
     [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
