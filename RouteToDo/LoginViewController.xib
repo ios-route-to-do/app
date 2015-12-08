@@ -7,12 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
-<<<<<<< 71ad925beaeeff9fe959ba53ac20da34a195dcfc
-                <outlet property="loginEmailTextField" destination="qb9-Jp-hRb" id="Ywz-pf-pHs"/>
-=======
                 <outlet property="emailTextField" destination="qb9-Jp-hRb" id="gDN-IL-xJN"/>
+                <outlet property="emailTextFieldTopConstraint" destination="ki0-wI-kuP" id="Twr-T7-JFc"/>
                 <outlet property="loginButton" destination="hRK-Mp-9V3" id="97l-uU-5jW"/>
->>>>>>> Implement login
+                <outlet property="logoTopConstraint" destination="Fqg-F3-hbd" id="O98-Zq-Nwr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,31 +19,21 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-<<<<<<< 71ad925beaeeff9fe959ba53ac20da34a195dcfc
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qb9-Jp-hRb">
-                    <rect key="frame" x="80.5" y="64" width="160" height="30"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="160" id="Lpa-0L-QKz"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-=======
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_screen" translatesAutoresizingMaskIntoConstraints="NO" id="8iE-qa-Q4e">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_screen" translatesAutoresizingMaskIntoConstraints="NO" id="qoN-e7-bRP">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <animations/>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter you email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qb9-Jp-hRb">
-                    <rect key="frame" x="70" y="304" width="180" height="30"/>
+                    <rect key="frame" x="70" y="150" width="180" height="30"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="180" id="yEn-hU-MLm"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
->>>>>>> Implement login
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRK-Mp-9V3">
-                    <rect key="frame" x="70" y="342" width="180" height="30"/>
+                    <rect key="frame" x="70" y="188" width="180" height="30"/>
                     <animations/>
                     <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -57,32 +45,36 @@
                         <action selector="onLoginButtonTap:" destination="-1" eventType="touchUpInside" id="Y6p-u3-lPv"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="LkA-Hu-RAh">
+                    <rect key="frame" x="60" y="40" width="195" height="93"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="195" id="7Pi-g1-ckL"/>
+                        <constraint firstAttribute="height" constant="93" id="Xdv-8H-D6l"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <animations/>
             <color key="backgroundColor" red="0.31764705882352939" green="0.1764705882352941" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-<<<<<<< 71ad925beaeeff9fe959ba53ac20da34a195dcfc
-                <constraint firstItem="qb9-Jp-hRb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="D6D-vI-IiV"/>
-                <constraint firstItem="qb9-Jp-hRb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="ncO-pa-XOr"/>
-            </constraints>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-=======
-                <constraint firstItem="8iE-qa-Q4e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="69L-kH-TTs"/>
-                <constraint firstItem="8iE-qa-Q4e" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9Pd-uW-hxb"/>
                 <constraint firstItem="hRK-Mp-9V3" firstAttribute="top" secondItem="qb9-Jp-hRb" secondAttribute="bottom" constant="8" id="FCS-fg-BzV"/>
-                <constraint firstAttribute="bottom" secondItem="8iE-qa-Q4e" secondAttribute="bottom" id="G2s-xS-g4e"/>
-                <constraint firstAttribute="trailing" secondItem="8iE-qa-Q4e" secondAttribute="trailing" id="NXq-Yx-qyq"/>
+                <constraint firstItem="qoN-e7-bRP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FX6-yc-Dsd"/>
+                <constraint firstItem="LkA-Hu-RAh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="Fqg-F3-hbd"/>
+                <constraint firstAttribute="bottom" secondItem="qoN-e7-bRP" secondAttribute="bottom" id="MLl-wH-iSH"/>
                 <constraint firstItem="hRK-Mp-9V3" firstAttribute="width" secondItem="qb9-Jp-hRb" secondAttribute="width" id="b06-2q-o4V"/>
-                <constraint firstItem="qb9-Jp-hRb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="304" id="ki0-wI-kuP"/>
+                <constraint firstAttribute="trailing" secondItem="qoN-e7-bRP" secondAttribute="trailing" id="kJZ-rz-RsZ"/>
+                <constraint firstItem="qb9-Jp-hRb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="ki0-wI-kuP"/>
                 <constraint firstItem="qb9-Jp-hRb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="lSp-Xj-WhW"/>
                 <constraint firstItem="hRK-Mp-9V3" firstAttribute="centerX" secondItem="qb9-Jp-hRb" secondAttribute="centerX" id="x0c-D9-jXD"/>
+                <constraint firstItem="qoN-e7-bRP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xw9-AY-IRX"/>
+                <constraint firstItem="LkA-Hu-RAh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="zwH-fY-X9F"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
->>>>>>> Implement login
             <point key="canvasLocation" x="280" y="366"/>
         </view>
     </objects>
     <resources>
+        <image name="logo" width="586" height="279"/>
         <image name="splash_screen" width="960" height="1704"/>
     </resources>
 </document>
