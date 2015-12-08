@@ -30,5 +30,16 @@
     return routeCategories;
 }
 
++ (Route *)emptyRoute {
+    Route *route = [[Route alloc] init];
+    route.places = @[
+                     [[Place alloc] init],
+                     [[Place alloc] init],
+                     [[Place alloc] init]
+                     ];
+
+    return route;
+}
+
 
 @end

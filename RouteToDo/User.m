@@ -61,13 +61,13 @@ NSString * const kCurrentUserKey = @"kCurrentUserKey";
 + (void)setCurrentUser:(User *)currentUser {
     _currentUser = currentUser;
     
-    if(_currentUser != nil) {
-        NSData *data = [NSJSONSerialization dataWithJSONObject:currentUser.dictionary options:0 error:NULL];
-        [[NSUserDefaults standardUserDefaults] setObject:data forKey:kCurrentUserKey];
-    } else {
-        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kCurrentUserKey];
-    }
-    
+//    if(_currentUser != nil) {
+//        NSData *data = [NSJSONSerialization dataWithJSONObject:currentUser.dictionary options:0 error:NULL];
+//        [[NSUserDefaults standardUserDefaults] setObject:data forKey:kCurrentUserKey];
+//    } else {
+//        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kCurrentUserKey];
+//    }
+
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

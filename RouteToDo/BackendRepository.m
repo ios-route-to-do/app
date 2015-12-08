@@ -7,7 +7,6 @@
 //
 
 #import "BackendRepository.h"
-#import "MockRepository.h"
 #import "HttpRepository.h"
 
 @implementation BackendRepository

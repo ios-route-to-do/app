@@ -39,11 +39,11 @@ Route *mockRoute1() {
         
         route.title = @"The Beer Route";
         route.location = @"San Francisco";
-        route.author = @"ysteve";
+        route.author = mockUser1();
         route.fullDescription = @"There are plenty of bars in SF where you can grab a beer, but less-plenty of bars in SF that you can call bona fide beer bars. Here're eight that we think not only make the cut, but make it better than anyone else.";
         route.imageUrl = [NSURL URLWithString:@"http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg"];
         route.places = @[place1, place2, place3];
-        route.usersCount = [NSNumber numberWithInt:257];
+        route.usersCount = 257;
         route.categories = @[];
         [route favorite];
     }
@@ -68,8 +68,8 @@ NSArray *mockRouteWithouthPlaces2Array() {
         templateRoute = [[Route alloc] init];        
         templateRoute.title = @"All night long !";
         templateRoute.location = @"Oakland";
-        templateRoute.author = @"party_boy";
-        templateRoute.usersCount = [NSNumber numberWithInt:450];
+        templateRoute.author = mockUser1();
+        templateRoute.usersCount = 450;
         templateRoute.imageUrl = [NSURL URLWithString:@"https://backoftheferry.files.wordpress.com/2014/10/sf-pi-bar.jpg"];
     }
 

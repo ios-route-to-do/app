@@ -13,9 +13,10 @@
 #import "RouteCoverViewController.h"
 #import "Route.h"
 #import "UIImageView+AFNetworking.h"
+#import "RouteCoverEditViewController.h"
 
 #import "Utils.h"
-//#import "MockRepository.h"
+#import "mocks.h"
 #import "BackendRepository.h"
 
 
@@ -146,9 +147,12 @@
 }
 
 - (void) onNewRouteButtonTap {
-    NSLog(@"new route button tapped");
+    Route *newRoute = [Route emptyRoute];
+    newRoute.author = [User currentUser];
+    RouteCoverEditViewController *vc = [[RouteCoverEditViewController alloc] init];
+    vc.route = newRoute;
+    [self.navigationController pushViewController:vc animated:YES];
 }
-
 
 
 - (void)loadRoutesWithCompletionHandler:(void (^)(void))completionHandler {
@@ -172,13 +176,13 @@
     
     [repository allCategoriesWithCompletion:^(NSArray *categories, NSError *error) {
         NSLog(@"all categories");
-        NSLog(@"category 1 : %@",categories[0]);
     }];
 
-    [repository loginUserWithEmail:@"matiasarenas@gmail.com" completion:^(User *user, NSError *error) {
-        [User setCurrentUser:user];
-    }];
-    
+//    [repository loginUserWithEmail:@"yonpols@gmail.com" completion:^(User *user, NSError *error) {
+//        [User setCurrentUser:user];
+//    }];
+
+    [User setCurrentUser:mockUser1()];
     
     [self.backgroundImageView setImageWithURL:[NSURL URLWithString:@"http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg"]];
     

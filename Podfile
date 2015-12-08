@@ -7,4 +7,5 @@ target 'RouteToDo' do
   pod 'AFNetworking'
   pod 'CNPPopupController'
   pod 'HCSStarRatingView'
+  pod 'SVProgressHUD'
 end
