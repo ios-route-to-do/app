@@ -31,7 +31,7 @@
     self = [super init];
     if (self) {
         self.dictionary = dictionary;
-        _userId = [dictionary[@"id"] integerValue];
+        _userId = dictionary[@"id"];
         _username = dictionary[@"username"];
         _location = dictionary[@"location"];
         _firstName = dictionary[@"first_name"];
