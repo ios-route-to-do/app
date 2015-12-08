@@ -26,5 +26,6 @@ extern NSString * const UserPresentNotification;
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 + (User *)currentUser;
 + (void)setCurrentUser:(User *)currentUser;
++ (void)forget;
 
 @end

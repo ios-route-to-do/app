@@ -81,4 +81,12 @@ NSString * const kCurrentUserKey = @"kCurrentUserKey";
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
++ (void)forget {
+    _currentUser = nil;
+
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kCurrentUserKey];
+    [[NSNotificationCenter defaultCenter] postNotificationName:UserMissingNotification object:nil userInfo:@{@"forget": @(true)}];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 @end

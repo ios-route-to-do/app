@@ -14,7 +14,9 @@
 @property (nonatomic) NSString *title;
 @property (nonatomic) UIImage *image;
 @property (nonatomic) UIViewController* controller;
+@property (nonatomic, copy) BOOL (^block)(CustomTabControllerItem *item);
 
-+ (instancetype)itemWithTitle:(NSString *)title image:(UIImage *)image andController:(UIViewController *)controller;
++ (instancetype)itemWithTitle:(NSString *)title image:(UIImage *)image controller:(UIViewController *)controller;
++ (instancetype)itemWithTitle:(NSString *)title image:(UIImage *)image block:(BOOL (^)(CustomTabControllerItem *item))block;
 
 @end

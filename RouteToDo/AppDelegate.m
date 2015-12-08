@@ -8,11 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "User.h"
 #import "HomeProfileViewController.h"
-#import "ProfileViewController.h"
-#import "RouteListViewController.h"
-#import "RouteCoverEditViewController.h"
 #import "LoginViewController.h"
 #import "BackendRepository.h"
 
@@ -22,13 +18,13 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserMissingNotification:) name:UserMissingNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserPresentNotification:) name:UserPresentNotification object:nil];
 
     //Check for current user
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [User currentUser];
 
     return YES;
@@ -58,21 +54,13 @@
 
 - (void)onUserMissingNotification:(NSNotification *)notification {
     LoginViewController *vc = [[LoginViewController alloc] init];
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    vc.animated = (notification.userInfo[@"forget"] == nil);
     self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
 }
 
 - (void)onUserPresentNotification:(NSNotification *)notification {
-    RouteListViewController *homeController = [[RouteListViewController alloc] init];
-    UIImage *homeImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    CustomTabControllerItem *homeItem = [CustomTabControllerItem itemWithTitle:@"Home" image:homeImage andController:homeController];
-
-    ProfileViewController *profileController = [[ProfileViewController alloc] init];
-    UIImage *profileImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Profile" image:profileImage andController:profileController];
-
-    HomeProfileViewController *vc = [[HomeProfileViewController alloc] initWithItems:@[homeItem, profileItem]];
+    HomeProfileViewController *vc = [[HomeProfileViewController alloc] initDefault];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

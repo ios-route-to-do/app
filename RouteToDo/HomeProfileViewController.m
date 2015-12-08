@@ -34,6 +34,25 @@
 
 @implementation HomeProfileViewController
 
+- (instancetype) initDefault {
+    RouteListViewController *homeController = [[RouteListViewController alloc] init];
+    UIImage *homeImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    CustomTabControllerItem *homeItem = [CustomTabControllerItem itemWithTitle:@"Home" image:homeImage controller:homeController];
+
+    ProfileViewController *profileController = [[ProfileViewController alloc] init];
+    UIImage *profileImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Profile" image:profileImage controller:profileController];
+
+    UIImage *logoutImage = [[UIImage imageNamed:@"logout"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    CustomTabControllerItem *logoutItem = [CustomTabControllerItem itemWithTitle:@"Logout" image:logoutImage block:^BOOL(CustomTabControllerItem *item) {
+        [User forget];
+        return YES;
+    }];
+
+    return [self initWithItems:@[homeItem, profileItem, logoutItem]];
+}
+
+
 - (instancetype) initWithItems:(NSArray<CustomTabControllerItem *> *)items {
     if (self = [super init]) {
         _controllerItems = items;
@@ -94,7 +113,12 @@
 
 - (void)itemInTabBarViewPressed:(YALFoldingTabBar *)tabBarView atIndex:(NSUInteger)index {
     CustomTabControllerItem *customItem = self.controllerItems[index];
-    [self presentController:customItem.controller];
+
+    if (customItem.controller) {
+        [self presentController:customItem.controller];
+    } else if (customItem.block) {
+        customItem.block(customItem);
+    }
 }
 
 - (UIImage *)centerImageInTabBarView:(YALFoldingTabBar *)tabBarView {

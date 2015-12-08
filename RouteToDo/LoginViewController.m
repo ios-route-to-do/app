@@ -7,13 +7,8 @@
 //
 
 #import "LoginViewController.h"
-#import "RouteCoverViewController.h"
-#import "HomeProfileViewController.h"
-#import "RouteListViewController.h"
-#import "ProfileViewController.h"
-#import "RouteCoverViewController.h"
-#import "CustomTabControllerItem.h"
 #import "BackendRepository.h"
+#import "SVProgressHUD/SVProgressHUD.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -33,21 +28,21 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    if (animated) {
-        self.logoTopConstraint.constant = 40;
-        self.emailTextField.alpha = 1;
-        self.loginButton.alpha = 1;
-    } else {
+    if (self.animated) {
         self.logoTopConstraint.constant = 179;
         self.emailTextField.alpha = 0;
         self.loginButton.alpha = 0;
+    } else {
+        self.logoTopConstraint.constant = 40;
+        self.emailTextField.alpha = 1;
+        self.loginButton.alpha = 1;
     }
 
     [self.view layoutIfNeeded];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    if (!animated) {
+    if (self.animated) {
         [UIView animateWithDuration:0.3 animations:^{
             self.logoTopConstraint.constant = 40;
             self.emailTextField.alpha = 1;
@@ -58,21 +53,22 @@
     }
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-
 }
 
 - (IBAction)onLoginButtonTap:(UIButton *)sender {
     id<BackendRepository> repo = [BackendRepository sharedInstance];
 
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    [SVProgressHUD show];
     [repo loginUserWithEmail:self.emailTextField.text completion:^(User *user, NSError *error) {
+        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
         if (user) {
+            [SVProgressHUD dismiss];
             [User setCurrentUser:user];
         } else {
-            NSLog(@"show login error");
+            [SVProgressHUD showErrorWithStatus:@"Incorrect login"];
         }
     }];
 }
