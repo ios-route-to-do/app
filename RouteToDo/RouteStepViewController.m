@@ -126,7 +126,7 @@
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
     if (self.routeLineRenderer == nil) {
         self.routeLineRenderer = [[ArcPathRenderer alloc] initWithPolyline:overlay];
-        self.routeLineRenderer.strokeColor = UIColorFromRGB(kLightBlue);
+        self.routeLineRenderer.strokeColor = UIColorFromRGB(kLightBlueColorHex);
         self.routeLineRenderer.lineWidth = 2;
         self.routeLineRenderer.lineDashPattern = [NSArray arrayWithObjects:[NSNumber numberWithInt:10],
                                                   [NSNumber numberWithInt:10],nil];

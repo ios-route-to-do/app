@@ -10,12 +10,21 @@
 
 @implementation CustomTabControllerItem
 
-+ (instancetype)itemWithTitle:(NSString *)title image:(UIImage *)image andController:(UIViewController *)controller {
++ (instancetype)itemWithTitle:(NSString *)title image:(UIImage *)image controller:(UIViewController *)controller {
     CustomTabControllerItem *item = [[CustomTabControllerItem alloc] init];
     item.title = title;
     item.image = image;
     item.controller = controller;
     
+    return item;
+}
+
++ (instancetype)itemWithTitle:(NSString *)title image:(UIImage *)image block:(BOOL (^)(CustomTabControllerItem *item))block {
+    CustomTabControllerItem *item = [[CustomTabControllerItem alloc] init];
+    item.title = title;
+    item.image = image;
+    item.block = block;
+
     return item;
 }
 
