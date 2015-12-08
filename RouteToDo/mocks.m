@@ -84,6 +84,7 @@ NSArray *mockRouteWithouthPlaces2Array() {
 }
 
 User *mockUser1() {
+    //should be inited with a dictionary
     static User *defaultUser = nil;
     if (!defaultUser) {
         defaultUser = [[User alloc] init];

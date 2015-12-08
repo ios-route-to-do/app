@@ -8,10 +8,12 @@
 
 #import "AppDelegate.h"
 
+#import "User.h"
 #import "HomeProfileViewController.h"
 #import "ProfileViewController.h"
 #import "RouteListViewController.h"
 #import "RouteCoverEditViewController.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,19 +24,27 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    RouteListViewController *homeController = [[RouteListViewController alloc] init];
-    UIImage *homeImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    CustomTabControllerItem *homeItem = [CustomTabControllerItem itemWithTitle:@"Home" image:homeImage andController:homeController];
-
-    ProfileViewController *profileController = [[ProfileViewController alloc] init];
-    UIImage *profileImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Profile" image:profileImage andController:profileController];
-
-    HomeProfileViewController *vc = [[HomeProfileViewController alloc] initWithItems:@[homeItem, profileItem]];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-
+    User *user = [User currentUser];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = nav;
+    if (user != nil) {
+        
+        RouteListViewController *homeController = [[RouteListViewController alloc] init];
+        UIImage *homeImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        CustomTabControllerItem *homeItem = [CustomTabControllerItem itemWithTitle:@"Home" image:homeImage andController:homeController];
+
+        ProfileViewController *profileController = [[ProfileViewController alloc] init];
+        UIImage *profileImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Profile" image:profileImage andController:profileController];
+
+        HomeProfileViewController *vc = [[HomeProfileViewController alloc] initWithItems:@[homeItem, profileItem]];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        self.window.rootViewController = nav;
+
+    } else {
+        self.window.rootViewController = [[LoginViewController alloc] init];
+    }
+    
     [self.window makeKeyAndVisible];
 
     return YES;

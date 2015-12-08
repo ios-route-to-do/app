@@ -50,6 +50,7 @@
     self.userProfileTabBar.tintColor =[UIColor clearColor];
 
     //todo: do this when initializing the controller
+    NSLog(@" profile view did load ");
     self.user = [User currentUser];
     
     [self.userProfileImageView setImageWithURL:self.user.profileImageUrl];
@@ -164,14 +165,17 @@
     
     [repository favoriteRoutesWithUser:self.user completion:^(NSArray *routes, NSError *error) {
         self.userFavoritesRoutesViewArray = routes;
+        [self.userProfileRoutesCollectionView reloadData];
     }];
     
     [repository userOutingsWithUser:self.user completion:^(NSArray *routes, NSError *error) {
         self.userNightsOutRoutesViewArray = routes;
+        [self.userProfileRoutesCollectionView reloadData];
     }];
 
     [repository userRoutesWithUser:self.user completion:^(NSArray *routes, NSError *error) {
         self.userMyRoutesViewArray = routes;
+        [self.userProfileRoutesCollectionView reloadData];        
     }];
     
     [self.userProfileBackgroundRouteImageView setImageWithURL:[NSURL URLWithString:@"http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg"]];

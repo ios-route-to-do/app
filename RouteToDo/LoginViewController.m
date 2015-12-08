@@ -13,10 +13,13 @@
 #import "ProfileViewController.h"
 #import "RouteCoverViewController.h"
 #import "CustomTabControllerItem.h"
+#import "User.h"
+#import "BackendRepository.h"
 
 #import "mocks.h"
 
 @interface LoginViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *loginEmailTextField;
 
 @end
 
@@ -25,13 +28,41 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.loginEmailTextField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.loginEmailTextField) {
+        [self.loginEmailTextField resignFirstResponder];
+        id<BackendRepository> repository = [BackendRepository sharedInstance];
+        
+        [repository loginUserWithEmail:self.loginEmailTextField.text completion:^(User *user, NSError *error) {
+            [User setCurrentUser:user];
+            
+            RouteListViewController *homeController = [[RouteListViewController alloc] init];
+            UIImage *homeImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            CustomTabControllerItem *homeItem = [CustomTabControllerItem itemWithTitle:@"Home" image:homeImage andController:homeController];
+            
+            ProfileViewController *profileController = [[ProfileViewController alloc] init];
+            UIImage *profileImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Profile" image:profileImage andController:profileController];
+            
+            HomeProfileViewController *vc = [[HomeProfileViewController alloc] initWithItems:@[homeItem, profileItem]];
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+            
+            [self presentViewController:nav animated:YES completion:nil];
+
+        }];
+
+    }
+    return YES;
+}
 
 - (IBAction)onRouteDetailsClick:(id)sender {
     RouteCoverViewController *vc = [[RouteCoverViewController alloc] init];

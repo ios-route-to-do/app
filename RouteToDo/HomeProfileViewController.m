@@ -45,13 +45,13 @@
         [tabBarItems addObject:tabBarItem];
     }
     self.tabBar.items = tabBarItems;
-    
+
+    self.tabBar.selectedItem = self.tabBar.items[0];
+    [self tabBar:self.tabBar didSelectItem:self.tabBar.items[0]];
     
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.tabBar.selectedItem = self.tabBar.items[0];
-    [self tabBar:self.tabBar didSelectItem:self.tabBar.items[0]];
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
