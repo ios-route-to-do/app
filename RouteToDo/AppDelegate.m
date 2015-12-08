@@ -11,6 +11,7 @@
 #import "HomeProfileViewController.h"
 #import "ProfileViewController.h"
 #import "RouteListViewController.h"
+#import "RouteCoverEditViewController.h"
 
 @interface AppDelegate ()
 

@@ -47,11 +47,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.userProfileTabBar.delegate = self;
-    if (IS_OS_8_OR_LATER) {
-        self.userProfileTabBar.tintColor =[UIColor clearColor];
-    } else {
-        self.userProfileTabBar.selectedImageTintColor = [UIColor clearColor];
-    }
+    self.userProfileTabBar.tintColor =[UIColor clearColor];
 
     //todo: do this when initializing the controller
     self.user = [User currentUser];

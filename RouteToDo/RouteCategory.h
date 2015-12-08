@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class Route;
+
 @interface RouteCategory : NSObject
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSURL *imageUrl;
-@property (nonatomic, strong) NSArray *routes;
+@property (nonatomic, strong) NSArray<Route *> *routes;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 + (NSArray *)routeCategoryWithArray:(NSArray *) array;

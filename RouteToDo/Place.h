@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Parse/Parse.h>
+#import <MapKit/MapKit.h>
 
-@interface Place : NSObject // PFObject<PFSubclassing>
+@interface Place : NSObject
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *fullDescription;

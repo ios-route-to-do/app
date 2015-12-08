@@ -91,8 +91,8 @@
 - (void)loadDataFromRoute:(Route *)route {
     [self.imageImageView setImageWithURL:route.imageUrl];
     self.titleLabel.text = route.title;
-    self.locationAuthorLabel.text = [NSString stringWithFormat:@"%@ \u2022 By @%@", route.location, route.author];
-    self.informationLabel.text = [NSString stringWithFormat:@"%@ users \u2022 %.1f rating", route.usersCount, 4.0];
+    self.locationAuthorLabel.text = [NSString stringWithFormat:@"%@ \u2022 By @%@", route.location, route.author.username];
+    self.informationLabel.text = [NSString stringWithFormat:@"%ld users \u2022 %.1f rating", route.usersCount, 4.0];
     self.descriptionLabel.text = route.fullDescription;
     
     NSMutableArray *placesNames = [[NSMutableArray alloc] init];

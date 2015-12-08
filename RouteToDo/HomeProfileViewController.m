@@ -37,13 +37,8 @@
     [super viewDidLoad];
 
     self.tabBar.delegate = self;
+    self.tabBar.tintColor =[UIColor whiteColor];
 
-    if (IS_OS_8_OR_LATER) {
-        self.tabBar.tintColor =[UIColor whiteColor];
-    } else {
-        self.tabBar.selectedImageTintColor = [UIColor whiteColor];
-    }
-    
     NSMutableArray *tabBarItems = [[NSMutableArray alloc] init];
     for (CustomTabControllerItem *item in self.controllerItems) {
         UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:item.title image:item.image selectedImage:nil];

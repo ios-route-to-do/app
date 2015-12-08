@@ -10,16 +10,4 @@
 
 @implementation Location
 
-@dynamic name;
-@dynamic coordinates;
-@dynamic radius;
-
-+ (void)load {
-    [self registerSubclass];
-}
-
-+ (NSString *)parseClassName {
-    return @"Location";
-}
-
 @end
