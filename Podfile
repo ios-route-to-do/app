@@ -8,4 +8,5 @@ target 'RouteToDo' do
   pod 'CNPPopupController'
   pod 'HCSStarRatingView'
   pod 'SVProgressHUD'
+  pod 'FoldingTabBar', '~> 1.0.2'
 end

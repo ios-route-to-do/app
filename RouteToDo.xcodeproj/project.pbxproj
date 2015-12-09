@@ -169,7 +169,7 @@
 			children = (
 				CD3046D31BFFE38D006C74EA /* Map */,
 				18A4A8901BFECE720028C691 /* App */,
-				18A4A88F1BFECE6A0028C691 /* Models */,
+				18A4A88F1BFECE6A0028C691 /* Data */,
 				18A4A88E1BFECE600028C691 /* Views */,
 				18A4A88D1BFECE560028C691 /* ViewControllers */,
 				1849A39D1BFECCAC002B9355 /* Assets.xcassets */,
@@ -177,10 +177,6 @@
 				1849A3A21BFECCAC002B9355 /* Info.plist */,
 				1849A3911BFECCAC002B9355 /* Supporting Files */,
 				18A4A89C1BFEDA0A0028C691 /* ExampleImages.xcassets */,
-				24A79ED41C0540F600FB3D6B /* BackendRepository.h */,
-				24A79ED81C067E8800FB3D6B /* BackendRepository.m */,
-				60ADA9131C0E8C10003DAC6E /* HttpRepository.h */,
-				60ADA9141C0E8C10003DAC6E /* HttpRepository.m */,
 			);
 			path = RouteToDo;
 			sourceTree = "<group>";
@@ -202,7 +198,6 @@
 				CD7D954C1C0E8929007D778E /* RouteEdit */,
 				CD7D954B1C0E8904007D778E /* Home */,
 				CD7D954A1C0E88EB007D778E /* RouteViews */,
-				CDF69F691C050E4900C427D8 /* Support Files */,
 				18A4A8921BFED1AA0028C691 /* LoginViewController.h */,
 				18A4A8931BFED1AA0028C691 /* LoginViewController.m */,
 				18A4A8941BFED1AA0028C691 /* LoginViewController.xib */,
@@ -234,21 +229,16 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		18A4A88F1BFECE6A0028C691 /* Models */ = {
+		18A4A88F1BFECE6A0028C691 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				248B13701BFEE31000184AD5 /* Route.h */,
-				248B13711BFEE31000184AD5 /* Route.m */,
-				248B13731BFEE3ED00184AD5 /* Place.h */,
-				248B13741BFEE3ED00184AD5 /* Place.m */,
-				248B13761BFEE46000184AD5 /* User.h */,
-				248B13771BFEE46000184AD5 /* User.m */,
-				248B13791BFEE4FD00184AD5 /* RouteCategory.h */,
-				248B137A1BFEE4FD00184AD5 /* RouteCategory.m */,
-				248B137C1BFEE5E900184AD5 /* Location.h */,
-				248B137D1BFEE5E900184AD5 /* Location.m */,
+				CD926C051C1782B200710634 /* Models */,
+				24A79ED41C0540F600FB3D6B /* BackendRepository.h */,
+				24A79ED81C067E8800FB3D6B /* BackendRepository.m */,
+				60ADA9131C0E8C10003DAC6E /* HttpRepository.h */,
+				60ADA9141C0E8C10003DAC6E /* HttpRepository.m */,
 			);
-			name = Models;
+			name = Data;
 			sourceTree = "<group>";
 		};
 		18A4A8901BFECE720028C691 /* App */ = {
@@ -296,6 +286,7 @@
 		CD7D954B1C0E8904007D778E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				CDF69F691C050E4900C427D8 /* Support Files */,
 				603E92641BFEE549003BE497 /* HomeProfileViewController.h */,
 				603E92651BFEE549003BE497 /* HomeProfileViewController.m */,
 				603E92661BFEE549003BE497 /* HomeProfileViewController.xib */,
@@ -320,6 +311,23 @@
 				CD7D954D1C0E896D007D778E /* RouteCoverEditViewController.xib */,
 			);
 			name = RouteEdit;
+			sourceTree = "<group>";
+		};
+		CD926C051C1782B200710634 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				248B13701BFEE31000184AD5 /* Route.h */,
+				248B13711BFEE31000184AD5 /* Route.m */,
+				248B13731BFEE3ED00184AD5 /* Place.h */,
+				248B13741BFEE3ED00184AD5 /* Place.m */,
+				248B13761BFEE46000184AD5 /* User.h */,
+				248B13771BFEE46000184AD5 /* User.m */,
+				248B13791BFEE4FD00184AD5 /* RouteCategory.h */,
+				248B137A1BFEE4FD00184AD5 /* RouteCategory.m */,
+				248B137C1BFEE5E900184AD5 /* Location.h */,
+				248B137D1BFEE5E900184AD5 /* Location.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		CDF69F691C050E4900C427D8 /* Support Files */ = {

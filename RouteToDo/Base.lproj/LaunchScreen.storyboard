@@ -21,16 +21,27 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <animations/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="r9z-cw-cS3">
+                                <rect key="frame" x="60" y="179" width="195" height="93"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="93" id="cwb-z1-HA9"/>
+                                    <constraint firstAttribute="width" constant="195" id="vyR-wm-LHc"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.31764705882352939" green="0.1764705882352941" blue="0.6588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="vgu-Ze-Dql" secondAttribute="trailing" id="1G9-uc-K2L"/>
+                            <constraint firstItem="r9z-cw-cS3" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="179" id="IPA-I8-cyU"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="vgu-Ze-Dql" secondAttribute="bottom" id="Ie6-d4-Nxe"/>
                             <constraint firstItem="vgu-Ze-Dql" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Qbw-n0-IN7"/>
                             <constraint firstItem="vgu-Ze-Dql" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Z2Y-7E-ZOe"/>
+                            <constraint firstItem="r9z-cw-cS3" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="60" id="lB5-sI-Jgl"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -38,6 +49,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="logo" width="586" height="279"/>
         <image name="splash_screen" width="960" height="1704"/>
     </resources>
 </document>

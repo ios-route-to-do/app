@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const UserMissingNotification;
+extern NSString * const UserPresentNotification;
+
 @interface User : NSObject
 
 @property (nonatomic) NSNumber *userId;
@@ -24,4 +27,6 @@
 
 + (User *)currentUser;
 + (void)setCurrentUser:(User *)currentUser;
++ (void)forget;
+
 @end

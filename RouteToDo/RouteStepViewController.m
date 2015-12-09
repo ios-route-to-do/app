@@ -6,19 +6,16 @@
 //  Copyright © 2015 RouteToDo. All rights reserved.
 //
 
+#import "RouteStepViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import <MapKit/MapKit.h>
 
-#import "RouteStepViewController.h"
 #import "PlaceAnnotation.h"
 #import "ArcPathRenderer.h"
-#import "Place.h"
-#import "RouteRatingView.h"
-#import "CNPPopupController.h"
 #import "BackendRepository.h"
 #import "Utils.h"
 
-@interface RouteStepViewController () <MKMapViewDelegate, CLLocationManagerDelegate, CNPPopupControllerDelegate>
+@interface RouteStepViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *nextStepButton;
 @property (weak, nonatomic) IBOutlet MKMapView *routeMapView;
@@ -34,7 +31,6 @@
 @property (strong, nonatomic) ArcPathRenderer *routeLineRenderer;
 
 @property (nonatomic) RouteStepViewController *nextStepController;
-@property (nonatomic) CNPPopupController *ratingPopupController;
 @property (nonatomic) UIBarButtonItem *likeButton;
 
 @property (nonatomic) BOOL isFirstStep;
@@ -52,11 +48,7 @@
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    #ifdef __IPHONE_8_0
-    if(IS_OS_8_OR_LATER) {
         [self.locationManager requestWhenInUseAuthorization];
-    }
-    #endif
 
     self.routeMapView.delegate = self;
 }
@@ -126,7 +118,7 @@
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
     if (self.routeLineRenderer == nil) {
         self.routeLineRenderer = [[ArcPathRenderer alloc] initWithPolyline:overlay];
-        self.routeLineRenderer.strokeColor = UIColorFromRGB(kLightBlue);
+        self.routeLineRenderer.strokeColor = UIColorFromRGB(kLightBlueColorHex);
         self.routeLineRenderer.lineWidth = 2;
         self.routeLineRenderer.lineDashPattern = [NSArray arrayWithObjects:[NSNumber numberWithInt:10],
                                                   [NSNumber numberWithInt:10],nil];
@@ -141,12 +133,12 @@
 
 - (void) onLikeButtonTap {
     id<BackendRepository> repository = [BackendRepository sharedInstance];
+
+    [self updateLikeButton:!self.route.favorite animated:YES];
     [repository toggleRouteFavoriteWithUser:[User currentUser] route:self.route completion:^(NSError *error) {
         if (error) {
-            return;
+            [self updateLikeButton:self.route.favorite animated:NO];
         }
-
-        [self updateLikeButton:self.route.favorite animated:YES];
     }];
 }
 
@@ -160,18 +152,9 @@
         
         [self.navigationController pushViewController:self.nextStepController animated:YES];
     } else {
-        RouteRatingView *ratingView = [[RouteRatingView alloc] initWithFrame:CGRectMake(0, 0, 300, 200)];
-        ratingView.route = self.route;
-
-        self.ratingPopupController = [[CNPPopupController alloc] initWithContents:@[ratingView]];
-        self.ratingPopupController.theme = [CNPPopupTheme defaultTheme];
-        self.ratingPopupController.theme.popupStyle = CNPPopupStyleCentered;
-        self.ratingPopupController.theme.presentationStyle = CNPPopupPresentationStyleSlideInFromBottom;
-        self.ratingPopupController.theme.cornerRadius = 20.0f;
-        self.ratingPopupController.theme.popupContentInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
-        self.ratingPopupController.theme.contentVerticalPadding = 0.0f;
-        self.ratingPopupController.delegate = self;
-        [self.ratingPopupController presentPopupControllerAnimated:YES];
+        id<BackendRepository> repo = [BackendRepository sharedInstance];
+        [repo finishRouteWithUser:[User currentUser] route:self.route completion:nil];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
 }
 
@@ -281,6 +264,5 @@
         [self.likeButton.customView.layer addAnimation:pulseAnimation forKey:@"scaleAnimation"];
     }
 }
-
 
 @end

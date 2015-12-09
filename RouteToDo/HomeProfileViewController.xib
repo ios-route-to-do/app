@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9060"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeProfileViewController">
             <connections>
                 <outlet property="contentView" destination="KT8-kT-fCz" id="Pg2-3L-3JE"/>
-                <outlet property="tabBar" destination="gTK-yo-H2l" id="PGR-6K-iAF"/>
+                <outlet property="tabBarView" destination="LOH-7o-0gF" id="lrt-s4-wzW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,39 +18,31 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KT8-kT-fCz">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <tabBar contentMode="scaleToFill" barStyle="black" translucent="NO" itemPositioning="centered" translatesAutoresizingMaskIntoConstraints="NO" id="gTK-yo-H2l">
-                    <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LOH-7o-0gF">
+                    <rect key="frame" x="0.0" y="504" width="320" height="64"/>
                     <animations/>
-                    <color key="backgroundColor" red="0.4039215686" green="0.2274509804" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <items>
-                        <tabBarItem title="Home" image="home" id="UBi-HO-VUD"/>
-                        <tabBarItem title="Profile" image="profile" id="kai-HX-PSw"/>
-                    </items>
-                    <color key="tintColor" red="0.33333333329999998" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="barTintColor" red="0.31764705879999999" green="0.1764705882" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tabBar>
+                    <color key="backgroundColor" red="0.31764705879999999" green="0.1764705882" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="vyg-yB-V4v"/>
+                    </constraints>
+                </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="KT8-kT-fCz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4GN-aG-3PR"/>
-                <constraint firstAttribute="trailing" secondItem="gTK-yo-H2l" secondAttribute="trailing" id="8oK-dn-Ntu"/>
+                <constraint firstItem="LOH-7o-0gF" firstAttribute="top" secondItem="KT8-kT-fCz" secondAttribute="bottom" id="AHo-wB-LmT"/>
+                <constraint firstItem="LOH-7o-0gF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Lrz-NH-v3u"/>
                 <constraint firstAttribute="trailing" secondItem="KT8-kT-fCz" secondAttribute="trailing" id="N2a-P0-0LK"/>
                 <constraint firstItem="KT8-kT-fCz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="V5X-dl-dGO"/>
-                <constraint firstAttribute="bottom" secondItem="gTK-yo-H2l" secondAttribute="bottom" id="aHA-Df-yu2"/>
-                <constraint firstItem="gTK-yo-H2l" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cKs-cL-Fg9"/>
-                <constraint firstItem="gTK-yo-H2l" firstAttribute="top" secondItem="KT8-kT-fCz" secondAttribute="bottom" id="tfo-Nx-iqu"/>
+                <constraint firstAttribute="trailing" secondItem="LOH-7o-0gF" secondAttribute="trailing" id="bF0-ep-jvC"/>
+                <constraint firstAttribute="bottom" secondItem="LOH-7o-0gF" secondAttribute="bottom" id="hBZ-2r-LX8"/>
             </constraints>
             <point key="canvasLocation" x="413" y="386"/>
         </view>
     </objects>
-    <resources>
-        <image name="home" width="24" height="24"/>
-        <image name="profile" width="24" height="24"/>
-    </resources>
 </document>

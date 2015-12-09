@@ -9,6 +9,9 @@
 #import "User.h"
 #import "Route.h"
 
+NSString * const UserMissingNotification = @"UserMissingNotification";
+NSString * const UserPresentNotification = @"UserPresentNotification";
+
 @interface User()
 
 @property (nonatomic, strong) NSDictionary *dictionary;
@@ -43,6 +46,10 @@ NSString * const kCurrentUserKey = @"kCurrentUserKey";
         if (data != nil) {
             NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
             _currentUser = [[User alloc] initWithDictionary:dictionary];
+
+            [[NSNotificationCenter defaultCenter] postNotificationName:UserPresentNotification object:nil userInfo:@{@"user": _currentUser}];
+        } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:UserMissingNotification object:nil];
         }
     }
     
@@ -55,10 +62,20 @@ NSString * const kCurrentUserKey = @"kCurrentUserKey";
     if(_currentUser != nil) {
         NSData *data = [NSJSONSerialization dataWithJSONObject:currentUser.dictionary options:0 error:NULL];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:kCurrentUserKey];
+        [[NSNotificationCenter defaultCenter] postNotificationName:UserPresentNotification object:nil userInfo:@{@"user": _currentUser}];
     } else {
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kCurrentUserKey];
+        [[NSNotificationCenter defaultCenter] postNotificationName:UserMissingNotification object:nil];
     }
 
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (void)forget {
+    _currentUser = nil;
+
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kCurrentUserKey];
+    [[NSNotificationCenter defaultCenter] postNotificationName:UserMissingNotification object:nil userInfo:@{@"forget": @(true)}];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

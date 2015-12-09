@@ -7,19 +7,15 @@
 //
 
 #import "LoginViewController.h"
-#import "RouteCoverViewController.h"
-#import "HomeProfileViewController.h"
-#import "RouteListViewController.h"
-#import "ProfileViewController.h"
-#import "RouteCoverViewController.h"
-#import "CustomTabControllerItem.h"
-#import "User.h"
 #import "BackendRepository.h"
-
-#import "mocks.h"
+#import "SVProgressHUD/SVProgressHUD.h"
 
 @interface LoginViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *loginEmailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *emailTextFieldTopConstraint;
 
 @end
 
@@ -27,88 +23,54 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.loginEmailTextField.delegate = self;
+    self.loginButton.layer.cornerRadius = 5;
+    self.loginButton.layer.masksToBounds = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    if (self.animated) {
+        self.logoTopConstraint.constant = 179;
+        self.emailTextField.alpha = 0;
+        self.loginButton.alpha = 0;
+    } else {
+        self.logoTopConstraint.constant = 40;
+        self.emailTextField.alpha = 1;
+        self.loginButton.alpha = 1;
+    }
+
+    [self.view layoutIfNeeded];
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    if (self.animated) {
+        [UIView animateWithDuration:0.3 animations:^{
+            self.logoTopConstraint.constant = 40;
+            self.emailTextField.alpha = 1;
+            self.loginButton.alpha = 1;
+
+            [self.view layoutIfNeeded];
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if (textField == self.loginEmailTextField) {
-        [self.loginEmailTextField resignFirstResponder];
-        id<BackendRepository> repository = [BackendRepository sharedInstance];
-        
-        [repository loginUserWithEmail:self.loginEmailTextField.text completion:^(User *user, NSError *error) {
+- (IBAction)onLoginButtonTap:(UIButton *)sender {
+    id<BackendRepository> repo = [BackendRepository sharedInstance];
+
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    [SVProgressHUD show];
+    [repo loginUserWithEmail:self.emailTextField.text completion:^(User *user, NSError *error) {
+        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+        if (user) {
+            [SVProgressHUD dismiss];
             [User setCurrentUser:user];
-            
-            RouteListViewController *homeController = [[RouteListViewController alloc] init];
-            UIImage *homeImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-            CustomTabControllerItem *homeItem = [CustomTabControllerItem itemWithTitle:@"Home" image:homeImage andController:homeController];
-            
-            ProfileViewController *profileController = [[ProfileViewController alloc] init];
-            UIImage *profileImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-            CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Profile" image:profileImage andController:profileController];
-            
-            HomeProfileViewController *vc = [[HomeProfileViewController alloc] initWithItems:@[homeItem, profileItem]];
-            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-            
-            [self presentViewController:nav animated:YES completion:nil];
-
-        }];
-
-    }
-    return YES;
+        } else {
+            [SVProgressHUD showErrorWithStatus:@"Incorrect login"];
+        }
+    }];
 }
-
-- (IBAction)onRouteDetailsClick:(id)sender {
-    RouteCoverViewController *vc = [[RouteCoverViewController alloc] init];
-    vc.route = mockRoute1();
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    
-    [self presentViewController:nav animated:YES completion:nil];
-}
-- (IBAction)onRouteListClick:(id)sender {
-    RouteListViewController *homeController = [[RouteListViewController alloc] init];
-    UIImage *homeImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    CustomTabControllerItem *homeItem = [CustomTabControllerItem itemWithTitle:@"Home" image:homeImage andController:homeController];
-
-    ProfileViewController *profileController = [[ProfileViewController alloc] init];
-    UIImage *profileImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Profile" image:profileImage andController:profileController];
-    
-    HomeProfileViewController *vc = [[HomeProfileViewController alloc] initWithItems:@[homeItem, profileItem]];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-
-    [self presentViewController:nav animated:YES completion:nil];
-//
-//    NSLog(@"on Route List click");
-//    RouteListViewController *routeListVC = [[RouteListViewController alloc] init];
-//    UINavigationController* routeListNVC = [[UINavigationController alloc] initWithRootViewController:routeListVC];
-//    routeListNVC.tabBarItem.title = @"Route List";
-//
-//    ProfileViewController *profileVC = [[ProfileViewController alloc] init];
-//    UINavigationController *profileNVC = [[UINavigationController alloc] initWithRootViewController:profileVC];
-//    profileNVC.tabBarItem.title = @"Profile View";
-//    
-//    UITabBarController *tabBarController = [[UITabBarController alloc] init];
-//    tabBarController.viewControllers = @[routeListNVC, profileNVC];
-//
-//    [self presentViewController:tabBarController animated:YES completion:nil];
-    
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

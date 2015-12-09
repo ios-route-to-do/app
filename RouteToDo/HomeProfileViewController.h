@@ -11,6 +11,7 @@
 
 @interface HomeProfileViewController : UIViewController
 
+- (instancetype) initDefault;
 - (instancetype) initWithItems:(NSArray<CustomTabControllerItem *> *)items;
 
 @end
