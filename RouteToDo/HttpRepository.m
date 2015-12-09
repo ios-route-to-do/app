@@ -272,7 +272,9 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@", [User currentUser].userId] forHTTPHeaderField:@"X-Jopp-User-Id"];
+    if ([User currentUser].userId) {
+        [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@", [User currentUser].userId] forHTTPHeaderField:@"X-Jopp-User-Id"];
+    }
 
     return manager;
 }
