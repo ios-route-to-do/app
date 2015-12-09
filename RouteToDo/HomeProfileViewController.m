@@ -71,7 +71,12 @@
         return YES;
     }];
 
-    return [self initWithItems:@[homeItem, categoriesItem, newRouteItem, profileItem, logoutItem]];
+    homeItem.leftItem = categoriesItem;
+
+    profileItem.leftItem = newRouteItem;
+    profileItem.rightItem = logoutItem;
+
+    return [self initWithItems:@[homeItem, profileItem]];
 }
 
 - (instancetype) initWithItems:(NSArray<CustomTabControllerItem *> *)items {
@@ -85,8 +90,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    CGRect tabBarFrame = CGRectMake(8, 8, self.tabBarView.bounds.size.width - 16, self.tabBarView.bounds.size.height - 24);
-    self.tabBar = [[YALFoldingTabBar alloc] initWithFrame:tabBarFrame];
+    self.tabBar = [[YALFoldingTabBar alloc] initWithFrame:self.tabBarView.bounds];
     self.tabBar.delegate = self;
     self.tabBar.dataSource = self;
 
@@ -96,8 +100,8 @@
     long i = 0;
     for (CustomTabControllerItem *item in self.controllerItems) {
         YALTabBarItem *tabBarItem = [[YALTabBarItem alloc] initWithItemImage:item.image
-                                                          leftItemImage:nil
-                                                         rightItemImage:nil];
+                                                               leftItemImage:item.leftItem ? item.leftItem.image : nil
+                                                              rightItemImage:item.rightItem ? item.rightItem.image : nil];
 
         if (i++ < middle) {
             [leftTabBarItems addObject:tabBarItem];
@@ -113,10 +117,15 @@
     self.tabBarItems = tabBarItems;
     [self.tabBarView addSubview:self.tabBar];
 
+    self.tabBar.extraTabBarItemHeight = YALExtraTabBarItemsDefaultHeight;
+    self.tabBar.offsetForExtraTabBarItems = YALForExtraTabBarItemsDefaultOffset;
+    self.tabBar.tabBarViewEdgeInsets = YALTabBarViewHDefaultEdgeInsets;
+    self.tabBar.tabBarItemsEdgeInsets = YALTabBarViewItemsDefaultEdgeInsets;
+
     self.tabBarView.backgroundColor = UIColorFromRGB(kDarkPurpleColorHex);
     self.tabBar.backgroundColor = UIColorFromRGB(kDarkPurpleColorHex);
     self.tabBar.tabBarColor = UIColorFromRGB(kLightBlueColorHex);
-    self.tabBar.dotColor = UIColorFromRGB(kLightBlueColorHex);
+    self.tabBar.dotColor = [UIColor whiteColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -132,18 +141,45 @@
     return self.rightTabBarItems;
 }
 
+- (void)extraLeftItemDidPressInTabBarView:(YALFoldingTabBar *)tabBarView {
+    CustomTabControllerItem *customItem = self.controllerItems[tabBarView.selectedTabBarItemIndex].leftItem;
+
+    if ([self.controllerItems containsObject:customItem]) {
+        self.tabBar.selectedTabBarItemIndex = [self.controllerItems indexOfObject:customItem];
+        [self itemInTabBarViewPressed:self.tabBar atIndex:self.tabBar.selectedTabBarItemIndex];
+        return;
+    }
+
+    [self performActionForItem:customItem];
+}
+
+- (void)extraRightItemDidPressInTabBarView:(YALFoldingTabBar *)tabBarView {
+    CustomTabControllerItem *customItem = self.controllerItems[tabBarView.selectedTabBarItemIndex].rightItem;
+
+    if ([self.controllerItems containsObject:customItem]) {
+        self.tabBar.selectedTabBarItemIndex = [self.controllerItems indexOfObject:customItem];
+        [self itemInTabBarViewPressed:self.tabBar atIndex:self.tabBar.selectedTabBarItemIndex];
+        return;
+    }
+
+    [self performActionForItem:customItem];
+}
+
 - (void)itemInTabBarViewPressed:(YALFoldingTabBar *)tabBarView atIndex:(NSUInteger)index {
     CustomTabControllerItem *customItem = self.controllerItems[index];
-
-    if (customItem.controller) {
-        [self presentController:customItem.controller];
-    } else if (customItem.block) {
-        customItem.block(customItem);
-    }
+    [self performActionForItem:customItem];
 }
 
 - (UIImage *)centerImageInTabBarView:(YALFoldingTabBar *)tabBarView {
     return [UIImage imageNamed:@"mappin"];
+}
+
+- (void) performActionForItem:(CustomTabControllerItem *)item {
+    if (item.controller) {
+        [self presentController:item.controller];
+    } else if (item.block) {
+        item.block(item);
+    }
 }
 
 - (void) presentController:(UIViewController *)controller {
