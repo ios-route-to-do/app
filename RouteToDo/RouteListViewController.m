@@ -42,20 +42,6 @@
     UINib *smallCellNib = [UINib nibWithNibName:@"SmallRouteCollectionViewCell" bundle:nil];
     [self.bottomCollectionView registerNib:smallCellNib forCellWithReuseIdentifier:@"smallRouteCollectionViewCell"];
 
-    UICollectionViewFlowLayout *topFlowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [topFlowLayout setItemSize:CGSizeMake(240, 190)];
-    [topFlowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-    [topFlowLayout setSectionInset:UIEdgeInsetsMake(0, 8, 0, 0)];
-    [self.topCollectionView setCollectionViewLayout:topFlowLayout];
-
-    UICollectionViewFlowLayout *bottomFlowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [bottomFlowLayout setItemSize:CGSizeMake(148, 100)];
-    [bottomFlowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [bottomFlowLayout setMinimumInteritemSpacing:8];
-    [bottomFlowLayout setMinimumLineSpacing:8];
-
-    [self.bottomCollectionView setCollectionViewLayout:bottomFlowLayout];
-
     self.topCollectionView.delegate = self;
     self.bottomCollectionView.delegate = self;
     self.topCollectionView.dataSource = self;
@@ -88,6 +74,28 @@
     [self reloadAllRoutes];
 }
 
+- (void)viewDidLayoutSubviews {
+    UICollectionViewFlowLayout *topFlowLayout = (UICollectionViewFlowLayout *)self.topCollectionView.collectionViewLayout;
+    if (!topFlowLayout) {
+        topFlowLayout = [[UICollectionViewFlowLayout alloc] init];
+        [self.topCollectionView setCollectionViewLayout:topFlowLayout];
+    }
+    [topFlowLayout setItemSize:CGSizeMake(240, 190)];
+    [topFlowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [topFlowLayout setSectionInset:UIEdgeInsetsMake(0, 8, 0, 0)];
+    
+    UICollectionViewFlowLayout *bottomFlowLayout = (UICollectionViewFlowLayout *)self.bottomCollectionView.collectionViewLayout;
+    if (!bottomFlowLayout) {
+        bottomFlowLayout = [[UICollectionViewFlowLayout alloc] init];
+        [self.bottomCollectionView setCollectionViewLayout:bottomFlowLayout];
+    }
+    CGFloat collectionWidth = self.bottomCollectionView.bounds.size.width;
+    float cellWidth = collectionWidth / 2.0 - 4;
+    [bottomFlowLayout setItemSize:CGSizeMake(cellWidth, cellWidth * 2 / 3)];
+    [bottomFlowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [bottomFlowLayout setMinimumInteritemSpacing:8];
+    [bottomFlowLayout setMinimumLineSpacing:8];
+}
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;

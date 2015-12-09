@@ -115,22 +115,24 @@
     NSMutableArray *tabBarItems = [[NSMutableArray alloc] initWithArray:leftTabBarItems];
     [tabBarItems addObjectsFromArray:rightTabBarItems];
     self.tabBarItems = tabBarItems;
-    [self.tabBarView addSubview:self.tabBar];
-
     self.tabBar.extraTabBarItemHeight = YALExtraTabBarItemsDefaultHeight;
     self.tabBar.offsetForExtraTabBarItems = YALForExtraTabBarItemsDefaultOffset;
     self.tabBar.tabBarViewEdgeInsets = YALTabBarViewHDefaultEdgeInsets;
     self.tabBar.tabBarItemsEdgeInsets = YALTabBarViewItemsDefaultEdgeInsets;
-
+    
     self.tabBarView.backgroundColor = UIColorFromRGB(kDarkPurpleColorHex);
     self.tabBar.backgroundColor = UIColorFromRGB(kDarkPurpleColorHex);
     self.tabBar.tabBarColor = UIColorFromRGB(kLightBlueColorHex);
     self.tabBar.dotColor = [UIColor whiteColor];
-}
 
-- (void)viewWillAppear:(BOOL)animated {
+    [self.tabBarView addSubview:self.tabBar];
+
     self.tabBar.selectedTabBarItemIndex = 0;
     [self itemInTabBarViewPressed:self.tabBar atIndex:0];
+}
+
+- (void)viewDidLayoutSubviews {
+    self.tabBar.frame = self.tabBarView.bounds;
 }
 
 - (NSArray *)leftTabBarItemsInTabBarView:(YALFoldingTabBar *)tabBarView {

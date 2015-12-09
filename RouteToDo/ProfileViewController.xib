@@ -24,16 +24,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzk-ue-VwE">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="166"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pSR-c2-Xah">
-                            <rect key="frame" x="120" y="16" width="80" height="80"/>
-                            <animations/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="80" id="KQH-fm-cfb"/>
-                                <constraint firstAttribute="height" constant="80" id="LNG-lp-zjJ"/>
-                            </constraints>
-                        </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@RandyWilliams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqM-Oo-ZyY">
-                            <rect key="frame" x="97" y="108" width="126" height="20"/>
+                            <rect key="frame" x="97" y="108" width="125.5" height="20"/>
                             <animations/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -46,15 +38,22 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pSR-c2-Xah">
+                            <rect key="frame" x="120" y="16" width="80" height="80"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="KQH-fm-cfb"/>
+                                <constraint firstAttribute="height" constant="80" id="LNG-lp-zjJ"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" red="0.35686274509999999" green="0.79215686269999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="pSR-c2-Xah" secondAttribute="trailing" constant="120" id="5FV-Xl-X4v"/>
-                        <constraint firstItem="pSR-c2-Xah" firstAttribute="leading" secondItem="Fzk-ue-VwE" secondAttribute="leading" constant="120" id="6NK-62-Rfk"/>
                         <constraint firstAttribute="bottom" secondItem="zU7-W0-UwO" secondAttribute="bottom" constant="16" id="FSb-rd-oqb"/>
                         <constraint firstItem="zU7-W0-UwO" firstAttribute="top" secondItem="eqM-Oo-ZyY" secondAttribute="bottom" constant="8" id="M4W-Zp-Iby"/>
                         <constraint firstItem="eqM-Oo-ZyY" firstAttribute="top" secondItem="pSR-c2-Xah" secondAttribute="bottom" constant="12" id="PjQ-BT-xhv"/>
+                        <constraint firstItem="pSR-c2-Xah" firstAttribute="centerX" secondItem="Fzk-ue-VwE" secondAttribute="centerX" id="WLS-4P-rxp"/>
                         <constraint firstItem="zU7-W0-UwO" firstAttribute="centerX" secondItem="eqM-Oo-ZyY" secondAttribute="centerX" id="iCn-cQ-rjg"/>
                         <constraint firstItem="pSR-c2-Xah" firstAttribute="top" secondItem="Fzk-ue-VwE" secondAttribute="top" constant="16" id="vj4-4I-vGG"/>
                         <constraint firstItem="pSR-c2-Xah" firstAttribute="centerX" secondItem="eqM-Oo-ZyY" secondAttribute="centerX" id="zrc-tI-Xqn"/>
@@ -110,7 +109,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <animations/>
             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <nil key="highlightedColor"/>
         </label>
     </objects>
