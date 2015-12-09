@@ -24,12 +24,7 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
 
 - (void)allCategoriesWithCompletion:(void (^)(NSArray *categories, NSError *error))completion {
     NSString *url = [kBaseUrl stringByAppendingString:@"/categories"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[self httpManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Successful JSON: %@", responseObject);
         NSArray *categories = [RouteCategory routeCategoryWithArray:responseObject];
         completion(categories, nil);
@@ -37,20 +32,13 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
         NSLog(@"Failed GET categories : %@",[error localizedDescription]);
         completion(nil, error);
     }];
-
-    [operation start];
 }
 
 #pragma mark - Home routes
 
 - (void)trendingRoutesWithLocation:(Location *)location completion:(void (^)(NSArray *routes, NSError *error))completion {
     NSString *url = [kBaseUrl stringByAppendingString:@"/routes/trending"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[self httpManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Successful GET trending routes request");
         NSArray *routes = [Route routeWithArray:responseObject];
         completion(routes, nil);
@@ -58,18 +46,11 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
         NSLog(@"Failed GET trending routes : %@",[error localizedDescription]);
         completion(nil, error);
     }];
-
-    [operation start];
 }
 
 - (void)newRoutesWithLocation:(Location *)location completion:(void (^)(NSArray *routes, NSError *error))completion {
     NSString *url = [kBaseUrl stringByAppendingString:@"/routes/new"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[self httpManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Successful GET new routes request");
         NSArray *routes = [Route routeWithArray:responseObject];
         completion(routes, nil);
@@ -77,20 +58,13 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
         NSLog(@"Failed GET new routes : %@",[error localizedDescription]);
         completion(nil, error);
     }];
-
-    [operation start];
 }
 
 #pragma mark - User routes
 
 - (void)favoriteRoutesWithUser:(User *)user completion:(void (^)(NSArray *routes, NSError *error))completion {
     NSString *url = [kBaseUrl stringByAppendingString:[NSString stringWithFormat:@"/users/%@/favorites", user.userId]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[self httpManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Successful GET user favorite routes request");
         NSArray *routes = [Route routeWithArray:responseObject];
         completion(routes, nil);
@@ -98,18 +72,11 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
         NSLog(@"Failed GET favorite routes : %@",[error localizedDescription]);
         completion(nil, error);
     }];
-
-    [operation start];
 }
 
 - (void)userOutingsWithUser:(User *)user completion:(void (^)(NSArray *routes, NSError *error))completion {
     NSString *url = [kBaseUrl stringByAppendingString:[NSString stringWithFormat:@"/users/%@/outings", user.userId]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[self httpManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Successful GET user outings request");
         NSArray *routes = [Route routeWithArray:responseObject];
         completion(routes, nil);
@@ -117,18 +84,11 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
         NSLog(@"Failed GET user outings : %@",[error localizedDescription]);
         completion(nil, error);
     }];
-
-    [operation start];
 }
 
 - (void)userRoutesWithUser:(User *)user completion:(void (^)(NSArray *routes, NSError *error))completion {
     NSString *url = [kBaseUrl stringByAppendingString:[NSString stringWithFormat:@"/users/%@/routes", user.userId]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[self httpManager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Successful GET user own routes request");
         NSArray *routes = [Route routeWithArray:responseObject];
         completion(routes, nil);
@@ -136,20 +96,17 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
         NSLog(@"Failed GET user own routes : %@",[error localizedDescription]);
         completion(nil, error);
     }];
-
-    [operation start];
 }
 
 #pragma mark - Actions
 
 - (void)toggleRouteFavoriteWithUser:(User *)user route:(Route *)route completion:(void (^)(NSError *error))completion {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *params = @{@"user_id": user.userId};
 
     if(route.favorite) {
         NSString *url = [kBaseUrl stringByAppendingString:[NSString stringWithFormat:@"/routes/%@/unfavorite", route.routeId]];
 
-        [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [[self httpManager] POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"routeUnfavorited" object:self
                                                               userInfo:@{@"route": route}];
             route.favorite = NO;
@@ -161,7 +118,7 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
     } else {
         NSString *url = [kBaseUrl stringByAppendingString:[NSString stringWithFormat:@"/routes/%@/favorite", route.routeId]];
 
-        [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [[self httpManager] POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [[NSNotificationCenter defaultCenter] postNotificationName:@"routeFavorited" object:self
                                                               userInfo:@{@"route": route}];
             route.favorite = YES;
@@ -215,9 +172,8 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
 - (void)registerUserWithEmail:(NSString *)email imageUrl:(NSString *)image completion:(void (^)(User *user, NSError *error))completion {
     NSString *url = [kBaseUrl stringByAppendingString:@"/users/register"];
 
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *params = @{@"email": email};
-    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[self httpManager] POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         User *user = [[User alloc] initWithDictionary:responseObject];
         completion(user,nil);
@@ -230,7 +186,7 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
 - (void)loginUserWithEmail:(NSString *)email completion:(void (^)(User *user, NSError *error))completion {
     NSString *url = [kBaseUrl stringByAppendingString:@"/users/login"];
 
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPRequestOperationManager *manager = self.httpManager;
     [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
 
     NSDictionary *params = @{@"email": email};
@@ -254,12 +210,11 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
 #pragma mark - Upload Media
 
 - (void)storeImage:(UIImage *)image completion:(void (^)(NSString *imageUrl, NSError *error))completion {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
     NSData *imageData = [NSData dataWithData:UIImageJPEGRepresentation(image, 0.80)];
     NSString *url = [kBaseUrl stringByAppendingString:@"/images"];
 
-    [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [[self httpManager] POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileData:imageData
                                     name:@"attachment"
                                 fileName:@"RouteImage" mimeType:@"image/jpeg"];
@@ -299,8 +254,7 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
 - (void)searchPlacesWithParameters:(NSDictionary *)parameters completion:(void (^)(MKCoordinateRegion region, NSArray<Place *> *places, NSError *error))completion {
     NSString *url = [kBaseUrl stringByAppendingString:@"/places/search"];
 
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[self httpManager] GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *response = responseObject;
 
         CLLocationCoordinate2D regionCenter = CLLocationCoordinate2DMake([response[@"region"][@"center"][@"latitude"] doubleValue], [response[@"region"][@"center"][@"longitude"] doubleValue]);
