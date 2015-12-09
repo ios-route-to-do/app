@@ -16,11 +16,12 @@
 @property (nonatomic) NSString *firstName;
 @property (nonatomic) NSString *lastName;
 @property (nonatomic) NSURL *profileImageUrl;
-@property (nonatomic) NSMutableArray *favoriteRoutes;
+@property (nonatomic) NSArray *favoriteRoutes;
 @property (nonatomic) NSMutableArray *outings;
 @property (nonatomic) NSMutableArray *ownRoutes;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
+
 + (User *)currentUser;
 + (void)setCurrentUser:(User *)currentUser;
 @end

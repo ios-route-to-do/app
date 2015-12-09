@@ -14,6 +14,7 @@
 
 @interface Route : NSObject
 
+@property (nonatomic) NSNumber *routeId;
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *location;
 @property (nonatomic) User *author;
@@ -29,6 +30,5 @@
 + (Route *)emptyRoute;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
-
 
 @end

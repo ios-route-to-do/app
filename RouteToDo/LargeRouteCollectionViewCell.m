@@ -47,7 +47,7 @@
 
 - (IBAction)onLikeButton:(id)sender {
     id<BackendRepository> repository = [BackendRepository sharedInstance];
-    [repository toggleRouteFavoriteWithUser:nil route:self.route completion:^(NSError *error) {
+    [repository toggleRouteFavoriteWithUser:[User currentUser] route:self.route completion:^(NSError *error) {
         if (error) {
             return;
         }

@@ -7,6 +7,7 @@
 //
 
 #import "User.h"
+#import "Route.h"
 
 @interface User()
 
@@ -15,17 +16,6 @@
 @end
 
 @implementation User
-
-//- (instancetype)init
-//{
-//    self = [super init];
-//    if (self) {
-//        self.favoriteRoutes = [NSMutableArray array];
-//        self.outings = [NSMutableArray array];
-//        self.ownRoutes = [NSMutableArray array];
-//    }
-//    return self;
-//}
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
@@ -37,7 +27,7 @@
         _firstName = dictionary[@"first_name"];
         _lastName = dictionary[@"last_name"];
         _profileImageUrl = [NSURL URLWithString:dictionary[@"profile_image_url"]];
-        _favoriteRoutes = dictionary[@"favorites"];
+        _favoriteRoutes = [Route routeWithArray:dictionary[@"favorites"]];
         _outings = dictionary[@"outings"];
         _ownRoutes = dictionary[@"routes"];
     }

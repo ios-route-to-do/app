@@ -13,6 +13,7 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
+        _routeId = dictionary[@"id"];
         _title = dictionary[@"title"];
         _location = dictionary[@"location"];
         _imageUrl = [NSURL URLWithString:dictionary[@"image_url"]];
@@ -22,17 +23,18 @@
             _rating = [dictionary[@"rating"] doubleValue];
         }
         _places = [Place placesWithArray:dictionary[@"places"]];
+        _favorite = dictionary[@"favorite"];
     }
     return self;
 }
 
 + (NSArray *)routeWithArray:(NSArray *) array {
-    NSMutableArray *routeCategories = [NSMutableArray array];
-    
+    NSMutableArray *routes = [NSMutableArray array];
+
     for (NSDictionary *dictionary in array) {
-        [routeCategories addObject:[[Route alloc] initWithDictionary:dictionary]];
+        [routes addObject:[[Route alloc] initWithDictionary:dictionary]];
     }
-    return routeCategories;
+    return routes;
 }
 
 + (Route *)emptyRoute {
@@ -45,6 +47,5 @@
 
     return route;
 }
-
 
 @end
