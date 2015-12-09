@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoriesViewController">
+            <connections>
+                <outlet property="backgroundImage" destination="R4N-t9-VDf" id="vhl-Gh-a9B"/>
+                <outlet property="categoriesCollectionView" destination="vor-Ea-bOh" id="HzB-aR-LSY"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="categories_background" translatesAutoresizingMaskIntoConstraints="NO" id="R4N-t9-VDf">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <animations/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6XQ-KV-aPM">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="mvZ-mb-XB5">
+                            <rect key="frame" x="131" y="24" width="59" height="28"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="28" id="Ew2-8B-jWO"/>
+                                <constraint firstAttribute="width" constant="59" id="LiG-ZW-tsn"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" red="0.31764705879999999" green="0.1764705882" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="Nnw-0P-wrV"/>
+                        <constraint firstAttribute="bottom" secondItem="mvZ-mb-XB5" secondAttribute="bottom" constant="8" id="P6x-GQ-J4d"/>
+                        <constraint firstItem="mvZ-mb-XB5" firstAttribute="centerX" secondItem="6XQ-KV-aPM" secondAttribute="centerX" id="cnM-il-qMf"/>
+                    </constraints>
+                </view>
+                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vor-Ea-bOh">
+                    <rect key="frame" x="16" y="68" width="288" height="500"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y7P-xO-b0G">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="R4N-t9-VDf" secondAttribute="trailing" id="6Ds-e1-qn5"/>
+                <constraint firstAttribute="trailing" secondItem="6XQ-KV-aPM" secondAttribute="trailing" id="CYw-g6-vTj"/>
+                <constraint firstItem="R4N-t9-VDf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ECR-1Q-ZIu"/>
+                <constraint firstItem="vor-Ea-bOh" firstAttribute="top" secondItem="6XQ-KV-aPM" secondAttribute="bottom" constant="8" id="Ny0-JY-knk"/>
+                <constraint firstItem="vor-Ea-bOh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="WSE-HR-Vaz"/>
+                <constraint firstItem="6XQ-KV-aPM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dIL-4a-oJZ"/>
+                <constraint firstItem="R4N-t9-VDf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lNP-cs-EGn"/>
+                <constraint firstAttribute="bottom" secondItem="R4N-t9-VDf" secondAttribute="bottom" id="pI8-Ik-kcP"/>
+                <constraint firstAttribute="trailing" secondItem="vor-Ea-bOh" secondAttribute="trailing" constant="16" id="pg8-ZG-zmN"/>
+                <constraint firstItem="6XQ-KV-aPM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xOp-WQ-W86"/>
+                <constraint firstAttribute="bottom" secondItem="vor-Ea-bOh" secondAttribute="bottom" id="xxx-Tt-Vav"/>
+            </constraints>
+            <point key="canvasLocation" x="379" y="504"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="categories_background" width="360" height="640"/>
+        <image name="logo" width="586" height="279"/>
+    </resources>
+</document>
