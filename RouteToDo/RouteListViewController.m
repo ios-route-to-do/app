@@ -146,6 +146,7 @@
     id<BackendRepository> repository = [BackendRepository sharedInstance];
     [repository rateRouteWithUser:[User currentUser] route:view.route rating:rating completion:^(NSError *error) {
         NSLog(@"rated route");
+        [self reloadData];
     }];
 
     [self routeRatingView:view didTapCancelWithRating:rating];
@@ -205,9 +206,13 @@
     
     [self.backgroundImageView addSubview:blurEffectView];
     
+    [self reloadData];
+    completionHandler();
+}
+
+- (void)reloadData {
     [self.topCollectionView reloadData];
     [self.bottomCollectionView reloadData];
-    completionHandler();
 }
 
 @end

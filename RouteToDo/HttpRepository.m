@@ -155,6 +155,7 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
     NSDictionary *params = @{@"rating": [NSNumber numberWithDouble:rating]};
     [[self httpManager] POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        route.rating = [responseObject[@"rating"] doubleValue];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"routeRated" object:self
                                                           userInfo:@{@"route": route, @"user": user}];
         completion(nil);
