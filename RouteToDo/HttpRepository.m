@@ -151,21 +151,17 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
 }
 
 - (void)rateRouteWithUser:(User *)user route:(Route *)route rating:(double)rating completion:(void (^)(NSError *error))completion {
-    route.rating = rating; // naive implementation for now
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"routeRated" object:self
-                                                      userInfo:@{@"route": route, @"user": user}];
-    completion(nil);
-    //    NSString *url = [kBaseUrl stringByAppendingString:@"/v1/routes/rating"];
-    //
-    //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    //    NSDictionary *params = @{@"route[description]": route.description,
-    //                             @"user[id]": user.username};
-    //    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    //        NSLog(@"JSON: %@", responseObject);
-    //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    //        NSLog(@"Error: %@", error);
-    //    }];
-    
+    NSString *url = [kBaseUrl stringByAppendingString:[NSString stringWithFormat:@"/routes/%@/rate", route.routeId]];
+    NSDictionary *params = @{@"rating": [NSNumber numberWithDouble:rating]};
+    [[self httpManager] POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"routeRated" object:self
+                                                          userInfo:@{@"route": route, @"user": user}];
+        completion(nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        completion(error);
+    }];
 }
 
 #pragma mark - User
