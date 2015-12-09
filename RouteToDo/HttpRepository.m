@@ -13,7 +13,7 @@
 #import "User.h"
 
 #ifdef DEBUG
-NSString * const kBaseUrl = @"https://localhost:3000";
+NSString * const kBaseUrl = @"http://localhost:3000";
 #else
 NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
 #endif
@@ -174,27 +174,22 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
 }
 
 - (void)finishRouteWithUser:(User *)user route:(Route *)route completion:(void (^)(NSError *error))completion {
-//    [user.outings addObject:route];
+    //    [user.outings addObject:route];
     [[NSNotificationCenter defaultCenter] postNotificationName:RouteFinishedNotification object:self
                                                       userInfo:@{@"route": route, @"user": user}];
-    NSString *url = [kBaseUrl stringByAppendingString:@"/v1/user/routes"];
-
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *params = @{@"route[description]": route.description,
-                             @"user[id]": user.username};
-    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+    if (completion) {
         completion(nil);
     }
-//    NSString *url = [kBaseUrl stringByAppendingString:@"/v1/user/routes"];
-//    
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    NSDictionary *params = @{@"route[description]": route.description,
-//                             @"user[id]": user.username};
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-        completion(error);
-    }];
+    //    NSString *url = [kBaseUrl stringByAppendingString:@"/v1/user/routes"];
+    //
+    //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    NSDictionary *params = @{@"route[description]": route.description,
+    //                             @"user[id]": user.username};
+    //    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    //        NSLog(@"JSON: %@", responseObject);
+    //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    //        NSLog(@"Error: %@", error);
+    //    }];
 }
 
 - (void)rateRouteWithUser:(User *)user route:(Route *)route rating:(double)rating completion:(void (^)(NSError *error))completion {
@@ -212,7 +207,7 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
     //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     //        NSLog(@"Error: %@", error);
     //    }];
-
+    
 }
 
 #pragma mark - User
@@ -319,6 +314,15 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
         MKCoordinateRegion region;
         completion(region, nil, error);
     }];
+}
+
+- (AFHTTPRequestOperationManager *) httpManager {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager.requestSerializer setValue:[NSString stringWithFormat:@"%@", [User currentUser].userId] forHTTPHeaderField:@"X-Jopp-User-Id"];
+
+    return manager;
 }
 
 @end
