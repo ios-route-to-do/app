@@ -174,22 +174,23 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
 }
 
 - (void)finishRouteWithUser:(User *)user route:(Route *)route completion:(void (^)(NSError *error))completion {
-    //    [user.outings addObject:route];
-    [[NSNotificationCenter defaultCenter] postNotificationName:RouteFinishedNotification object:self
-                                                      userInfo:@{@"route": route, @"user": user}];
-    if (completion) {
-        completion(nil);
-    }
-    //    NSString *url = [kBaseUrl stringByAppendingString:@"/v1/user/routes"];
-    //
-    //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    //    NSDictionary *params = @{@"route[description]": route.description,
-    //                             @"user[id]": user.username};
-    //    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    //        NSLog(@"JSON: %@", responseObject);
-    //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    //        NSLog(@"Error: %@", error);
-    //    }];
+    NSString *url = [kBaseUrl stringByAppendingString:[NSString stringWithFormat:@"/routes/%@/finish", route.routeId]];
+    NSDictionary *params = @{@"user_id": user.userId};
+
+    [[self httpManager] POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        [user.outings addObject:route];
+        [[NSNotificationCenter defaultCenter] postNotificationName:RouteFinishedNotification object:self
+                                                          userInfo:@{@"route": route, @"user": user}];
+        if (completion) {
+            completion(nil);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error finishing route: %@", [error localizedDescription]);
+        if (completion) {
+            completion(error);
+        }
+    }];
 }
 
 - (void)rateRouteWithUser:(User *)user route:(Route *)route rating:(double)rating completion:(void (^)(NSError *error))completion {
