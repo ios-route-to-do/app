@@ -13,6 +13,8 @@
 
 @property (nonatomic) NSString *title;
 @property (nonatomic) UIImage *image;
+@property (nonatomic) CustomTabControllerItem *leftItem;
+@property (nonatomic) CustomTabControllerItem *rightItem;
 @property (nonatomic) UIViewController* controller;
 @property (nonatomic, copy) BOOL (^block)(CustomTabControllerItem *item);
 
