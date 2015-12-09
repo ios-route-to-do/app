@@ -10,6 +10,9 @@
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoTopConstraint;
 @property (nonatomic) BOOL animated;
 
 @end

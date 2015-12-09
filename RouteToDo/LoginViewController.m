@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *emailTextFieldTopConstraint;
 
 @end
@@ -37,6 +36,9 @@
         self.emailTextField.alpha = 1;
         self.loginButton.alpha = 1;
     }
+
+    self.logoHeightConstraint.constant = 93;
+    self.logoWidthConstraint.constant = 195;
 
     [self.view layoutIfNeeded];
 }

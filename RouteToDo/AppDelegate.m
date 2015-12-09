@@ -62,9 +62,23 @@
 
 - (void)onUserPresentNotification:(NSNotification *)notification {
     CategoriesViewController *vc = [[CategoriesViewController alloc] init];
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = vc;
-    [self.window makeKeyAndVisible];
+
+    if ([self.window.rootViewController isKindOfClass:[LoginViewController class]]) {
+        LoginViewController *loginController = (LoginViewController *)self.window.rootViewController;
+
+        [UIView animateWithDuration:0.2 animations:^{
+            loginController.logoTopConstraint.constant = 24;
+            loginController.logoHeightConstraint.constant = 28;
+            loginController.logoWidthConstraint.constant = 59;
+            [loginController.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            [self blendRootViewController:vc];
+            [self.window makeKeyAndVisible];
+        }];
+    } else {
+        self.window.rootViewController = vc;
+        [self.window makeKeyAndVisible];
+    }
 }
 
 - (void)changeRootViewController:(UIViewController*)viewController {
@@ -83,6 +97,25 @@
     [UIView animateWithDuration:0.2 animations:^{
         snapShot.layer.opacity = 0;
         snapShot.layer.transform = CATransform3DMakeScale(1.5, 1.5, 1.5);
+    } completion:^(BOOL finished) {
+        [snapShot removeFromSuperview];
+    }];
+}
+
+- (void)blendRootViewController:(UIViewController*)viewController {
+    if (!self.window.rootViewController) {
+        self.window.rootViewController = viewController;
+        return;
+    }
+
+    UIView *snapShot = [self.window snapshotViewAfterScreenUpdates:YES];
+
+    [viewController.view addSubview:snapShot];
+
+    self.window.rootViewController = viewController;
+
+    [UIView animateWithDuration:0.1 animations:^{
+        snapShot.layer.opacity = 0;
     } completion:^(BOOL finished) {
         [snapShot removeFromSuperview];
     }];

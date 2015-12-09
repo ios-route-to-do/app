@@ -10,7 +10,9 @@
                 <outlet property="emailTextField" destination="qb9-Jp-hRb" id="gDN-IL-xJN"/>
                 <outlet property="emailTextFieldTopConstraint" destination="ki0-wI-kuP" id="Twr-T7-JFc"/>
                 <outlet property="loginButton" destination="hRK-Mp-9V3" id="97l-uU-5jW"/>
-                <outlet property="logoTopConstraint" destination="Fqg-F3-hbd" id="O98-Zq-Nwr"/>
+                <outlet property="logoHeightConstraint" destination="Xdv-8H-D6l" id="Zed-RS-Wvx"/>
+                <outlet property="logoTopConstraint" destination="Fqg-F3-hbd" id="bXB-DT-g9v"/>
+                <outlet property="logoWidthConstraint" destination="7Pi-g1-ckL" id="A8B-Yd-UKF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -46,7 +48,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="LkA-Hu-RAh">
-                    <rect key="frame" x="60" y="40" width="195" height="93"/>
+                    <rect key="frame" x="63" y="40" width="195" height="93"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="195" id="7Pi-g1-ckL"/>
@@ -62,12 +64,12 @@
                 <constraint firstItem="LkA-Hu-RAh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="Fqg-F3-hbd"/>
                 <constraint firstAttribute="bottom" secondItem="qoN-e7-bRP" secondAttribute="bottom" id="MLl-wH-iSH"/>
                 <constraint firstItem="hRK-Mp-9V3" firstAttribute="width" secondItem="qb9-Jp-hRb" secondAttribute="width" id="b06-2q-o4V"/>
+                <constraint firstItem="LkA-Hu-RAh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gVR-I8-RUl"/>
                 <constraint firstAttribute="trailing" secondItem="qoN-e7-bRP" secondAttribute="trailing" id="kJZ-rz-RsZ"/>
                 <constraint firstItem="qb9-Jp-hRb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="ki0-wI-kuP"/>
                 <constraint firstItem="qb9-Jp-hRb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="lSp-Xj-WhW"/>
                 <constraint firstItem="hRK-Mp-9V3" firstAttribute="centerX" secondItem="qb9-Jp-hRb" secondAttribute="centerX" id="x0c-D9-jXD"/>
                 <constraint firstItem="qoN-e7-bRP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xw9-AY-IRX"/>
-                <constraint firstItem="LkA-Hu-RAh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="zwH-fY-X9F"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <point key="canvasLocation" x="280" y="366"/>
