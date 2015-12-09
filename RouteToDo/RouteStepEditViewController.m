@@ -80,6 +80,10 @@
     
     self.nextStepButton.layer.cornerRadius = self.nextStepButton.frame.size.height / 2;
     self.nextStepButton.layer.masksToBounds = YES;
+
+    if (self.step == (self.route.places.count - 1)) {
+        [self.nextStepButton setTitle:@"Finish Route" forState:UIControlStateNormal];
+    }
     
     Place *place = self.route.places[self.step];
     [self resetViewToPlace:place];
