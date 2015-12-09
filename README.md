@@ -14,14 +14,14 @@ The following **required** functionality is completed:
 
 - [x] Splash screen
 
-- [ ] Category selection view: What type of route does the user wants to do (dance, dinner, drinks, etc) [wireframe](wireframes/static/2-0-CategoryPick.png)
-  - [ ] Navigation bar:
-    - [ ] Back button to select location view
-  - [ ] Content view:
-    - [ ] Collection view with all the categories: background picture and name
-    - [ ] Navigate to selected category on tap
+- [X] Category selection view: What type of route does the user wants to do (dance, dinner, drinks, etc) [wireframe](wireframes/static/2-0-CategoryPick.png)
+  - [X] Navigation bar:
+    - [X] Back button to select location view
+  - [X] Content view:
+    - [X] Collection view with all the categories: background picture and name
+    - [X] Navigate to selected category on tap
 
-- [ ] Category view [wireframe](wireframes/static/3-0-CategoryHome.png)
+- [X] Category view [wireframe](wireframes/static/3-0-CategoryHome.png)
   - [-] Navigation bar:
     - [ ] Search button for specific route/place search
     - [ ] Reset location button
@@ -73,13 +73,13 @@ The following **required** functionality is completed:
   - [x] Five star rating widget
   - [x] Split bottom bar with two buttons: Cancel and Submit
 
-- [ ] Profile View: details of the user [wireframe tab 1](wireframes/static/9-0-Profile-Favorites.png) [wireframe tab 2](wireframes/static/10-0-Profile-NightsOut.png) [wireframe tab 3](wireframes/static/11-0-Profile-MyRoutes.png)
-  - [ ] Show avatar, username
-  - [ ] Show location, count of owned routes and count of nights out
-  - [ ] Tab selector for:
-    - [ ] Favorites
-    - [ ] Nights out
-    - [ ] My Routes
+- [X] Profile View: details of the user [wireframe tab 1](wireframes/static/9-0-Profile-Favorites.png) [wireframe tab 2](wireframes/static/10-0-Profile-NightsOut.png) [wireframe tab 3](wireframes/static/11-0-Profile-MyRoutes.png)
+  - [X] Show avatar, username
+  - [X] Show location, count of owned routes and count of nights out
+  - [X] Tab selector for:
+    - [X] Favorites
+    - [X] Nights out
+    - [X] My Routes
 
 The following **optional** features are implemented:
 
@@ -95,15 +95,15 @@ The following **optional** features are implemented:
   - [ ] Top bar with:
     - [ ] Share button: Share with friends on Twitter or Facebook
 
-- [ ] Add Route Views
+- [X] Add Route Views
   - Add route action in main view
-  - [ ] Screen 1 - route picture
+  - [X] Screen 1 - route picture
     - Pick one or multiple pictures (from library / new picture)
-  - [ ] Screen 2 - route description
+  - [X] Screen 2 - route description
     - Set Title
     - Set City
     - Set Description
-  - [ ] Screen 3 - add locations
+  - [X] Screen 3 - add locations
     - Search bar
     - search results in map
     - search results in list
@@ -125,7 +125,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='assignment.gif' title='Video Walkthrough' alt='Video Walkthrough' />
+<img src='route-to-do-gif-demo.gif' title='Video Walkthrough' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
