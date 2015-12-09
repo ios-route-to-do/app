@@ -33,5 +33,6 @@ extern NSString * const RouteFavoritedNotification;
 + (Route *)emptyRoute;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
+- (NSDictionary *)newRouteObjectForBackend;
 
 @end

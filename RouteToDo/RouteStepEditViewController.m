@@ -80,6 +80,10 @@
     
     self.nextStepButton.layer.cornerRadius = self.nextStepButton.frame.size.height / 2;
     self.nextStepButton.layer.masksToBounds = YES;
+
+    if (self.step == (self.route.places.count - 1)) {
+        [self.nextStepButton setTitle:@"Finish Route" forState:UIControlStateNormal];
+    }
     
     Place *place = self.route.places[self.step];
     [self resetViewToPlace:place];
@@ -221,11 +225,15 @@
         }
         [self.navigationController pushViewController:self.nextStepController animated:YES];
     } else {
+        NSMutableArray *places = [[NSMutableArray alloc] initWithArray:self.route.places];
+        places[self.step] = self.place;
+        self.route.places = places;
+
         id<BackendRepository> repo = [BackendRepository sharedInstance];
 
         [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
         [SVProgressHUD showWithStatus:@"Creating Route"];
-        [repo createRouteWithObject:self.route completion:^(Route *route, NSError *error) {
+        [repo createRouteWithObject:[self.route newRouteObjectForBackend] completion:^(Route *route, NSError *error) {
             [[UIApplication sharedApplication] endIgnoringInteractionEvents];
             if (route && !error) {
                 [SVProgressHUD showSuccessWithStatus:nil];

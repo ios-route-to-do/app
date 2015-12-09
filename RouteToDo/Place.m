@@ -38,4 +38,17 @@
     return place;
 }
 
+- (NSDictionary *)newPlaceObjectForBackend {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"name"] = self.name;
+    dictionary[@"full_description"] = self.fullDescription;
+    dictionary[@"location"] = self.location;
+    dictionary[@"address"] = self.address;
+    dictionary[@"image_url"] = [self.imageUrl absoluteString];
+    dictionary[@"lat"] = @(self.coordinates.latitude);
+    dictionary[@"lng"] = @(self.coordinates.longitude);
+
+    return dictionary;
+}
+
 @end

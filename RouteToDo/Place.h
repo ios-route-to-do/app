@@ -21,5 +21,6 @@
 
 + (NSArray<Place *> *) placesWithArray:(NSArray *)array;
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary;
+- (NSDictionary *)newPlaceObjectForBackend;
 
 @end
