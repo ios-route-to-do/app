@@ -31,6 +31,21 @@ NSString * const RouteFavoritedNotification = @"RouteFinishedNotification";
     return self;
 }
 
+- (NSDictionary *)newRouteObjectForBackend {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    dictionary[@"title"] = self.title;
+    dictionary[@"location"] = self.location;
+    dictionary[@"full_description"] = self.fullDescription;
+    dictionary[@"image_url"] = [self.imageUrl absoluteString];
+    dictionary[@"user_id"] = self.author.userId;
+    dictionary[@"places"] = [NSMutableArray array];
+    for (Place *place in self.places) {
+        [dictionary[@"places"] addObject:[place newPlaceObjectForBackend]];
+    }
+
+    return dictionary;
+}
+
 + (NSArray *)routeWithArray:(NSArray *) array {
     NSMutableArray *routes = [NSMutableArray array];
 

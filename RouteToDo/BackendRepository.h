@@ -44,7 +44,7 @@
 
 #pragma mark - Routes
 
-- (void)createRouteWithObject:(Route *)route completion:(void (^)(Route *route, NSError *error))completion;
+- (void)createRouteWithObject:(NSDictionary *)route completion:(void (^)(Route *route, NSError *error))completion;
 
 #pragma mark - Upload Media
 

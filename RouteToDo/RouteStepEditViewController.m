@@ -221,11 +221,15 @@
         }
         [self.navigationController pushViewController:self.nextStepController animated:YES];
     } else {
+        NSMutableArray *places = [[NSMutableArray alloc] initWithArray:self.route.places];
+        places[self.step] = self.place;
+        self.route.places = places;
+
         id<BackendRepository> repo = [BackendRepository sharedInstance];
 
         [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
         [SVProgressHUD showWithStatus:@"Creating Route"];
-        [repo createRouteWithObject:self.route completion:^(Route *route, NSError *error) {
+        [repo createRouteWithObject:[self.route newRouteObjectForBackend] completion:^(Route *route, NSError *error) {
             [[UIApplication sharedApplication] endIgnoringInteractionEvents];
             if (route && !error) {
                 [SVProgressHUD showSuccessWithStatus:nil];

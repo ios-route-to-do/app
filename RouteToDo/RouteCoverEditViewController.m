@@ -199,7 +199,7 @@
 - (void)loadDataFromRoute:(Route *)route {
     [self.imageImageView setImageWithURL:route.imageUrl];
 
-    self.titleLabel.text = [self checkValueFor:route.title missing:@"(New Ruote Title)"];
+    self.titleLabel.text = [self checkValueFor:route.title missing:@"(New Route Title)"];
     NSString *location = [self checkValueFor:route.location missing:@"(Location)"];
     self.locationAuthorLabel.text = [NSString stringWithFormat:@"%@ \u2022 By @%@", location, route.author.username];
     self.descriptionLabel.text = [self checkValueFor:route.fullDescription missing:@"(New Route Description)"];

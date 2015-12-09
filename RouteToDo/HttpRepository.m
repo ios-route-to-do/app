@@ -200,9 +200,16 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
 
 #pragma mark - Routes
 
-- (void)createRouteWithObject:(Route *)route completion:(void (^)(Route *route, NSError *error))completion {
-    sleep(3);
-    completion(route, nil);
+- (void)createRouteWithObject:(NSDictionary *)route completion:(void (^)(Route *route, NSError *error))completion {
+    NSString *url = [kBaseUrl stringByAppendingString:@"/routes"];
+    [[self httpManager] POST:url parameters:route success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        Route *route = [[Route alloc] initWithDictionary:responseObject];
+        completion(route, nil);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Failed POST create route: %@",[error localizedDescription]);
+        completion(nil, error);
+    }];
 }
 
 #pragma mark - Upload Media
