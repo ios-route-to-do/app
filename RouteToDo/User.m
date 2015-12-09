@@ -31,7 +31,7 @@ NSString * const UserPresentNotification = @"UserPresentNotification";
         _lastName = dictionary[@"last_name"];
         _profileImageUrl = [NSURL URLWithString:dictionary[@"profile_image_url"]];
         _favoriteRoutes = [Route routeWithArray:dictionary[@"favorites"]];
-        _outings = dictionary[@"outings"];
+        _outings = [NSMutableArray arrayWithArray:dictionary[@"outings"]];
         _ownRoutes = dictionary[@"routes"];
     }
     return self;
