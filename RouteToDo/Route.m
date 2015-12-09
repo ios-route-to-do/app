@@ -8,6 +8,9 @@
 
 #import "Route.h"
 
+NSString * const RouteFinishedNotification = @"RouteFinishedNotification";
+NSString * const RouteFavoritedNotification = @"RouteFinishedNotification";
+
 @implementation Route
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
@@ -37,6 +40,7 @@
 
 + (Route *)emptyRoute {
     Route *route = [[Route alloc] init];
+    route.author = [User currentUser];
     route.places = @[
                      [[Place alloc] init],
                      [[Place alloc] init],

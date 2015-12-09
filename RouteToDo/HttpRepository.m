@@ -13,7 +13,11 @@
 #import "User.h"
 #import "mocks.h"
 
+#ifdef DEBUG
+NSString * const kBaseUrl = @"https://localhost:3000";
+#else
 NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
+#endif
 
 @implementation HttpRepository
 
@@ -170,10 +174,12 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
 }
 
 - (void)finishRouteWithUser:(User *)user route:(Route *)route completion:(void (^)(NSError *error))completion {
-    [user.outings addObject:route];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"routeFinished" object:self
+//    [user.outings addObject:route];
+    [[NSNotificationCenter defaultCenter] postNotificationName:RouteFinishedNotification object:self
                                                       userInfo:@{@"route": route, @"user": user}];
-    completion(nil);
+    if (completion) {
+        completion(nil);
+    }
 //    NSString *url = [kBaseUrl stringByAppendingString:@"/v1/user/routes"];
 //    
 //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

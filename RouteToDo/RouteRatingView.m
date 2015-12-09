@@ -44,7 +44,7 @@
 
     self.titleLabel.text = route.title;
     self.locationLabel.text = route.location;
-    self.authorLabel.text = [NSString stringWithFormat:@"• By %@", route.author];
+    self.authorLabel.text = [NSString stringWithFormat:@"• By %@", route.author.username];
 }
 
 - (void) initSubviews {
@@ -55,11 +55,11 @@
 }
 
 - (IBAction)onCancelTap:(id)sender {
-    [self.delegate didTapCancel];
+    [self.delegate routeRatingView:self didTapCancelWithRating:self.ratingControl.value];
 }
 
 - (IBAction)onSubmitTap:(id)sender {
-    [self.delegate didTapSubmitWithRating:@(self.ratingControl.value)];
+    [self.delegate routeRatingView:self didTapSubmitWithRating:self.ratingControl.value];
 }
 
 @end

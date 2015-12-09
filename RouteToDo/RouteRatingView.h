@@ -13,8 +13,8 @@
 
 @protocol RouteRatingControlDelegate <NSObject>
 
-- (void)didTapCancel;
-- (void)didTapSubmitWithRating:(NSNumber *) rating;
+- (void)routeRatingView:(RouteRatingView *)view didTapCancelWithRating:(long)rating;
+- (void)routeRatingView:(RouteRatingView *)view didTapSubmitWithRating:(long)rating;
 
 @end
 

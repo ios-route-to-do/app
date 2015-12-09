@@ -7,26 +7,27 @@
 //
 
 #import "RouteListViewController.h"
-#import "HomeProfileViewController.h"
 #import "LargeRouteCollectionViewCell.h"
 #import "SmallRouteCollectionViewCell.h"
 #import "RouteCoverViewController.h"
-#import "Route.h"
 #import "UIImageView+AFNetworking.h"
-#import "RouteCoverEditViewController.h"
+
+#import "RouteRatingView.h"
+#import "CNPPopupController.h"
 
 #import "Utils.h"
-#import "mocks.h"
 #import "BackendRepository.h"
 
 
-@interface RouteListViewController ()
+@interface RouteListViewController () <RouteRatingControlDelegate>
 @property (strong, nonatomic) IBOutlet UICollectionView *topCollectionView;
 @property (strong, nonatomic) IBOutlet UICollectionView *bottomCollectionView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @property (nonatomic, strong) NSArray *trendingRoutesViewArray;
 @property (nonatomic, strong) NSArray *recentRoutesViewArray;
+
+@property (nonatomic) CNPPopupController *ratingPopupController;
 
 @end
 
@@ -63,6 +64,8 @@
     [self loadRoutesWithCompletionHandler:^{
         NSLog(@"loaded initial routes");
     }];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRouteFinishedNotification:) name:RouteFinishedNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -75,10 +78,8 @@
     UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:searchImage style:0 target:self action:@selector(onSearchButtonTap)];
     UIImage *mapImage = [[UIImage imageNamed:@"location"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:mapImage style:0 target:self action:@selector(onMapButtonTap)];
-    UIImage *newRouteImage = [[UIImage imageNamed:@"new"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIBarButtonItem *newRouteButton = [[UIBarButtonItem alloc] initWithImage:newRouteImage style:0 target:self action:@selector(onNewRouteButtonTap)];
-    
-    [self.parentViewController.navigationItem setRightBarButtonItems:@[newRouteButton, mapButton, searchButton]];
+
+    [self.parentViewController.navigationItem setRightBarButtonItems:@[mapButton, searchButton]];
     [self.topCollectionView reloadData];
 }
 
@@ -97,7 +98,6 @@
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     if(collectionView == self.topCollectionView){
         LargeRouteCollectionViewCell *largeCell = [[LargeRouteCollectionViewCell alloc] init];
         largeCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"largeRouteCollectionViewCell" forIndexPath:indexPath];
@@ -117,7 +117,6 @@
     }
     UICollectionViewCell *cell = [[UICollectionViewCell alloc] init];
     return cell;
-
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -138,6 +137,18 @@
     }
 }
 
+- (void)routeRatingView:(RouteRatingView *)view didTapCancelWithRating:(long)rating {
+    [self.ratingPopupController dismissPopupControllerAnimated:YES];
+    self.ratingPopupController = nil;
+}
+
+- (void)routeRatingView:(RouteRatingView *)view didTapSubmitWithRating:(long)rating {
+    id<BackendRepository> repository = [BackendRepository sharedInstance];
+    [repository rateRouteWithUser:[User currentUser] route:view.route rating:rating completion:nil];
+
+    [self routeRatingView:view didTapCancelWithRating:rating];
+}
+
 - (void) onSearchButtonTap {
     NSLog(@"search button tapped");
 }
@@ -146,14 +157,23 @@
     NSLog(@"map button tapped");
 }
 
-- (void) onNewRouteButtonTap {
-    Route *newRoute = [Route emptyRoute];
-    newRoute.author = [User currentUser];
-    RouteCoverEditViewController *vc = [[RouteCoverEditViewController alloc] init];
-    vc.route = newRoute;
-    [self.navigationController pushViewController:vc animated:YES];
-}
+- (void)onRouteFinishedNotification:(NSNotification *)notification {
+    Route *route = notification.userInfo[@"route"];
 
+    RouteRatingView *ratingView = [[RouteRatingView alloc] initWithFrame:CGRectMake(0, 0, 300, 200)];
+    ratingView.route = route;
+    ratingView.delegate = self;
+
+    self.ratingPopupController = [[CNPPopupController alloc] initWithContents:@[ratingView]];
+    self.ratingPopupController.theme = [CNPPopupTheme defaultTheme];
+    self.ratingPopupController.theme.popupStyle = CNPPopupStyleCentered;
+    self.ratingPopupController.theme.presentationStyle = CNPPopupPresentationStyleSlideInFromBottom;
+    self.ratingPopupController.theme.cornerRadius = 20.0f;
+    self.ratingPopupController.theme.popupContentInsets = UIEdgeInsetsMake(0.0f, 0.0f, 0.0f, 0.0f);
+    self.ratingPopupController.theme.shouldDismissOnBackgroundTouch = NO;
+    self.ratingPopupController.theme.contentVerticalPadding = 0.0f;
+    [self.ratingPopupController presentPopupControllerAnimated:YES];
+}
 
 - (void)loadRoutesWithCompletionHandler:(void (^)(void))completionHandler {
 
@@ -195,15 +215,5 @@
     [self.bottomCollectionView reloadData];
     completionHandler();
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

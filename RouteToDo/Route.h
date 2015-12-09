@@ -10,6 +10,9 @@
 #import "Place.h"
 #import "User.h"
 
+extern NSString * const RouteFinishedNotification;
+extern NSString * const RouteFavoritedNotification;
+
 @class RouteCategory;
 
 @interface Route : NSObject
