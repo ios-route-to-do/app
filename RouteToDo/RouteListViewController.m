@@ -85,7 +85,8 @@
     UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:mapImage style:0 target:self action:@selector(onMapButtonTap)];
 
     [self.parentViewController.navigationItem setRightBarButtonItems:@[searchButton]];
-    [self.topCollectionView reloadData];
+    
+    [self reloadAllRoutes];
 }
 
 
