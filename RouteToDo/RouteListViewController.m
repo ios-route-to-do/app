@@ -35,36 +35,41 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     UINib *largeCellNib = [UINib nibWithNibName:@"LargeRouteCollectionViewCell" bundle:nil];
     [self.topCollectionView registerNib:largeCellNib forCellWithReuseIdentifier:@"largeRouteCollectionViewCell"];
-    
+
     UINib *smallCellNib = [UINib nibWithNibName:@"SmallRouteCollectionViewCell" bundle:nil];
     [self.bottomCollectionView registerNib:smallCellNib forCellWithReuseIdentifier:@"smallRouteCollectionViewCell"];
-    
+
     UICollectionViewFlowLayout *topFlowLayout = [[UICollectionViewFlowLayout alloc] init];
     [topFlowLayout setItemSize:CGSizeMake(240, 190)];
     [topFlowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     [topFlowLayout setSectionInset:UIEdgeInsetsMake(0, 8, 0, 0)];
     [self.topCollectionView setCollectionViewLayout:topFlowLayout];
-    
+
     UICollectionViewFlowLayout *bottomFlowLayout = [[UICollectionViewFlowLayout alloc] init];
     [bottomFlowLayout setItemSize:CGSizeMake(148, 100)];
     [bottomFlowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     [bottomFlowLayout setMinimumInteritemSpacing:8];
     [bottomFlowLayout setMinimumLineSpacing:8];
-    
+
     [self.bottomCollectionView setCollectionViewLayout:bottomFlowLayout];
-    
+
     self.topCollectionView.delegate = self;
     self.bottomCollectionView.delegate = self;
     self.topCollectionView.dataSource = self;
     self.bottomCollectionView.dataSource = self;
 
-    [self loadRoutesWithCompletionHandler:^{
-        NSLog(@"loaded initial routes");
-    }];
+    [self.backgroundImageView setImageWithURL:[NSURL URLWithString:@"http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg"]];
+    self.backgroundImageView.backgroundColor = [UIColor clearColor];
 
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    blurEffectView.frame = self.backgroundImageView.bounds;
+    blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+
+    [self.backgroundImageView addSubview:blurEffectView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRouteFinishedNotification:) name:RouteFinishedNotification object:nil];
 }
 
@@ -72,7 +77,7 @@
     //Solid
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = UIColorFromRGB(kDarkPurpleColorHex);
-    
+
     //Right Buttons
     UIImage *searchImage = [[UIImage imageNamed:@"search"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:searchImage style:0 target:self action:@selector(onSearchButtonTap)];
@@ -80,7 +85,8 @@
     UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:mapImage style:0 target:self action:@selector(onMapButtonTap)];
 
     [self.parentViewController.navigationItem setRightBarButtonItems:@[mapButton, searchButton]];
-    [self.topCollectionView reloadData];
+
+    [self reloadAllRoutes];
 }
 
 
@@ -89,11 +95,11 @@
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-        if(collectionView == self.topCollectionView){
-            return self.trendingRoutesViewArray.count;
-        } else if (collectionView == self.bottomCollectionView){
-            return self.recentRoutesViewArray.count;
-        }
+    if(collectionView == self.topCollectionView){
+        return self.trendingRoutesViewArray.count;
+    } else if (collectionView == self.bottomCollectionView){
+        return self.recentRoutesViewArray.count;
+    }
     return 0;
 }
 
@@ -107,7 +113,7 @@
         largeCell.layer.borderColor = [[UIColor whiteColor] CGColor];
         return largeCell;
     } else if (collectionView == self.bottomCollectionView){
-         SmallRouteCollectionViewCell *smallCell = [[SmallRouteCollectionViewCell alloc] init];
+        SmallRouteCollectionViewCell *smallCell = [[SmallRouteCollectionViewCell alloc] init];
         smallCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"smallRouteCollectionViewCell" forIndexPath:indexPath];
         smallCell.route = self.recentRoutesViewArray[indexPath.row];
         smallCell.layer.cornerRadius = 5;
@@ -124,13 +130,13 @@
 
     if (collectionView == self.topCollectionView){
         LargeRouteCollectionViewCell *largeCell = (LargeRouteCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-        
+
         RouteCoverViewController *vc = [[RouteCoverViewController alloc] init];
         vc.route = largeCell.route;
         [self.navigationController pushViewController:vc animated:YES];
     } else if (collectionView == self.bottomCollectionView){
         SmallRouteCollectionViewCell *smallCell = (SmallRouteCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-        
+
         RouteCoverViewController *vc = [[RouteCoverViewController alloc] init];
         vc.route = smallCell.route;
         [self.navigationController pushViewController:vc animated:YES];
@@ -146,7 +152,7 @@
     id<BackendRepository> repository = [BackendRepository sharedInstance];
     [repository rateRouteWithUser:[User currentUser] route:view.route rating:rating completion:^(NSError *error) {
         NSLog(@"rated route");
-        [self reloadData];
+        [self reloadAllRoutes];
     }];
 
     [self routeRatingView:view didTapCancelWithRating:rating];
@@ -178,9 +184,9 @@
     [self.ratingPopupController presentPopupControllerAnimated:YES];
 }
 
-- (void)loadRoutesWithCompletionHandler:(void (^)(void))completionHandler {
+- (void)reloadAllRoutes {
     id<BackendRepository> repository = [BackendRepository sharedInstance];
-    
+
     [repository trendingRoutesWithLocation:nil completion:^(NSArray *routes, NSError *error) {
         self.trendingRoutesViewArray = routes;
         [self.topCollectionView reloadData];
@@ -190,29 +196,6 @@
         self.recentRoutesViewArray = routes;
         [self.bottomCollectionView reloadData];
     }];
-    
-    [repository allCategoriesWithCompletion:^(NSArray *categories, NSError *error) {
-        NSLog(@"all categories");
-    }];
-    
-    [self.backgroundImageView setImageWithURL:[NSURL URLWithString:@"http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg"]];
-    
-    self.backgroundImageView.backgroundColor = [UIColor clearColor];
-    
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    blurEffectView.frame = self.backgroundImageView.bounds;
-    blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
-    [self.backgroundImageView addSubview:blurEffectView];
-    
-    [self reloadData];
-    completionHandler();
-}
-
-- (void)reloadData {
-    [self.topCollectionView reloadData];
-    [self.bottomCollectionView reloadData];
 }
 
 @end
