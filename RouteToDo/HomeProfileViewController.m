@@ -9,8 +9,9 @@
 #import "HomeProfileViewController.h"
 #import "RouteListViewController.h"
 #import "ProfileViewController.h"
-#import "CustomTabControllerItem.h"
+#import "RouteCoverEditViewController.h"
 
+#import "CustomTabControllerItem.h"
 #import "YALFoldingTabBar.h"
 #import "YALTabBarItem.h"
 #import "YALAnimatingTabBarConstants.h"
@@ -39,6 +40,15 @@
     UIImage *homeImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     CustomTabControllerItem *homeItem = [CustomTabControllerItem itemWithTitle:@"Home" image:homeImage controller:homeController];
 
+    UIImage *newRouteImage = [[UIImage imageNamed:@"new"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    CustomTabControllerItem *newRouteItem = [CustomTabControllerItem itemWithTitle:@"New Route" image:newRouteImage block:^BOOL(CustomTabControllerItem *item) {
+        RouteCoverEditViewController *vc = [[RouteCoverEditViewController alloc] init];
+        vc.route = [Route emptyRoute];
+        [self.navigationController pushViewController:vc animated:YES];
+
+        return YES;
+    }];
+
     ProfileViewController *profileController = [[ProfileViewController alloc] init];
     UIImage *profileImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     CustomTabControllerItem *profileItem = [CustomTabControllerItem itemWithTitle:@"Profile" image:profileImage controller:profileController];
@@ -46,12 +56,12 @@
     UIImage *logoutImage = [[UIImage imageNamed:@"logout"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     CustomTabControllerItem *logoutItem = [CustomTabControllerItem itemWithTitle:@"Logout" image:logoutImage block:^BOOL(CustomTabControllerItem *item) {
         [User forget];
+
         return YES;
     }];
 
-    return [self initWithItems:@[homeItem, profileItem, logoutItem]];
+    return [self initWithItems:@[homeItem, newRouteItem, profileItem, logoutItem]];
 }
-
 
 - (instancetype) initWithItems:(NSArray<CustomTabControllerItem *> *)items {
     if (self = [super init]) {
