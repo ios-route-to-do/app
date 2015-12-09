@@ -26,7 +26,7 @@ NSString * const RouteFavoritedNotification = @"RouteFinishedNotification";
             _rating = [dictionary[@"rating"] doubleValue];
         }
         _places = [Place placesWithArray:dictionary[@"places"]];
-        _favorite = dictionary[@"favorite"];
+        _favorite = [dictionary[@"favorite"] boolValue];
     }
     return self;
 }
