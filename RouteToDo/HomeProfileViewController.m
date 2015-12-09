@@ -10,7 +10,9 @@
 #import "RouteListViewController.h"
 #import "ProfileViewController.h"
 #import "RouteCoverEditViewController.h"
+#import "CategoriesViewController.h"
 
+#import "AppDelegate.h"
 #import "CustomTabControllerItem.h"
 #import "YALFoldingTabBar.h"
 #import "YALTabBarItem.h"
@@ -36,6 +38,15 @@
 @implementation HomeProfileViewController
 
 - (instancetype) initDefault {
+    UIImage *categoriesImage = [[UIImage imageNamed:@"categories"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    CustomTabControllerItem *categoriesItem = [CustomTabControllerItem itemWithTitle:@"Categories" image:categoriesImage block:^BOOL(CustomTabControllerItem *item) {
+        CategoriesViewController *vc = [[CategoriesViewController alloc] init];
+        AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+        [delegate changeRootViewController:vc];
+
+        return YES;
+    }];
+
     RouteListViewController *homeController = [[RouteListViewController alloc] init];
     UIImage *homeImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     CustomTabControllerItem *homeItem = [CustomTabControllerItem itemWithTitle:@"Home" image:homeImage controller:homeController];
@@ -60,7 +71,7 @@
         return YES;
     }];
 
-    return [self initWithItems:@[homeItem, newRouteItem, profileItem, logoutItem]];
+    return [self initWithItems:@[homeItem, categoriesItem, newRouteItem, profileItem, logoutItem]];
 }
 
 - (instancetype) initWithItems:(NSArray<CustomTabControllerItem *> *)items {
