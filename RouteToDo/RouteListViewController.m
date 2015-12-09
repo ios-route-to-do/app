@@ -24,8 +24,8 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *bottomCollectionView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
-@property (nonatomic, strong) NSArray *trendingRoutesViewArray;
-@property (nonatomic, strong) NSArray *recentRoutesViewArray;
+@property (nonatomic, strong) NSArray<Route *> *trendingRoutesViewArray;
+@property (nonatomic, strong) NSArray<Route *> *recentRoutesViewArray;
 
 @property (nonatomic) CNPPopupController *ratingPopupController;
 
@@ -101,7 +101,7 @@
     if(collectionView == self.topCollectionView){
         LargeRouteCollectionViewCell *largeCell = [[LargeRouteCollectionViewCell alloc] init];
         largeCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"largeRouteCollectionViewCell" forIndexPath:indexPath];
-        largeCell.route = (Route *)self.trendingRoutesViewArray[indexPath.row];
+        largeCell.route = self.trendingRoutesViewArray[indexPath.row];
         largeCell.layer.cornerRadius = 5;
         largeCell.layer.borderWidth = 1;
         largeCell.layer.borderColor = [[UIColor whiteColor] CGColor];
@@ -109,7 +109,7 @@
     } else if (collectionView == self.bottomCollectionView){
          SmallRouteCollectionViewCell *smallCell = [[SmallRouteCollectionViewCell alloc] init];
         smallCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"smallRouteCollectionViewCell" forIndexPath:indexPath];
-        smallCell.route = (Route *)self.recentRoutesViewArray[indexPath.row];
+        smallCell.route = self.recentRoutesViewArray[indexPath.row];
         smallCell.layer.cornerRadius = 5;
         smallCell.layer.borderWidth = 1;
         smallCell.layer.borderColor = [[UIColor whiteColor] CGColor];
@@ -176,22 +176,16 @@
 }
 
 - (void)loadRoutesWithCompletionHandler:(void (^)(void))completionHandler {
-
-    //TODO: get routes from Parser Client
-    //    [[TwitterClient sharedInstance] homeTimelineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
-    //            self.tweets = tweets;
-    //            [self.tableView reloadData];
-    //            completionHandler();
-    //        }];
-
     id<BackendRepository> repository = [BackendRepository sharedInstance];
     
     [repository trendingRoutesWithLocation:nil completion:^(NSArray *routes, NSError *error) {
         self.trendingRoutesViewArray = routes;
+        [self.topCollectionView reloadData];
     }];
 
     [repository newRoutesWithLocation:nil completion:^(NSArray *routes, NSError *error) {
         self.recentRoutesViewArray = routes;
+        [self.bottomCollectionView reloadData];
     }];
     
     [repository allCategoriesWithCompletion:^(NSArray *categories, NSError *error) {
@@ -199,8 +193,6 @@
     }];
     
     [self.backgroundImageView setImageWithURL:[NSURL URLWithString:@"http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg"]];
-    
-//    [self.backgroundImageView setImageWithURL:[NSURL URLWithString:@"https://backoftheferry.files.wordpress.com/2014/10/sf-pi-bar.jpg"]];
     
     self.backgroundImageView.backgroundColor = [UIColor clearColor];
     

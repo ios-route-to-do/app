@@ -17,6 +17,7 @@ extern NSString * const RouteFavoritedNotification;
 
 @interface Route : NSObject
 
+@property (nonatomic) NSNumber *routeId;
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *location;
 @property (nonatomic) User *author;
@@ -32,6 +33,5 @@ extern NSString * const RouteFavoritedNotification;
 + (Route *)emptyRoute;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
-
 
 @end

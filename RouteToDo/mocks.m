@@ -45,7 +45,6 @@ Route *mockRoute1() {
         route.places = @[place1, place2, place3];
         route.usersCount = 257;
         route.categories = @[];
-        [route favorite];
     }
     
     return route;

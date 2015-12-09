@@ -48,7 +48,7 @@
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    [self.locationManager requestWhenInUseAuthorization];
+        [self.locationManager requestWhenInUseAuthorization];
 
     self.routeMapView.delegate = self;
 }
