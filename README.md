@@ -48,13 +48,13 @@ The following **required** functionality is completed:
     - [x] List of three locations to visit
     - [x] Start route button
 
-- [ ] Route Progress View: presentation of the route on a map and current place [wireframe step 1](wireframes/static/5-0-RouteStepView1.png) [wireframe step 2](wireframes/static/6-0-RouteStepView2.png) [wireframe step 3](wireframes/static/7-0-RouteStepView3.png)
-  - [ ] Top bar with:
+- [x] Route Progress View: presentation of the route on a map and current place [wireframe step 1](wireframes/static/5-0-RouteStepView1.png) [wireframe step 2](wireframes/static/6-0-RouteStepView2.png) [wireframe step 3](wireframes/static/7-0-RouteStepView3.png)
+  - [x] Top bar with:
     - [x] Back button: goes back in navigation flow
     - [x] Favorite button: Marks/Unmarks route as favorite for the current user
-    - [x] Share button: Implementation of this is optional
+    - [x] Share button
   - [ ] Map with:
-    - [ ] Current location of user visible if user is not on the route location
+    - [x] Current location of user visible if user is not on the route location
     - [x] Current route location with a special marker
     - [x] Previous route location (if on step 2 or 3)
     - [x] Next route location (if on steps 1 or 2)
@@ -66,8 +66,8 @@ The following **required** functionality is completed:
     - [x] Go Next button (if on steps 1 or 2)
     - [x] Rate this route (if on steps 3)
 
-- [ ] Rate Route View: Modal presentation with a rating widget [wireframe](wireframes/static/8-0-RouteRate.png)
-  - [ ] When user clicks on rate this route, he's presented with the home screen and
+- [x] Rate Route View: Modal presentation with a rating widget [wireframe](wireframes/static/8-0-RouteRate.png)
+  - [x] When user clicks on rate this route, he's presented with the home screen and
   a modal widget to rate the route. This widget contains:
   - [x] Route Title, Route location and Author
   - [x] Five star rating widget
@@ -87,13 +87,13 @@ The following **optional** features are implemented:
   - [ ] Map view asking for the user location
   - [ ] Navigate to category selection view on location tap
 
-- [ ] Category view:
-  - [ ] Content view:
-    - [ ] Button for adding a new route
+- [x] Category view:
+  - [x] Content view:
+    - [x] Button for adding a new route
 
-- [ ] Route Cover View:
-  - [ ] Top bar with:
-    - [ ] Share button: Share with friends on Twitter or Facebook
+- [x] Route Cover View:
+  - [x] Top bar with:
+    - [x] Share button: Share with friends on Twitter or Facebook
 
 - [X] Add Route Views
   - Add route action in main view
@@ -118,8 +118,6 @@ The following **optional** features are implemented:
   - Set profile location
 
 The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
 
 # Video Walkthrough
 
