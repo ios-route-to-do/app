@@ -46,14 +46,14 @@
                                 <constraint firstAttribute="height" constant="80" id="LNG-lp-zjJ"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="@RandyWilliams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqM-Oo-ZyY">
-                            <rect key="frame" x="97" y="108" width="127" height="19"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="@RandyWilliams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqM-Oo-ZyY">
+                            <rect key="frame" x="97" y="108" width="127" height="21"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="San Francisco - Own 34 Routes - 15 Nights Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zU7-W0-UwO">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco - Own 34 Routes - 15 Nights Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zU7-W0-UwO">
                             <rect key="frame" x="26" y="137" width="269" height="13"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -67,6 +67,7 @@
                         <constraint firstItem="pSR-c2-Xah" firstAttribute="centerY" secondItem="dxz-up-Qgu" secondAttribute="centerY" id="5sA-Ve-P2W"/>
                         <constraint firstItem="pSR-c2-Xah" firstAttribute="centerX" secondItem="dxz-up-Qgu" secondAttribute="centerX" id="7aI-rY-GeS"/>
                         <constraint firstAttribute="bottom" secondItem="zU7-W0-UwO" secondAttribute="bottom" constant="16" id="FSb-rd-oqb"/>
+                        <constraint firstItem="eqM-Oo-ZyY" firstAttribute="centerX" secondItem="Fzk-ue-VwE" secondAttribute="centerX" id="Ih2-e5-JV0"/>
                         <constraint firstItem="pSR-c2-Xah" firstAttribute="centerX" secondItem="Fzk-ue-VwE" secondAttribute="centerX" id="JTL-xr-5dH"/>
                         <constraint firstItem="zU7-W0-UwO" firstAttribute="top" secondItem="eqM-Oo-ZyY" secondAttribute="bottom" constant="8" id="M4W-Zp-Iby"/>
                         <constraint firstItem="eqM-Oo-ZyY" firstAttribute="top" secondItem="pSR-c2-Xah" secondAttribute="bottom" constant="12" id="PjQ-BT-xhv"/>
