@@ -112,6 +112,10 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    //Solid
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = UIColorFromRGB(kDarkPurpleColorHex);
+
     [self refreshRoutes];
 }
 

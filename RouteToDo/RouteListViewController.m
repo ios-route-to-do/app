@@ -90,8 +90,8 @@
     [bottomFlowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     [bottomFlowLayout setMinimumInteritemSpacing:8];
     [bottomFlowLayout setMinimumLineSpacing:8];
-
     [self.bottomCollectionView setCollectionViewLayout:bottomFlowLayout];
+    [self.bottomCollectionView setContentOffset:CGPointZero animated:YES];
 
     UICollectionViewFlowLayout *topFlowLayout = [[UICollectionViewFlowLayout alloc] init];
     CGFloat itemHeight = self.topCollectionHeightConstraint.constant - 16;

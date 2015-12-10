@@ -64,7 +64,11 @@
 }
 
 - (void) onShareButtonTap {
-    [NSException raise:@"Not implemented" format:@"TODO"];
+    NSString *textToShare = [NSString stringWithFormat:@"Check Jopp https://jopp.herokuapp.com/routes/%@ %@", self.route.routeId, self.route.title];
+    NSArray *activityItems = @[textToShare];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypePrint];
+    [self presentViewController:activityVC animated:TRUE completion:nil];
 }
 
 - (void) onLikeButtonTap {
