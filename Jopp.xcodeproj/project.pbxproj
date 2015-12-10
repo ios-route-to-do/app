@@ -59,7 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1849A38E1BFECCAC002B9355 /* RouteToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouteToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1849A38E1BFECCAC002B9355 /* Jopp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jopp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1849A3921BFECCAC002B9355 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1849A3941BFECCAC002B9355 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1849A3951BFECCAC002B9355 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 		1849A38F1BFECCAC002B9355 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1849A38E1BFECCAC002B9355 /* RouteToDo.app */,
+				1849A38E1BFECCAC002B9355 /* Jopp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -383,9 +383,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1849A38D1BFECCAC002B9355 /* RouteToDo */ = {
+		1849A38D1BFECCAC002B9355 /* Jopp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1849A3A51BFECCAC002B9355 /* Build configuration list for PBXNativeTarget "RouteToDo" */;
+			buildConfigurationList = 1849A3A51BFECCAC002B9355 /* Build configuration list for PBXNativeTarget "Jopp" */;
 			buildPhases = (
 				0FA15C29AD4C0EF288248F0F /* Check Pods Manifest.lock */,
 				1849A38A1BFECCAC002B9355 /* Sources */,
@@ -398,9 +398,9 @@
 			);
 			dependencies = (
 			);
-			name = RouteToDo;
+			name = Jopp;
 			productName = RouteToDo;
-			productReference = 1849A38E1BFECCAC002B9355 /* RouteToDo.app */;
+			productReference = 1849A38E1BFECCAC002B9355 /* Jopp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -417,7 +417,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1849A3891BFECCAC002B9355 /* Build configuration list for PBXProject "RouteToDo" */;
+			buildConfigurationList = 1849A3891BFECCAC002B9355 /* Build configuration list for PBXProject "Jopp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -430,7 +430,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1849A38D1BFECCAC002B9355 /* RouteToDo */,
+				1849A38D1BFECCAC002B9355 /* Jopp */,
 			);
 		};
 /* End PBXProject section */
@@ -598,7 +598,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -635,7 +635,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -651,7 +651,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.RouteToDo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Jopp;
 			};
 			name = Debug;
 		};
@@ -664,14 +664,14 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.RouteToDo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Jopp;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1849A3891BFECCAC002B9355 /* Build configuration list for PBXProject "RouteToDo" */ = {
+		1849A3891BFECCAC002B9355 /* Build configuration list for PBXProject "Jopp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1849A3A31BFECCAC002B9355 /* Debug */,
@@ -680,7 +680,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1849A3A51BFECCAC002B9355 /* Build configuration list for PBXNativeTarget "RouteToDo" */ = {
+		1849A3A51BFECCAC002B9355 /* Build configuration list for PBXNativeTarget "Jopp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1849A3A61BFECCAC002B9355 /* Debug */,

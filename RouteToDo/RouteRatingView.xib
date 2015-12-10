@@ -20,25 +20,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE BEER ROUTE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="np1-4x-u16">
-                    <rect key="frame" x="8" y="8" width="201" height="30"/>
+                    <rect key="frame" x="16" y="16" width="201" height="30"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojS-KQ-b7u">
-                    <rect key="frame" x="8" y="46" width="97" height="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="• By @RandyWilliams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oK-tq-MDB">
+                    <rect key="frame" x="121" y="54" width="146" height="18"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" misplaced="YES" text="• By @RandyWilliams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9oK-tq-MDB">
-                    <rect key="frame" x="112" y="46" width="146" height="18"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ey-JW-hbb">
-                    <rect key="frame" x="0.0" y="140" width="150" height="60"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ey-JW-hbb">
+                    <rect key="frame" x="0.0" y="148" width="149" height="52"/>
                     <animations/>
                     <state key="normal" title="Cancel"/>
                     <connections>
@@ -46,7 +40,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o35-jg-Bb3">
-                    <rect key="frame" x="0.0" y="139" width="300" height="1"/>
+                    <rect key="frame" x="0.0" y="147" width="300" height="1"/>
                     <animations/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -54,7 +48,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gqh-ca-Pdy">
-                    <rect key="frame" x="149" y="140" width="1" height="60"/>
+                    <rect key="frame" x="149" y="148" width="1" height="52"/>
                     <animations/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -62,7 +56,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9x-kn-5v2">
-                    <rect key="frame" x="150" y="140" width="150" height="60"/>
+                    <rect key="frame" x="150" y="148" width="150" height="52"/>
                     <animations/>
                     <state key="normal" title="Submit"/>
                     <connections>
@@ -70,7 +64,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3hY-YW-DF3" customClass="HCSStarRatingView">
-                    <rect key="frame" x="46" y="84" width="208" height="35"/>
+                    <rect key="frame" x="46" y="92" width="208" height="35"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="208" id="2C3-Rl-EoB"/>
@@ -86,8 +80,16 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="value">
                             <real key="value" value="3"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="image" keyPath="emptyStarImage" value="star-empty"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="halfStarImage" value="star-full"/>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojS-KQ-b7u">
+                    <rect key="frame" x="16" y="54" width="97" height="18"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -96,7 +98,7 @@
                 <constraint firstItem="Gqh-ca-Pdy" firstAttribute="leading" secondItem="4ey-JW-hbb" secondAttribute="trailing" id="1sI-g8-Le8"/>
                 <constraint firstItem="i9x-kn-5v2" firstAttribute="top" secondItem="o35-jg-Bb3" secondAttribute="bottom" id="3U6-wS-fQ6"/>
                 <constraint firstAttribute="trailing" secondItem="i9x-kn-5v2" secondAttribute="trailing" id="3hD-B1-gUv"/>
-                <constraint firstItem="ojS-KQ-b7u" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="6RI-Vg-MXm"/>
+                <constraint firstItem="ojS-KQ-b7u" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="6RI-Vg-MXm"/>
                 <constraint firstItem="3hY-YW-DF3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="BXe-kn-Dor"/>
                 <constraint firstItem="4ey-JW-hbb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="CFz-Ah-Uw9"/>
                 <constraint firstAttribute="bottom" secondItem="i9x-kn-5v2" secondAttribute="bottom" id="EuJ-FW-5R9"/>
@@ -109,14 +111,18 @@
                 <constraint firstItem="Gqh-ca-Pdy" firstAttribute="top" secondItem="o35-jg-Bb3" secondAttribute="bottom" id="X7O-7r-itS"/>
                 <constraint firstItem="o35-jg-Bb3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Xav-3D-AYu"/>
                 <constraint firstItem="9oK-tq-MDB" firstAttribute="top" secondItem="np1-4x-u16" secondAttribute="bottom" constant="8" id="mAm-hh-rer"/>
-                <constraint firstItem="np1-4x-u16" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="ntU-Uj-c9H"/>
+                <constraint firstItem="np1-4x-u16" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="ntU-Uj-c9H"/>
                 <constraint firstItem="4ey-JW-hbb" firstAttribute="top" secondItem="o35-jg-Bb3" secondAttribute="bottom" id="sQs-Sg-aFa"/>
                 <constraint firstAttribute="bottom" secondItem="4ey-JW-hbb" secondAttribute="bottom" id="udU-Yt-rO2"/>
-                <constraint firstItem="np1-4x-u16" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="utS-9e-DGm"/>
+                <constraint firstItem="np1-4x-u16" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="utS-9e-DGm"/>
                 <constraint firstItem="ojS-KQ-b7u" firstAttribute="top" secondItem="np1-4x-u16" secondAttribute="bottom" constant="8" id="wgH-U6-ABo"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="257" y="60"/>
         </view>
     </objects>
+    <resources>
+        <image name="star-empty" width="35" height="35"/>
+        <image name="star-full" width="35" height="35"/>
+    </resources>
 </document>

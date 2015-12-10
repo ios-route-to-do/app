@@ -11,6 +11,8 @@
 
 @interface RouteStepEditViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet MKMapView *routeMapView;
+
 @property (nonatomic) Route *route;
 @property (nonatomic) long step;
 

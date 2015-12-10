@@ -24,13 +24,13 @@
 @interface RouteStepEditViewController () <MKMapViewDelegate, CLLocationManagerDelegate, UISearchBarDelegate, PlaceEditViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *nextStepButton;
-@property (weak, nonatomic) IBOutlet MKMapView *routeMapView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 @property (nonatomic) NSArray *annotations;
+@property (nonatomic) MKCoordinateRegion region;
 @property (nonatomic) Place *place;
 
 @property (nonatomic) CLLocationManager *locationManager;
@@ -226,6 +226,13 @@
             places[self.step] = self.place;
             self.route.places = places;
         }
+        NSMutableArray *nextStepAnnotations = [[NSMutableArray alloc] init];
+        for (PlaceAnnotation *annotation in self.annotations) {
+            PlaceAnnotation *nextStepAnnotation = [[PlaceAnnotation alloc] initWithPlace:annotation.place step:annotation.step];
+            [nextStepAnnotations addObject:nextStepAnnotation];
+        }
+        self.nextStepController.annotations = nextStepAnnotations;
+        self.nextStepController.region = self.region;
         [self.navigationController pushViewController:self.nextStepController animated:YES];
     } else {
         NSMutableArray *places = [[NSMutableArray alloc] initWithArray:self.route.places];
@@ -281,15 +288,21 @@
     [self.routeMapView setRegion:region animated:YES];
 
     self.annotations = annotations;
+    self.region = region;
 }
 
 - (void)resetViewToPlace:(Place *)place {
     [self loadDataFromPlace:place];
 
+    self.emptyLocation = NO;
     if (place.coordinates.latitude == 0 && place.coordinates.longitude == 0) {
-        self.emptyLocation = YES;
+        if (self.annotations) {
+            [self.routeMapView addAnnotations:self.annotations];
+            [self.routeMapView setRegion:self.region animated:NO];
+        } else {
+            self.emptyLocation = YES;
+        }
     } else {
-        self.emptyLocation = NO;
         MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(place.coordinates, 1000, 1000);
         [self loadMapDataWithRegion:region places:@[place] autoSelected:YES];
     }

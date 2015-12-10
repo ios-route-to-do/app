@@ -52,6 +52,9 @@
     [nib instantiateWithOwner:self options:nil];
     self.contentView.frame = self.bounds;
     [self addSubview:self.contentView];
+
+    self.ratingControl.emptyStarImage = [UIImage imageNamed:@"star-empty"];
+    self.ratingControl.filledStarImage = [UIImage imageNamed:@"star-full"];
 }
 
 - (IBAction)onCancelTap:(id)sender {
