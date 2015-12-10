@@ -13,7 +13,7 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="241" height="190"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PW3-pF-HUI">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="PW3-pF-HUI">
                         <rect key="frame" x="0.0" y="0.0" width="241" height="190"/>
                         <animations/>
                     </imageView>
@@ -121,4 +121,7 @@
             <point key="canvasLocation" x="430.5" y="278"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="placeholder" width="213" height="320"/>
+    </resources>
 </document>

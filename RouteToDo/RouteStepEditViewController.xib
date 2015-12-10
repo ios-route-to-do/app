@@ -24,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mikkele-bar" translatesAutoresizingMaskIntoConstraints="NO" id="isw-YO-Jbg">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="isw-YO-Jbg">
                     <rect key="frame" x="0.0" y="338" width="320" height="230"/>
                     <animations/>
                 </imageView>
@@ -154,7 +154,7 @@ Some are Belgiany, some are hoppy, some are malt bombs.</string>
     </objects>
     <resources>
         <image name="edit" width="24" height="24"/>
-        <image name="mikkele-bar" width="720" height="1163"/>
         <image name="pin" width="15" height="15"/>
+        <image name="placeholder" width="213" height="320"/>
     </resources>
 </document>
