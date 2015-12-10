@@ -6,14 +6,14 @@
 //  Copyright © 2015 RouteToDo. All rights reserved.
 //
 
-#import "RouteStepViewController.h"
-#import "UIImageView+AFNetworking.h"
 #import <MapKit/MapKit.h>
 
+#import "RouteStepViewController.h"
 #import "PlaceAnnotation.h"
 #import "ArcPathRenderer.h"
 #import "BackendRepository.h"
 #import "Utils.h"
+#import "UIImageView+ProgressIndicator.h"
 
 @interface RouteStepViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -168,7 +168,7 @@
     self.isLastStep = (step == (route.places.count - 1));
     Place *place = route.places[step];
     
-    [self.imageImageView setImageWithURL:place.imageUrl];
+    [self.imageImageView setImageWithProgressIndicatorAndURL:place.imageUrl completion:nil];
     self.nameLabel.text = place.name;
     self.addressLabel.text = place.address;
     self.descriptionLabel.text = place.fullDescription;

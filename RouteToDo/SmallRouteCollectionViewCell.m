@@ -7,7 +7,7 @@
 //
 
 #import "SmallRouteCollectionViewCell.h"
-#import "UIImageView+AFNetworking.h"
+#import "UIImageView+ProgressIndicator.h"
 
 @interface SmallRouteCollectionViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
@@ -30,7 +30,7 @@
 - (void)reloadData {
     self.routeTitleLabel.text = self.route.title;
     self.routeLocationLabel.text = self.route.location;
-    [self.backgroundImageView setImageWithURL:self.route.imageUrl];
+    [self.backgroundImageView setImageWithProgressIndicatorAndURL:self.route.imageUrl completion:nil];
 }
 
 @end

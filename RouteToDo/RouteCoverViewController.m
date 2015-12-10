@@ -6,11 +6,10 @@
 //  Copyright © 2015 RouteToDo. All rights reserved.
 //
 
-#import "UIImageView+AFNetworking.h"
 #import "RouteCoverViewController.h"
 #import "RouteStepViewController.h"
-#import "Place.h"
 #import "BackendRepository.h"
+#import "UIImageView+ProgressIndicator.h"
 
 @interface RouteCoverViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *startRouteButton;
@@ -93,7 +92,7 @@
 }
 
 - (void)loadDataFromRoute:(Route *)route {
-    [self.imageImageView setImageWithURL:route.imageUrl];
+    [self.imageImageView setImageWithProgressIndicatorAndURL:route.imageUrl completion:nil];
     self.titleLabel.text = route.title;
     self.locationAuthorLabel.text = [NSString stringWithFormat:@"%@ \u2022 By @%@", route.location, route.author.username];
     self.informationLabel.text = [NSString stringWithFormat:@"+%ld users \u2022 %.1f rating", route.usersCount, route.rating];

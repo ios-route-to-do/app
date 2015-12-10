@@ -11,7 +11,7 @@
 #import "BackendRepository.h"
 #import "User.h"
 #import "LargeRouteCollectionViewCell.h"
-#import "UIImageView+AFNetworking.h"
+#import "UIImageView+ProgressIndicator.h"
 #import "RouteCoverViewController.h"
 #import "Utils.h"
 
@@ -54,7 +54,7 @@
     NSLog(@" profile view did load ");
     self.user = [User currentUser];
 
-    [self.userProfileImageView setImageWithURL:self.user.profileImageUrl];
+    [self.userProfileImageView setImageWithProgressIndicatorAndURL:self.user.profileImageUrl completion:nil];
 
     self.userProfileImageSupportView.layer.cornerRadius = self.userProfileImageSupportView.frame.size.height / 2;
     self.userProfileImageSupportView.layer.masksToBounds = YES;

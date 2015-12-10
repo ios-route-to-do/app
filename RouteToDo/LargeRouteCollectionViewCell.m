@@ -7,7 +7,7 @@
 //
 
 #import "LargeRouteCollectionViewCell.h"
-#import "UIImageView+AFNetworking.h"
+#import "UIImageView+ProgressIndicator.h"
 #import "BackendRepository.h"
 
 @interface LargeRouteCollectionViewCell()
@@ -41,7 +41,7 @@
     self.routeAuthorLabel.text = [NSString stringWithFormat:@"• By %@", self.route.author.username];
     self.routeUsersLabel.text = [NSString stringWithFormat:@"+%ld users", self.route.usersCount];
     self.routeRatingLable.text = [NSString stringWithFormat:@"• %0.1f rating", self.route.rating];
-    [self.backgroundImageView setImageWithURL:self.route.imageUrl];
+    [self.backgroundImageView setImageWithProgressIndicatorAndURL:self.route.imageUrl completion:nil];
     [self updateLikeButton:self.route.favorite animated:NO];
 }
 

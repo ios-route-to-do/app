@@ -7,7 +7,7 @@
 //
 
 #import "CategoryCollectionViewCell.h"
-#import "UIImageView+AFNetworking.h"
+#import "UIImageView+ProgressIndicator.h"
 
 @interface CategoryCollectionViewCell()
 
@@ -27,7 +27,10 @@
 
 - (void)setCategory:(RouteCategory *)category {
     self.categoryTitleLabel.text = category.name;
-    [self.categoryImage setImageWithURL:category.imageUrl];
+    self.categoryTitleLabel.hidden = YES;
+    [self.categoryImage setImageWithProgressIndicatorAndURL:category.imageUrl completion:^(NSError *error) {
+        self.categoryTitleLabel.hidden = NO;
+    }];
 }
 
 @end

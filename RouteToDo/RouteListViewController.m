@@ -10,7 +10,6 @@
 #import "LargeRouteCollectionViewCell.h"
 #import "SmallRouteCollectionViewCell.h"
 #import "RouteCoverViewController.h"
-#import "UIImageView+AFNetworking.h"
 
 #import "RouteRatingView.h"
 #import "CNPPopupController.h"
@@ -71,11 +70,11 @@
     self.navigationController.navigationBar.barTintColor = UIColorFromRGB(kDarkPurpleColorHex);
 
     //Right Buttons
-    UIImage *searchImage = [[UIImage imageNamed:@"search"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:searchImage style:0 target:self action:@selector(onSearchButtonTap)];
-    UIImage *mapImage = [[UIImage imageNamed:@"location"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-
-    [self.parentViewController.navigationItem setRightBarButtonItems:@[searchButton]];
+//    UIImage *searchImage = [[UIImage imageNamed:@"search"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:searchImage style:0 target:self action:@selector(onSearchButtonTap)];
+//    UIImage *mapImage = [[UIImage imageNamed:@"location"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//
+//    [self.parentViewController.navigationItem setRightBarButtonItems:@[searchButton]];
 
     self.topCollectionHeightConstraint.constant = 206.0 / 568.0 * self.view.bounds.size.height;
     [self.view layoutIfNeeded];

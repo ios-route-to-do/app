@@ -32,14 +32,14 @@
                         <constraint firstAttribute="width" constant="180" id="yEn-hU-MLm"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRK-Mp-9V3">
-                    <rect key="frame" x="70" y="188" width="180" height="30"/>
+                    <rect key="frame" x="70" y="188" width="180" height="45"/>
                     <animations/>
                     <color key="backgroundColor" red="0.01176470588" green="0.66274509800000003" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="8Ju-Jd-e34"/>
+                        <constraint firstAttribute="height" constant="45" id="8Ju-Jd-e34"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                     <state key="normal" title="Login"/>

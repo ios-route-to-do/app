@@ -6,15 +6,12 @@
 //  Copyright © 2015 RouteToDo. All rights reserved.
 //
 
-#import "UIImageView+AFNetworking.h"
 #import <MapKit/MapKit.h>
 
+#import "UIImageView+ProgressIndicator.h"
 #import "RouteStepEditViewController.h"
 #import "PlaceAnnotation.h"
 #import "ArcPathRenderer.h"
-#import "Place.h"
-#import "RouteRatingView.h"
-#import "CNPPopupController.h"
 #import "BackendRepository.h"
 #import "Utils.h"
 #import "CustomViewWithKeyboardAccessory.h"
@@ -289,7 +286,7 @@
 }
 
 - (void) loadDataFromPlace:(Place *)place {
-    [self.imageImageView setImageWithURL:place.imageUrl];
+    [self.imageImageView setImageWithProgressIndicatorAndURL:place.imageUrl completion:nil];
     self.nameLabel.text = place.name;
     self.addressLabel.text = place.address;
     self.descriptionLabel.text = place.fullDescription;

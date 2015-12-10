@@ -10,6 +10,7 @@
 		1849A3931BFECCAC002B9355 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849A3921BFECCAC002B9355 /* main.m */; };
 		1849A39E1BFECCAC002B9355 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1849A39D1BFECCAC002B9355 /* Assets.xcassets */; };
 		1849A3A11BFECCAC002B9355 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1849A39F1BFECCAC002B9355 /* LaunchScreen.storyboard */; };
+		189BE8961C196323002A739B /* UIImageView+ProgressIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 189BE8951C196323002A739B /* UIImageView+ProgressIndicator.m */; };
 		18A4A8951BFED1AA0028C691 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4A8931BFED1AA0028C691 /* LoginViewController.m */; };
 		18A4A8961BFED1AA0028C691 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18A4A8941BFED1AA0028C691 /* LoginViewController.xib */; };
 		18A4A89A1BFED3340028C691 /* RouteCoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18A4A8981BFED3340028C691 /* RouteCoverViewController.m */; };
@@ -35,7 +36,6 @@
 		603E92771BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 603E92751BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib */; };
 		603E927C1C014100003BE497 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849A3951BFECCAC002B9355 /* AppDelegate.m */; };
 		603E92871C02C530003BE497 /* ArcPathRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 603E92841C02C530003BE497 /* ArcPathRenderer.m */; };
-		603E92881C02C530003BE497 /* mocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 603E92861C02C530003BE497 /* mocks.m */; };
 		60ADA9151C0E8C10003DAC6E /* HttpRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ADA9141C0E8C10003DAC6E /* HttpRepository.m */; };
 		BFFFE66E9665A8F2B95181DA /* Pods_Jopp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BC6AA9CF08EA18A458B9DD /* Pods_Jopp.framework */; };
 		CD3046CD1BFFD7EB006C74EA /* RouteStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD3046CC1BFFD7EB006C74EA /* RouteStepViewController.xib */; };
@@ -67,6 +67,8 @@
 		1849A3A01BFECCAC002B9355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1849A3A21BFECCAC002B9355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		188CA1091C0438D60088AFA6 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		189BE8941C196323002A739B /* UIImageView+ProgressIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ProgressIndicator.h"; sourceTree = "<group>"; };
+		189BE8951C196323002A739B /* UIImageView+ProgressIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ProgressIndicator.m"; sourceTree = "<group>"; };
 		18A4A8921BFED1AA0028C691 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		18A4A8931BFED1AA0028C691 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		18A4A8941BFED1AA0028C691 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -91,7 +93,6 @@
 		24FD6B611C04F9790091E9DB /* RouteRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteRatingView.h; sourceTree = "<group>"; };
 		24FD6B621C04F9790091E9DB /* RouteRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteRatingView.m; sourceTree = "<group>"; };
 		356A7DD614D54EF25A888949 /* Pods-Jopp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jopp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Jopp/Pods-Jopp.release.xcconfig"; sourceTree = "<group>"; };
-		369A98033966F5F9EA3998BB /* Pods-RouteToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteToDo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RouteToDo/Pods-RouteToDo.release.xcconfig"; sourceTree = "<group>"; };
 		5A183DD4673867B89BCB0F85 /* Pods_RouteToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RouteToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		603E925F1BFEE152003BE497 /* RouteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteListViewController.h; sourceTree = "<group>"; };
 		603E92601BFEE152003BE497 /* RouteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteListViewController.m; sourceTree = "<group>"; };
@@ -110,11 +111,8 @@
 		603E92751BFFC52C003BE497 /* SmallRouteCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallRouteCollectionViewCell.xib; sourceTree = "<group>"; };
 		603E92831C02C530003BE497 /* ArcPathRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArcPathRenderer.h; sourceTree = "<group>"; };
 		603E92841C02C530003BE497 /* ArcPathRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArcPathRenderer.m; sourceTree = "<group>"; };
-		603E92851C02C530003BE497 /* mocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mocks.h; sourceTree = "<group>"; };
-		603E92861C02C530003BE497 /* mocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mocks.m; sourceTree = "<group>"; };
 		60ADA9131C0E8C10003DAC6E /* HttpRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpRepository.h; sourceTree = "<group>"; };
 		60ADA9141C0E8C10003DAC6E /* HttpRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpRepository.m; sourceTree = "<group>"; };
-		62275081C6139B331089E823 /* Pods-RouteToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RouteToDo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RouteToDo/Pods-RouteToDo.debug.xcconfig"; sourceTree = "<group>"; };
 		CD3046CC1BFFD7EB006C74EA /* RouteStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RouteStepViewController.xib; sourceTree = "<group>"; };
 		CD3046CE1BFFD7F3006C74EA /* RouteStepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteStepViewController.m; sourceTree = "<group>"; };
 		CD3046D01BFFD7FA006C74EA /* RouteStepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteStepViewController.h; sourceTree = "<group>"; };
@@ -198,10 +196,10 @@
 		1849A3911BFECCAC002B9355 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				603E92851C02C530003BE497 /* mocks.h */,
-				603E92861C02C530003BE497 /* mocks.m */,
 				1849A3921BFECCAC002B9355 /* main.m */,
 				188CA1091C0438D60088AFA6 /* Utils.h */,
+				189BE8941C196323002A739B /* UIImageView+ProgressIndicator.h */,
+				189BE8951C196323002A739B /* UIImageView+ProgressIndicator.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -379,8 +377,6 @@
 		E17CD451A7DE82D2485D6C4C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				62275081C6139B331089E823 /* Pods-RouteToDo.debug.xcconfig */,
-				369A98033966F5F9EA3998BB /* Pods-RouteToDo.release.xcconfig */,
 				1F74E4D3A9FE7E1203FB3106 /* Pods-Jopp.debug.xcconfig */,
 				356A7DD614D54EF25A888949 /* Pods-Jopp.release.xcconfig */,
 			);
@@ -527,8 +523,8 @@
 				603E92621BFEE152003BE497 /* RouteListViewController.m in Sources */,
 				603E92711BFF09CD003BE497 /* LargeRouteCollectionViewCell.m in Sources */,
 				248B13721BFEE31000184AD5 /* Route.m in Sources */,
+				189BE8961C196323002A739B /* UIImageView+ProgressIndicator.m in Sources */,
 				CDA0103D1C14C0B700BAE7A8 /* PlaceEditView.m in Sources */,
-				603E92881C02C530003BE497 /* mocks.m in Sources */,
 				248B13781BFEE46000184AD5 /* User.m in Sources */,
 				CDA010301C0EA40C00BAE7A8 /* RouteCoverEditView.m in Sources */,
 				24A79ED91C067E8800FB3D6B /* BackendRepository.m in Sources */,

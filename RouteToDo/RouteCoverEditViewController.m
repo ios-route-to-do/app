@@ -8,12 +8,11 @@
 
 #import "RouteCoverEditViewController.h"
 #import "RouteCoverEditView.h"
-#import "UIImageView+AFNetworking.h"
 #import "RouteStepEditViewController.h"
-#import "Place.h"
 #import "BackendRepository.h"
 #import "CustomViewWithKeyboardAccessory.h"
 #import "SVProgressHUD/SVProgressHUD.h"
+#import "UIImageView+ProgressIndicator.h"
 
 @interface RouteCoverEditViewController () <RouteCoverEditViewDelegate>
 
@@ -197,7 +196,7 @@
 }
 
 - (void)loadDataFromRoute:(Route *)route {
-    [self.imageImageView setImageWithURL:route.imageUrl];
+    [self.imageImageView setImageWithProgressIndicatorAndURL:route.imageUrl completion:nil];
 
     self.titleLabel.text = [self checkValueFor:route.title missing:@"(New Route Title)"];
     NSString *location = [self checkValueFor:route.location missing:@"(Location)"];
