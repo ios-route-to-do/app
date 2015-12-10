@@ -12,11 +12,11 @@
 #import "Route.h"
 #import "User.h"
 
-#ifdef DEBUG
-NSString * const kBaseUrl = @"http://localhost:3000";
-#else
+//#ifdef DEBUG
+//NSString * const kBaseUrl = @"http://localhost:3000";
+//#else
 NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
-#endif
+//#endif
 
 @implementation HttpRepository
 
