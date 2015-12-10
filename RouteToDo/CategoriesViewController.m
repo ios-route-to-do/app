@@ -20,6 +20,12 @@
 
 @property (nonatomic) NSArray<RouteCategory *> *categories;
 
+@property (weak, nonatomic) IBOutlet UIView *loginAnimationView;
+@property (weak, nonatomic) IBOutlet UIImageView *loginImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginLogoTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginLogoWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginLogoHeightConstraint;
+
 @end
 
 @implementation CategoriesViewController
@@ -32,6 +38,7 @@
 
     self.categoriesCollectionView.delegate = self;
     self.categoriesCollectionView.dataSource = self;
+    self.loginAnimationView.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,6 +53,22 @@
         self.categories = categories;
         [self.categoriesCollectionView reloadData];
     }];
+    
+    self.loginAnimationView.hidden = !self.animateLogin;
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    if (self.animateLogin) {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.loginLogoTopConstraint.constant = 24;
+            self.loginLogoWidthConstraint.constant = 59;
+            self.loginLogoHeightConstraint.constant = 28;
+            self.loginImageView.alpha = 0;
+            [self.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            self.loginAnimationView.hidden = YES;
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

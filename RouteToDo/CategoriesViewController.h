@@ -10,4 +10,7 @@
 
 @interface CategoriesViewController : UIViewController
 
+@property (nonatomic) BOOL animateLogin;
+
+
 @end

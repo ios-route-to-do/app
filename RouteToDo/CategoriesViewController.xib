@@ -9,6 +9,11 @@
             <connections>
                 <outlet property="backgroundImage" destination="R4N-t9-VDf" id="vhl-Gh-a9B"/>
                 <outlet property="categoriesCollectionView" destination="vor-Ea-bOh" id="HzB-aR-LSY"/>
+                <outlet property="loginAnimationView" destination="3yu-2G-RIu" id="sYA-HL-uoX"/>
+                <outlet property="loginImageView" destination="gfz-fp-kEL" id="Bkw-a3-yC0"/>
+                <outlet property="loginLogoHeightConstraint" destination="jeF-Yi-Nc1" id="8FW-ie-Cvj"/>
+                <outlet property="loginLogoTopConstraint" destination="VgE-9A-Gbq" id="uQy-Po-HJf"/>
+                <outlet property="loginLogoWidthConstraint" destination="gZS-Ee-OoU" id="epm-ip-2xe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -52,21 +57,52 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3yu-2G-RIu">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_screen" translatesAutoresizingMaskIntoConstraints="NO" id="gfz-fp-kEL">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <animations/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="6Mc-io-ZRW">
+                            <rect key="frame" x="62.5" y="199" width="195" height="93"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="195" id="gZS-Ee-OoU"/>
+                                <constraint firstAttribute="height" constant="93" id="jeF-Yi-Nc1"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" red="0.31764705879999999" green="0.1764705882" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="gfz-fp-kEL" secondAttribute="trailing" id="0BP-Ya-7Og"/>
+                        <constraint firstAttribute="bottom" secondItem="gfz-fp-kEL" secondAttribute="bottom" id="O37-TD-CgA"/>
+                        <constraint firstItem="6Mc-io-ZRW" firstAttribute="top" secondItem="3yu-2G-RIu" secondAttribute="top" constant="199" id="VgE-9A-Gbq"/>
+                        <constraint firstItem="6Mc-io-ZRW" firstAttribute="centerX" secondItem="3yu-2G-RIu" secondAttribute="centerX" id="hi9-lZ-xpq"/>
+                        <constraint firstItem="gfz-fp-kEL" firstAttribute="leading" secondItem="3yu-2G-RIu" secondAttribute="leading" id="qO5-Fv-Fbt"/>
+                        <constraint firstItem="gfz-fp-kEL" firstAttribute="top" secondItem="3yu-2G-RIu" secondAttribute="top" id="zKO-8o-TJF"/>
+                    </constraints>
+                </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="3yu-2G-RIu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5dL-M0-nIt"/>
                 <constraint firstAttribute="trailing" secondItem="R4N-t9-VDf" secondAttribute="trailing" id="6Ds-e1-qn5"/>
                 <constraint firstAttribute="trailing" secondItem="6XQ-KV-aPM" secondAttribute="trailing" id="CYw-g6-vTj"/>
                 <constraint firstItem="R4N-t9-VDf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ECR-1Q-ZIu"/>
                 <constraint firstItem="vor-Ea-bOh" firstAttribute="top" secondItem="6XQ-KV-aPM" secondAttribute="bottom" constant="8" id="Ny0-JY-knk"/>
                 <constraint firstItem="vor-Ea-bOh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="WSE-HR-Vaz"/>
                 <constraint firstItem="6XQ-KV-aPM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dIL-4a-oJZ"/>
+                <constraint firstAttribute="trailing" secondItem="3yu-2G-RIu" secondAttribute="trailing" id="daO-EC-t32"/>
                 <constraint firstItem="R4N-t9-VDf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lNP-cs-EGn"/>
                 <constraint firstAttribute="bottom" secondItem="R4N-t9-VDf" secondAttribute="bottom" id="pI8-Ik-kcP"/>
                 <constraint firstAttribute="trailing" secondItem="vor-Ea-bOh" secondAttribute="trailing" constant="16" id="pg8-ZG-zmN"/>
+                <constraint firstAttribute="bottom" secondItem="3yu-2G-RIu" secondAttribute="bottom" id="wjK-Ta-94e"/>
                 <constraint firstItem="6XQ-KV-aPM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xOp-WQ-W86"/>
                 <constraint firstAttribute="bottom" secondItem="vor-Ea-bOh" secondAttribute="bottom" id="xxx-Tt-Vav"/>
+                <constraint firstItem="3yu-2G-RIu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ztI-vW-tWz"/>
             </constraints>
             <point key="canvasLocation" x="379" y="504"/>
         </view>
@@ -74,5 +110,6 @@
     <resources>
         <image name="categories_background" width="360" height="640"/>
         <image name="logo" width="586" height="279"/>
+        <image name="splash_screen" width="321" height="568"/>
     </resources>
 </document>

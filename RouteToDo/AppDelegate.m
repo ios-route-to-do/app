@@ -80,6 +80,7 @@
             [self.window makeKeyAndVisible];
         }];
     } else {
+        vc.animateLogin = YES;
         self.window.rootViewController = vc;
         [self.window makeKeyAndVisible];
     }
