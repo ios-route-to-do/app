@@ -22,9 +22,8 @@ NSString * const RouteFavoritedNotification = @"RouteFinishedNotification";
         _imageUrl = [NSURL URLWithString:dictionary[@"image_url"]];
         _author = [[User alloc] initWithDictionary:dictionary[@"user"]];
         _fullDescription = dictionary[@"full_description"];
-        if (!(dictionary[@"rating"] == (id)[NSNull null])) {
-            _rating = [dictionary[@"rating"] doubleValue];
-        }
+        _rating = [dictionary[@"rating"] doubleValue];
+        _usersCount = [dictionary[@"outings_count"] longValue];
         _places = [Place placesWithArray:dictionary[@"places"]];
         _favorite = [dictionary[@"favorite"] boolValue];
     }
