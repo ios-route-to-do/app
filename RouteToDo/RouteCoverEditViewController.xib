@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="isw-YO-Jbg">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="isw-YO-Jbg">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <animations/>
                 </imageView>
@@ -134,8 +134,8 @@
         </view>
     </objects>
     <resources>
-        <image name="edit" width="24" height="24"/>
+        <image name="edit" width="30" height="30"/>
         <image name="pin" width="15" height="15"/>
-        <image name="placeholder" width="213" height="320"/>
+        <image name="placeholder" width="640" height="960"/>
     </resources>
 </document>

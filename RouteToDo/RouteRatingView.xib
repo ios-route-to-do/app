@@ -122,7 +122,7 @@
         </view>
     </objects>
     <resources>
-        <image name="star-empty" width="35" height="35"/>
-        <image name="star-full" width="35" height="35"/>
+        <image name="star-empty" width="30" height="30"/>
+        <image name="star-full" width="30" height="30"/>
     </resources>
 </document>

@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="categories_background" translatesAutoresizingMaskIntoConstraints="NO" id="EhU-qY-TvT">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="categories_background" translatesAutoresizingMaskIntoConstraints="NO" id="EhU-qY-TvT">
                     <rect key="frame" x="0.0" y="215" width="320" height="353"/>
                     <animations/>
                 </imageView>
