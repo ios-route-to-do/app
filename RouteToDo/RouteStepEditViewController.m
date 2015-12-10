@@ -153,6 +153,39 @@
     [self loadDataFromPlace:annotation.place];
 }
 
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+    MKAnnotationView *annotationView;
+
+    for (annotationView in views) {
+        // Check if current annotation is inside visible map rect, else go to next one
+        MKMapPoint point =  MKMapPointForCoordinate(annotationView.annotation.coordinate);
+        if (!MKMapRectContainsPoint(mapView.visibleMapRect, point)) {
+            continue;
+        }
+
+        CGRect endFrame = annotationView.frame;
+
+        // Move annotation out of view
+        annotationView.frame = CGRectMake(annotationView.frame.origin.x, annotationView.frame.origin.y - self.view.frame.size.height, annotationView.frame.size.width, annotationView.frame.size.height);
+
+        // Animate drop
+        [UIView animateWithDuration:0.5 delay:0.04*[views indexOfObject:annotationView] options:UIViewAnimationOptionCurveLinear animations:^{
+            annotationView.frame = endFrame;
+            // Animate squash
+        }completion:^(BOOL finished){
+            if (finished) {
+                [UIView animateWithDuration:0.05 animations:^{
+                    annotationView.transform = CGAffineTransformMakeScale(1.0, 0.8);
+                }completion:^(BOOL finished){
+                    [UIView animateWithDuration:0.1 animations:^{
+                        annotationView.transform = CGAffineTransformIdentity;
+                    }];
+                }];
+            }
+        }];
+    }
+}
+
 - (void) onSearchButtonTap {
     if (self.inSearchMode) {
         [self.searchBar endEditing:YES];

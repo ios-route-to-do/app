@@ -19,7 +19,7 @@ NSString * const RouteFavoritedNotification = @"RouteFinishedNotification";
         _routeId = dictionary[@"id"];
         _title = dictionary[@"title"];
         _location = dictionary[@"location"];
-        if (dictionary[@"image_url"]) {
+        if (![dictionary[@"image_url"] isEqual:[NSNull null]]) {
             _imageUrl = [NSURL URLWithString:dictionary[@"image_url"]];
         }
         _author = [[User alloc] initWithDictionary:dictionary[@"user"]];
