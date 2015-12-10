@@ -3,7 +3,9 @@
 # Uncomment this line if you're using Swift
 use_frameworks!
 
-target 'RouteToDo' do
+xcodeproj 'Jopp.xcodeproj'
+
+target 'Jopp' do
   pod 'AFNetworking'
   pod 'CNPPopupController'
   pod 'HCSStarRatingView'
