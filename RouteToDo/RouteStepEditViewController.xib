@@ -9,10 +9,13 @@
             <connections>
                 <outlet property="addressLabel" destination="2IL-pS-rcY" id="u0T-M2-EHT"/>
                 <outlet property="descriptionLabel" destination="agj-Er-RlF" id="NAW-sg-tjZ"/>
+                <outlet property="editPlaceButton" destination="UYo-uO-j2t" id="qVJ-YJ-p3I"/>
                 <outlet property="imageImageView" destination="isw-YO-Jbg" id="nrE-ss-8PR"/>
+                <outlet property="locationPin" destination="BrN-Li-eUU" id="mMX-IR-lhF"/>
                 <outlet property="nameLabel" destination="DHR-HI-C2a" id="tun-T6-vVn"/>
                 <outlet property="nextStepButton" destination="yUb-lt-YwS" id="4o4-Ez-sXv"/>
                 <outlet property="routeMapView" destination="N60-KN-BUa" id="cRW-Y8-v3z"/>
+                <outlet property="searchHintLabel" destination="1am-80-mGm" id="FgQ-A8-uz4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mikkele-bar" translatesAutoresizingMaskIntoConstraints="NO" id="isw-YO-Jbg">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mikkele-bar" translatesAutoresizingMaskIntoConstraints="NO" id="isw-YO-Jbg">
                     <rect key="frame" x="0.0" y="338" width="320" height="230"/>
                     <animations/>
                 </imageView>
@@ -89,6 +92,16 @@ Some are Belgiany, some are hoppy, some are malt bombs.</string>
                                 <action selector="onEditPlaceButtonTap:" destination="-1" eventType="touchUpInside" id="dwm-Do-y50"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Look up for a place using the search button!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1am-80-mGm">
+                            <rect key="frame" x="49" y="97" width="223" height="36"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="223" id="7MP-cc-Xxd"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
@@ -99,6 +112,7 @@ Some are Belgiany, some are hoppy, some are malt bombs.</string>
                         <constraint firstItem="2IL-pS-rcY" firstAttribute="top" secondItem="DHR-HI-C2a" secondAttribute="bottom" constant="4" id="Hhg-D5-i9f"/>
                         <constraint firstItem="2IL-pS-rcY" firstAttribute="leading" secondItem="BrN-Li-eUU" secondAttribute="trailing" constant="4" id="LC9-Ad-bBX"/>
                         <constraint firstItem="UYo-uO-j2t" firstAttribute="top" secondItem="XAe-jh-rNG" secondAttribute="top" constant="8" id="NoZ-3V-ST1"/>
+                        <constraint firstItem="1am-80-mGm" firstAttribute="centerX" secondItem="XAe-jh-rNG" secondAttribute="centerX" id="PPu-r3-Iqg"/>
                         <constraint firstItem="DHR-HI-C2a" firstAttribute="leading" secondItem="XAe-jh-rNG" secondAttribute="leading" constant="8" id="WqL-mk-nK5"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="agj-Er-RlF" secondAttribute="trailing" constant="8" id="ZJH-uR-TAM"/>
                         <constraint firstAttribute="height" constant="230" id="aAA-mi-qHY"/>
@@ -108,6 +122,7 @@ Some are Belgiany, some are hoppy, some are malt bombs.</string>
                         <constraint firstItem="BrN-Li-eUU" firstAttribute="leading" secondItem="XAe-jh-rNG" secondAttribute="leading" constant="8" id="jG6-Bs-70F"/>
                         <constraint firstItem="UYo-uO-j2t" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DHR-HI-C2a" secondAttribute="trailing" constant="8" id="lzA-vM-69l"/>
                         <constraint firstItem="DHR-HI-C2a" firstAttribute="top" secondItem="XAe-jh-rNG" secondAttribute="top" constant="8" id="o5d-LF-uDc"/>
+                        <constraint firstItem="1am-80-mGm" firstAttribute="centerY" secondItem="XAe-jh-rNG" secondAttribute="centerY" id="ofj-kG-vtq"/>
                         <constraint firstItem="yUb-lt-YwS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="agj-Er-RlF" secondAttribute="bottom" constant="8" id="uV4-Ss-RqW"/>
                         <constraint firstAttribute="bottom" secondItem="yUb-lt-YwS" secondAttribute="bottom" constant="16" id="vk4-UY-ohp"/>
                         <constraint firstItem="yUb-lt-YwS" firstAttribute="leading" secondItem="XAe-jh-rNG" secondAttribute="leading" constant="8" id="yrH-PN-VdP"/>

@@ -11,6 +11,7 @@
 
 #define kDarkPurpleColorHex 0x673AB7
 #define kLightBlueColorHex 0x03A9F4
+#define kPlaceHolderColor 0xc7c7cd
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 

@@ -55,24 +55,33 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 - (IBAction)onLoginButtonTap:(UIButton *)sender {
     id<BackendRepository> repo = [BackendRepository sharedInstance];
 
-    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
-    [SVProgressHUD show];
-    [repo loginUserWithEmail:self.emailTextField.text completion:^(User *user, NSError *error) {
-        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-        if (user) {
-            [SVProgressHUD dismiss];
-            [User setCurrentUser:user];
-        } else {
-            [SVProgressHUD showErrorWithStatus:@"Incorrect login"];
-        }
-    }];
+    if (self.emailTextField.text.length > 0) {
+        [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+        [SVProgressHUD show];
+        [repo loginUserWithEmail:self.emailTextField.text completion:^(User *user, NSError *error) {
+            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+            if (user && !error) {
+                [SVProgressHUD dismiss];
+                [User setCurrentUser:user];
+            } else if (error) {
+                [SVProgressHUD showErrorWithStatus:@"Incorrect login"];
+            }
+        }];
+    } else {
+        CABasicAnimation *animation =
+        [CABasicAnimation animationWithKeyPath:@"position"];
+        [animation setDuration:0.06];
+        [animation setRepeatCount:2];
+        [animation setAutoreverses:YES];
+        [animation setFromValue:[NSValue valueWithCGPoint:
+                                 CGPointMake([self.emailTextField center].x - 8.0f, [self.emailTextField center].y)]];
+        [animation setToValue:[NSValue valueWithCGPoint:
+                               CGPointMake([self.emailTextField center].x + 8.0f, [self.emailTextField center].y)]];
+        [[self.emailTextField layer] addAnimation:animation forKey:@"position"];
+    }
 }
 
 @end

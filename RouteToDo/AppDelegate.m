@@ -26,7 +26,7 @@
 
     //Check for current user
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [User currentUser];
+    [User setCurrentUser:[User currentUser]];
 
     return YES;
 }

@@ -7,6 +7,7 @@
 //
 
 #import "PlaceEditView.h"
+#import "Utils.h"
 
 const long PlaceDescriptionMaxLength = 200;
 
@@ -14,6 +15,7 @@ const long PlaceDescriptionMaxLength = 200;
 
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UILabel *countLabel;
+@property (nonatomic) UILabel *placeHolderText;
 
 @end
 
@@ -56,6 +58,7 @@ const long PlaceDescriptionMaxLength = 200;
 
     self.placeDescriptionTextView.delegate = self;
     self.countLabel.text = [NSString stringWithFormat:@"%ld / %ld", length, PlaceDescriptionMaxLength];
+    [self textViewDidEndEditing:self.placeDescriptionTextView];
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
@@ -64,8 +67,36 @@ const long PlaceDescriptionMaxLength = 200;
 
 - (BOOL) textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     NSInteger insertDelta = text.length - range.length;
+
+    if (insertDelta > 0 && self.placeHolderText) {
+        [self.placeHolderText removeFromSuperview];
+    } else if (textView.text.length + insertDelta == 0) {
+        [self addPlaceHolderToTextView:textView];
+    }
+
     return (!(textView.text.length + insertDelta > PlaceDescriptionMaxLength));
 }
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@""]) {
+        [self addPlaceHolderToTextView:textView];
+    }
+    [textView resignFirstResponder];
+}
+
+- (void) addPlaceHolderToTextView:(UITextView *)textView {
+    if (!self.placeHolderText) {
+        self.placeHolderText = [[UILabel alloc] initWithFrame:CGRectMake(4, 8, 30, 20)];
+        self.placeHolderText.font = textView.font;
+        self.placeHolderText.text = @"(Place description)";
+        self.placeHolderText.textColor = UIColorFromRGB(kPlaceHolderColor);
+        [self.placeHolderText sizeToFit];
+    }
+
+    [textView addSubview:self.placeHolderText];
+}
+
 - (IBAction)onSaveButtonTap:(UIButton *)sender {
     if (self.delegate) {
         [self updatePlaceWithValues];

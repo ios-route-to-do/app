@@ -72,6 +72,7 @@
     }];
 
     homeItem.leftItem = categoriesItem;
+    homeItem.rightItem = newRouteItem;
 
     profileItem.leftItem = newRouteItem;
     profileItem.rightItem = logoutItem;
@@ -126,11 +127,13 @@
     self.tabBar.backgroundColor = UIColorFromRGB(kDarkPurpleColorHex);
     self.tabBar.tabBarColor = UIColorFromRGB(kLightBlueColorHex);
     self.tabBar.dotColor = [UIColor whiteColor];
-}
 
-- (void)viewWillAppear:(BOOL)animated {
     self.tabBar.selectedTabBarItemIndex = 0;
     [self itemInTabBarViewPressed:self.tabBar atIndex:0];
+}
+
+- (void)viewDidLayoutSubviews {
+    self.tabBar.frame = self.tabBarView.bounds;
 }
 
 - (NSArray *)leftTabBarItemsInTabBarView:(YALFoldingTabBar *)tabBarView {

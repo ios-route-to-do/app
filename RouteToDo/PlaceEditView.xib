@@ -37,9 +37,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okN-oj-UZW">
                     <rect key="frame" x="8" y="110" width="120" height="30"/>
                     <animations/>
-                    <state key="normal" title="Save"/>
+                    <state key="normal" title="Cancel"/>
                     <connections>
-                        <action selector="onSaveButtonTap:" destination="-1" eventType="touchUpInside" id="zjf-it-gPn"/>
+                        <action selector="onCancelButtonTap:" destination="-1" eventType="touchUpInside" id="lA2-gD-81b"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9R-KS-bBb">
@@ -48,9 +48,9 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="3cP-jV-Uqm"/>
                     </constraints>
-                    <state key="normal" title="Cancel"/>
+                    <state key="normal" title="Save"/>
                     <connections>
-                        <action selector="onCancelButtonTap:" destination="-1" eventType="touchUpInside" id="LYM-1o-x8i"/>
+                        <action selector="onSaveButtonTap:" destination="-1" eventType="touchUpInside" id="BYP-Ji-JzO"/>
                     </connections>
                 </button>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UZV-vn-Mhk">

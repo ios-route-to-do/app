@@ -46,10 +46,6 @@ NSString * const kCurrentUserKey = @"kCurrentUserKey";
         if (data != nil) {
             NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
             _currentUser = [[User alloc] initWithDictionary:dictionary];
-
-            [[NSNotificationCenter defaultCenter] postNotificationName:UserPresentNotification object:nil userInfo:@{@"user": _currentUser}];
-        } else {
-            [[NSNotificationCenter defaultCenter] postNotificationName:UserMissingNotification object:nil];
         }
     }
     

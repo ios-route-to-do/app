@@ -45,6 +45,9 @@
 
 @property (nonatomic) UIVisualEffectView *blurEffectView;
 
+@property (weak, nonatomic) IBOutlet UIButton *editPlaceButton;
+@property (weak, nonatomic) IBOutlet UIImageView *locationPin;
+@property (weak, nonatomic) IBOutlet UILabel *searchHintLabel;
 @property (nonatomic) BOOL canProceed;
 
 @end
@@ -257,6 +260,10 @@
                       (place.fullDescription && place.fullDescription.length > 0) &&
                       (place.coordinates.latitude != 0 && place.coordinates.longitude != 0);
     self.nextStepButton.hidden = !self.canProceed;
+    self.locationPin.hidden = !((place.name && place.name.length > 0) &&
+                                (place.address && place.address.length > 0));
+    self.editPlaceButton.hidden = self.locationPin.hidden;
+    self.searchHintLabel.hidden = !self.locationPin.hidden;
 }
 
 - (void) loadMapDataWithRegion:(MKCoordinateRegion)region places:(NSArray *)places autoSelected:(BOOL)autoSelected {
