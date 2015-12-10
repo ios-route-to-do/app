@@ -196,7 +196,13 @@
 }
 
 - (void)loadDataFromRoute:(Route *)route {
-    [self.imageImageView setImageWithProgressIndicatorAndURL:route.imageUrl completion:nil];
+    if (route.imageUrl) {
+        [self.imageImageView setImageWithProgressIndicatorAndURL:route.imageUrl completion:nil];
+    } else if (self.imageToBeUploaded) {
+        self.imageImageView.image = self.imageToBeUploaded;
+    } else {
+        self.imageImageView.image = [UIImage imageNamed:@"placeholder"];
+    }
 
     self.titleLabel.text = [self checkValueFor:route.title missing:@"(New Route Title)"];
     NSString *location = [self checkValueFor:route.location missing:@"(Location)"];

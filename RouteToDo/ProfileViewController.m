@@ -122,6 +122,8 @@
     self.navigationController.navigationBar.barTintColor = UIColorFromRGB(kDarkPurpleColorHex);
 
     [self refreshRoutes];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRouteFavoritedNotification:) name:RouteFavoritedNotification object:nil];
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
@@ -183,6 +185,10 @@
     RouteCoverViewController *vc = [[RouteCoverViewController alloc] init];
     vc.route = largeCell.route;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)onRouteFavoritedNotification:(NSNotification *)notification {
+    [self refreshRoutes];
 }
 
 - (void)refreshRoutes {

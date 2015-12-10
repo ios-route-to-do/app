@@ -50,6 +50,6 @@
     </scenes>
     <resources>
         <image name="logo" width="586" height="279"/>
-        <image name="splash_screen" width="960" height="1704"/>
+        <image name="splash_screen" width="321" height="568"/>
     </resources>
 </document>

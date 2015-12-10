@@ -107,9 +107,9 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
         NSString *url = [kBaseUrl stringByAppendingString:[NSString stringWithFormat:@"/routes/%@/unfavorite", route.routeId]];
 
         [[self httpManager] POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"routeUnfavorited" object:self
-                                                              userInfo:@{@"route": route}];
             route.favorite = NO;
+            [[NSNotificationCenter defaultCenter] postNotificationName:RouteFavoritedNotification object:nil
+                                                              userInfo:@{@"route": route}];
             completion(nil);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error POST route unfavorite: %@", [error localizedDescription]);
@@ -119,9 +119,9 @@ NSString * const kBaseUrl = @"https://jopp.herokuapp.com";
         NSString *url = [kBaseUrl stringByAppendingString:[NSString stringWithFormat:@"/routes/%@/favorite", route.routeId]];
 
         [[self httpManager] POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"routeFavorited" object:self
-                                                              userInfo:@{@"route": route}];
             route.favorite = YES;
+            [[NSNotificationCenter defaultCenter] postNotificationName:RouteFavoritedNotification object:nil
+                                                              userInfo:@{@"route": route}];
             completion(nil);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error POST route favorite: %@", [error localizedDescription]);

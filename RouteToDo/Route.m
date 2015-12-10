@@ -9,7 +9,7 @@
 #import "Route.h"
 
 NSString * const RouteFinishedNotification = @"RouteFinishedNotification";
-NSString * const RouteFavoritedNotification = @"RouteFinishedNotification";
+NSString * const RouteFavoritedNotification = @"RouteFavoritedNotification";
 
 @implementation Route
 

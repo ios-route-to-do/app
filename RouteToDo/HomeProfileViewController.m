@@ -130,6 +130,52 @@
 
     self.tabBar.selectedTabBarItemIndex = 0;
     [self itemInTabBarViewPressed:self.tabBar atIndex:0];
+    
+
+    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+    UIImageView *logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 59, 28)];
+    logoImageView.image = [UIImage imageNamed:@"logo"];
+    
+    NSLayoutConstraint *cn = [NSLayoutConstraint constraintWithItem:logoImageView
+                                      attribute:NSLayoutAttributeHeight
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:nil
+                                      attribute:NSLayoutAttributeNotAnAttribute
+                                     multiplier:1
+                                       constant:28];
+    [logoImageView addConstraint:cn];
+    
+    cn = [NSLayoutConstraint constraintWithItem:logoImageView
+                                      attribute:NSLayoutAttributeWidth
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:nil
+                                      attribute:NSLayoutAttributeNotAnAttribute
+                                     multiplier:1
+                                       constant:59];
+    [logoImageView addConstraint:cn];
+    [titleView addSubview:logoImageView];
+
+    [logoImageView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    cn = [NSLayoutConstraint constraintWithItem:logoImageView
+                                      attribute:NSLayoutAttributeCenterX
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:titleView
+                                      attribute:NSLayoutAttributeCenterX
+                                     multiplier:1.0
+                                       constant:0];
+    [titleView addConstraint:cn];
+
+    cn = [NSLayoutConstraint constraintWithItem:logoImageView
+                                      attribute:NSLayoutAttributeCenterY
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:titleView
+                                      attribute:NSLayoutAttributeCenterY
+                                     multiplier:1.0
+                                       constant:0];
+    [titleView addConstraint:cn];
+    
+    self.navigationItem.titleView = titleView;
 }
 
 - (void)viewDidLayoutSubviews {
