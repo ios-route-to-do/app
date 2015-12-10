@@ -20,9 +20,13 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserMissingNotification:) name:UserMissingNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onUserPresentNotification:) name:UserPresentNotification object:nil];
+
+    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:2 * 1024 * 1024
+                                                            diskCapacity:100 * 1024 * 1024
+                                                                diskPath:nil];
+    [NSURLCache setSharedURLCache:sharedCache];
 
     //Check for current user
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

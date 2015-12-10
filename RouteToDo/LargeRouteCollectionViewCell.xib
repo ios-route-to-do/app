@@ -17,32 +17,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="241" height="190"/>
                         <animations/>
                     </imageView>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K0n-GD-GOi">
-                        <rect key="frame" x="0.0" y="114" width="241" height="76"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0n-GD-GOi">
+                        <rect key="frame" x="0.0" y="123" width="241" height="67"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="+300 users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZk-Y6-Z6m">
-                                <rect key="frame" x="8" y="52" width="65" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+300 users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZk-Y6-Z6m">
+                                <rect key="frame" x="8" y="45" width="65" height="16"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="* 5.0 rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrJ-H3-ERf">
-                                <rect key="frame" x="81" y="52" width="63" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 5.0 rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrJ-H3-ERf">
+                                <rect key="frame" x="81" y="45" width="63" height="16"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="* By @RandyWilliams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWR-a3-BGJ">
-                                <rect key="frame" x="99" y="28" width="124" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* By @RandyWilliams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWR-a3-BGJ">
+                                <rect key="frame" x="100" y="25" width="124" height="16"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFn-Hc-8XH">
-                                <rect key="frame" x="8" y="28" width="84" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFn-Hc-8XH">
+                                <rect key="frame" x="8" y="25" width="84" height="16"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,14 +63,14 @@
                             <constraint firstItem="BWR-a3-BGJ" firstAttribute="centerY" secondItem="AFn-Hc-8XH" secondAttribute="centerY" id="DJz-eR-gay"/>
                             <constraint firstItem="AFn-Hc-8XH" firstAttribute="leading" secondItem="upf-qT-hEw" secondAttribute="leading" id="G17-wn-c4N"/>
                             <constraint firstItem="MrJ-H3-ERf" firstAttribute="centerY" secondItem="SZk-Y6-Z6m" secondAttribute="centerY" id="PVB-CG-o4K"/>
-                            <constraint firstItem="SZk-Y6-Z6m" firstAttribute="top" secondItem="AFn-Hc-8XH" secondAttribute="bottom" constant="8" id="X1l-6G-ukA"/>
+                            <constraint firstItem="SZk-Y6-Z6m" firstAttribute="top" secondItem="AFn-Hc-8XH" secondAttribute="bottom" constant="4" id="X1l-6G-ukA"/>
                             <constraint firstItem="BWR-a3-BGJ" firstAttribute="leading" secondItem="AFn-Hc-8XH" secondAttribute="trailing" constant="8" id="as2-Z8-5kw"/>
-                            <constraint firstAttribute="bottom" secondItem="SZk-Y6-Z6m" secondAttribute="bottom" constant="8" id="bQr-Gw-qmH"/>
+                            <constraint firstAttribute="bottom" secondItem="SZk-Y6-Z6m" secondAttribute="bottom" constant="6" id="bQr-Gw-qmH"/>
                             <constraint firstItem="upf-qT-hEw" firstAttribute="top" secondItem="K0n-GD-GOi" secondAttribute="top" constant="3" id="e2o-p8-qxc"/>
                             <constraint firstItem="SZk-Y6-Z6m" firstAttribute="leading" secondItem="upf-qT-hEw" secondAttribute="leading" id="enz-a5-n8a"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="upf-qT-hEw" secondAttribute="trailing" constant="8" id="iCX-JX-2y0"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MrJ-H3-ERf" secondAttribute="trailing" constant="8" id="iPh-f5-Av1"/>
-                            <constraint firstItem="AFn-Hc-8XH" firstAttribute="top" secondItem="upf-qT-hEw" secondAttribute="bottom" constant="8" id="iV6-rz-fhw"/>
+                            <constraint firstItem="AFn-Hc-8XH" firstAttribute="top" secondItem="upf-qT-hEw" secondAttribute="bottom" constant="4" id="iV6-rz-fhw"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BWR-a3-BGJ" secondAttribute="trailing" constant="8" id="lyk-eN-0jP"/>
                             <constraint firstItem="MrJ-H3-ERf" firstAttribute="leading" secondItem="SZk-Y6-Z6m" secondAttribute="trailing" constant="8" id="o4C-3v-f5O"/>
                         </constraints>
@@ -122,6 +122,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="placeholder" width="213" height="320"/>
+        <image name="placeholder" width="640" height="960"/>
     </resources>
 </document>

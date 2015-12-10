@@ -18,20 +18,20 @@
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YQ8-26-DPP">
-                        <rect key="frame" x="0.0" y="43" width="148" height="57"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQ8-26-DPP">
+                        <rect key="frame" x="0.0" y="58" width="148" height="42"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Night Long !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wti-kh-lwW">
-                                <rect key="frame" x="8" y="8" width="103" height="18"/>
+                                <rect key="frame" x="8" y="4" width="89" height="16"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcQ-90-6mS">
-                                <rect key="frame" x="8" y="33" width="84" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcQ-90-6mS">
+                                <rect key="frame" x="8" y="22" width="77" height="14"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -39,11 +39,11 @@
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="EcQ-90-6mS" secondAttribute="bottom" constant="8" id="8MS-SP-Vyh"/>
+                            <constraint firstAttribute="bottom" secondItem="EcQ-90-6mS" secondAttribute="bottom" constant="6" id="8MS-SP-Vyh"/>
                             <constraint firstItem="EcQ-90-6mS" firstAttribute="leading" secondItem="YQ8-26-DPP" secondAttribute="leading" constant="8" id="F3K-o5-0PW"/>
                             <constraint firstItem="EcQ-90-6mS" firstAttribute="leading" secondItem="wti-kh-lwW" secondAttribute="leading" id="Io0-vg-yv2"/>
-                            <constraint firstItem="EcQ-90-6mS" firstAttribute="top" secondItem="wti-kh-lwW" secondAttribute="bottom" constant="8" id="Qs8-Bp-eVu"/>
-                            <constraint firstItem="wti-kh-lwW" firstAttribute="top" secondItem="YQ8-26-DPP" secondAttribute="top" constant="8" id="kY8-yD-3hE"/>
+                            <constraint firstItem="EcQ-90-6mS" firstAttribute="top" secondItem="wti-kh-lwW" secondAttribute="bottom" constant="2" id="Qs8-Bp-eVu"/>
+                            <constraint firstItem="wti-kh-lwW" firstAttribute="top" secondItem="YQ8-26-DPP" secondAttribute="top" constant="4" id="kY8-yD-3hE"/>
                             <constraint firstItem="wti-kh-lwW" firstAttribute="top" secondItem="YQ8-26-DPP" secondAttribute="top" constant="8" id="sTX-3f-O0x"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wti-kh-lwW" secondAttribute="trailing" constant="8" id="vPe-bV-UKo"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EcQ-90-6mS" secondAttribute="trailing" constant="8" id="zky-dQ-YnB"/>
@@ -79,6 +79,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="placeholder" width="213" height="320"/>
+        <image name="placeholder" width="640" height="960"/>
     </resources>
 </document>

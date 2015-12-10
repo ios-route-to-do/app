@@ -18,7 +18,7 @@
                         <animations/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dancing with the stars" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5q-dc-mnU">
-                        <rect key="frame" x="-12" y="25" width="184" height="21"/>
+                        <rect key="frame" x="-12" y="70" width="184" height="21"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,8 +34,7 @@
                 <constraint firstItem="IOh-kg-Xx2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="1" id="4bk-1y-xnQ"/>
                 <constraint firstAttribute="bottom" secondItem="IOh-kg-Xx2" secondAttribute="bottom" constant="1" id="569-b5-omY"/>
                 <constraint firstAttribute="trailing" secondItem="IOh-kg-Xx2" secondAttribute="trailing" constant="1" id="6O3-Iw-0Di"/>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="e5q-dc-mnU" secondAttribute="bottom" constant="40" id="CWG-0v-eqz"/>
-                <constraint firstItem="e5q-dc-mnU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="25" id="DAt-e6-hh1"/>
+                <constraint firstItem="e5q-dc-mnU" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="VOp-y9-ZWz"/>
                 <constraint firstItem="e5q-dc-mnU" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="cOa-wC-5QT"/>
                 <constraint firstItem="IOh-kg-Xx2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="s9K-CF-3Nj"/>
             </constraints>
@@ -48,6 +47,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="placeholder" width="213" height="320"/>
+        <image name="placeholder" width="640" height="960"/>
     </resources>
 </document>

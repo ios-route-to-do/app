@@ -155,6 +155,6 @@ Some are Belgiany, some are hoppy, some are malt bombs.</string>
     <resources>
         <image name="edit" width="24" height="24"/>
         <image name="pin" width="15" height="15"/>
-        <image name="placeholder" width="213" height="320"/>
+        <image name="placeholder" width="640" height="960"/>
     </resources>
 </document>

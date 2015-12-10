@@ -13,8 +13,8 @@
 #import "LargeRouteCollectionViewCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "RouteCoverViewController.h"
+#import "Utils.h"
 
-#import "mocks.h"
 
 @interface ProfileViewController () <UITabBarDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *userProfileImageView;
@@ -77,16 +77,19 @@
     UITabBarItem *tabBarItem1 = [[UITabBarItem alloc] initWithTitle:@"Favorites" image:profileImage selectedImage:selectedProfileImage];
     [tabBarItems addObject:tabBarItem1];
 
-    UIImage *nightsOutImage = [[UIImage imageNamed:@"share"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UITabBarItem *tabBarItem2 = [[UITabBarItem alloc] initWithTitle:@"Nights Out" image:nightsOutImage selectedImage:nil];
+    UIImage *nightsOutImage = [[UIImage imageNamed:@"nightsout"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *selectedNightsOutImage = [[UIImage imageNamed:@"nightsout_active"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UITabBarItem *tabBarItem2 = [[UITabBarItem alloc] initWithTitle:@"Nights Out" image:nightsOutImage selectedImage:selectedNightsOutImage];
     [tabBarItems addObject:tabBarItem2];
 
-    UIImage *myRoutesImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UITabBarItem *tabBarItem3 = [[UITabBarItem alloc] initWithTitle:@"My Routes" image:myRoutesImage selectedImage:nil];
+    UIImage *myRoutesImage = [[UIImage imageNamed:@"ownroutes"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *selectedMyRoutesImage= [[UIImage imageNamed:@"ownroutes_active"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UITabBarItem *tabBarItem3 = [[UITabBarItem alloc] initWithTitle:@"My Routes" image:myRoutesImage selectedImage:selectedMyRoutesImage];
     [tabBarItems addObject:tabBarItem3];
 
     self.userProfileTabBar.items = tabBarItems;
     [self.userProfileTabBar setSelectedItem:[self.userProfileTabBar.items objectAtIndex:0]];
+    self.userProfileTabBar.backgroundColor = UIColorFromRGB(kDarkPurpleColorHex);
 
     UINib *largeCellNib = [UINib nibWithNibName:@"LargeRouteCollectionViewCell" bundle:nil];
     [self.userProfileRoutesCollectionView registerNib:largeCellNib forCellWithReuseIdentifier:@"largeRouteCollectionViewCell"];
@@ -106,6 +109,11 @@
     blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 
     [self.userProfileBackgroundRouteImageView addSubview:blurEffectView];
+    self.userProfileTabBar.tintColor = [UIColor whiteColor];
+
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateNormal];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {

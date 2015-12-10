@@ -27,7 +27,10 @@ NSString * const RouteFavoritedNotification = @"RouteFinishedNotification";
         _rating = [dictionary[@"rating"] doubleValue];
         _usersCount = [dictionary[@"outings_count"] longValue];
         _places = [Place placesWithArray:dictionary[@"places"]];
-        _favorite = [dictionary[@"favorite"] boolValue];
+
+        if (![dictionary[@"favorite"] isEqual:[NSNull null]]) {
+            _favorite = [dictionary[@"favorite"] boolValue];
+        }
     }
     return self;
 }
