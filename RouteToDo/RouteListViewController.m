@@ -23,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *topCollectionView;
 @property (strong, nonatomic) IBOutlet UICollectionView *bottomCollectionView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topCollectionHeightConstraint;
 
 @property (nonatomic, strong) NSArray<Route *> *trendingRoutesViewArray;
 @property (nonatomic, strong) NSArray<Route *> *recentRoutesViewArray;
@@ -47,14 +48,6 @@
     [topFlowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     [topFlowLayout setSectionInset:UIEdgeInsetsMake(0, 8, 0, 0)];
     [self.topCollectionView setCollectionViewLayout:topFlowLayout];
-
-    UICollectionViewFlowLayout *bottomFlowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [bottomFlowLayout setItemSize:CGSizeMake(148, 100)];
-    [bottomFlowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [bottomFlowLayout setMinimumInteritemSpacing:8];
-    [bottomFlowLayout setMinimumLineSpacing:8];
-
-    [self.bottomCollectionView setCollectionViewLayout:bottomFlowLayout];
 
     self.topCollectionView.delegate = self;
     self.bottomCollectionView.delegate = self;
@@ -81,13 +74,32 @@
     UIImage *searchImage = [[UIImage imageNamed:@"search"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithImage:searchImage style:0 target:self action:@selector(onSearchButtonTap)];
     UIImage *mapImage = [[UIImage imageNamed:@"location"]  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:mapImage style:0 target:self action:@selector(onMapButtonTap)];
 
     [self.parentViewController.navigationItem setRightBarButtonItems:@[searchButton]];
+
+    self.topCollectionHeightConstraint.constant = 206.0 / 568.0 * self.view.bounds.size.height;
+    [self.view layoutIfNeeded];
     
     [self reloadAllRoutes];
 }
 
+- (void)viewDidLayoutSubviews {
+    UICollectionViewFlowLayout *bottomFlowLayout = [[UICollectionViewFlowLayout alloc] init];
+    CGFloat itemWidth = self.bottomCollectionView.bounds.size.width / 2 - 8;
+    [bottomFlowLayout setItemSize:CGSizeMake(itemWidth, itemWidth * 2 / 3)];
+    [bottomFlowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [bottomFlowLayout setMinimumInteritemSpacing:8];
+    [bottomFlowLayout setMinimumLineSpacing:8];
+
+    [self.bottomCollectionView setCollectionViewLayout:bottomFlowLayout];
+
+    UICollectionViewFlowLayout *topFlowLayout = [[UICollectionViewFlowLayout alloc] init];
+    CGFloat itemHeight = self.topCollectionHeightConstraint.constant - 16;
+    [topFlowLayout setItemSize:CGSizeMake(240.0 / 190.0 * itemHeight, itemHeight)];
+    [topFlowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [topFlowLayout setSectionInset:UIEdgeInsetsMake(0, 8, 0, 0)];
+    [self.topCollectionView setCollectionViewLayout:topFlowLayout];
+}
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;

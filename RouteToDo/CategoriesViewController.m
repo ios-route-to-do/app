@@ -76,8 +76,6 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [collectionView deselectItemAtIndexPath:indexPath animated:NO];
-
     HomeProfileViewController *homeController = [[HomeProfileViewController alloc] initDefault];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:homeController];
     AppDelegate *delegate = [[UIApplication sharedApplication] delegate];

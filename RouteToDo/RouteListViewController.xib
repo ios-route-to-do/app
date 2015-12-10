@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="backgroundImageView" destination="baN-ED-SFO" id="Us4-FS-9HJ"/>
                 <outlet property="bottomCollectionView" destination="PAA-ux-7Gb" id="tBo-Qt-OXA"/>
+                <outlet property="topCollectionHeightConstraint" destination="1Ar-yR-Hgm" id="tKD-aN-7S6"/>
                 <outlet property="topCollectionView" destination="ACz-IO-GX7" id="5hl-Oy-4LH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,7 +24,7 @@
                     <animations/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's New" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1J-sd-ATb">
-                    <rect key="frame" x="8" y="247" width="82" height="18"/>
+                    <rect key="frame" x="8" y="248" width="82" height="18"/>
                     <animations/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,7 +38,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ACz-IO-GX7">
-                    <rect key="frame" x="0.0" y="33" width="320" height="206"/>
+                    <rect key="frame" x="0.0" y="34" width="320" height="206"/>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -51,7 +52,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="PAA-ux-7Gb">
-                    <rect key="frame" x="8" y="273" width="304" height="295"/>
+                    <rect key="frame" x="8" y="274" width="304" height="294"/>
                     <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="czU-hA-FLk">

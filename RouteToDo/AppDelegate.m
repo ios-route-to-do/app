@@ -88,7 +88,7 @@
         return;
     }
 
-    UIView *snapShot = [self.window snapshotViewAfterScreenUpdates:YES];
+    UIView *snapShot = [self.window snapshotViewAfterScreenUpdates:NO];
 
     [viewController.view addSubview:snapShot];
 
