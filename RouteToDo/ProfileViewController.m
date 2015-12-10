@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITabBar *userProfileTabBar;
 @property (weak, nonatomic) IBOutlet UIImageView *userProfileBackgroundRouteImageView;
 @property (weak, nonatomic) IBOutlet UICollectionView *userProfileRoutesCollectionView;
+@property (weak, nonatomic) IBOutlet UIView *userProfileImageSupportView;
 
 @property (nonatomic) NSArray<CustomTabControllerItem *> *controllerItems;
 @property (nonatomic) UIViewController *currentController;
@@ -54,6 +55,13 @@
     self.user = [User currentUser];
     
     [self.userProfileImageView setImageWithURL:self.user.profileImageUrl];
+
+    self.userProfileImageSupportView.layer.cornerRadius = self.userProfileImageSupportView.frame.size.height / 2;
+    self.userProfileImageSupportView.layer.masksToBounds = YES;
+
+    self.userProfileImageView.layer.cornerRadius = self.userProfileImageSupportView.frame.size.height / 2;
+    self.userProfileImageView.layer.masksToBounds = YES;
+    
     self.usernameLabel.text = self.user.username;
     NSString *userInfoString = [self.user.location stringByAppendingString:@" • Owns "];
     userInfoString = [userInfoString stringByAppendingString:[@(self.user.ownRoutes.count) stringValue]];
@@ -64,19 +72,26 @@
     
     NSMutableArray *tabBarItems = [[NSMutableArray alloc] init];
     
-    UIImage *profileImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UITabBarItem *tabBarItem1 = [[UITabBarItem alloc] initWithTitle:@"Favorites" image:profileImage selectedImage:nil];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor blackColor] }
+                                             forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor blackColor] }
+                                             forState:UIControlStateSelected];
+    
+    UIImage *profileImage = [[UIImage imageNamed:@"fav_inactive"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *selectedProfileImage = [[UIImage imageNamed:@"fav_active"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UITabBarItem *tabBarItem1 = [[UITabBarItem alloc] initWithTitle:@"Favorites" image:profileImage selectedImage:selectedProfileImage];
     [tabBarItems addObject:tabBarItem1];
-
-    UIImage *nightsOutImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    UIImage *nightsOutImage = [[UIImage imageNamed:@"share"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UITabBarItem *tabBarItem2 = [[UITabBarItem alloc] initWithTitle:@"Nights Out" image:nightsOutImage selectedImage:nil];
     [tabBarItems addObject:tabBarItem2];
     
-    UIImage *myRoutesImage = [[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *myRoutesImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UITabBarItem *tabBarItem3 = [[UITabBarItem alloc] initWithTitle:@"My Routes" image:myRoutesImage selectedImage:nil];
     [tabBarItems addObject:tabBarItem3];
     
     self.userProfileTabBar.items = tabBarItems;
+    [self.userProfileTabBar setSelectedItem:[self.userProfileTabBar.items objectAtIndex:0]];
     
     UINib *largeCellNib = [UINib nibWithNibName:@"LargeRouteCollectionViewCell" bundle:nil];
     [self.userProfileRoutesCollectionView registerNib:largeCellNib forCellWithReuseIdentifier:@"largeRouteCollectionViewCell"];
@@ -94,6 +109,12 @@
         NSLog(@"loaded initial tweets");
     }];
     
+
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
