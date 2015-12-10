@@ -100,9 +100,6 @@
     self.userProfileRoutesCollectionView.delegate = self;
     self.userProfileRoutesCollectionView.dataSource = self;
 
-    [self.userProfileBackgroundRouteImageView setImageWithURL:[NSURL URLWithString:@"http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg"]];
-    self.userProfileBackgroundRouteImageView.backgroundColor = [UIColor clearColor];
-
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
     UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     blurEffectView.frame = self.userProfileBackgroundRouteImageView.bounds;
@@ -205,9 +202,9 @@
 }
 
 - (void)refreshUserInfoLabel {
-    NSString *userInfoString = [self.user.location stringByAppendingString:@" • Owns "];
+    NSString *userInfoString = [self.user.location stringByAppendingString:@" \u2022 Owns "];
     userInfoString = [userInfoString stringByAppendingString:[@(self.user.ownRoutes.count) stringValue]];
-    userInfoString = [userInfoString stringByAppendingString:@" Routes • "];
+    userInfoString = [userInfoString stringByAppendingString:@" Routes \u2022 "];
     userInfoString = [userInfoString stringByAppendingString:[@(self.user.outings.count) stringValue]];
     userInfoString = [userInfoString stringByAppendingString:@" Nights Out"];
     self.userInfoLabel.text = userInfoString;
