@@ -40,7 +40,7 @@
     if (self = [super init]) {
         _controllerItems = items;
     }
-    
+
     return self;
 }
 
@@ -53,7 +53,7 @@
     //todo: do this when initializing the controller
     NSLog(@" profile view did load ");
     self.user = [User currentUser];
-    
+
     [self.userProfileImageView setImageWithURL:self.user.profileImageUrl];
 
     self.userProfileImageSupportView.layer.cornerRadius = self.userProfileImageSupportView.frame.size.height / 2;
@@ -61,66 +61,64 @@
 
     self.userProfileImageView.layer.cornerRadius = self.userProfileImageSupportView.frame.size.height / 2;
     self.userProfileImageView.layer.masksToBounds = YES;
-    
+
     self.usernameLabel.text = self.user.username;
-    NSString *userInfoString = [self.user.location stringByAppendingString:@" • Owns "];
-    userInfoString = [userInfoString stringByAppendingString:[@(self.user.ownRoutes.count) stringValue]];
-    userInfoString = [userInfoString stringByAppendingString:@" Routes • "];
-    userInfoString = [userInfoString stringByAppendingString:[@(self.user.outings.count) stringValue]];
-    userInfoString = [userInfoString stringByAppendingString:@" Nights Out"];
-    self.userInfoLabel.text = userInfoString;
-    
+    [self refreshUserInfoLabel];
+
     NSMutableArray *tabBarItems = [[NSMutableArray alloc] init];
-    
+
     [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor blackColor] }
                                              forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName : [UIColor blackColor] }
                                              forState:UIControlStateSelected];
-    
+
     UIImage *profileImage = [[UIImage imageNamed:@"fav_inactive"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *selectedProfileImage = [[UIImage imageNamed:@"fav_active"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UITabBarItem *tabBarItem1 = [[UITabBarItem alloc] initWithTitle:@"Favorites" image:profileImage selectedImage:selectedProfileImage];
     [tabBarItems addObject:tabBarItem1];
-    
+
     UIImage *nightsOutImage = [[UIImage imageNamed:@"share"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UITabBarItem *tabBarItem2 = [[UITabBarItem alloc] initWithTitle:@"Nights Out" image:nightsOutImage selectedImage:nil];
     [tabBarItems addObject:tabBarItem2];
-    
+
     UIImage *myRoutesImage = [[UIImage imageNamed:@"profile"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UITabBarItem *tabBarItem3 = [[UITabBarItem alloc] initWithTitle:@"My Routes" image:myRoutesImage selectedImage:nil];
     [tabBarItems addObject:tabBarItem3];
-    
+
     self.userProfileTabBar.items = tabBarItems;
     [self.userProfileTabBar setSelectedItem:[self.userProfileTabBar.items objectAtIndex:0]];
-    
+
     UINib *largeCellNib = [UINib nibWithNibName:@"LargeRouteCollectionViewCell" bundle:nil];
     [self.userProfileRoutesCollectionView registerNib:largeCellNib forCellWithReuseIdentifier:@"largeRouteCollectionViewCell"];
-    
+
     UICollectionViewFlowLayout *topFlowLayout = [[UICollectionViewFlowLayout alloc] init];
     [topFlowLayout setItemSize:CGSizeMake(240, 190)];
     [topFlowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     [topFlowLayout setSectionInset:UIEdgeInsetsMake(0, 8, 0, 0)];
     [self.userProfileRoutesCollectionView setCollectionViewLayout:topFlowLayout];
-    
+
     self.userProfileRoutesCollectionView.delegate = self;
     self.userProfileRoutesCollectionView.dataSource = self;
-    
-    [self loadRoutesWithCompletionHandler:^{
-        NSLog(@"loaded initial tweets");
-    }];
-    
 
-    
+    [self.userProfileBackgroundRouteImageView setImageWithURL:[NSURL URLWithString:@"http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg"]];
+    self.userProfileBackgroundRouteImageView.backgroundColor = [UIColor clearColor];
+
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    blurEffectView.frame = self.userProfileBackgroundRouteImageView.bounds;
+    blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+
+    [self.userProfileBackgroundRouteImageView addSubview:blurEffectView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-
+    [self refreshRoutes];
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     NSLog(@"tab bar item title: %@", item.title);
-//    CustomTabControllerItem *customItem = self.controllerItems[[tabBar.items indexOfObject:item]];
-//    [self presentController:customItem.controller];
+    //    CustomTabControllerItem *customItem = self.controllerItems[[tabBar.items indexOfObject:item]];
+    //    [self presentController:customItem.controller];
     [self.userProfileRoutesCollectionView reloadData];
 }
 
@@ -134,7 +132,7 @@
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
+
     if ([self.userProfileTabBar.selectedItem.title isEqual:@"Favorites"]) {
         return self.userFavoritesRoutesViewArray.count;
     } else if ([self.userProfileTabBar.selectedItem.title isEqual:@"Nights Out"]) {
@@ -164,7 +162,7 @@
         //shouldn't get here
         largeCell.route = (Route *)self.userFavoritesRoutesViewArray[indexPath.row];
     }
-    
+
     return largeCell;
 
 }
@@ -172,57 +170,43 @@
     [collectionView deselectItemAtIndexPath:indexPath animated:NO];
 
     LargeRouteCollectionViewCell *largeCell = (LargeRouteCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    
+
     RouteCoverViewController *vc = [[RouteCoverViewController alloc] init];
     vc.route = largeCell.route;
     [self.navigationController pushViewController:vc animated:YES];
-
-    
 }
 
-- (void)loadRoutesWithCompletionHandler:(void (^)(void))completionHandler {
-    
+- (void)refreshRoutes {
     id<BackendRepository> repository = [BackendRepository sharedInstance];
-    
     [repository favoriteRoutesWithUser:self.user completion:^(NSArray *routes, NSError *error) {
         self.userFavoritesRoutesViewArray = routes;
+        self.user.favoriteRoutes = routes;
         [self.userProfileRoutesCollectionView reloadData];
+        [self refreshUserInfoLabel];
     }];
-    
+
     [repository userOutingsWithUser:self.user completion:^(NSArray *routes, NSError *error) {
         self.userNightsOutRoutesViewArray = routes;
+        self.user.outings = [NSMutableArray arrayWithArray:routes];
         [self.userProfileRoutesCollectionView reloadData];
+        [self refreshUserInfoLabel];
     }];
 
     [repository userRoutesWithUser:self.user completion:^(NSArray *routes, NSError *error) {
         self.userMyRoutesViewArray = routes;
-        [self.userProfileRoutesCollectionView reloadData];        
+        self.user.ownRoutes = [NSMutableArray arrayWithArray:routes];
+        [self.userProfileRoutesCollectionView reloadData];
+        [self refreshUserInfoLabel];
     }];
-    
-    [self.userProfileBackgroundRouteImageView setImageWithURL:[NSURL URLWithString:@"http://33.media.tumblr.com/b6ed58627630bb8652ab6c3068be565b/tumblr_inline_n91a7hHpIp1qb3qcf.jpg"]];
-    
-    self.userProfileBackgroundRouteImageView.backgroundColor = [UIColor clearColor];
-    
-    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-    UIVisualEffectView *blurEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    blurEffectView.frame = self.userProfileBackgroundRouteImageView.bounds;
-    blurEffectView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
-    [self.userProfileBackgroundRouteImageView addSubview:blurEffectView];
-    
-    [self.userProfileRoutesCollectionView reloadData];
-    completionHandler();
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)refreshUserInfoLabel {
+    NSString *userInfoString = [self.user.location stringByAppendingString:@" • Owns "];
+    userInfoString = [userInfoString stringByAppendingString:[@(self.user.ownRoutes.count) stringValue]];
+    userInfoString = [userInfoString stringByAppendingString:@" Routes • "];
+    userInfoString = [userInfoString stringByAppendingString:[@(self.user.outings.count) stringValue]];
+    userInfoString = [userInfoString stringByAppendingString:@" Nights Out"];
+    self.userInfoLabel.text = userInfoString;
 }
-*/
 
 @end
